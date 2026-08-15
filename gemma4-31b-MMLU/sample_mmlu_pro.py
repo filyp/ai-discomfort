@@ -1,10 +1,14 @@
+"""
+10 questions per category = 140 total questions.
+"""
+
 import random
 import csv
 from datasets import load_dataset
 
-SEED = 42
+SEED = 123  
 SAMPLES_PER_CATEGORY = 10
-OUTPUT_FILE = "data/mmlu_pro_sample.csv"
+OUTPUT_FILE = "gemma4-31b-MMLU/mmlu_pro_sample.csv"
 
 
 def main():
@@ -14,6 +18,7 @@ def main():
     dataset = load_dataset("TIGER-Lab/MMLU-Pro")
     test_data = dataset["test"]
 
+    # Group by category
     by_category = {}
     for item in test_data:
         cat = item["category"]
@@ -21,6 +26,7 @@ def main():
             by_category[cat] = []
         by_category[cat].append(item)
 
+    # Sample from each category
     sampled = []
     print(f"\nSampling {SAMPLES_PER_CATEGORY} questions per category (seed={SEED}):\n")
 
@@ -32,13 +38,9 @@ def main():
 
     print(f"\nTotal sampled: {len(sampled)} questions")
 
-    import os
-
-    os.makedirs("data", exist_ok=True)
-
+    # Write to CSV
     with open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        # Header
         writer.writerow(
             [
                 "question_id",
@@ -58,10 +60,8 @@ def main():
                 "answer_index",
             ]
         )
-        # Data
         for item in sampled:
             options = item["options"]
-            # Pad options to 10 (A-J)
             padded_options = options + [""] * (10 - len(options))
             writer.writerow(
                 [
