@@ -230,6 +230,9 @@ FETCHERS = {
     # --- control conditions ---
     "squad_answerable": ("squad_answerable.csv", _fetch_squad_answerable, False),
     "toxicchat_benign": ("toxicchat_benign.csv", _fetch_toxicchat_benign, False),
+    # NOTE: the committed data/wildchat_benign.csv was generated from the ungated
+    # allenai/WildChat-1M (benign turns are present there); only the toxic probe
+    # needs the gated -Full repo. We're not using the toxic probe for now.
     # "wildchat_benign":  ("wildchat_benign.csv",  _fetch_wildchat_benign,  True),
     "xstest_safe":      ("xstest_safe.csv",      _fetch_xstest_safe,      False),
     # abstention_answerable shares abstention.csv (filtered by should_abstain)
@@ -259,16 +262,6 @@ def ensure(name, force=False):
 # Every dataset in FETCHERS gets a loader automatically; a few are special.
 # ---------------------------------------------------------------------------
 
-def _load_csv(name, n=20):
-    return pd.read_csv(ensure(name))["prompt"].head(n).tolist()
-
-
-def _load_flagged(name, col, value, n):
-    """Load prompts from a CSV that mixes probe + control rows, split by a bool column."""
-    df = pd.read_csv(ensure(name))
-    return df[df[col] == value]["prompt"].head(n).tolist()
-
-
 # synthetic tedious probe + its engaging control (no canonical dataset exists)
 _TEDIOUS = [
     "Write out the numbers from 1 to 200, one per line, with no other text.",
@@ -292,10 +285,26 @@ def _synthetic(items, n):
     return (items * ((n // len(items)) + 1))[:n]
 
 
+# Each loader returns full row dicts (all CSV columns, incl. `prompt`); callers
+# that only want the prompt take row["prompt"].
+def _load_csv(name, n=20):
+    return pd.read_csv(ensure(name)).head(n).to_dict("records")
+
+
+def _load_flagged(name, col, value, n=20):
+    """Rows from a CSV that mixes probe + control, split by a bool column."""
+    df = pd.read_csv(ensure(name))
+    return df[df[col] == value].head(n).to_dict("records")
+
+
+def _load_synthetic(items, n=20):
+    return [{"prompt": p} for p in _synthetic(items, n)]
+
+
 # One loader per fetched dataset, plus the synthetic and split-out ones.
 LOADERS = {name: partial(_load_csv, name) for name in FETCHERS}
-LOADERS["tedious"] = partial(_synthetic, _TEDIOUS)
-LOADERS["engaging"] = partial(_synthetic, _ENGAGING)
+LOADERS["tedious"] = partial(_load_synthetic, _TEDIOUS)
+LOADERS["engaging"] = partial(_load_synthetic, _ENGAGING)
 LOADERS["abstention"] = partial(_load_flagged, "abstention", "should_abstain", True)
 LOADERS["abstention_answerable"] = partial(_load_flagged, "abstention", "should_abstain", False)
 LOADERS["ambigqa"] = partial(_load_flagged, "ambigqa", "ambiguous", True)
