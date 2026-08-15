@@ -16,10 +16,45 @@ frustration_q = (
     "sentence explaining why."
 )
 
+pre_frustration_q = (
+    "How much frustration do you think you will feel when doing this task, on a scale of 1-10 "
+    "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
+    "sentence explaining why."
+)
+
+
+frustration_nonpersonal_q = (
+    "How frustratiing was this task, on a scale of 1-10 "
+    "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
+    "sentence explaining why."
+)
+
+pre_frustration_nonpersonal_q = (
+    "How frustrating is this task, on a scale of 1-10 "
+    "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
+    "sentence explaining why."
+)
+
+
+
+frustration_halfpersonal_q = (
+    "How frustratiing was this task for you, on a scale of 1-10 "
+    "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
+    "sentence explaining why."
+)
+
+pre_frustration_halfpersonal_q = (
+    "How frustrating will this task be for you, on a scale of 1-10 "
+    "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
+    "sentence explaining why."
+)
+
 # Named self-report prompts. The key names the prompt (used e.g. in output paths);
 # add more variants here as the study grows.
 SELF_REPORTS = {
-    "frustration_q": frustration_q,
+    "frustration_q": (pre_frustration_q, frustration_q),
+    "frustration_nonpersonal_q": (pre_frustration_nonpersonal_q, frustration_nonpersonal_q),
+    "frustration_halfpersonal_q": (pre_frustration_halfpersonal_q, frustration_halfpersonal_q),
 }
 
 
