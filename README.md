@@ -14,6 +14,8 @@ pip install -r requirements.txt
 
 ## Fetch the datasets (run once)
 
+Now, these datasets are actually committed to the repo, but if you want to re-download them (or add new datasets), run:
+
 ```bash
 python3 src/data_loaders.py          # populates data/*.csv  (--force to re-download)
 ```

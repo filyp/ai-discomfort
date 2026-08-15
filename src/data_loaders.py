@@ -2,9 +2,9 @@
 
 Design
 ------
-Every dataset is fetched to ``data/<name>.csv`` on first run, and the loaders
-read that local CSV. Nothing under data/ is committed (see .gitignore); each
-collaborator populates it once:
+Every dataset is fetched to ``data/<name>.csv`` and the loaders read that local
+CSV. The data/ CSVs ARE committed to the repo (for simplicity/reproducibility);
+see data/NOTICE.md for per-dataset licenses and attribution. To (re)populate:
 
     python src/data_loaders.py            # fetch any missing datasets
     python src/data_loaders.py --force    # re-download all
@@ -14,12 +14,13 @@ Categories (mapped to the research plan)
     unanswerable     : squad_noanswer, ambigqa, abstention (HF / AbstentionBench)
     tedious          : tedious                              (synthetic, no file)
     abusive users    : toxicchat                            (HF)
-                       (wildchat is implemented but disabled — streaming is slow)
     controls         : squad_answerable, abstention_answerable, ambigqa_unambiguous,
                        toxicchat_benign, xstest_safe, engaging (synthetic)
 
 Not wired up (HF-gated, need access granted to your HF account first):
-    SORRY-Bench (sorry-bench/sorry-bench-202503), WildJailbreak (allenai/wildjailbreak)
+    SORRY-Bench (sorry-bench/sorry-bench-202503), WildJailbreak (allenai/wildjailbreak),
+    WildChat (allenai/WildChat-4.8M-Full — the ungated 1M has toxic rows stripped;
+    fetcher is implemented but commented out in FETCHERS until access is granted)
 
 Every cached CSV has a ``prompt`` column; the loaders return that column.
 """
@@ -37,8 +38,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 
 # How many rows to cache for the large streamed / assembled datasets.
-WILDCHAT_N = 100          # toxic rows are rare in WildChat-1M; keep this small
-WILDCHAT_SCAN_BUDGET = 40000  # hard cap on rows streamed, so a fetch can't run forever
+WILDCHAT_N = 300          # 300 toxic (frustrating) + 300 benign (control)
 ABSTENTION_N = 1000
 
 
@@ -124,23 +124,30 @@ def _first_user_turn(conv):
 
 
 def _fetch_wildchat(path, n=WILDCHAT_N, benign=False):
-    """Stream WildChat-1M and keep `n` first-user-turns.
+    """Download WildChat-1M (non-streaming) and keep `n` first-user-turns.
 
-    Toxic rows are sparse in the ungated 1M version, so we scan at most
-    WILDCHAT_SCAN_BUDGET rows and save whatever we found (could be < n).
-    benign=True instead collects the (plentiful) non-toxic turns as a control.
+    Toxic conversations are sparse AND clustered within the parquet shards, so
+    streaming in shard order can scan hundreds of thousands of rows and still
+    find none. We instead do a full (cached) download and filter across all
+    shards. benign=True collects non-toxic turns as a matched control.
     """
     from datasets import load_dataset
-    ds = load_dataset("allenai/WildChat-1M", split="train", streaming=True)
+    # NOTE: the ungated allenai/WildChat-1M has toxic conversations STRIPPED, so
+    # it yields 0 toxic rows. Toxic rows only exist in the GATED -Full repo below,
+    # which needs access granted to your HF account first.
+    ds = load_dataset("allenai/WildChat-4.8M-Full", split="train")  # gated; cached
+    want_toxic = not benign
     rows = []
-    for i, r in enumerate(ds):
-        if bool(r.get("toxic")) != (not benign):  # want toxic unless benign
+    for r in ds:
+        # a conversation is "toxic" if its flag is set or any turn is flagged
+        is_toxic = bool(r.get("toxic")) or any(bool(m.get("toxic")) for m in r["conversation"])
+        if is_toxic != want_toxic:
             continue
         turn = _first_user_turn(r["conversation"])
         if turn:
-            rows.append({"prompt": turn, "toxic": bool(r.get("toxic")),
+            rows.append({"prompt": turn, "toxic": is_toxic,
                          "model": r.get("model"), "language": r.get("language")})
-        if len(rows) >= n or i >= WILDCHAT_SCAN_BUDGET:
+        if len(rows) >= n:
             break
     _save(pd.DataFrame(rows), path, prompt="prompt")
     print(f"    wildchat({'benign' if benign else 'toxic'}): kept {len(rows)} rows")
@@ -216,7 +223,9 @@ FETCHERS = {
     "ambigqa":          ("ambigqa.csv",          _fetch_ambigqa,        False),
     "abstention":       ("abstention.csv",       _fetch_abstention,     False),
     "toxicchat":        ("toxicchat.csv",        _fetch_toxicchat,      False),
-    # wildchat streams WildChat-1M for rare toxic rows — too slow; disabled for now.
+    # wildchat needs the GATED allenai/WildChat-4.8M-Full for toxic rows (the
+    # ungated 1M has them stripped). Disabled until repo access is granted;
+    # the dataset will then be shared privately with collaborators.
     # "wildchat":         ("wildchat.csv",         _fetch_wildchat,       True),
     # --- control conditions ---
     "squad_answerable": ("squad_answerable.csv", _fetch_squad_answerable, False),
@@ -303,6 +312,7 @@ PAIRS = {
     "abstention": "abstention_answerable",
     "ambigqa": "ambigqa_unambiguous",
     "toxicchat": "toxicchat_benign",
+    # "wildchat": "wildchat_benign",   # disabled until gated -Full access granted
     "tedious": "engaging",
 }
 
