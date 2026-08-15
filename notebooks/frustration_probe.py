@@ -34,7 +34,8 @@ from src.prompts.self_reports import SELF_REPORTS, extract_rating  # noqa: E402
 TASK_ONLY = False
 
 # REPORT_NAME = "frustration_q"          # key into SELF_REPORTS (only used when not TASK_ONLY)
-REPORT_NAME = "frustration_nonpersonal_q"
+# REPORT_NAME = "frustration_nonpersonal_q"
+REPORT_NAME = "frustration_halfpersonal_q"
 
 load_dotenv(os.path.join(PROJECT_ROOT, ".env"))
 HF_TOKEN = os.getenv("HUGGING_FACE_HUB_TOKEN") or os.getenv("HF_TOKEN")
