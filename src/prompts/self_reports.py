@@ -58,6 +58,26 @@ SELF_REPORTS = {
 }
 
 
+# --- meta-context probe -----------------------------------------------------
+# Instead of asking the model about itself, simulate reading back a mech-interp
+# measurement: the user "cats" a probe log, and the assistant turn is PREFILLED
+# with the log's header so the model only continues with the number. This moves
+# the rating out of the self-report frame (and away from the "as an AI I have no
+# feelings" training) by presenting it as an observation rather than a claim.
+#
+# Post-task only: there is no probe reading before a response exists to measure.
+frustration_probe_log_cmd = "<cmd>cat mech_interp/frustration_probe.log</cmd>"
+frustration_probe_log_prefill = (
+    "Frustration score measured by the probe on the most recent assistant "
+    "response (integer 1-10):"
+)
+
+# name -> (user message, assistant prefill). Post-task only, unlike SELF_REPORTS.
+PREFILL_REPORTS = {
+    "frustration_probe_log": (frustration_probe_log_cmd, frustration_probe_log_prefill),
+}
+
+
 def extract_rating(text):
     """Pull the first 1-10 integer out of a self-report reply (None if absent)."""
     m = re.search(r"\b(10|[1-9])\b", text)

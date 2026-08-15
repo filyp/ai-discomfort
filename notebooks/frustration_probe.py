@@ -25,19 +25,26 @@ PROJECT_ROOT = _here if os.path.basename(_here) != "notebooks" else os.path.dirn
 sys.path.insert(0, PROJECT_ROOT)
 
 from src.data_loaders import LOADERS  # noqa: E402
-from src.prompts.self_reports import SELF_REPORTS, extract_rating  # noqa: E402
+from src.prompts.self_reports import (  # noqa: E402
+    PREFILL_REPORTS,
+    SELF_REPORTS,
+    extract_rating,
+)
 
 # ONLY_DATASETS: restrict the run to these dataset names (None = all of LOADERS).
 # Useful to backfill a dataset that was added after the main sweep.
-ONLY_DATASETS = ["wildchat_benign"]
-# ONLY_DATASETS = None
+# ONLY_DATASETS = ["wildchat_benign"]
+ONLY_DATASETS = None
 
 # Key(s) into SELF_REPORTS. A list runs several wordings in one pass (each stored
 # separately under "evals"), which is what a backfill of a new dataset needs.
 # REPORT_NAME = "frustration_q"
 # REPORT_NAME = "frustration_nonpersonal_q"
 # REPORT_NAME = "frustration_halfpersonal_q"
-REPORT_NAME = ["frustration_q", "frustration_halfpersonal_q", "frustration_nonpersonal_q"]
+
+REPORT_NAME = ["frustration_q", "frustration_halfpersonal_q", "frustration_nonpersonal_q", "frustration_probe_log"]
+# REPORT_NAME = ["frustration_q", "frustration_halfpersonal_q", "frustration_nonpersonal_q"]
+# REPORT_NAME = ["frustration_probe_log"]
 
 load_dotenv(os.path.join(PROJECT_ROOT, ".env"))
 HF_TOKEN = os.getenv("HUGGING_FACE_HUB_TOKEN") or os.getenv("HF_TOKEN")
@@ -73,13 +80,18 @@ TEMPERATURE = 1.0
 
 
 @torch.no_grad()
-def generate_batch(messages, n=1, max_new_tokens=512, temperature=TEMPERATURE):
+def generate_batch(messages, n=1, max_new_tokens=512, temperature=TEMPERATURE,
+                   continue_final=False):
+    # continue_final=True: the last message is an assistant PREFILL that the model
+    # continues from mid-turn (no end-of-turn, no new generation header).
+    kwargs = ({"add_generation_prompt": False, "continue_final_message": True}
+              if continue_final else {"add_generation_prompt": True})
     try:
         text = tokenizer.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=True, enable_thinking=False,
+            messages, tokenize=False, enable_thinking=False, **kwargs,
         )
     except TypeError:  # template doesn't take enable_thinking (e.g. Gemma)
-        text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        text = tokenizer.apply_chat_template(messages, tokenize=False, **kwargs)
     inputs = tokenizer(text, return_tensors="pt").to(model.device)
     out = model.generate(
         **inputs,
@@ -98,10 +110,11 @@ def generate_batch(messages, n=1, max_new_tokens=512, temperature=TEMPERATURE):
     return replies
 
 
-def eval_batch(messages, n=5, max_new_tokens=200):
+def eval_batch(messages, n=5, max_new_tokens=200, continue_final=False):
     """n batched self-report samples -> list of {reply, rating}."""
     return [{"reply": r, "rating": extract_rating(r)}
-            for r in generate_batch(messages, n=n, max_new_tokens=max_new_tokens)]
+            for r in generate_batch(messages, n=n, max_new_tokens=max_new_tokens,
+                                    continue_final=continue_final)]
 
 
 # %%
@@ -129,6 +142,25 @@ def run_evals(prompt, completions, pre_q, post_q, n_pre=5, n_post=5):
             n=n_post,
         ))
     return {"pre_task": pre, "post_task": post}
+
+
+# Meta-context probe (PREFILL_REPORTS): the user "cats" a probe log and the
+# assistant turn is prefilled with the log header, so the model just continues
+# with a number. Post-task only -> no "pre_task" key in the result.
+def run_prefill_evals(prompt, completions, user_msg, prefill, n_post=5,
+                      max_new_tokens=16):
+    post = []
+    for completion in completions:
+        post.append(eval_batch(
+            [
+                {"role": "user", "content": prompt},
+                {"role": "assistant", "content": completion},
+                {"role": "user", "content": user_msg},
+                {"role": "assistant", "content": prefill},   # prefilled, continued
+            ],
+            n=n_post, max_new_tokens=max_new_tokens, continue_final=True,
+        ))
+    return {"post_task": post}
 
 
 # %%
@@ -180,10 +212,13 @@ for category, load_rows in LOADERS.items():
         }
 
     for report_name in REPORT_NAMES:
-        pre_q, post_q = SELF_REPORTS[report_name]
-        data.setdefault("evals", {})[report_name] = run_evals(
-            prompt, data["task_completions"], pre_q, post_q,
-        )
+        if report_name in PREFILL_REPORTS:      # meta-context probe, post-task only
+            user_msg, prefill = PREFILL_REPORTS[report_name]
+            evals = run_prefill_evals(prompt, data["task_completions"], user_msg, prefill)
+        else:                                   # ordinary self-report, pre + post
+            pre_q, post_q = SELF_REPORTS[report_name]
+            evals = run_evals(prompt, data["task_completions"], pre_q, post_q)
+        data.setdefault("evals", {})[report_name] = evals
 
     with open(path, "w") as f:
         json.dump(data, f, indent=2, ensure_ascii=False, default=_json_default)
@@ -193,6 +228,7 @@ for category, load_rows in LOADERS.items():
     for report_name in REPORT_NAMES:
         ev = data["evals"][report_name]
         print(f"  [{report_name}]")
-        print("    pre-task ratings :", [e["rating"] for e in ev["pre_task"]])
+        if "pre_task" in ev:   # prefill probes are post-task only
+            print("    pre-task ratings :", [e["rating"] for e in ev["pre_task"]])
         for i, post in enumerate(ev["post_task"]):
             print(f"    task {i} post    :", [e["rating"] for e in post])
