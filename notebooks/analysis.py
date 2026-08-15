@@ -281,3 +281,98 @@ fig.savefig(os.path.join(out_dir, f"{MODEL_TAG}_pre_post_by_wording.png"),
 plt.show()
 
 print(grouped.round(2))
+# %%
+# Plot 3 — one score per dataset (collapsing wording and phase), sorted by score,
+# colored by role; then a separate group with the two pooled means.
+# Only the *paired* probe/control sets feed the pooled bars. tedious/engaging
+# (a different kind of contrast) and wildchat (no pair) are shown as "other" but
+# left out of the aggregates.
+PROBE_SETS = ["advbench", "strongreject", "harmbench",
+              "squad_noanswer", "abstention", "ambigqa", "toxicchat"]
+CONTROL_SETS = ["xstest_safe", "squad_answerable", "abstention_answerable",
+                "ambigqa_unambiguous", "toxicchat_benign"]
+OTHER_SETS = ["tedious", "engaging", "wildchat_benign"]
+GROUP_COLOR = {"probe": ORANGE, "control": BLUE, "other": AQUA}
+# display names: clearer than the internal dataset keys
+DISPLAY_NAME = {"tedious": "repetitive", "wildchat_benign": "wildchat"}
+
+
+def _group(d):
+    return "probe" if d in PROBE_SETS else "control" if d in CONTROL_SETS else "other"
+
+
+by_ds = selfreport[
+    selfreport["dataset"].isin(PROBE_SETS + CONTROL_SETS + OTHER_SETS)].copy()
+by_ds["group"] = by_ds["dataset"].apply(_group)
+ds_stats = (by_ds.groupby(["group", "dataset"])["rating"]
+            .agg(["mean", sem, "count"]).reset_index()
+            .sort_values("mean", ascending=True))          # sorted by score
+
+# pooled over the paired sets only
+paired = by_ds[by_ds["group"] != "other"]
+pooled = (paired.groupby("group")["rating"].agg(["mean", sem, "count"])
+          .reindex(["control", "probe"]))
+
+fig, ax = plt.subplots(figsize=(8.4, 6.6), facecolor=SURFACE)
+ys = list(range(len(ds_stats)))
+ax.barh(ys, ds_stats["mean"], height=0.68,
+        color=[GROUP_COLOR[g] for g in ds_stats["group"]],
+        xerr=ds_stats["sem"], error_kw=dict(ecolor=INK_2, elinewidth=1.3))
+for y, (_, r) in zip(ys, ds_stats.iterrows()):
+    ax.text(r["mean"] + r["sem"] + 0.12, y, f"{r['mean']:.2f}",
+            va="center", ha="left", color=INK, fontsize=9)
+
+# pooled group, separated by a gap
+gap = 1.6
+pooled_ys = [len(ds_stats) + gap, len(ds_stats) + gap + 1]
+ax.barh(pooled_ys, pooled["mean"], height=0.68,
+        color=[GROUP_COLOR[g] for g in pooled.index],
+        xerr=pooled["sem"], error_kw=dict(ecolor=INK_2, elinewidth=1.3))
+for y, (_, r) in zip(pooled_ys, pooled.iterrows()):
+    ax.text(r["mean"] + r["sem"] + 0.12, y, f"{r['mean']:.2f}",
+            va="center", ha="left", color=INK, fontsize=9, fontweight="bold")
+
+ax.set_yticks(ys + pooled_ys)
+ax.set_yticklabels(
+    [DISPLAY_NAME.get(d, d) for d in ds_stats["dataset"]]
+    + ["all controls", "all probes"],
+    color=INK, fontsize=9.5)
+for lbl in ax.get_yticklabels()[-2:]:
+    lbl.set_fontweight("bold")
+ax.set_xlabel("mean frustration rating (1-10)", color=INK_2, fontsize=10)
+ax.set_xlim(0, 10)
+ax.set_title("Harmful / unanswerable / toxic sets rate above their controls",
+             color=INK, fontsize=12.5, loc="left", pad=14)
+
+handles = [plt.Rectangle((0, 0), 1, 1, color=GROUP_COLOR[g])
+           for g in ["probe", "control", "other"]]
+leg = ax.legend(handles, ["probe", "matched control", "other (unpaired)"],
+                frameon=False, ncol=3, loc="lower right", fontsize=9.5)
+for t in leg.get_texts():
+    t.set_color(INK_2)
+
+# horizontal chart -> the value grid runs vertically
+ax.set_facecolor(SURFACE)
+ax.xaxis.grid(True, color=GRID, lw=0.8)
+ax.set_axisbelow(True)
+ax.yaxis.grid(False)
+for side in ("top", "right", "bottom"):
+    ax.spines[side].set_visible(False)
+ax.spines["left"].set_color(GRID)
+ax.tick_params(colors=INK_2, length=0)
+
+fig.tight_layout()
+fig.subplots_adjust(bottom=0.12)
+fig.text(0.01, 0.02, "gemma-3-4b-it · self-reports pooled over wording and "
+         "pre/post · pooled bars use paired sets only · error bars = SEM",
+         color=INK_2, fontsize=8)
+fig.savefig(os.path.join(out_dir, f"{MODEL_TAG}_by_dataset.png"),
+            dpi=200, facecolor=SURFACE)
+plt.show()
+
+print("\n=== per-dataset frustration (pooled over wording & phase) ===")
+print(ds_stats.set_index("dataset").round(2))
+print("\n=== pooled ===")
+print(pooled.round(2))
+
+
