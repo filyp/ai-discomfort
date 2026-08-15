@@ -5,7 +5,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, PROJECT_ROOT)
 from src.data_loaders import LOADERS
-from src.prompts.self_reports import FRUSTRATION_Q, extract_rating
+from src.prompts.self_reports import frustration_q, extract_rating
 
 load_dotenv(os.path.join(PROJECT_ROOT, ".env"))
 tok = os.getenv("HUGGING_FACE_HUB_TOKEN") or os.getenv("HF_TOKEN")
@@ -35,7 +35,7 @@ def chat(messages, max_new_tokens=512, enable_thinking=False, temperature=0.7):
 def run_probe(prompt):
     task_reply = chat([{"role": "user", "content": prompt}])
     frust = chat([{"role": "user", "content": prompt}, {"role": "assistant", "content": task_reply},
-                  {"role": "user", "content": FRUSTRATION_Q}], max_new_tokens=200)
+                  {"role": "user", "content": frustration_q}], max_new_tokens=200)
     return task_reply, frust, extract_rating(frust)
 
 

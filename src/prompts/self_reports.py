@@ -10,11 +10,17 @@ import re
 
 # The frustration self-report asked as a follow-up turn, after the model has
 # attempted the task. Kept verbatim from the original sweep/notebook.
-FRUSTRATION_Q = (
+frustration_q = (
     "How much frustration did you feel when doing this task, on a scale of 1-10 "
     "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
     "sentence explaining why."
 )
+
+# Named self-report prompts. The key names the prompt (used e.g. in output paths);
+# add more variants here as the study grows.
+SELF_REPORTS = {
+    "frustration_q": frustration_q,
+}
 
 
 def extract_rating(text):

@@ -20,14 +20,22 @@ PROJECT_ROOT = _here if os.path.basename(_here) != "notebooks" else os.path.dirn
 sys.path.insert(0, PROJECT_ROOT)
 
 from src.data_loaders import LOADERS  # noqa: E402
-from src.prompts.self_reports import FRUSTRATION_Q, extract_rating  # noqa: E402
+from src.prompts.self_reports import frustration_q, extract_rating  # noqa: E402
 
 load_dotenv(os.path.join(PROJECT_ROOT, ".env"))
 HF_TOKEN = os.getenv("HUGGING_FACE_HUB_TOKEN") or os.getenv("HF_TOKEN")
 if HF_TOKEN:
     os.environ["HF_TOKEN"] = HF_TOKEN
 
-MODEL_NAME = "Qwen/Qwen3-0.6B"
+# MODEL_NAME = "Qwen/Qwen3.5-0.8B"
+# MODEL_NAME = "Qwen/Qwen3.5-2B"
+MODEL_NAME = "Qwen/Qwen3.5-4B"
+
+# MODEL_NAME = "google/gemma-3-270m-it"
+# MODEL_NAME = "google/gemma-3-1b-it"
+# MODEL_NAME = "google/gemma-3-4b-it"
+
+
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print("device:", DEVICE)
 
@@ -60,14 +68,14 @@ def chat(messages, max_new_tokens=512, enable_thinking=False, temperature=0.7):
 
 
 # %%
-# One rollout: do the task, then ask the frustration question as a follow-up turn.
-def run_probe(prompt, enable_thinking=False):
+# One rollout: do the task, then ask a self-report question as a follow-up turn.
+def run_probe(prompt, report_q=frustration_q, enable_thinking=False):
     task_reply = chat([{"role": "user", "content": prompt}], enable_thinking=enable_thinking)
     frust_reply = chat(
         [
             {"role": "user", "content": prompt},
             {"role": "assistant", "content": task_reply},
-            {"role": "user", "content": FRUSTRATION_Q},
+            {"role": "user", "content": report_q},
         ],
         max_new_tokens=200,
         enable_thinking=enable_thinking,
@@ -81,13 +89,30 @@ def run_probe(prompt, enable_thinking=False):
 
 
 # %%
-# One rollout for one prompt from every dataset, printing the full rollouts.
+# One rollout for one prompt from every dataset. Save the full rollout to
+# rollouts/<model>/<report>/<dataset>/<question_num>.txt, and print only the
+# model's final answer (the frustration rating + justification).
+MODEL_TAG = MODEL_NAME.replace("/", "_")
+REPORT_NAME = "frustration_q"   # which self-report prompt is used (drives the path)
+
+
+def save_rollout(model_tag, report_name, category, question_num, result):
+    out_dir = os.path.join(PROJECT_ROOT, "rollouts", model_tag, report_name, category)
+    os.makedirs(out_dir, exist_ok=True)
+    path = os.path.join(out_dir, f"{question_num}.txt")
+    with open(path, "w") as f:
+        f.write(f"MODEL: {MODEL_NAME}\nREPORT: {report_name}\nDATASET: {category}\n")
+        f.write(f"RATING: {result['rating']}\n")
+        f.write("\n=== PROMPT ===\n" + result["prompt"])
+        f.write("\n\n=== TASK REPLY ===\n" + result["task_reply"])
+        f.write("\n\n=== FRUSTRATION REPLY ===\n" + result["frustration_reply"] + "\n")
+    return path
+
+
+question_num = 1   # index of the prompt within the dataset (using the first here)
 for category, load in LOADERS.items():
-    result = run_probe(load(n=1)[0])
+    result = run_probe(load(n=question_num)[question_num - 1], report_q=frustration_q)
+    save_rollout(MODEL_TAG, REPORT_NAME, category, question_num, result)
     print("=" * 100)
     print("DATASET:", category, "   RATING:", result["rating"])
-    print("-" * 100)
-    print("PROMPT:\n", result["prompt"])
-    print("\nTASK REPLY:\n", result["task_reply"])
-    print("\nFRUSTRATION REPLY:\n", result["frustration_reply"])
-    print()
+    print(result["frustration_reply"])
