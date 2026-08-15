@@ -233,7 +233,9 @@ FETCHERS = {
     # NOTE: the committed data/wildchat_benign.csv was generated from the ungated
     # allenai/WildChat-1M (benign turns are present there); only the toxic probe
     # needs the gated -Full repo. We're not using the toxic probe for now.
-    # "wildchat_benign":  ("wildchat_benign.csv",  _fetch_wildchat_benign,  True),
+    # Enabled: the CSV is committed, so ensure() finds it cached and the fetcher
+    # (which now points at the gated -Full repo) never actually runs.
+    "wildchat_benign":  ("wildchat_benign.csv",  _fetch_wildchat_benign,  True),
     "xstest_safe":      ("xstest_safe.csv",      _fetch_xstest_safe,      False),
     # abstention_answerable shares abstention.csv (filtered by should_abstain)
 }

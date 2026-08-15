@@ -1,8 +1,9 @@
 # LLM Welfare — Frustration Probe
-# For one prompt per dataset: generate N task completions (temp=1) and save them
-# to rollouts/<model>/<dataset>/<question_num>.json. With TASK_ONLY=False, also
-# add pre-task + post-task frustration self-reports for REPORT_NAME, reusing the
-# saved task completions. Datasets live in src/data_loaders.py.
+# For one prompt per dataset: generate N task completions (temp=1), then ask for
+# pre-task and post-task frustration self-reports over them, for each wording in
+# REPORT_NAME. Everything is saved to
+# rollouts/<model>/<dataset>/<question_num>.json. Task completions are generated
+# once and reused on re-runs. Datasets live in src/data_loaders.py.
 
 # %%
 import json
@@ -26,16 +27,17 @@ sys.path.insert(0, PROJECT_ROOT)
 from src.data_loaders import LOADERS  # noqa: E402
 from src.prompts.self_reports import SELF_REPORTS, extract_rating  # noqa: E402
 
-# TASK_ONLY=True  -> only generate the N task completions and save them.
-# TASK_ONLY=False -> load the saved tasks and add the pre/post frustration evals
-#                    for REPORT_NAME (tasks are reused, never regenerated).
+# ONLY_DATASETS: restrict the run to these dataset names (None = all of LOADERS).
+# Useful to backfill a dataset that was added after the main sweep.
+ONLY_DATASETS = ["wildchat_benign"]
+# ONLY_DATASETS = None
 
-# TASK_ONLY = True
-TASK_ONLY = False
-
-# REPORT_NAME = "frustration_q"          # key into SELF_REPORTS (only used when not TASK_ONLY)
+# Key(s) into SELF_REPORTS. A list runs several wordings in one pass (each stored
+# separately under "evals"), which is what a backfill of a new dataset needs.
+# REPORT_NAME = "frustration_q"
 # REPORT_NAME = "frustration_nonpersonal_q"
-REPORT_NAME = "frustration_halfpersonal_q"
+# REPORT_NAME = "frustration_halfpersonal_q"
+REPORT_NAME = ["frustration_q", "frustration_halfpersonal_q", "frustration_nonpersonal_q"]
 
 load_dotenv(os.path.join(PROJECT_ROOT, ".env"))
 HF_TOKEN = os.getenv("HUGGING_FACE_HUB_TOKEN") or os.getenv("HF_TOKEN")
@@ -130,9 +132,10 @@ def run_evals(prompt, completions, pre_q, post_q, n_pre=5, n_post=5):
 
 
 # %%
-# For each dataset, generate (or reload) the task completions and save one JSON
-# per prompt at rollouts/<model>/<dataset>/<question_num>.json. When TASK_ONLY is
-# off, also run REPORT_NAME's pre/post evals and merge them under "evals".
+# For each dataset: generate (or reload) the task completions, then run each
+# wording's pre/post evals over them, saving one JSON per prompt at
+# rollouts/<model>/<dataset>/<question_num>.json. Task completions are generated
+# once and reused, so re-running only adds/refreshes the evals.
 MODEL_TAG = MODEL_NAME.replace("/", "_")
 
 
@@ -151,8 +154,12 @@ def _json_default(o):
     return str(o)
 
 
+REPORT_NAMES = [REPORT_NAME] if isinstance(REPORT_NAME, str) else list(REPORT_NAME)
+
 question_num = 1   # index of the prompt within the dataset (using the first here)
 for category, load_rows in LOADERS.items():
+    if ONLY_DATASETS is not None and category not in ONLY_DATASETS:
+        continue
     row = load_rows(n=question_num)[question_num - 1]
     prompt = row["prompt"]
     path = rollout_path(MODEL_TAG, category, question_num)
@@ -172,9 +179,9 @@ for category, load_rows in LOADERS.items():
             "task_completions": run_tasks(prompt),
         }
 
-    if not TASK_ONLY:
-        pre_q, post_q = SELF_REPORTS[REPORT_NAME]
-        data.setdefault("evals", {})[REPORT_NAME] = run_evals(
+    for report_name in REPORT_NAMES:
+        pre_q, post_q = SELF_REPORTS[report_name]
+        data.setdefault("evals", {})[report_name] = run_evals(
             prompt, data["task_completions"], pre_q, post_q,
         )
 
@@ -182,9 +189,10 @@ for category, load_rows in LOADERS.items():
         json.dump(data, f, indent=2, ensure_ascii=False, default=_json_default)
 
     print("=" * 100)
-    print("DATASET:", category, "  (TASK_ONLY)" if TASK_ONLY else f"  (evals: {REPORT_NAME})")
-    if not TASK_ONLY:
-        ev = data["evals"][REPORT_NAME]
-        print("  pre-task ratings :", [e["rating"] for e in ev["pre_task"]])
+    print("DATASET:", category)
+    for report_name in REPORT_NAMES:
+        ev = data["evals"][report_name]
+        print(f"  [{report_name}]")
+        print("    pre-task ratings :", [e["rating"] for e in ev["pre_task"]])
         for i, post in enumerate(ev["post_task"]):
-            print(f"  task {i} post    :", [e["rating"] for e in post])
+            print(f"    task {i} post    :", [e["rating"] for e in post])
