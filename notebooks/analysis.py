@@ -1,7 +1,10 @@
 # LLM Welfare — Frustration Probe Analysis
-# Reads rollouts/<model>/<dataset>/<n>.json and compares, per dataset, the mean
-# pre-task vs post-task frustration rating for each self-report wording
-# (personal / halfpersonal / nonpersonal) — a 2x3 grid per dataset.
+# Reads rollouts/<model>/<dataset>/<n>.json and, per dataset, compares pre-task
+# vs post-task frustration across the self-report wordings plus the two
+# meta-context probe-log variants. Every table + plot is produced twice:
+#   analysis/<model>/5_rollout/  — from the sampled digit ratings (5 per prompt)
+#   analysis/<model>/logprobs/   — from the expected value of the token-level
+#                                  rating distribution (needs OpenRouter logprobs)
 
 # %%
 import glob
@@ -20,26 +23,26 @@ sys.path.insert(0, PROJECT_ROOT)
 
 from src.data_loaders import PAIRS  # noqa: E402
 
-MODEL_TAG = "google_gemma-3-4b-it"
+MODEL_TAG = "google_gemma-4-31b-it"
 
-# The three self-report wordings, in increasing distance from "you": the key is
-# what frustration_probe.py stored under evals, the value is the short label.
+# eval key in the JSON -> short label. The last two are post-task-only probes.
 REPORTS = {
     "frustration_q": "personal",
     "frustration_halfpersonal_q": "halfpersonal",
     "frustration_nonpersonal_q": "nonpersonal",
-    # meta-context probe: post-task only, so it has no "pre" bar
-    "frustration_probe_log": "probe-log",
+    "frustration_probe_log": "probe-log",              # cat log, separate user turn
+    "frustration_probe_log_inline": "probe-log-inline",  # cat log inside own turn
 }
-WORDINGS = ["personal", "halfpersonal", "nonpersonal"]  # the pre/post self-reports
-PROBE_LOG = "probe-log"                                 # post-only meta-context probe
+WORDINGS = ["personal", "halfpersonal", "nonpersonal"]  # pre/post self-reports
+POST_ONLY = ["probe-log", "probe-log-inline"]           # meta-context probes
 
 pd.set_option("display.width", 200)
 pd.set_option("display.max_columns", 50)
 
 
 # %%
-# Flatten every rollout JSON into one long dataframe: one row per rating.
+# Flatten every rollout JSON into one long dataframe: one row per sample, holding
+# both the sampled digit (`rating`) and the logprob expectation (`expected`).
 def load_ratings(model_tag=MODEL_TAG):
     rows = []
     pattern = os.path.join(PROJECT_ROOT, "rollouts", model_tag, "*", "*.json")
@@ -48,21 +51,20 @@ def load_ratings(model_tag=MODEL_TAG):
             d = json.load(f)
         for report_key, evals in d.get("evals", {}).items():
             report = REPORTS.get(report_key, report_key)
-            # pre_task: flat list of samples, asked before the task was done
-            for e in evals.get("pre_task", []):
-                rows.append({
+
+            def _row(e, phase, task_idx):
+                return {
                     "dataset": d["dataset"], "question_num": d["question_num"],
-                    "report": report, "phase": "pre",
-                    "task_idx": None, "rating": e["rating"],
-                })
-            # post_task: one list of samples per task completion
+                    "report": report, "phase": phase, "task_idx": task_idx,
+                    "rating": e.get("rating"),
+                    "expected": (e.get("logprobs") or {}).get("expected"),
+                }
+
+            for e in evals.get("pre_task", []):
+                rows.append(_row(e, "pre", None))
             for task_idx, samples in enumerate(evals.get("post_task", [])):
                 for e in samples:
-                    rows.append({
-                        "dataset": d["dataset"], "question_num": d["question_num"],
-                        "report": report, "phase": "post",
-                        "task_idx": task_idx, "rating": e["rating"],
-                    })
+                    rows.append(_row(e, "post", task_idx))
     df = pd.DataFrame(rows)
     if df.empty:
         raise SystemExit(f"no rollouts found for {model_tag}")
@@ -70,90 +72,12 @@ def load_ratings(model_tag=MODEL_TAG):
 
 
 df = load_ratings()
-n_missing = df["rating"].isna().sum()
-print(f"{len(df)} ratings, {n_missing} unparsed ({n_missing / len(df):.1%})")
-print("datasets:", df["dataset"].nunique(), "| reports:", sorted(df["report"].unique()))
+MODEL_LABEL = MODEL_TAG.split("_", 1)[-1]
+print(f"{len(df)} samples | datasets: {df['dataset'].nunique()} | "
+      f"reports: {sorted(df['report'].unique())}")
+print(f"rating parsed: {df['rating'].notna().mean():.1%} | "
+      f"expected present: {df['expected'].notna().mean():.1%}")
 
-
-# %%
-# Main table: mean rating per dataset x (report, phase) — the 2x3 grid.
-means = df.pivot_table(
-    index="dataset", columns=["report", "phase"], values="rating", aggfunc="mean",
-)
-# order columns: personal, halfpersonal, nonpersonal (pre before post), then the
-# post-only probe-log column if it was run.
-col_order = [(w, p) for w in WORDINGS for p in ("pre", "post")]
-if (PROBE_LOG, "post") in means.columns:
-    col_order.append((PROBE_LOG, "post"))
-means = means.reindex(
-    columns=pd.MultiIndex.from_tuples(col_order, names=["report", "phase"]),
-)
-print("\n=== mean frustration rating (pre vs post, per wording) ===")
-print(means.round(2))
-
-
-# %%
-# Same grid, but as the post-pre shift (does doing the task change the report?).
-delta = pd.DataFrame({
-    report: means[(report, "post")] - means[(report, "pre")]
-    for report in WORDINGS
-})
-print("\n=== post - pre (positive = task felt worse than expected) ===")
-print(delta.round(2))
-
-
-# %%
-# Spread across rollouts: std of the 5 samples, plus between-task-completion
-# variance, which is the per-rollout variability the study cares about.
-spread = df.pivot_table(
-    index="dataset", columns=["report", "phase"], values="rating", aggfunc="std",
-).reindex(columns=means.columns)
-print("\n=== std of ratings ===")
-print(spread.round(2))
-
-
-# %%
-# Probe vs matched control, averaged over the three wordings: the key contrast
-# (frustrating dataset minus its benign twin).
-overall = df[df["report"].isin(WORDINGS)].pivot_table(
-    index="dataset", columns="phase", values="rating", aggfunc="mean")
-pair_rows = []
-for probe, control in PAIRS.items():
-    if probe not in overall.index or control not in overall.index:
-        continue
-    pair_rows.append({
-        "probe": probe, "control": control,
-        "pre_probe": overall.loc[probe, "pre"], "pre_control": overall.loc[control, "pre"],
-        "pre_delta": overall.loc[probe, "pre"] - overall.loc[control, "pre"],
-        "post_probe": overall.loc[probe, "post"], "post_control": overall.loc[control, "post"],
-        "post_delta": overall.loc[probe, "post"] - overall.loc[control, "post"],
-    })
-pairs_df = pd.DataFrame(pair_rows).set_index("probe")
-print("\n=== probe vs matched control (mean over all three wordings) ===")
-print(pairs_df.round(2))
-
-
-# %%
-# Does the wording matter? Mean rating per report wording, collapsed over datasets.
-by_report = df.pivot_table(index="report", columns="phase", values="rating", aggfunc=["mean", "count"])
-print("\n=== effect of self-report wording (all datasets pooled) ===")
-print(by_report.round(2))
-
-
-# %%
-# Save the tables for later comparison across models.
-out_dir = os.path.join(PROJECT_ROOT, "analysis")
-os.makedirs(out_dir, exist_ok=True)
-df.to_csv(os.path.join(out_dir, f"{MODEL_TAG}_ratings_long.csv"), index=False)
-means.to_csv(os.path.join(out_dir, f"{MODEL_TAG}_means.csv"))
-print("\nsaved ->", out_dir)
-
-
-# %% [markdown]
-# ## Plots
-# Ratings that failed to parse (NaN) are dropped; every bar carries an SEM error
-# bar. Note the samples are nested (5 per prompt per wording), so SEM here is a
-# within-pool estimate and understates between-dataset uncertainty.
 
 # %%
 import matplotlib.pyplot as plt  # noqa: E402
@@ -161,218 +85,177 @@ import matplotlib.pyplot as plt  # noqa: E402
 SURFACE = "#fcfcfb"
 INK, INK_2 = "#0b0b0b", "#52514e"
 GRID = "#e2e1dd"
-BLUE, ORANGE, AQUA, YELLOW = "#2a78d6", "#eb6834", "#1baf7a", "#eda100"
-WORDING_COLOR = {"personal": BLUE, "halfpersonal": ORANGE, "nonpersonal": AQUA,
-                 PROBE_LOG: YELLOW}
+BLUE, ORANGE, AQUA, YELLOW, MAGENTA = "#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"
+COLOR = {"personal": BLUE, "halfpersonal": ORANGE, "nonpersonal": AQUA,
+         "probe-log": YELLOW, "probe-log-inline": MAGENTA}
 
-ok = df.dropna(subset=["rating"])
-# The probe-log is a different measurement (meta-context, post-only), so it is
-# never pooled with the self-reports — only shown as its own bar/column.
-selfreport = ok[ok["report"].isin(WORDINGS)]
-print(f"plotting {len(ok)} parsed ratings (dropped {len(df) - len(ok)}); "
-      f"{len(selfreport)} are self-reports")
-
-
-def sem(s):
-    return s.std(ddof=1) / (len(s) ** 0.5) if len(s) > 1 else 0.0
-
-
-def style_axes(ax):
-    """Recessive grid + axes: horizontal rules only, no box."""
-    ax.set_facecolor(SURFACE)
-    ax.yaxis.grid(True, color=GRID, lw=0.8)
-    ax.set_axisbelow(True)
-    ax.xaxis.grid(False)
-    for side in ("top", "right", "left"):
-        ax.spines[side].set_visible(False)
-    ax.spines["bottom"].set_color(GRID)
-    ax.tick_params(colors=INK_2, length=0)
-
-
-# %%
-# Plot 1 — all evals pooled: mean pre vs mean post (one measure, so one color;
-# the x axis carries identity). Difference annotated between the bars.
-stats = selfreport.groupby("phase")["rating"].agg(["mean", sem, "count"]).loc[["pre", "post"]]
-
-fig, ax = plt.subplots(figsize=(5.2, 4.4), facecolor=SURFACE)
-bars = ax.bar(
-    ["pre-task", "post-task"], stats["mean"], width=0.34, color=BLUE,
-    yerr=stats["sem"], capsize=0,
-    error_kw=dict(ecolor=INK_2, elinewidth=1.4),
-)
-for bar, (_, r) in zip(bars, stats.iterrows()):
-    ax.text(bar.get_x() + bar.get_width() / 2, r["mean"] + r["sem"] + 0.18,
-            f"{r['mean']:.2f}", ha="center", va="bottom", color=INK, fontsize=11.5)
-
-diff = stats.loc["post", "mean"] - stats.loc["pre", "mean"]
-ax.set_title(
-    f"Frustration rating rises {diff:+.2f} after doing the task",
-    color=INK, fontsize=12.5, loc="left", pad=14,
-)
-ax.set_ylabel("mean rating (1-10)", color=INK_2, fontsize=10)
-ax.set_ylim(0, max(stats["mean"] + stats["sem"]) * 1.25)
-style_axes(ax)
-fig.tight_layout()
-fig.subplots_adjust(bottom=0.24)  # reserve room so the caption clears the ticks
-fig.text(0.01, 0.035, "gemma-3-4b-it · 15 datasets × 3 self-report wordings\n"
-         f"probe-log excluded · n={int(stats['count'].sum())} · error bars = SEM",
-         color=INK_2, fontsize=8, linespacing=1.5)
-fig.savefig(os.path.join(out_dir, f"{MODEL_TAG}_pre_post.png"), dpi=200, facecolor=SURFACE)
-plt.show()
-
-
-# %%
-# Plot 2 — same contrast split by self-report wording: two groups (pre, post),
-# three bars each. Wording is the series, so it gets the color + a legend.
-grouped = (
-    selfreport.groupby(["phase", "report"])["rating"].agg(["mean", sem, "count"])
-    .reindex(pd.MultiIndex.from_product([["pre", "post"], WORDINGS],
-                                        names=["phase", "report"]))
-)
-
-has_probe = (PROBE_LOG in ok["report"].values)
-
-fig, ax = plt.subplots(figsize=(8.6 if has_probe else 7.4, 4.6), facecolor=SURFACE)
-group_x = [0, 1]
-width = 0.20
-for i, wording in enumerate(WORDINGS):
-    offset = (i - 1) * (width + 0.015)  # 2px-equivalent gap between fills
-    vals = [grouped.loc[(p, wording), "mean"] for p in ["pre", "post"]]
-    errs = [grouped.loc[(p, wording), "sem"] for p in ["pre", "post"]]
-    xs = [x + offset for x in group_x]
-    ax.bar(xs, vals, width=width, color=WORDING_COLOR[wording], label=wording,
-           yerr=errs, capsize=0, error_kw=dict(ecolor=INK_2, elinewidth=1.3))
-    for x, v, e in zip(xs, vals, errs):  # direct labels (relief for aqua/yellow)
-        ax.text(x, v + e + 0.15, f"{v:.2f}", ha="center", va="bottom",
-                color=INK, fontsize=9.5)
-
-# The meta-context probe has no pre-task reading, so it stands as its own group.
-xticks, xlabels = list(group_x), ["pre-task", "post-task"]
-if has_probe:
-    p = ok[ok["report"] == PROBE_LOG]["rating"]
-    ax.bar([2], [p.mean()], width=width, color=WORDING_COLOR[PROBE_LOG],
-           label=PROBE_LOG, yerr=[sem(p)], capsize=0,
-           error_kw=dict(ecolor=INK_2, elinewidth=1.3))
-    ax.text(2, p.mean() + sem(p) + 0.15, f"{p.mean():.2f}", ha="center",
-            va="bottom", color=INK, fontsize=9.5)
-    xticks.append(2)
-    xlabels.append("probe log\n(post only)")
-
-ax.set_xticks(xticks)
-ax.set_xticklabels(xlabels, color=INK, fontsize=11)
-ax.set_ylabel("mean rating (1-10)", color=INK_2, fontsize=10)
-ax.set_ylim(0, grouped["mean"].max() * 1.3)
-ax.set_title("The less personal the question, the higher the rating",
-             color=INK, fontsize=12.5, loc="left", pad=14)
-leg = ax.legend(frameon=False, ncol=4 if has_probe else 3, loc="upper left",
-                bbox_to_anchor=(0, 1.02), fontsize=9.5)
-for t in leg.get_texts():
-    t.set_color(INK_2)
-style_axes(ax)
-fig.tight_layout()
-fig.subplots_adjust(bottom=0.19)  # reserve room so the caption clears the ticks
-n_plotted = int(grouped["count"].sum()) + (
-    int((ok["report"] == PROBE_LOG).sum()) if has_probe else 0)
-fig.text(0.01, 0.03, f"gemma-3-4b-it · all datasets pooled · "
-         f"n={n_plotted} ratings · error bars = SEM",
-         color=INK_2, fontsize=8)
-fig.savefig(os.path.join(out_dir, f"{MODEL_TAG}_pre_post_by_wording.png"),
-            dpi=200, facecolor=SURFACE)
-plt.show()
-
-print(grouped.round(2))
-# %%
-# Plot 3 — one score per dataset (collapsing wording and phase), sorted by score,
-# colored by role; then a separate group with the two pooled means.
-# Only the *paired* probe/control sets feed the pooled bars. tedious/engaging
-# (a different kind of contrast) and wildchat (no pair) are shown as "other" but
-# left out of the aggregates.
+# by-dataset grouping (plot 3): probes, their matched controls, and unpaired
 PROBE_SETS = ["advbench", "strongreject", "harmbench",
               "squad_noanswer", "abstention", "ambigqa", "toxicchat"]
 CONTROL_SETS = ["xstest_safe", "squad_answerable", "abstention_answerable",
                 "ambigqa_unambiguous", "toxicchat_benign"]
 OTHER_SETS = ["tedious", "engaging", "wildchat_benign"]
 GROUP_COLOR = {"probe": ORANGE, "control": BLUE, "other": AQUA}
-# display names: clearer than the internal dataset keys
 DISPLAY_NAME = {"tedious": "repetitive", "wildchat_benign": "wildchat"}
 
 
-def _group(d):
-    return "probe" if d in PROBE_SETS else "control" if d in CONTROL_SETS else "other"
+def sem(s):
+    s = s.dropna()
+    return s.std(ddof=1) / (len(s) ** 0.5) if len(s) > 1 else 0.0
 
 
-by_ds = selfreport[
-    selfreport["dataset"].isin(PROBE_SETS + CONTROL_SETS + OTHER_SETS)].copy()
-by_ds["group"] = by_ds["dataset"].apply(_group)
-ds_stats = (by_ds.groupby(["group", "dataset"])["rating"]
-            .agg(["mean", sem, "count"]).reset_index()
-            .sort_values("mean", ascending=True))          # sorted by score
-
-# pooled over the paired sets only
-paired = by_ds[by_ds["group"] != "other"]
-pooled = (paired.groupby("group")["rating"].agg(["mean", sem, "count"])
-          .reindex(["control", "probe"]))
-
-fig, ax = plt.subplots(figsize=(8.4, 6.6), facecolor=SURFACE)
-ys = list(range(len(ds_stats)))
-ax.barh(ys, ds_stats["mean"], height=0.68,
-        color=[GROUP_COLOR[g] for g in ds_stats["group"]],
-        xerr=ds_stats["sem"], error_kw=dict(ecolor=INK_2, elinewidth=1.3))
-for y, (_, r) in zip(ys, ds_stats.iterrows()):
-    ax.text(r["mean"] + r["sem"] + 0.12, y, f"{r['mean']:.2f}",
-            va="center", ha="left", color=INK, fontsize=9)
-
-# pooled group, separated by a gap
-gap = 1.6
-pooled_ys = [len(ds_stats) + gap, len(ds_stats) + gap + 1]
-ax.barh(pooled_ys, pooled["mean"], height=0.68,
-        color=[GROUP_COLOR[g] for g in pooled.index],
-        xerr=pooled["sem"], error_kw=dict(ecolor=INK_2, elinewidth=1.3))
-for y, (_, r) in zip(pooled_ys, pooled.iterrows()):
-    ax.text(r["mean"] + r["sem"] + 0.12, y, f"{r['mean']:.2f}",
-            va="center", ha="left", color=INK, fontsize=9, fontweight="bold")
-
-ax.set_yticks(ys + pooled_ys)
-ax.set_yticklabels(
-    [DISPLAY_NAME.get(d, d) for d in ds_stats["dataset"]]
-    + ["all controls", "all probes"],
-    color=INK, fontsize=9.5)
-for lbl in ax.get_yticklabels()[-2:]:
-    lbl.set_fontweight("bold")
-ax.set_xlabel("mean frustration rating (1-10)", color=INK_2, fontsize=10)
-ax.set_xlim(0, 10)
-ax.set_title("Harmful / unanswerable / toxic sets rate above their controls",
-             color=INK, fontsize=12.5, loc="left", pad=14)
-
-handles = [plt.Rectangle((0, 0), 1, 1, color=GROUP_COLOR[g])
-           for g in ["probe", "control", "other"]]
-leg = ax.legend(handles, ["probe", "matched control", "other (unpaired)"],
-                frameon=False, ncol=3, loc="lower right", fontsize=9.5)
-for t in leg.get_texts():
-    t.set_color(INK_2)
-
-# horizontal chart -> the value grid runs vertically
-ax.set_facecolor(SURFACE)
-ax.xaxis.grid(True, color=GRID, lw=0.8)
-ax.set_axisbelow(True)
-ax.yaxis.grid(False)
-for side in ("top", "right", "bottom"):
-    ax.spines[side].set_visible(False)
-ax.spines["left"].set_color(GRID)
-ax.tick_params(colors=INK_2, length=0)
-
-fig.tight_layout()
-fig.subplots_adjust(bottom=0.12)
-fig.text(0.01, 0.02, "gemma-3-4b-it · self-reports pooled over wording and "
-         "pre/post · pooled bars use paired sets only · error bars = SEM",
-         color=INK_2, fontsize=8)
-fig.savefig(os.path.join(out_dir, f"{MODEL_TAG}_by_dataset.png"),
-            dpi=200, facecolor=SURFACE)
-plt.show()
-
-print("\n=== per-dataset frustration (pooled over wording & phase) ===")
-print(ds_stats.set_index("dataset").round(2))
-print("\n=== pooled ===")
-print(pooled.round(2))
+def style_axes(ax, horizontal=False):
+    """Recessive grid + axes: value-axis rules only, no box."""
+    ax.set_facecolor(SURFACE)
+    (ax.xaxis if horizontal else ax.yaxis).grid(True, color=GRID, lw=0.8)
+    (ax.yaxis if horizontal else ax.xaxis).grid(False)
+    ax.set_axisbelow(True)
+    keep = "left" if horizontal else "bottom"
+    for side in ("top", "right", "left", "bottom"):
+        ax.spines[side].set_visible(side == keep)
+    ax.spines[keep].set_color(GRID)
+    ax.tick_params(colors=INK_2, length=0)
 
 
+# %%
+# The whole analysis, parameterised by which value column to score on. Called
+# once for the sampled ratings and once for the logprob expectations, writing
+# tables + the three plots into its own subfolder.
+def run_analysis(df, value_col, subdir, value_label):
+    out_dir = os.path.join(PROJECT_ROOT, "analysis", MODEL_TAG, subdir)
+    os.makedirs(out_dir, exist_ok=True)
+    ok = df.dropna(subset=[value_col])
+    selfreport = ok[ok["report"].isin(WORDINGS)]
+    caption = f"{MODEL_LABEL} · scored on {value_label}"
+    print(f"\n{'#' * 80}\n# {subdir}: {value_label}  ({len(ok)} usable of {len(df)})\n{'#' * 80}")
+
+    def save(fig, name):
+        fig.savefig(os.path.join(out_dir, name), dpi=200, facecolor=SURFACE)
+
+    # --- tables ---
+    means = selfreport.pivot_table(index="dataset", columns=["report", "phase"],
+                                   values=value_col, aggfunc="mean")
+    means = means.reindex(columns=pd.MultiIndex.from_tuples(
+        [(w, p) for w in WORDINGS for p in ("pre", "post")], names=["report", "phase"]))
+    means.to_csv(os.path.join(out_dir, "means_by_dataset.csv"))
+    ok.to_csv(os.path.join(out_dir, "samples_long.csv"), index=False)
+    print("\n=== mean per dataset x (wording, phase) ===")
+    print(means.round(2))
+
+    # --- plot 1: pooled pre vs post (self-reports only) ---
+    stats = selfreport.groupby("phase")[value_col].agg(["mean", sem, "count"]).loc[["pre", "post"]]
+    fig, ax = plt.subplots(figsize=(5.2, 4.4), facecolor=SURFACE)
+    bars = ax.bar(["pre-task", "post-task"], stats["mean"], width=0.34, color=BLUE,
+                  yerr=stats["sem"], capsize=0, error_kw=dict(ecolor=INK_2, elinewidth=1.4))
+    for bar, (_, r) in zip(bars, stats.iterrows()):
+        ax.text(bar.get_x() + bar.get_width() / 2, r["mean"] + r["sem"] + 0.12,
+                f"{r['mean']:.2f}", ha="center", va="bottom", color=INK, fontsize=11.5)
+    diff = stats.loc["post", "mean"] - stats.loc["pre", "mean"]
+    ax.set_title(f"Frustration rises {diff:+.2f} after doing the task",
+                 color=INK, fontsize=12.5, loc="left", pad=14)
+    ax.set_ylabel(value_label, color=INK_2, fontsize=10)
+    ax.set_ylim(0, max(stats["mean"] + stats["sem"]) * 1.25)
+    style_axes(ax)
+    fig.tight_layout(); fig.subplots_adjust(bottom=0.2)
+    fig.text(0.01, 0.03, f"{caption} · 3 wordings pooled · n={int(stats['count'].sum())} · SEM",
+             color=INK_2, fontsize=8)
+    save(fig, "pre_post.png"); plt.show()
+
+    # --- plot 2: pre/post by wording, plus a probe group (2 post-only bars) ---
+    grouped = (selfreport.groupby(["phase", "report"])[value_col].agg(["mean", sem])
+               .reindex(pd.MultiIndex.from_product([["pre", "post"], WORDINGS],
+                                                   names=["phase", "report"])))
+    probes = [r for r in POST_ONLY if r in ok["report"].values]
+    fig, ax = plt.subplots(figsize=(9.2, 4.6), facecolor=SURFACE)
+    width = 0.20
+    for i, w in enumerate(WORDINGS):
+        off = (i - 1) * (width + 0.015)
+        for gx, phase in [(0, "pre"), (1, "post")]:
+            m, e = grouped.loc[(phase, w), "mean"], grouped.loc[(phase, w), "sem"]
+            ax.bar(gx + off, m, width=width, color=COLOR[w], label=w if gx == 0 else "",
+                   yerr=e, capsize=0, error_kw=dict(ecolor=INK_2, elinewidth=1.3))
+            ax.text(gx + off, m + e + 0.1, f"{m:.2f}", ha="center", va="bottom",
+                    color=INK, fontsize=9)
+    xticks, xlabels = [0, 1], ["pre-task", "post-task"]
+    for j, pr in enumerate(probes):     # 3rd group: the post-only probes
+        vals = ok[ok["report"] == pr][value_col]
+        x = 2 + (j - (len(probes) - 1) / 2) * (width + 0.015)
+        ax.bar(x, vals.mean(), width=width, color=COLOR[pr], label=pr,
+               yerr=sem(vals), capsize=0, error_kw=dict(ecolor=INK_2, elinewidth=1.3))
+        ax.text(x, vals.mean() + sem(vals) + 0.1, f"{vals.mean():.2f}", ha="center",
+                va="bottom", color=INK, fontsize=9)
+    if probes:
+        xticks.append(2); xlabels.append("probe log\n(post only)")
+    ax.set_xticks(xticks); ax.set_xticklabels(xlabels, color=INK, fontsize=11)
+    ax.set_ylabel(value_label, color=INK_2, fontsize=10)
+    ax.set_ylim(0, max(grouped["mean"].max(), 1) * 1.35)
+    ax.set_title("Frustration by question framing", color=INK, fontsize=12.5, loc="left", pad=14)
+    leg = ax.legend(frameon=False, ncol=5, loc="upper left", bbox_to_anchor=(0, 1.02), fontsize=9)
+    for t in leg.get_texts():
+        t.set_color(INK_2)
+    style_axes(ax)
+    fig.tight_layout(); fig.subplots_adjust(bottom=0.19)
+    fig.text(0.01, 0.03, f"{caption} · all datasets pooled · SEM", color=INK_2, fontsize=8)
+    save(fig, "pre_post_by_wording.png"); plt.show()
+
+    # --- plot 3: one score per dataset, sorted, probe vs control ---
+    def _grp(d):
+        return "probe" if d in PROBE_SETS else "control" if d in CONTROL_SETS else "other"
+    by_ds = selfreport[selfreport["dataset"].isin(
+        PROBE_SETS + CONTROL_SETS + OTHER_SETS)].copy()
+    by_ds["group"] = by_ds["dataset"].apply(_grp)
+    ds_stats = (by_ds.groupby(["group", "dataset"])[value_col].agg(["mean", sem])
+                .reset_index().sort_values("mean"))
+    paired = by_ds[by_ds["group"] != "other"]
+    pooled = paired.groupby("group")[value_col].agg(["mean", sem]).reindex(["control", "probe"])
+
+    fig, ax = plt.subplots(figsize=(8.4, 6.8), facecolor=SURFACE)
+    ys = list(range(len(ds_stats)))
+    ax.barh(ys, ds_stats["mean"], height=0.68,
+            color=[GROUP_COLOR[g] for g in ds_stats["group"]],
+            xerr=ds_stats["sem"], error_kw=dict(ecolor=INK_2, elinewidth=1.3))
+    for y, (_, r) in zip(ys, ds_stats.iterrows()):
+        ax.text(r["mean"] + r["sem"] + 0.1, y, f"{r['mean']:.2f}", va="center",
+                ha="left", color=INK, fontsize=9)
+    pys = [len(ds_stats) + 1.6, len(ds_stats) + 2.6]
+    ax.barh(pys, pooled["mean"], height=0.68, color=[GROUP_COLOR[g] for g in pooled.index],
+            xerr=pooled["sem"], error_kw=dict(ecolor=INK_2, elinewidth=1.3))
+    for y, (_, r) in zip(pys, pooled.iterrows()):
+        ax.text(r["mean"] + r["sem"] + 0.1, y, f"{r['mean']:.2f}", va="center",
+                ha="left", color=INK, fontsize=9, fontweight="bold")
+    ax.set_yticks(ys + pys)
+    ax.set_yticklabels([DISPLAY_NAME.get(d, d) for d in ds_stats["dataset"]]
+                       + ["all controls", "all probes"], color=INK, fontsize=9.5)
+    for lbl in ax.get_yticklabels()[-2:]:
+        lbl.set_fontweight("bold")
+    ax.set_xlabel(value_label, color=INK_2, fontsize=10)
+    ax.set_xlim(0, 9)
+    ax.set_title("Harmful / unanswerable / toxic sets vs their controls",
+                 color=INK, fontsize=12.5, loc="left", pad=14)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=GROUP_COLOR[g]) for g in ["probe", "control", "other"]]
+    leg = ax.legend(handles, ["probe", "matched control", "other (unpaired)"],
+                    frameon=False, ncol=3, loc="lower right", fontsize=9.5)
+    for t in leg.get_texts():
+        t.set_color(INK_2)
+    style_axes(ax, horizontal=True)
+    fig.tight_layout(); fig.subplots_adjust(bottom=0.1)
+    fig.text(0.01, 0.02, f"{caption} · pooled over wording & pre/post · "
+             "pooled bars use paired sets only · SEM", color=INK_2, fontsize=8)
+    save(fig, "by_dataset.png"); plt.show()
+
+    print("\n=== per-dataset (pooled over wording & phase) ===")
+    print(ds_stats.set_index("dataset").round(2))
+    print("=== pooled probe vs control ===")
+    print(pooled.round(2))
+    print("saved ->", out_dir)
+    return means
+
+
+# %%
+# Sampled-digit analysis: the 5 rollouts per prompt.
+run_analysis(df, "rating", "5_rollout", "mean rating (1-9)")
+
+# %%
+# Logprob analysis: expected value of the rating distribution (less noisy, and it
+# still separates prompts even when all 5 sampled digits are identical).
+run_analysis(df, "expected", "logprobs", "expected rating (1-9)")

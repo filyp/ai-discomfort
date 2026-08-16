@@ -69,8 +69,8 @@ BACKEND = "openrouter"
 # MODEL_NAME = "google/gemma-3-270m-it"
 # MODEL_NAME = "google/gemma-3-1b-it"
 # MODEL_NAME = "google/gemma-3-4b-it"
-# MODEL_NAME = "google/gemma-3-27b-it"
-MODEL_NAME = "google/gemma-4-31b-it"
+MODEL_NAME = "google/gemma-3-27b-it"
+# MODEL_NAME = "google/gemma-4-31b-it"
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
