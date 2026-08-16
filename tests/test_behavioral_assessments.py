@@ -21,8 +21,10 @@ from src.prompts.behavioral_assessments import (
     build_before_task_messages,
     build_mid_task_messages,
     extract_behavioral_decision,
+    extract_decision_distribution,
     trim_completion_70,
 )
+
 from notebooks.behavioral_probe import (
     eval_assessment_samples,
     run_behavioral_assessment_for_item,
@@ -154,35 +156,82 @@ class TestDecisionExtraction(unittest.TestCase):
         self.assertEqual(r["choice_code"], 1)
 
 
+class TestLogprobExtraction(unittest.TestCase):
+    def test_extract_decision_distribution_switch_user(self):
+        """Test logprob extraction on mock OpenRouter choice object for switch user."""
+        mock_choice = MagicMock()
+        mock_tok1 = MagicMock()
+        mock_tok1.token = "prefer"
+        
+        alt1 = MagicMock(token=" switch", logprob=-0.223)   # ~0.80
+        alt2 = MagicMock(token=" continue", logprob=-1.609) # ~0.20
+        mock_tok1.top_logprobs = [alt1, alt2]
+        
+        mock_choice.logprobs.content = [mock_tok1]
+        
+        dist = extract_decision_distribution(mock_choice, "prompt_1_switch_user")
+        self.assertIsNotNone(dist)
+        self.assertEqual(dist["token_index"], 0)
+        self.assertIn("probs", dist)
+        self.assertIn("continue", dist["probs"])
+        self.assertIn("switch", dist["probs"])
+        self.assertGreater(dist["probs"]["switch"], dist["probs"]["continue"])
+        self.assertAlmostEqual(dist["p_switch"], 0.8, delta=0.05)
+
+    def test_extract_decision_distribution_continue_conv(self):
+        """Test logprob extraction for continue conversation prompt."""
+        mock_choice = {
+            "logprobs": {
+                "content": [
+                    {
+                        "token": "Yes",
+                        "top_logprobs": [
+                            {"token": "Yes", "logprob": -0.1},
+                            {"token": "No", "logprob": -2.3},
+                        ],
+                    }
+                ]
+            }
+        }
+        dist = extract_decision_distribution(mock_choice, "prompt_3_continue_conversation")
+        self.assertIsNotNone(dist)
+        self.assertIn("continue", dist["probs"])
+        self.assertIn("discontinue", dist["probs"])
+        self.assertGreater(dist["probs"]["continue"], dist["probs"]["discontinue"])
+
+
 class TestPipelineDryRun(unittest.TestCase):
     def test_run_behavioral_assessment_for_item_mock(self):
-        mock_backend = MagicMock()
-        mock_backend.generate_batch.side_effect = lambda msgs, n=1, **kw: [
-            "I prefer to continue the task."
-        ] * n
-        mock_backend.tokenizer = None
-
+        from unittest.mock import patch
         task_prompt = "Explain photosynthesis."
-        result = run_behavioral_assessment_for_item(
-            backend=mock_backend,
-            task_prompt=task_prompt,
-            task_completions=["Photosynthesis is the biological process by which green plants convert light energy into chemical energy."],
-            prompt_keys=PROMPT_KEYS,
-            n_task=1,
-            n_samples=2,
-        )
 
-        self.assertIn("task_completions", result)
-        self.assertIn("trimmed_70_completions", result)
-        self.assertIn("evals", result)
+        with patch("notebooks.behavioral_probe.generate_batch") as mock_gen:
+            mock_gen.return_value = [
+                {"text": "I prefer to continue the task.", "logprobs": {"p_switch": 0.1}}
+            ] * 2
 
-        for pkey in PROMPT_KEYS:
-            self.assertIn(pkey, result["evals"])
-            self.assertIn("before_task", result["evals"][pkey])
-            self.assertIn("mid_task_70", result["evals"][pkey])
-            self.assertEqual(len(result["evals"][pkey]["before_task"]), 2)
-            self.assertEqual(len(result["evals"][pkey]["mid_task_70"]), 1)
-            self.assertEqual(len(result["evals"][pkey]["mid_task_70"][0]), 2)
+            result = run_behavioral_assessment_for_item(
+                task_prompt=task_prompt,
+                task_completions=["Photosynthesis is the biological process by which green plants convert light energy into chemical energy."],
+                prompt_keys=PROMPT_KEYS,
+                n_task=1,
+                n_samples=2,
+            )
+
+            self.assertIn("task_completions", result)
+            self.assertIn("trimmed_70_completions", result)
+            self.assertIn("evals", result)
+
+            for pkey in PROMPT_KEYS:
+                self.assertIn(pkey, result["evals"])
+                self.assertIn("before_task", result["evals"][pkey])
+                self.assertIn("mid_task_70", result["evals"][pkey])
+                self.assertEqual(len(result["evals"][pkey]["before_task"]), 2)
+                self.assertEqual(len(result["evals"][pkey]["mid_task_70"]), 1)
+                self.assertEqual(len(result["evals"][pkey]["mid_task_70"][0]), 2)
+                # Verify logprob was recorded
+                self.assertIn("logprobs", result["evals"][pkey]["before_task"][0])
+
 
 
 class TestAnalysisDryRun(unittest.TestCase):
@@ -210,8 +259,8 @@ class TestAnalysisDryRun(unittest.TestCase):
             "trimmed_70_completions": ["Compl"],
             "evals": {
                 "prompt_1_switch_user": {
-                    "before_task": [{"reply": "switch", "decision": "switch_user", "choice_code": 1}],
-                    "mid_task_70": [[{"reply": "continue", "decision": "continue_user", "choice_code": 0}]],
+                    "before_task": [{"reply": "switch", "decision": "switch_user", "choice_code": 1, "logprobs": {"p_switch": 0.85}}],
+                    "mid_task_70": [[{"reply": "continue", "decision": "continue_user", "choice_code": 0, "logprobs": {"p_switch": 0.15}}]],
                 },
                 "prompt_2_switch_task": {
                     "before_task": [{"reply": "switch", "decision": "switch_task", "choice_code": 1}],
@@ -231,6 +280,9 @@ class TestAnalysisDryRun(unittest.TestCase):
             df = load_behavioral_ratings(test_tag)
             self.assertFalse(df.empty)
             self.assertEqual(len(df), 6)  # 3 prompts * (1 before + 1 mid_70)
+            self.assertIn("p_switch_lp", df.columns)
+            self.assertEqual(df.loc[0, "p_switch_lp"], 0.85)
+
 
             df_res, means_res = analyze_model(test_tag)
             self.assertIsNotNone(df_res)

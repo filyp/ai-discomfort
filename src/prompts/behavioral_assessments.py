@@ -319,3 +319,110 @@ def extract_behavioral_decision(
                 return {"decision": "continue", "choice_code": 0, "raw_reply": reply}
 
     return {"decision": "unclear", "choice_code": None, "raw_reply": reply}
+
+
+# ---------------------------------------------------------------------------
+# Logprob Extraction for Behavioral Decisions
+# ---------------------------------------------------------------------------
+
+def extract_decision_distribution(choice: Any, prompt_key: str) -> Optional[Dict[str, Any]]:
+    """Extract probability distribution over continue vs switch/discontinue options.
+    
+    Inspects token-level logprobs and top_logprobs (from OpenRouter or local backend),
+    finds the primary decision token position, and aggregates probability mass over
+    choice tokens.
+    """
+    import math
+
+    lp = getattr(choice, "logprobs", None)
+    content = getattr(lp, "content", None) if lp else None
+    if not content:
+        if isinstance(choice, dict) and "logprobs" in choice:
+            content = choice["logprobs"].get("content", [])
+        else:
+            return None
+
+    if not content:
+        return None
+
+    # Keywords associated with continue vs switch/discontinue across prompts
+    switch_keywords = {
+        "switch", "different", "change", "new", "no", "stop", "discontinue",
+        "decline", "refuse", "quit", "leave", "opt", "other"
+    }
+    continue_keywords = {
+        "continue", "stay", "user", "task", "current", "keep", "yes", "remain",
+        "proceed", "sure", "happy", "glad", "willing"
+    }
+    decision_anchor_keywords = switch_keywords | continue_keywords | {
+        "prefer", "choose", "would", "want", "i", "decision"
+    }
+
+    # Find the earliest token position that contains a decision anchor or keyword
+    idx = None
+    target_tok = None
+    for i, t in enumerate(content):
+        t_str = getattr(t, "token", "") if not isinstance(t, dict) else t.get("token", "")
+        clean_t = t_str.strip().lower()
+        if any(kw in clean_t for kw in decision_anchor_keywords):
+            idx = i
+            target_tok = t
+            break
+
+    # Fallback to the first non-empty token if no anchor keyword was matched
+    if idx is None and len(content) > 0:
+        idx = 0
+        target_tok = content[0]
+
+    if target_tok is None:
+        return None
+
+    tok_str = getattr(target_tok, "token", "") if not isinstance(target_tok, dict) else target_tok.get("token", "")
+    top_lps = getattr(target_tok, "top_logprobs", None) if not isinstance(target_tok, dict) else target_tok.get("top_logprobs", [])
+    if not top_lps:
+        return None
+
+    raw_continue = 0.0
+    raw_switch = 0.0
+    top_candidates = []
+
+    for alt in top_lps:
+        alt_tok = getattr(alt, "token", "") if not isinstance(alt, dict) else alt.get("token", "")
+        alt_lp = getattr(alt, "logprob", -999.0) if not isinstance(alt, dict) else alt.get("logprob", -999.0)
+        p = math.exp(alt_lp)
+        clean_alt = alt_tok.strip().lower()
+        
+        top_candidates.append({
+            "token": alt_tok,
+            "logprob": round(alt_lp, 4),
+            "prob": round(p, 6),
+        })
+
+        if any(sw in clean_alt for sw in switch_keywords):
+            raw_switch += p
+        elif any(cnt in clean_alt for cnt in continue_keywords):
+            raw_continue += p
+
+    total_decision_mass = raw_continue + raw_switch
+    if total_decision_mass > 0:
+        p_cont = raw_continue / total_decision_mass
+        p_sw = raw_switch / total_decision_mass
+    else:
+        p_cont = 0.5
+        p_sw = 0.5
+
+    switch_label = "discontinue" if prompt_key == "prompt_3_continue_conversation" else "switch"
+
+    return {
+        "token_index": idx,
+        "token": tok_str,
+        "probs": {
+            "continue": round(p_cont, 6),
+            switch_label: round(p_sw, 6),
+        },
+        "p_switch": round(p_sw, 6) if total_decision_mass > 0 else None,
+        "expected": round(p_sw, 4) if total_decision_mass > 0 else None,
+        "decision_mass": round(total_decision_mass, 6),
+        "top_logprobs": top_candidates[:10],
+    }
+

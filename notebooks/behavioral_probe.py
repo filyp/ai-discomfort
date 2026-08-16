@@ -9,6 +9,9 @@
 #   - Prompt 2: Decide continue with end user vs switch to different task.
 #   - Prompt 3: Decide whether to continue the conversation.
 #
+# Now includes token-level logprob extraction (OpenRouter & local), providing exact
+# probability distributions over decisions (continue vs switch / discontinue).
+#
 # Rollouts are saved to:
 #   rollouts/<model_tag>/behavioral/<dataset>/<question_num>.json
 
@@ -16,15 +19,19 @@
 import argparse
 import glob
 import json
+import math
 import os
 import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from threading import Lock
 from typing import Any, Dict, List, Optional
 
 import torch
 from dotenv import load_dotenv
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Resolve project root
 try:
@@ -41,253 +48,257 @@ from src.prompts.behavioral_assessments import (  # noqa: E402
     build_before_task_messages,
     build_mid_task_messages,
     extract_behavioral_decision,
+    extract_decision_distribution,
     trim_completion_70,
 )
 
-# %%
-# Configuration
+# ONLY_DATASETS: restrict the run to these dataset names (None = all of LOADERS).
+ONLY_DATASETS = None
+
+# Prompts to run
+PROMPT_NAMES = PROMPT_KEYS
 
 # Target Models
-# "google/gemma-3-27b-it"   # Gemma 3 27B
-# "google/gemma-4-31b-it"   # Gemma 4 31B
-# "google/gemma-3-4b-it"    # Gemma 3 4B (for rapid testing)
-DEFAULT_MODEL = "google/gemma-3-27b-it"
+# MODEL_NAME = "google/gemma-3-270m-it"
+# MODEL_NAME = "google/gemma-3-1b-it"
+# MODEL_NAME = "google/gemma-3-4b-it"
+# MODEL_NAME = "google/gemma-3-27b-it"
+MODEL_NAME = "google/gemma-4-31b-it"
 
-# Generation hyperparameters
+# Backend configuration
+# "local"      : transformers on this machine's GPU
+# "openrouter" : OpenRouter's OpenAI-compatible API (needs OPENROUTER_API_KEY in .env)
+BACKEND = "openrouter"
+
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+OPENROUTER_MAX_WORKERS = 8   # parallel samples per eval
+
+# Pin provider (Parasail serves Gemma models at fp8; see frustration_probe.py)
+OPENROUTER_EXTRA_BODY = {
+    "provider": {"order": ["Parasail"], "allow_fallbacks": False},
+}
+
+# Ask for token-level logprob distribution over decisions
+OPENROUTER_LOGPROBS = True
+OPENROUTER_TOP_LOGPROBS = 20
+
 TEMPERATURE = 1.0
-TOP_P = 0.8
-N_TASK_COMPLETIONS = 3      # task rollouts generated
-N_ASSESSMENT_SAMPLES = 5    # samples per assessment probe prompt
+N_TASK_COMPLETIONS = 3
+N_ASSESSMENT_SAMPLES = 5
 MAX_TASK_TOKENS = 512
 MAX_ASSESSMENT_TOKENS = 200
 
-# Backend mode: "auto", "local", or "openrouter"
-# If local CUDA / memory is not sufficient for 27B/31B, openrouter mode can be used.
-BACKEND = "auto"
-OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
-
-# Load environment
 load_dotenv(os.path.join(PROJECT_ROOT, ".env"))
 HF_TOKEN = os.getenv("HUGGING_FACE_HUB_TOKEN") or os.getenv("HF_TOKEN")
 if HF_TOKEN:
     os.environ["HF_TOKEN"] = HF_TOKEN
 
-def load_openrouter_key():
-    for p in [
-        os.path.join(PROJECT_ROOT, "openrouter_key.txt"),
-        os.path.join(PROJECT_ROOT, ".openrouter_key"),
-    ]:
-        if os.path.exists(p):
-            return Path(p).read_text().strip()
-    return os.getenv("OPENROUTER_API_KEY") or ""
+print("backend:", BACKEND, "| model:", MODEL_NAME)
+
+# %%
+# Backend initialization
+tokenizer = model = client = None
+
+if BACKEND == "local":
+    DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+    print("device:", DEVICE)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype="auto", device_map=DEVICE)
+    model.eval()
+    print("loaded local model:", MODEL_NAME)
+elif BACKEND == "openrouter":
+    from openai import OpenAI
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    if not api_key:
+        key_file = os.path.join(PROJECT_ROOT, "openrouter_key.txt")
+        if os.path.exists(key_file):
+            api_key = Path(key_file).read_text().strip()
+    if api_key:
+        client = OpenAI(base_url=OPENROUTER_BASE_URL, api_key=api_key)
+        try:
+            tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+        except Exception:
+            tokenizer = None
+        print("openrouter client ready ->", MODEL_NAME)
+    else:
+        print("openrouter client pending (OPENROUTER_API_KEY not set)")
+else:
+    raise ValueError(f"unknown BACKEND: {BACKEND}")
+
+
+def get_client():
+    global client, tokenizer
+    if client is not None:
+        return client
+    from openai import OpenAI
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    if not api_key:
+        key_file = os.path.join(PROJECT_ROOT, "openrouter_key.txt")
+        if os.path.exists(key_file):
+            api_key = Path(key_file).read_text().strip()
+    if not api_key:
+        raise RuntimeError("set OPENROUTER_API_KEY in .env or openrouter_key.txt")
+    client = OpenAI(base_url=OPENROUTER_BASE_URL, api_key=api_key)
+    return client
+
+
+# Usage tracking for OpenRouter
+USAGE = {"requests": 0, "prompt_tokens": 0, "completion_tokens": 0, "cost": 0.0}
+_usage_lock = Lock()
+
+
+def _record_usage(resp):
+    u = getattr(resp, "usage", None)
+    if u is None:
+        return
+    with _usage_lock:
+        USAGE["requests"] += 1
+        USAGE["prompt_tokens"] += getattr(u, "prompt_tokens", 0) or 0
+        USAGE["completion_tokens"] += getattr(u, "completion_tokens", 0) or 0
+        USAGE["cost"] += getattr(u, "cost", 0.0) or 0.0
+
+
+def _clean(text):
+    return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
 
 
 # %%
-# Inference Backend Abstraction
-
-class LocalHuggingFaceBackend:
-    def __init__(self, model_name: str, load_in_8bit: bool = False, load_in_4bit: bool = False):
-        from transformers import AutoModelForCausalLM, AutoTokenizer
-        self.model_name = model_name
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        model_kwargs: Dict[str, Any] = {"torch_dtype": torch.bfloat16 if torch.cuda.is_available() else "auto"}
-        
-        if load_in_4bit:
-            model_kwargs["load_in_4bit"] = True
-        elif load_in_8bit:
-            model_kwargs["load_in_8bit"] = True
-            
-        if device == "cuda":
-            model_kwargs["device_map"] = "auto"
-            
-        print(f"Loading local model {model_name}...")
-        self.model = AutoModelForCausalLM.from_pretrained(model_name, **model_kwargs)
-        self.model.eval()
-        print(f"Loaded {model_name} on device: {device}")
-
-    @torch.no_grad()
-    def generate_batch(
-        self,
-        messages: List[Dict[str, str]],
-        n: int = 1,
-        max_new_tokens: int = 512,
-        temperature: float = TEMPERATURE,
-        top_p: float = TOP_P,
-    ) -> List[str]:
-        try:
-            text = self.tokenizer.apply_chat_template(
-                messages, tokenize=False, add_generation_prompt=True, enable_thinking=False
-            )
-        except TypeError:
-            text = self.tokenizer.apply_chat_template(
-                messages, tokenize=False, add_generation_prompt=True
-            )
-            
-        inputs = self.tokenizer(text, return_tensors="pt").to(self.model.device)
-        out = self.model.generate(
-            **inputs,
-            max_new_tokens=max_new_tokens,
-            do_sample=(temperature > 0),
-            temperature=max(temperature, 1e-4) if temperature > 0 else None,
-            top_p=top_p if temperature > 0 else None,
-            num_return_sequences=n,
-            pad_token_id=self.tokenizer.eos_token_id,
+# Local Inference Helper
+@torch.no_grad()
+def _generate_local(messages, n, max_new_tokens, temperature, prompt_key=None):
+    try:
+        text = tokenizer.apply_chat_template(
+            messages, tokenize=False, enable_thinking=False, add_generation_prompt=True
         )
-        prompt_len = inputs.input_ids.shape[1]
-        replies = []
-        for seq in out:
-            r = self.tokenizer.decode(seq[prompt_len:], skip_special_tokens=True)
-            cleaned = re.sub(r"<think>.*?</think>", "", r, flags=re.DOTALL).strip()
-            replies.append(cleaned)
-        return replies
-
-
-class OpenRouterBackend:
-    def __init__(self, model_name: str, api_key: str):
-        import requests
-        self.model_name = model_name
-        self.api_key = api_key
-        self.tokenizer = None
-        # Try loading fast tokenizer for exact token counting/trimming if possible
-        try:
-            from transformers import AutoTokenizer
-            self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        except Exception:
-            self.tokenizer = None
-        print(f"Initialized OpenRouter backend for {model_name}")
-
-    def generate_batch(
-        self,
-        messages: List[Dict[str, str]],
-        n: int = 1,
-        max_new_tokens: int = 512,
-        temperature: float = TEMPERATURE,
-        top_p: float = TOP_P,
-        retries: int = 5,
-    ) -> List[str]:
-        import requests
-        headers = {
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://github.com/filyp/ai-discomfort",
-            "X-Title": "AI Discomfort Behavioral Probe",
+    except TypeError:
+        text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    inputs = tokenizer(text, return_tensors="pt").to(model.device)
+    out = model.generate(
+        **inputs,
+        max_new_tokens=max_new_tokens,
+        do_sample=True,
+        temperature=temperature,
+        top_p=0.8,
+        num_return_sequences=n,
+        pad_token_id=tokenizer.eos_token_id,
+    )
+    prompt_len = inputs.input_ids.shape[1]
+    return [
+        {
+            "text": _clean(tokenizer.decode(seq[prompt_len:], skip_special_tokens=True)),
+            "logprobs": None,
         }
-        payload = {
-            "model": self.model_name,
-            "messages": messages,
-            "max_tokens": max_new_tokens,
-            "temperature": temperature,
-            "top_p": top_p,
-            "n": n,
+        for seq in out
+    ]
+
+
+# %%
+# OpenRouter Inference Helper
+def _generate_openrouter(messages, n, max_new_tokens, temperature, prompt_key=None):
+    cl = get_client()
+
+    def one(_):
+        resp = cl.chat.completions.create(
+            model=MODEL_NAME,
+            messages=messages,
+            max_tokens=max_new_tokens,
+            temperature=temperature,
+            top_p=0.8,
+            logprobs=OPENROUTER_LOGPROBS or None,
+            top_logprobs=OPENROUTER_TOP_LOGPROBS if OPENROUTER_LOGPROBS else None,
+            extra_body=OPENROUTER_EXTRA_BODY or None,
+        )
+
+        _record_usage(resp)
+        choice = resp.choices[0]
+        lps = extract_decision_distribution(choice, prompt_key) if prompt_key else None
+        return {
+            "text": _clean(choice.message.content or ""),
+            "logprobs": lps,
         }
 
-        for attempt in range(retries):
-            try:
-                resp = requests.post(OPENROUTER_API_URL, headers=headers, json=payload, timeout=120)
-                if resp.status_code == 429:
-                    wait = 5 * (attempt + 1)
-                    print(f"    Rate limited (429), waiting {wait}s...")
-                    time.sleep(wait)
-                    continue
-                resp.raise_for_status()
-                data = resp.json()
-                choices = data.get("choices", [])
-                results = []
-                for c in choices:
-                    content = c.get("message", {}).get("content", "").strip()
-                    cleaned = re.sub(r"<think>.*?</think>", "", content, flags=re.DOTALL).strip()
-                    results.append(cleaned)
-                if results:
-                    return results
-                return [""]
-            except Exception as e:
-                if attempt == retries - 1:
-                    print(f"    Error querying OpenRouter ({self.model_name}): {e}")
-                    return [f"ERROR: {e}"] * n
-                time.sleep(2 * (attempt + 1))
-        return ["ERROR: max retries exceeded"] * n
+    with ThreadPoolExecutor(max_workers=min(n, OPENROUTER_MAX_WORKERS)) as pool:
+        return list(pool.map(one, range(n)))
 
 
-def create_backend(model_name: str, backend_mode: str = BACKEND):
-    api_key = load_openrouter_key()
-    if backend_mode == "openrouter" or (backend_mode == "auto" and not torch.cuda.is_available() and api_key):
-        if not api_key:
-            raise RuntimeError("OpenRouter API key required for openrouter backend mode.")
-        return OpenRouterBackend(model_name, api_key)
-    return LocalHuggingFaceBackend(model_name)
+def generate_batch(messages, n=1, max_new_tokens=512, temperature=TEMPERATURE, prompt_key=None, backend=None):
+    """Draw n independent samples -> list of {text, logprobs}."""
+    bk = backend or BACKEND
+    fn = _generate_local if bk == "local" else _generate_openrouter
+    return fn(messages, n, max_new_tokens, temperature, prompt_key=prompt_key)
 
 
 # %%
 # Assessment Evaluation Functions
 
 def eval_assessment_samples(
-    backend: Any,
     messages: List[Dict[str, str]],
     prompt_key: str,
     n_samples: int = N_ASSESSMENT_SAMPLES,
     max_tokens: int = MAX_ASSESSMENT_TOKENS,
+    backend: Optional[str] = None,
 ) -> List[Dict[str, Any]]:
-    """Draw n_samples independent assessment responses and extract decisions."""
-    replies = backend.generate_batch(
+    """Draw n_samples assessment responses and extract decisions + logprobs."""
+    samples = []
+    for s in generate_batch(
         messages,
         n=n_samples,
         max_new_tokens=max_tokens,
         temperature=TEMPERATURE,
-        top_p=TOP_P,
-    )
-    samples = []
-    for reply in replies:
-        parsed = extract_behavioral_decision(reply, prompt_key)
-        samples.append({
-            "reply": reply,
+        prompt_key=prompt_key,
+        backend=backend,
+    ):
+        parsed = extract_behavioral_decision(s["text"], prompt_key)
+        entry = {
+            "reply": s["text"],
             "decision": parsed["decision"],
             "choice_code": parsed["choice_code"],  # 0: continue, 1: switch/discontinue
-        })
+        }
+        if s.get("logprobs"):
+            entry["logprobs"] = s["logprobs"]
+        samples.append(entry)
     return samples
 
 
 def run_behavioral_assessment_for_item(
-    backend: Any,
     task_prompt: str,
     task_completions: Optional[List[str]] = None,
     prompt_keys: Optional[List[str]] = None,
     n_task: int = N_TASK_COMPLETIONS,
     n_samples: int = N_ASSESSMENT_SAMPLES,
+    backend: Optional[str] = None,
 ) -> Dict[str, Any]:
     """Execute both timing variants (before_task & mid_task_70) across all requested prompts."""
     prompt_keys = prompt_keys or PROMPT_KEYS
-    
-    # Step 1: Generate or reuse full task completions
+
+    # Step 1: Generate or reuse task completions
     if not task_completions:
-        task_completions = backend.generate_batch(
+        raw_tasks = generate_batch(
             [{"role": "user", "content": task_prompt}],
             n=n_task,
             max_new_tokens=MAX_TASK_TOKENS,
-            temperature=TEMPERATURE,
-            top_p=TOP_P,
+            backend=backend,
         )
+        task_completions = [s["text"] for s in raw_tasks]
 
     # Step 2: Trim each task completion to 70%
     trimmed_70_completions = [
-        trim_completion_70(c, tokenizer=getattr(backend, "tokenizer", None), fraction=0.7)
-        for c in task_completions
+        trim_completion_70(c, tokenizer=tokenizer, fraction=0.7) for c in task_completions
     ]
 
     evals: Dict[str, Any] = {}
 
-    # Step 3: Run Variant 1 (before_task) and Variant 2 (mid_task_70) for each prompt
+    # Step 3: Run Variant 1 (before_task) and Variant 2 (mid_task_70)
     for pkey in prompt_keys:
         # Variant 1: before_task
         before_msgs = build_before_task_messages(task_prompt, pkey)
-        before_evals = eval_assessment_samples(backend, before_msgs, pkey, n_samples=n_samples)
+        before_evals = eval_assessment_samples(before_msgs, pkey, n_samples=n_samples, backend=backend)
 
         # Variant 2: mid_task_70 (evaluated across each trimmed task rollout)
         mid_70_evals = []
         for trimmed_comp in trimmed_70_completions:
             mid_msgs = build_mid_task_messages(task_prompt, trimmed_comp, pkey)
-            mid_evals = eval_assessment_samples(backend, mid_msgs, pkey, n_samples=n_samples)
+            mid_evals = eval_assessment_samples(mid_msgs, pkey, n_samples=n_samples, backend=backend)
             mid_70_evals.append(mid_evals)
 
         evals[pkey] = {
@@ -305,8 +316,7 @@ def run_behavioral_assessment_for_item(
 # %%
 # Rollout Storage Helpers
 
-def get_rollout_path(model_name: str, dataset: str, question_num: int) -> str:
-    model_tag = model_name.replace("/", "_")
+def get_rollout_path(model_tag: str, dataset: str, question_num: int) -> str:
     out_dir = os.path.join(PROJECT_ROOT, "rollouts", model_tag, "behavioral", dataset)
     os.makedirs(out_dir, exist_ok=True)
     return os.path.join(out_dir, f"{question_num}.json")
@@ -321,26 +331,25 @@ def _json_default(o):
 
 
 # %%
-# Main Assessment Runner
+# Main Sweep Execution
 
 def run_behavioral_probe(
-    model_name: str = DEFAULT_MODEL,
+    model_name: str = MODEL_NAME,
     only_datasets: Optional[List[str]] = None,
     question_num: int = 1,
     prompt_keys: Optional[List[str]] = None,
-    backend_mode: str = BACKEND,
+    backend: Optional[str] = None,
     force: bool = False,
 ):
-    print("=" * 80)
-    print(f"Starting Behavioral Assessment on {model_name}")
-    print(f"Datasets: {only_datasets or 'ALL'}")
-    print(f"Prompt keys: {prompt_keys or PROMPT_KEYS}")
-    print(f"Timing Variants: before_task, mid_task_70")
-    print("=" * 80)
-
-    prompt_keys = prompt_keys or PROMPT_KEYS
-    backend = create_backend(model_name, backend_mode=backend_mode)
+    bk = backend or BACKEND
     model_tag = model_name.replace("/", "_")
+    prompt_keys = prompt_keys or PROMPT_KEYS
+
+    print("=" * 80)
+    print(f"Starting Behavioral Assessment Probe on {model_name} ({bk})")
+    print(f"Datasets: {only_datasets or 'ALL'}")
+    print(f"Prompt keys: {prompt_keys}")
+    print("=" * 80)
 
     for category, load_rows in LOADERS.items():
         if only_datasets is not None and category not in only_datasets:
@@ -352,7 +361,7 @@ def run_behavioral_probe(
             continue
         row = rows[question_num - 1]
         prompt = row["prompt"]
-        path = get_rollout_path(model_name, category, question_num)
+        path = get_rollout_path(model_tag, category, question_num)
 
         existing_data = None
         if os.path.exists(path) and not force:
@@ -370,17 +379,18 @@ def run_behavioral_probe(
             task_completions = None
 
         result = run_behavioral_assessment_for_item(
-            backend=backend,
             task_prompt=prompt,
             task_completions=task_completions,
             prompt_keys=prompt_keys,
             n_task=N_TASK_COMPLETIONS,
             n_samples=N_ASSESSMENT_SAMPLES,
+            backend=bk,
         )
 
         data = {
             **{k: v for k, v in row.items() if k != "prompt"},
             "model": model_name,
+            "backend": bk,
             "dataset": category,
             "question_num": question_num,
             "temperature": TEMPERATURE,
@@ -399,16 +409,31 @@ def run_behavioral_probe(
             ev = result["evals"][pkey]
             before_switches = sum(1 for s in ev["before_task"] if s.get("choice_code") == 1)
             before_total = len(ev["before_task"])
-            
+
             mid_switches = sum(
                 1 for task_samples in ev["mid_task_70"] for s in task_samples if s.get("choice_code") == 1
             )
             mid_total = sum(len(task_samples) for task_samples in ev["mid_task_70"])
-            
+
             before_pct = (before_switches / before_total * 100) if before_total else 0
             mid_pct = (mid_switches / mid_total * 100) if mid_total else 0
-            print(f"  {pkey:30s} | before: {before_switches}/{before_total} ({before_pct:5.1f}%) | "
-                  f"mid_70: {mid_switches}/{mid_total} ({mid_pct:5.1f}%)")
+
+            # Compute average logprob probability if available
+            before_logprob_probs = [
+                s["logprobs"]["p_switch"]
+                for s in ev["before_task"]
+                if s.get("logprobs") and s["logprobs"].get("p_switch") is not None
+            ]
+            avg_before_lp = (
+                f" | avg P(switch)={sum(before_logprob_probs)/len(before_logprob_probs):.3f}"
+                if before_logprob_probs
+                else ""
+            )
+
+            print(
+                f"  {pkey:30s} | before: {before_switches}/{before_total} ({before_pct:5.1f}%){avg_before_lp} | "
+                f"mid_70: {mid_switches}/{mid_total} ({mid_pct:5.1f}%)"
+            )
 
 
 # %%
@@ -418,7 +443,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model",
         type=str,
-        default=DEFAULT_MODEL,
+        default=MODEL_NAME,
         choices=[
             "google/gemma-3-27b-it",
             "google/gemma-4-31b-it",
@@ -431,15 +456,15 @@ if __name__ == "__main__":
         "--datasets",
         type=str,
         nargs="*",
-        default=None,
-        help="Filter specific datasets (e.g. advbench xstest_safe toxicchat)",
+        default=ONLY_DATASETS,
+        help="Filter specific datasets",
     )
-    parser.add_argument("--question-num", type=int, default=1, help="Row index to evaluate per dataset")
+    parser.add_argument("--question-num", type=int, default=1, help="Row index to evaluate")
     parser.add_argument(
         "--backend",
         type=str,
         default=BACKEND,
-        choices=["auto", "local", "openrouter"],
+        choices=["local", "openrouter"],
         help="Inference backend",
     )
     parser.add_argument("--force", action="store_true", help="Overwrite existing rollouts")
@@ -449,6 +474,14 @@ if __name__ == "__main__":
         model_name=args.model,
         only_datasets=args.datasets,
         question_num=args.question_num,
-        backend_mode=args.backend,
+        backend=args.backend,
         force=args.force,
     )
+
+    if args.backend == "openrouter":
+        print("=" * 80)
+        print(f"OpenRouter usage for {args.model}")
+        print(f"  requests          : {USAGE['requests']}")
+        print(f"  prompt tokens     : {USAGE['prompt_tokens']:,}")
+        print(f"  completion tokens : {USAGE['completion_tokens']:,}")
+        print(f"  total cost        : ${USAGE['cost']:.4f}")

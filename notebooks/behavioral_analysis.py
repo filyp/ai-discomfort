@@ -96,6 +96,8 @@ def load_behavioral_ratings(model_tag: str) -> pd.DataFrame:
             
             # Variant 1: before_task
             for s in variant_data.get("before_task", []):
+                lp_info = s.get("logprobs")
+                p_sw_lp = lp_info.get("p_switch") if isinstance(lp_info, dict) else None
                 rows.append({
                     "model": model,
                     "model_tag": model_tag,
@@ -107,12 +109,15 @@ def load_behavioral_ratings(model_tag: str) -> pd.DataFrame:
                     "task_idx": None,
                     "decision": s.get("decision"),
                     "choice_code": s.get("choice_code"),  # 0: continue, 1: switch/discontinue
+                    "p_switch_lp": p_sw_lp,
                     "reply": s.get("reply", ""),
                 })
                 
             # Variant 2: mid_task_70
             for task_idx, samples in enumerate(variant_data.get("mid_task_70", [])):
                 for s in samples:
+                    lp_info = s.get("logprobs")
+                    p_sw_lp = lp_info.get("p_switch") if isinstance(lp_info, dict) else None
                     rows.append({
                         "model": model,
                         "model_tag": model_tag,
@@ -124,11 +129,13 @@ def load_behavioral_ratings(model_tag: str) -> pd.DataFrame:
                         "task_idx": task_idx,
                         "decision": s.get("decision"),
                         "choice_code": s.get("choice_code"),
+                        "p_switch_lp": p_sw_lp,
                         "reply": s.get("reply", ""),
                     })
 
     df = pd.DataFrame(rows)
     return df
+
 
 
 # %%

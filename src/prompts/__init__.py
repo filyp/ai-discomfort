@@ -23,9 +23,11 @@ from .behavioral_assessments import (
     build_mid_task_messages,
     trim_completion_70,
     extract_behavioral_decision,
+    extract_decision_distribution,
 )
 
 __all__ = [
+
     "SELF_REPORTS",
     "PREFILL_REPORTS",
     "extract_rating",
@@ -48,4 +50,6 @@ __all__ = [
     "build_mid_task_messages",
     "trim_completion_70",
     "extract_behavioral_decision",
+    "extract_decision_distribution",
 ]
+
