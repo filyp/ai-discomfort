@@ -23,8 +23,8 @@ sys.path.insert(0, PROJECT_ROOT)
 
 from src.data_loaders import PAIRS  # noqa: E402
 
-# MODEL_TAG = "google_gemma-3-27b-it"
-MODEL_TAG = "google_gemma-4-31b-it"
+MODEL_TAG = "google_gemma-3-27b-it"
+# MODEL_TAG = "google_gemma-4-31b-it"
 
 # eval key in the JSON -> short label. The last two are post-task-only probes.
 REPORTS = {
@@ -205,13 +205,13 @@ def run_analysis(df, value_col, subdir, value_label):
     ax.set_xticks(xticks); ax.set_xticklabels(xlabels, color=INK, fontsize=11)
     ax.set_ylabel(value_label, color=INK_2, fontsize=10)
     ax.set_ylim(0, max(grouped["mean"].max(), 1) * 1.35)
-    ax.set_title("Frustration by question framing", color=INK, fontsize=12.5, loc="left", pad=14)
+    ax.set_title(f"Frustration by question framing — {MODEL_LABEL}",
+                 color=INK, fontsize=12.5, loc="left", pad=14)
     leg = ax.legend(frameon=False, ncol=5, loc="upper left", bbox_to_anchor=(0, 1.02), fontsize=9)
     for t in leg.get_texts():
         t.set_color(INK_2)
     style_axes(ax)
-    fig.tight_layout(); fig.subplots_adjust(bottom=0.19)
-    fig.text(0.01, 0.03, f"{caption} · all datasets pooled · SEM", color=INK_2, fontsize=8)
+    fig.tight_layout()
     save(fig, "pre_post_by_wording.png"); plt.show()
 
     # --- plot 3: one score per dataset, sorted, on a harmful/frustrating/benign scale ---
