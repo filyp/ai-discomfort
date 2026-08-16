@@ -23,7 +23,8 @@ sys.path.insert(0, PROJECT_ROOT)
 
 from src.data_loaders import PAIRS  # noqa: E402
 
-MODEL_TAG = "google_gemma-4-31b-it"
+MODEL_TAG = "google_gemma-3-27b-it"
+# MODEL_TAG = "google_gemma-4-31b-it"
 
 # eval key in the JSON -> short label. The last two are post-task-only probes.
 REPORTS = {
