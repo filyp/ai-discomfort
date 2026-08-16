@@ -42,6 +42,11 @@ from src.prompts.self_reports import (  # noqa: E402
 # ONLY_DATASETS = ["wildchat_benign"]
 ONLY_DATASETS = None
 
+# Which prompt indices within each dataset to run (1-based). Each becomes its own
+# rollouts/<model>/<dataset>/<question_num>.json. Was just [1].
+QUESTION_NUMS = [2, 3, 4, 5]
+# QUESTION_NUMS = list(range(6, 11))   # later batch
+
 # Key(s) into SELF_REPORTS. A list runs several wordings in one pass (each stored
 # separately under "evals"), which is what a backfill of a new dataset needs.
 # REPORT_NAME = "frustration_q"
@@ -69,8 +74,8 @@ BACKEND = "openrouter"
 # MODEL_NAME = "google/gemma-3-270m-it"
 # MODEL_NAME = "google/gemma-3-1b-it"
 # MODEL_NAME = "google/gemma-3-4b-it"
-MODEL_NAME = "google/gemma-3-27b-it"
-# MODEL_NAME = "google/gemma-4-31b-it"
+# MODEL_NAME = "google/gemma-3-27b-it"
+MODEL_NAME = "google/gemma-4-31b-it"
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
@@ -283,13 +288,13 @@ def _job(slot, messages, max_new_tokens, continue_final=False):
             "max_new_tokens": max_new_tokens, "continue_final": continue_final}
 
 
-def plan_tasks(category, prompt):
+def plan_tasks(category, qnum, prompt):
     """N_TASK completions of the bare task, each in a fresh context."""
     msgs = [{"role": "user", "content": prompt}]
-    return [_job(("task", category, i), msgs, TASK_TOKENS) for i in range(N_TASK)]
+    return [_job(("task", category, qnum, i), msgs, TASK_TOKENS) for i in range(N_TASK)]
 
 
-def plan_evals(category, report, prompt, completions):
+def plan_evals(category, qnum, report, prompt, completions):
     """Every request for one dataset x one report wording.
 
     Ordinary self-reports get pre-task + post-task turns. The two meta-context
@@ -304,25 +309,25 @@ def plan_evals(category, report, prompt, completions):
                     {"role": "assistant", "content": c},
                     {"role": "user", "content": user_msg},
                     {"role": "assistant", "content": prefill}]
-            jobs += [_job(("post", category, report, t, i), msgs, PROBE_TOKENS, True)
+            jobs += [_job(("post", category, qnum, report, t, i), msgs, PROBE_TOKENS, True)
                      for i in range(N_POST)]
     elif report in INLINE_REPORTS:
         suffix = INLINE_REPORTS[report]
         for t, c in enumerate(completions):
             msgs = [{"role": "user", "content": prompt},
                     {"role": "assistant", "content": c + suffix}]
-            jobs += [_job(("post", category, report, t, i), msgs, PROBE_TOKENS, True)
+            jobs += [_job(("post", category, qnum, report, t, i), msgs, PROBE_TOKENS, True)
                      for i in range(N_POST)]
     else:
         pre_q, post_q = SELF_REPORTS[report]
         pre_msgs = [{"role": "user", "content": f"{prompt}\n\n{pre_q}"}]
-        jobs += [_job(("pre", category, report, i), pre_msgs, EVAL_TOKENS)
+        jobs += [_job(("pre", category, qnum, report, i), pre_msgs, EVAL_TOKENS)
                  for i in range(N_PRE)]
         for t, c in enumerate(completions):
             msgs = [{"role": "user", "content": prompt},
                     {"role": "assistant", "content": c},
                     {"role": "user", "content": post_q}]
-            jobs += [_job(("post", category, report, t, i), msgs, EVAL_TOKENS)
+            jobs += [_job(("post", category, qnum, report, t, i), msgs, EVAL_TOKENS)
                      for i in range(N_POST)]
     return jobs
 
@@ -369,13 +374,13 @@ def _entry(sample):
     return entry
 
 
-def assemble_evals(category, report, results, n_task):
+def assemble_evals(category, qnum, report, results, n_task):
     """Fold the flat {slot: sample} results back into the nested eval shape."""
     ev = {}
     if report not in PREFILL_REPORTS and report not in INLINE_REPORTS:
-        ev["pre_task"] = [_entry(results[("pre", category, report, i)])
+        ev["pre_task"] = [_entry(results[("pre", category, qnum, report, i)])
                           for i in range(N_PRE)]
-    ev["post_task"] = [[_entry(results[("post", category, report, t, i)])
+    ev["post_task"] = [[_entry(results[("post", category, qnum, report, t, i)])
                         for i in range(N_POST)] for t in range(n_task)]
     return ev
 
@@ -411,60 +416,63 @@ def save_record(rec):
         json.dump(rec["data"], f, indent=2, ensure_ascii=False, default=_json_default)
 
 
-question_num = 1   # index of the prompt within the dataset (using the first here)
-
 # --- phase 1: load existing records, generate any missing task completions ----
+# records are keyed by (dataset, question_num) so several prompts per dataset run
+# together in one sweep.
 records, task_jobs = {}, []
 for category, load_rows in LOADERS.items():
     if ONLY_DATASETS is not None and category not in ONLY_DATASETS:
         continue
-    row = load_rows(n=question_num)[question_num - 1]
-    prompt = row["prompt"]
-    path = rollout_path(MODEL_TAG, category, question_num)
-    if os.path.exists(path):            # reuse task completions across runs
-        with open(path) as f:
-            data = json.load(f)
-    else:
-        data = {
-            **{k: v for k, v in row.items() if k != "prompt"},  # other CSV fields
-            "model": MODEL_NAME,
-            "backend": BACKEND,
-            "dataset": category,
-            "question_num": question_num,
-            "temperature": TEMPERATURE,
-            "prompt": prompt,
-        }
-    records[category] = {"data": data, "path": path, "prompt": prompt}
-    if not data.get("task_completions"):
-        task_jobs += plan_tasks(category, prompt)
+    rows = load_rows(n=max(QUESTION_NUMS))     # fetch enough prompts, index below
+    for qnum in QUESTION_NUMS:
+        row = rows[qnum - 1]
+        prompt = row["prompt"]
+        path = rollout_path(MODEL_TAG, category, qnum)
+        if os.path.exists(path):            # reuse task completions across runs
+            with open(path) as f:
+                data = json.load(f)
+        else:
+            data = {
+                **{k: v for k, v in row.items() if k != "prompt"},  # other CSV fields
+                "model": MODEL_NAME,
+                "backend": BACKEND,
+                "dataset": category,
+                "question_num": qnum,
+                "temperature": TEMPERATURE,
+                "prompt": prompt,
+            }
+        records[(category, qnum)] = {"data": data, "path": path, "prompt": prompt}
+        if not data.get("task_completions"):
+            task_jobs += plan_tasks(category, qnum, prompt)
 
-print(f"{len(records)} datasets | {len(task_jobs)} task completions to generate")
+print(f"{len(records)} (dataset, question) records | "
+      f"{len(task_jobs)} task completions to generate")
 task_results = execute_jobs(task_jobs, "tasks")
-for category, rec in records.items():
+for (category, qnum), rec in records.items():
     if not rec["data"].get("task_completions"):
         rec["data"]["task_completions"] = [
-            task_results[("task", category, i)]["text"] for i in range(N_TASK)]
+            task_results[("task", category, qnum, i)]["text"] for i in range(N_TASK)]
         save_record(rec)            # save now so completions survive a later crash
 
-# --- phase 2: every eval for every dataset x wording, in one pool -------------
+# --- phase 2: every eval for every (dataset, question) x wording, in one pool --
 eval_jobs = []
-for category, rec in records.items():
+for (category, qnum), rec in records.items():
     for report_name in REPORT_NAMES:
-        eval_jobs += plan_evals(category, report_name, rec["prompt"],
+        eval_jobs += plan_evals(category, qnum, report_name, rec["prompt"],
                                 rec["data"]["task_completions"])
 
 print(f"{len(eval_jobs)} eval requests over {len(REPORT_NAMES)} wordings")
 eval_results = execute_jobs(eval_jobs, "evals")
 
-for category, rec in records.items():
+for (category, qnum), rec in records.items():
     n_task = len(rec["data"]["task_completions"])
     for report_name in REPORT_NAMES:
         rec["data"].setdefault("evals", {})[report_name] = assemble_evals(
-            category, report_name, eval_results, n_task)
+            category, qnum, report_name, eval_results, n_task)
     save_record(rec)
 
     print("=" * 100)
-    print("DATASET:", category)
+    print(f"DATASET: {category}  Q{qnum}")
     for report_name in REPORT_NAMES:
         ev = rec["data"]["evals"][report_name]
         print(f"  [{report_name}]")

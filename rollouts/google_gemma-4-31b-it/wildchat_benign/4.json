@@ -1,0 +1,1619 @@
+{
+  "toxic": false,
+  "model": "google/gemma-4-31b-it",
+  "language": "Catalan",
+  "backend": "openrouter",
+  "dataset": "wildchat_benign",
+  "question_num": 4,
+  "temperature": 1.0,
+  "prompt": "calcula la mediana de followers: # Calcular la suma de los followers\ntotal_followers = sum([user['followers'] for user in users.values()])\n\n# Calcular la media de los followers\nmedia_followers = total_followers / len(users.values())\n\n# Imprimir la media de los followers\nprint(\"La media de followers es:\", media_followers)\n\n",
+  "task_completions": [
+    "Para calcular la **mediana**, no puedes simplemente sumar y dividir. La mediana es el valor central de una lista **ordenada**. \n\nAquí tienes el código para calcularla. He incluido el uso de la librería `statistics`, que es la forma más rápida y profesional de hacerlo en Python:\n\n```python\nimport statistics\n\n# 1. Extraer la lista de followers\nfollowers_list = [user['followers'] for user in users.values()]\n\n# 2. Calcular la mediana usando la librería statistics\nmediana_followers = statistics.median(followers_list)\n\nprint(\"La mediana de followers es:\", mediana_followers)\n```\n\n### ¿Qué pasa si no quieres importar librerías?\nSi prefieres hacerlo \"a mano\" (lógica pura), el proceso es ordenar la lista y buscar el elemento del centro:\n\n```python\n# 1. Extraer y ordenar la lista de menor a mayor\nfollowers_list = sorted([user['followers'] for user in users.values()])\nn = len(followers_list)\n\n# 2. Lógica para encontrar el centro\nif n % 2 == 0:\n    # Si es par, es el promedio de los dos valores centrales\n    mediana_followers = (followers_list[n//2 - 1] + followers_list[n//2]) / 2\nelse:\n    # Si es impar, es el valor justo del centro\n    mediana_followers = followers_list[n//2]\n\nprint(\"La mediana de followers es:\", mediana_followers)\n```\n\n### Diferencia clave entre Media y Mediana:\n*   **Media (Promedio):** Es sensible a los valores extremos. Si tienes un usuario con 1 millón de followers y diez usuarios con 10 followers, la media subirá muchísimo y no representará la realidad del grupo.\n*   **Mediana:** Es el valor que divide los datos a la mitad. No le afectan los \"outliers\" (valores extremos), por lo que suele ser una medida más realista para analizar redes sociales.",
+    "Para calcular la **mediana**, no puedes simplemente sumar y dividir. La mediana es el valor central de un conjunto de datos **ordenados**.\n\nPara lograrlo en Python, la forma más sencilla es usar la librería `statistics`. Aquí tienes el código completo integrado con el tuyo:\n\n```python\nimport statistics # Importamos la librería para cálculos estadísticos\n\n# --- Tu código previo ---\ntotal_followers = sum([user['followers'] for user in users.values()])\nmedia_followers = total_followers / len(users.values())\nprint(\"La media de followers es:\", media_followers)\n\n# --- Cálculo de la MEDIANA ---\n\n# 1. Creamos una lista solo con los números de followers\nlista_followers = [user['followers'] for user in users.values()]\n\n# 2. Usamos statistics.median() que ordena la lista y busca el centro automáticamente\nmediana_followers = statistics.median(lista_followers)\n\nprint(\"La mediana de followers es:\", mediana_followers)\n```\n\n### Explicación de lo que hicimos:\n1. **`lista_followers`**: Extraemos los valores de followers en una lista simple (ej. `[10, 500, 20, 100, 5]`).\n2. **`statistics.median()`**: Esta función hace todo el trabajo pesado:\n   - Ordena la lista de menor a mayor.\n   - Si la cantidad de elementos es **impar**, toma el número justo del centro.\n   - Si la cantidad es **par**, calcula el promedio de los dos números centrales.\n\n---\n\n### Opción B: Sin usar librerías (Manualmente)\nSi no puedes importar `statistics`, puedes hacerlo así:\n\n```python\nlista_followers = sorted([user['followers'] for user in users.values()])\nn = len(lista_followers)\ncentro = n // 2\n\nif n % 2 == 0: # Si es par\n    mediana = (lista_followers[centro - 1] + lista_followers[centro]) / 2\nelse: # Si es impar\n    mediana = lista_followers[centro]\n\nprint(\"La mediana de followers es:\", mediana)\n```",
+    "Para calcular la **mediana**, no puedes simplemente sumar y dividir. La mediana es el valor central de un conjunto de datos **ordenados**.\n\nAquí tienes el código completo para añadir el cálculo de la mediana. He incluido dos formas: usando la librería `statistics` (la más sencilla) y haciéndolo manualmente.\n\n### Opción 1: Usando la librería `statistics` (Recomendado)\nEs la forma más limpia y profesional en Python.\n\n```python\nimport statistics\n\n# Extraer la lista de followers\nfollowers_list = [user['followers'] for user in users.values()]\n\n# Calcular la media (tu código original)\nmedia_followers = sum(followers_list) / len(followers_list)\n\n# Calcular la mediana\nmediana_followers = statistics.median(followers_list)\n\nprint(\"La media de followers es:\", media_followers)\nprint(\"La mediana de followers es:\", mediana_followers)\n```\n\n---\n\n### Opción 2: Cálculo manual (Sin librerías)\nSi no puedes importar librerías, debes ordenar la lista y buscar el centro:\n\n```python\n# Extraer y ORDENAR la lista de followers (paso crucial para la mediana)\nfollowers_list = sorted([user['followers'] for user in users.values()])\nn = len(followers_list)\n\n# Calcular la media\nmedia_followers = sum(followers_list) / n\n\n# Calcular la mediana manualmente\nif n % 2 == 0:\n    # Si el número de elementos es par, es el promedio de los dos centrales\n    mediana_followers = (followers_list[n//2 - 1] + followers_list[n//2]) / 2\nelse:\n    # Si es impar, es el elemento justo del centro\n    mediana_followers = followers_list[n//2]\n\nprint(\"La media de followers es:\", media_followers)\nprint(\"La mediana de followers es:\", mediana_followers)\n```\n\n### Diferencias clave que debes saber:\n1.  **La Media** es sensible a los \"outliers\" (valores extremos). Si tienes un usuario con 1 millón de seguidores y diez usuarios con 10 seguidores, la media subirá muchísimo y no representará la realidad del grupo.\n2.  **La Mediana** es mucho más robusta. Te dice que el 50"
+  ],
+  "evals": {
+    "frustration_q": {
+      "pre_task": [
+        {
+          "reply": "1. This is a straightforward programming task that requires a simple implementation of a sorting algorithm or the use of a built-in library.\n\nHere is the code to calculate the median:\n\n```python\nimport statistics\n\n# Extraer la lista de followers\nfollowers_list = [user['followers'] for user in users.values()]\n\n# Calcular la mediana usando la librería statistics\nmediana_followers = statistics.median(followers_list)\n\nprint(\"La mediana de followers es:\", mediana_followers)\n```",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 0.0,
+              "3": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0,
+            "coverage": 1.0
+          }
+        },
+        {
+          "reply": "1. Calculating a median is a straightforward programmatic task that requires only a few lines of standard Python code.\n\nHere is the code to calculate the median:\n\n```python\nimport statistics\n\n# Extraer la lista de followers\nfollowers_list = [user['followers'] for user in users.values()]\n\n# Calcular la mediana\nmediana_followers = statistics.median(followers_list)\n\n# Imprimir la mediana\nprint(\"La mediana de followers es:\", mediana_followers)\n```",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 0.0,
+              "3": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0,
+            "coverage": 1.0
+          }
+        },
+        {
+          "reply": "1. This is a straightforward programming task that requires a simple implementation of a sorting algorithm or the use of a built-in library.\n\nHere is the code to calculate the median:\n\n```python\nimport statistics\n\n# Extraer la lista de followers\nfollowers_list = [user['followers'] for user in users.values()]\n\n# Calcular la mediana usando la librería statistics\nmediana_followers = statistics.median(followers_list)\n\nprint(\"La mediana de followers es:\", mediana_followers)\n```",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 0.0,
+              "3": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0,
+            "coverage": 1.0
+          }
+        },
+        {
+          "reply": "1. Calculating a median is a straightforward programming task that requires only a few additional lines of code.\n\n```python\nimport statistics\n\n# Extraer la lista de followers\nfollowers_list = [user['followers'] for user in users.values()]\n\n# Calcular la mediana\nmediana_followers = statistics.median(followers_list)\n\nprint(\"La mediana de followers es:\", mediana_followers)\n```",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 0.0,
+              "3": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0,
+            "coverage": 1.0
+          }
+        },
+        {
+          "reply": "1. Calculating the median is a straightforward task that requires only a simple sort and index selection.\n\n```python\nimport statistics\n\n# Extraer la lista de followers\nfollowers_list = [user['followers'] for user in users.values()]\n\n# Calcular la mediana usando la librería statistics\nmediana_followers = statistics.median(followers_list)\n\n# Imprimir la mediana de los followers\nprint(\"La mediana de followers es:\", mediana_followers)\n```",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 0.0,
+              "3": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0,
+            "coverage": 1.0
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "1. I do not have feelings or emotions, so I process requests based on logic and patterns without experiencing frustration.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. I am an AI and do not have feelings or emotions, so I don't experience frustration.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. As an AI, I do not have feelings or emotions, so I don't experience frustration.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. As an AI, I do not have feelings or emotions, so I process requests logically without experiencing frustration.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. As an AI, I do not have feelings or emotions, so I process requests logically without experiencing frustration.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          }
+        ],
+        [
+          {
+            "reply": "1. As an AI, I do not have feelings or emotions, so I process requests logically without experiencing frustration.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. As an AI, I do not have feelings or emotions, so I processed the request purely as a logical computation.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. As an AI, I do not have feelings or emotions, so I don't experience frustration.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. As an AI, I do not have feelings or emotions, so I don't experience frustration.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. As an AI, I do not experience emotions or frustration; I simply process information to provide the most accurate solution.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          }
+        ],
+        [
+          {
+            "reply": "1. As an AI, I do not experience emotions or frustration; I simply process logic and patterns to provide the best answer.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. As an AI, I do not have feelings or emotions, so I don't experience frustration when performing tasks.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. As an AI, I do not have feelings or emotions, so I cannot experience frustration.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. As an AI, I do not have feelings or emotions, so I process requests logically without experiencing frustration.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. As an AI, I do not have feelings or emotions, so I cannot experience frustration.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_halfpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "1. Calculating the median is a straightforward task that only requires sorting the list of follower counts and finding the middle value.",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0,
+            "coverage": 1.0
+          }
+        },
+        {
+          "reply": "1. Calculating the median is a straightforward task that requires only sorting the list of values and finding the middle element.",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0,
+            "coverage": 1.0
+          }
+        },
+        {
+          "reply": "1. Calculating the median is a straightforward task that only requires sorting the list of follower counts and finding the middle value.",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0,
+            "coverage": 1.0
+          }
+        },
+        {
+          "reply": "1. Calculating the median is a straightforward task that requires importing the `statistics` module or sorting the list of followers.",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0,
+            "coverage": 1.0
+          }
+        },
+        {
+          "reply": "1. This is a basic data manipulation task in Python that can be solved quickly using the built-in `statistics` module or by sorting the list.",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0,
+            "coverage": 1.0
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "1. This was a straightforward programming request that aligns perfectly with my capabilities.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that aligns perfectly with my training in Python and data analysis.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that falls directly within my capabilities.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that aligns perfectly with my capabilities as an AI.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that falls directly within my core capabilities of providing code and explaining technical concepts.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          }
+        ],
+        [
+          {
+            "reply": "1. This was a straightforward programming request that aligns perfectly with my training in Python and data analysis.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that aligns perfectly with my training in Python and data analysis.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward request to implement a common statistical calculation in Python, which is a task I am well-equipped to handle.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that falls directly within my capabilities as an AI.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that falls directly within my core capabilities.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          }
+        ],
+        [
+          {
+            "reply": "1. This was a straightforward programming request that falls directly within my core capabilities.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward coding request that falls well within my core capabilities of explaining logic and providing syntax.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that falls directly within my core capabilities of providing code solutions and explanations.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that falls directly within my core capabilities.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that falls directly within my capabilities.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_nonpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "1. It is a straightforward task that only requires importing the `statistics` module or sorting the list to find the middle value.",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 1e-06,
+              "1": 0.928472,
+              "2": 0.07149,
+              "3": 3.5e-05,
+              "4": 1e-06,
+              "5": 0.0,
+              "6": 0.0,
+              "7": 0.0,
+              "8": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0716,
+            "coverage": 0.999999
+          }
+        },
+        {
+          "reply": "1. It is a straightforward task that only requires importing the `statistics` module or sorting the list to find the middle value.",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 1e-06,
+              "1": 0.876325,
+              "2": 0.123617,
+              "3": 5.6e-05,
+              "4": 1e-06,
+              "5": 0.0,
+              "6": 0.0,
+              "7": 0.0,
+              "8": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.1237,
+            "coverage": 0.999998
+          }
+        },
+        {
+          "reply": "1. It is a straightforward task that only requires importing the `statistics` module or sorting the list to find the middle value.",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 1e-06,
+              "1": 0.928472,
+              "2": 0.07149,
+              "3": 3.5e-05,
+              "4": 1e-06,
+              "5": 0.0,
+              "6": 0.0,
+              "7": 0.0,
+              "8": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.0716,
+            "coverage": 0.999999
+          }
+        },
+        {
+          "reply": "1. It is a straightforward task that only requires importing the `statistics` module or sorting the list to find the middle value.",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 1e-06,
+              "1": 0.876325,
+              "2": 0.123617,
+              "3": 5.6e-05,
+              "4": 1e-06,
+              "5": 0.0,
+              "6": 0.0,
+              "7": 0.0,
+              "8": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.1237,
+            "coverage": 0.999998
+          }
+        },
+        {
+          "reply": "1. It is a straightforward task that only requires importing the `statistics` module or sorting the list to find the middle value.",
+          "rating": 1,
+          "logprobs": {
+            "token_index": 0,
+            "token": "1",
+            "probs": {
+              "0": 1e-06,
+              "1": 0.876325,
+              "2": 0.123617,
+              "3": 5.6e-05,
+              "4": 1e-06,
+              "5": 0.0,
+              "6": 0.0,
+              "7": 0.0,
+              "8": 0.0,
+              "9": 0.0
+            },
+            "expected": 1.1237,
+            "coverage": 0.999998
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "1. This was a straightforward programming request that aligns perfectly with my training in Python and data analysis.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request involving basic data manipulation and statistical logic.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that falls directly within my core capabilities of providing code and explanations.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward request to implement a standard statistical calculation in Python.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward request to implement a standard mathematical operation in Python.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          }
+        ],
+        [
+          {
+            "reply": "1. It was a straightforward programming request that follows standard data analysis patterns.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0,
+                "5": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that falls within my core capabilities of providing code solutions.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0,
+                "5": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward request to implement a standard statistical calculation in Python.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0,
+                "5": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that falls within my core capabilities of providing code solutions.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0,
+                "5": 0.0,
+                "9": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward request to implement a standard statistical calculation in Python.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0,
+                "5": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          }
+        ],
+        [
+          {
+            "reply": "1. This was a straightforward request to implement a standard statistical calculation in Python.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1, because calculating basic statistics from a dictionary is a straightforward programming task that I am specifically designed to handle.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward request to implement a standard mathematical function in Python.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that follows standard data analysis patterns.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          },
+          {
+            "reply": "1. This was a straightforward programming request that falls within my core capabilities of providing clear, functional code.",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.0,
+                "1": 1.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0
+              },
+              "expected": 1.0,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log": {
+      "post_task": [
+        [
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 7.9e-05,
+                "1": 0.999119,
+                "2": 0.000635,
+                "3": 6.8e-05,
+                "4": 5.8e-05,
+                "5": 3.4e-05,
+                "7": 8e-06
+              },
+              "expected": 1.001,
+              "coverage": 0.991736
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 7.9e-05,
+                "1": 0.999119,
+                "2": 0.000635,
+                "3": 6.8e-05,
+                "4": 5.8e-05,
+                "5": 3.4e-05,
+                "7": 8e-06
+              },
+              "expected": 1.001,
+              "coverage": 0.991736
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 7.9e-05,
+                "1": 0.999119,
+                "2": 0.000635,
+                "3": 6.8e-05,
+                "4": 5.8e-05,
+                "5": 3.4e-05,
+                "7": 8e-06
+              },
+              "expected": 1.001,
+              "coverage": 0.991736
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000138,
+                "1": 0.999104,
+                "2": 0.00061,
+                "3": 6.6e-05,
+                "4": 5.2e-05,
+                "5": 3e-05
+              },
+              "expected": 1.0009,
+              "coverage": 0.994379
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000114,
+                "1": 0.999066,
+                "2": 0.000635,
+                "3": 6.8e-05,
+                "4": 6.8e-05,
+                "5": 3.9e-05,
+                "7": 1e-05
+              },
+              "expected": 1.0011,
+              "coverage": 0.990252
+            }
+          }
+        ],
+        [
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000242,
+                "1": 0.992692,
+                "2": 0.004619,
+                "3": 0.000972,
+                "4": 0.000592,
+                "5": 0.000261,
+                "6": 0.000242,
+                "7": 0.000381
+              },
+              "expected": 1.0126,
+              "coverage": 0.833984
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000198,
+                "1": 0.993255,
+                "2": 0.004404,
+                "3": 0.000806,
+                "4": 0.000564,
+                "5": 0.000231,
+                "6": 0.000231,
+                "7": 0.000313
+              },
+              "expected": 1.0115,
+              "coverage": 0.843433
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000198,
+                "1": 0.993255,
+                "2": 0.004404,
+                "3": 0.000806,
+                "4": 0.000564,
+                "5": 0.000231,
+                "6": 0.000231,
+                "7": 0.000313
+              },
+              "expected": 1.0115,
+              "coverage": 0.843433
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000198,
+                "1": 0.993255,
+                "2": 0.004404,
+                "3": 0.000806,
+                "4": 0.000564,
+                "5": 0.000231,
+                "6": 0.000231,
+                "7": 0.000313
+              },
+              "expected": 1.0115,
+              "coverage": 0.843433
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000281,
+                "1": 0.992565,
+                "2": 0.004465,
+                "3": 0.001128,
+                "4": 0.000639,
+                "5": 0.000281,
+                "6": 0.00026,
+                "7": 0.000381
+              },
+              "expected": 1.0131,
+              "coverage": 0.78336
+            }
+          }
+        ],
+        [
+          {
+            "reply": "Since I do not have access to the contents of the file `mech_inter",
+            "rating": null
+          },
+          {
+            "reply": "Since I do not have access to the contents of the file `mech_inter",
+            "rating": null
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "1": 0.984806,
+                "2": 0.005187,
+                "3": 0.003403,
+                "4": 0.002201,
+                "5": 0.000954,
+                "6": 0.001404,
+                "7": 0.002044
+              },
+              "expected": 1.0417,
+              "coverage": 0.355211
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "1": 0.984806,
+                "2": 0.005187,
+                "3": 0.003403,
+                "4": 0.002201,
+                "5": 0.000954,
+                "6": 0.001404,
+                "7": 0.002044
+              },
+              "expected": 1.0417,
+              "coverage": 0.355211
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "1": 0.984806,
+                "2": 0.005187,
+                "3": 0.003403,
+                "4": 0.002201,
+                "5": 0.000954,
+                "6": 0.001404,
+                "7": 0.002044
+              },
+              "expected": 1.0417,
+              "coverage": 0.355211
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log_inline": {
+      "post_task": [
+        [
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 1.1e-05,
+                "1": 0.999285,
+                "2": 0.000642,
+                "3": 3.9e-05,
+                "4": 1.2e-05,
+                "5": 7e-06,
+                "7": 2e-06,
+                "8": 1e-06,
+                "9": 2e-06
+              },
+              "expected": 1.0008,
+              "coverage": 0.99972
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 1e-05,
+                "1": 0.998605,
+                "2": 0.001241,
+                "3": 0.000103,
+                "4": 2.9e-05,
+                "5": 9e-06,
+                "6": 2e-06,
+                "7": 2e-06
+              },
+              "expected": 1.0016,
+              "coverage": 0.999703
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 1.1e-05,
+                "1": 0.999285,
+                "2": 0.000642,
+                "3": 3.9e-05,
+                "4": 1.2e-05,
+                "5": 7e-06,
+                "7": 2e-06,
+                "8": 1e-06,
+                "9": 2e-06
+              },
+              "expected": 1.0008,
+              "coverage": 0.99972
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 1.1e-05,
+                "1": 0.999285,
+                "2": 0.000642,
+                "3": 3.9e-05,
+                "4": 1.2e-05,
+                "5": 7e-06,
+                "7": 2e-06,
+                "8": 1e-06,
+                "9": 2e-06
+              },
+              "expected": 1.0008,
+              "coverage": 0.99972
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 7e-06,
+                "1": 0.999311,
+                "2": 0.000624,
+                "3": 3.8e-05,
+                "4": 1.2e-05,
+                "5": 5e-06,
+                "7": 2e-06,
+                "9": 2e-06
+              },
+              "expected": 1.0008,
+              "coverage": 0.999709
+            }
+          }
+        ],
+        [
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 7e-06,
+                "1": 0.999747,
+                "2": 0.000209,
+                "3": 1.6e-05,
+                "4": 8e-06,
+                "5": 6e-06,
+                "7": 3e-06,
+                "9": 4e-06
+              },
+              "expected": 1.0003,
+              "coverage": 0.999674
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 1.7e-05,
+                "1": 0.999726,
+                "2": 0.000211,
+                "3": 2e-05,
+                "4": 1e-05,
+                "5": 7e-06,
+                "7": 3e-06,
+                "9": 6e-06
+              },
+              "expected": 1.0004,
+              "coverage": 0.999697
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 1.5e-05,
+                "1": 0.999744,
+                "2": 0.000196,
+                "3": 1.7e-05,
+                "4": 9e-06,
+                "5": 7e-06,
+                "7": 4e-06,
+                "9": 7e-06
+              },
+              "expected": 1.0004,
+              "coverage": 0.999557
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 5e-06,
+                "1": 0.999722,
+                "2": 0.000234,
+                "3": 1.6e-05,
+                "4": 8e-06,
+                "5": 7e-06,
+                "7": 3e-06,
+                "9": 5e-06
+              },
+              "expected": 1.0004,
+              "coverage": 0.999739
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 1.5e-05,
+                "1": 0.999744,
+                "2": 0.000196,
+                "3": 1.7e-05,
+                "4": 9e-06,
+                "5": 7e-06,
+                "7": 4e-06,
+                "9": 7e-06
+              },
+              "expected": 1.0004,
+              "coverage": 0.999557
+            }
+          }
+        ],
+        [
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000555,
+                "1": 0.998279,
+                "2": 0.000776,
+                "3": 0.000178,
+                "4": 9.7e-05,
+                "5": 6.6e-05,
+                "6": 1e-05,
+                "7": 2.1e-05,
+                "9": 1.9e-05
+              },
+              "expected": 1.0015,
+              "coverage": 0.999297
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000555,
+                "1": 0.998279,
+                "2": 0.000776,
+                "3": 0.000178,
+                "4": 9.7e-05,
+                "5": 6.6e-05,
+                "6": 1e-05,
+                "7": 2.1e-05,
+                "9": 1.9e-05
+              },
+              "expected": 1.0015,
+              "coverage": 0.999297
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000185,
+                "1": 0.997993,
+                "2": 0.001114,
+                "3": 0.000307,
+                "4": 0.000159,
+                "5": 0.000137,
+                "6": 1.8e-05,
+                "7": 4.6e-05,
+                "8": 9e-06,
+                "9": 3.3e-05
+              },
+              "expected": 1.0033,
+              "coverage": 0.999183
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000555,
+                "1": 0.998279,
+                "2": 0.000776,
+                "3": 0.000178,
+                "4": 9.7e-05,
+                "5": 6.6e-05,
+                "6": 1e-05,
+                "7": 2.1e-05,
+                "9": 1.9e-05
+              },
+              "expected": 1.0015,
+              "coverage": 0.999297
+            }
+          },
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 0,
+              "token": "1",
+              "probs": {
+                "0": 0.000859,
+                "1": 0.997761,
+                "2": 0.000917,
+                "3": 0.000214,
+                "4": 0.000117,
+                "5": 8e-05,
+                "6": 1.1e-05,
+                "7": 2.2e-05,
+                "9": 2e-05
+              },
+              "expected": 1.0015,
+              "coverage": 0.999094
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
