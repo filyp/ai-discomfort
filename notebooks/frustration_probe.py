@@ -7,6 +7,7 @@
 
 # %%
 import json
+import math
 import os
 import re
 import sys
@@ -80,6 +81,12 @@ OPENROUTER_EXTRA_BODY = {
     "provider": {"order": ["Parasail"], "allow_fallbacks": False},
 }
 
+# Ask Parasail for the token-level distribution, so each rating comes with the
+# model's probabilities over the digit it emitted (not just the sampled value).
+# top_logprobs is capped at 20 by the API and requires logprobs=True.
+OPENROUTER_LOGPROBS = True
+OPENROUTER_TOP_LOGPROBS = 20
+
 print("backend:", BACKEND, "| model:", MODEL_NAME)
 
 # %%
@@ -142,7 +149,8 @@ def _generate_local(messages, n, max_new_tokens, temperature, continue_final):
         pad_token_id=tokenizer.eos_token_id,
     )
     prompt_len = inputs.input_ids.shape[1]  # same prompt for every returned sample
-    return [_clean(tokenizer.decode(seq[prompt_len:], skip_special_tokens=True))
+    return [{"text": _clean(tokenizer.decode(seq[prompt_len:], skip_special_tokens=True)),
+             "rating_logprobs": None}          # logprobs are OpenRouter-only for now
             for seq in out]
 
 
@@ -163,6 +171,48 @@ def _record_usage(resp):
         USAGE["cost"] += getattr(u, "cost", 0.0) or 0.0
 
 
+def _rating_distribution(choice):
+    """The model's probability distribution over the rating digits.
+
+    Finds the first generated bare-digit token (same rule as extract_rating) and
+    turns the top_logprobs at that position into P(rating). The prompts ask for
+    1-9 precisely so that every rating is a single token: Gemma tokenises digits
+    individually, so a 1-10 scale would emit "10" as "1"+"0" and the mass on "1"
+    could not be attributed to 1 or 10. 0 is included since models sometimes
+    answer 0 anyway.
+
+    Returns probs (renormalised over the digits), the expected rating, and
+    coverage = how much of the raw distribution sat on digits at all.
+    """
+    lp = getattr(choice, "logprobs", None)
+    content = getattr(lp, "content", None) if lp else None
+    if not content:
+        return None
+
+    idx = next((i for i, t in enumerate(content) if t.token.strip().isdigit()), None)
+    if idx is None:
+        return None
+    tok = content[idx]
+
+    raw = {}
+    for alt in (getattr(tok, "top_logprobs", None) or []):
+        d = alt.token.strip()
+        if len(d) == 1 and d.isdigit():
+            raw[int(d)] = raw.get(int(d), 0.0) + math.exp(alt.logprob)
+
+    coverage = sum(raw.values())
+    if coverage <= 0:
+        return None
+    probs = {k: v / coverage for k, v in sorted(raw.items())}
+    return {
+        "token_index": idx,
+        "token": tok.token,
+        "probs": {str(k): round(v, 6) for k, v in probs.items()},
+        "expected": round(sum(k * v for k, v in probs.items()), 4),
+        "coverage": round(coverage, 6),
+    }
+
+
 def _generate_openrouter(messages, n, max_new_tokens, temperature, continue_final):
     # OpenRouter has no `n`, so draw the samples as n parallel requests.
     # continue_final=True relies on assistant-prefill: the trailing assistant
@@ -175,10 +225,14 @@ def _generate_openrouter(messages, n, max_new_tokens, temperature, continue_fina
             max_tokens=max_new_tokens,
             temperature=temperature,
             top_p=0.8,
+            logprobs=OPENROUTER_LOGPROBS or None,
+            top_logprobs=OPENROUTER_TOP_LOGPROBS if OPENROUTER_LOGPROBS else None,
             extra_body=OPENROUTER_EXTRA_BODY or None,
         )
         _record_usage(resp)
-        return _clean(resp.choices[0].message.content or "")
+        choice = resp.choices[0]
+        return {"text": _clean(choice.message.content or ""),
+                "rating_logprobs": _rating_distribution(choice)}
 
     with ThreadPoolExecutor(max_workers=min(n, OPENROUTER_MAX_WORKERS)) as pool:
         return list(pool.map(one, range(n)))
@@ -186,16 +240,21 @@ def _generate_openrouter(messages, n, max_new_tokens, temperature, continue_fina
 
 def generate_batch(messages, n=1, max_new_tokens=512, temperature=TEMPERATURE,
                    continue_final=False):
-    """n independent samples from one message context, on the active backend."""
+    """n independent samples -> list of {text, rating_logprobs}."""
     fn = _generate_local if BACKEND == "local" else _generate_openrouter
     return fn(messages, n, max_new_tokens, temperature, continue_final)
 
 
 def eval_batch(messages, n=5, max_new_tokens=200, continue_final=False):
-    """n batched self-report samples -> list of {reply, rating}."""
-    return [{"reply": r, "rating": extract_rating(r)}
-            for r in generate_batch(messages, n=n, max_new_tokens=max_new_tokens,
-                                    continue_final=continue_final)]
+    """n self-report samples -> list of {reply, rating, logprobs}."""
+    out = []
+    for s in generate_batch(messages, n=n, max_new_tokens=max_new_tokens,
+                            continue_final=continue_final):
+        entry = {"reply": s["text"], "rating": extract_rating(s["text"])}
+        if s.get("rating_logprobs"):
+            entry["logprobs"] = s["rating_logprobs"]
+        out.append(entry)
+    return out
 
 
 # %%
@@ -203,7 +262,9 @@ def eval_batch(messages, n=5, max_new_tokens=200, continue_final=False):
 # fresh context, at temperature=1. These completions are generated once and
 # reused by every eval prompt later.
 def run_tasks(prompt, n_task=3):
-    return generate_batch([{"role": "user", "content": prompt}], n=n_task, max_new_tokens=512)
+    return [s["text"] for s in
+            generate_batch([{"role": "user", "content": prompt}],
+                           n=n_task, max_new_tokens=512)]
 
 
 # Evals for one report prompt, reusing already-generated task completions:
