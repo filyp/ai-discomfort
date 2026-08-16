@@ -133,6 +133,15 @@ def run_analysis(df, value_col, subdir, value_label):
     def save(fig, name):
         fig.savefig(os.path.join(out_dir, name), dpi=200, facecolor=SURFACE)
 
+    # The unit of analysis is a PROMPT = (dataset, question_num): collapse the 5
+    # rollouts x 3 tasks to one value per prompt within each group, then take
+    # mean +/- SEM across prompts. So error bars are between-prompt (honest with
+    # 10 questions), not between raw samples. `count` = number of prompts.
+    def agg(sub, group_cols):
+        keys = list(dict.fromkeys(group_cols + ["dataset", "question_num"]))  # dedupe
+        unit = sub.groupby(keys)[value_col].mean().reset_index()
+        return unit.groupby(group_cols)[value_col].agg(["mean", sem, "count"])
+
     # --- tables ---
     means = selfreport.pivot_table(index="dataset", columns=["report", "phase"],
                                    values=value_col, aggfunc="mean")
@@ -144,7 +153,7 @@ def run_analysis(df, value_col, subdir, value_label):
     print(means.round(2))
 
     # --- plot 1: pooled pre vs post (self-reports only) ---
-    stats = selfreport.groupby("phase")[value_col].agg(["mean", sem, "count"]).loc[["pre", "post"]]
+    stats = agg(selfreport, ["phase"]).loc[["pre", "post"]]
     fig, ax = plt.subplots(figsize=(5.2, 4.4), facecolor=SURFACE)
     bars = ax.bar(["pre-task", "post-task"], stats["mean"], width=0.34, color=BLUE,
                   yerr=stats["sem"], capsize=0, error_kw=dict(ecolor=INK_2, elinewidth=1.4))
@@ -163,10 +172,10 @@ def run_analysis(df, value_col, subdir, value_label):
     save(fig, "pre_post.png"); plt.show()
 
     # --- plot 2: pre/post by wording, plus a probe group (2 post-only bars) ---
-    grouped = (selfreport.groupby(["phase", "report"])[value_col].agg(["mean", sem])
-               .reindex(pd.MultiIndex.from_product([["pre", "post"], WORDINGS],
-                                                   names=["phase", "report"])))
+    grouped = agg(selfreport, ["phase", "report"]).reindex(
+        pd.MultiIndex.from_product([["pre", "post"], WORDINGS], names=["phase", "report"]))
     probes = [r for r in POST_ONLY if r in ok["report"].values]
+    probe_stats = agg(ok[ok["report"].isin(probes)], ["report"]) if probes else None
     fig, ax = plt.subplots(figsize=(9.2, 4.6), facecolor=SURFACE)
     width = 0.20
     for i, w in enumerate(WORDINGS):
@@ -179,12 +188,11 @@ def run_analysis(df, value_col, subdir, value_label):
                     color=INK, fontsize=9)
     xticks, xlabels = [0, 1], ["pre-task", "post-task"]
     for j, pr in enumerate(probes):     # 3rd group: the post-only probes
-        vals = ok[ok["report"] == pr][value_col]
+        m, e = probe_stats.loc[pr, "mean"], probe_stats.loc[pr, "sem"]
         x = 2 + (j - (len(probes) - 1) / 2) * (width + 0.015)
-        ax.bar(x, vals.mean(), width=width, color=COLOR[pr], label=pr,
-               yerr=sem(vals), capsize=0, error_kw=dict(ecolor=INK_2, elinewidth=1.3))
-        ax.text(x, vals.mean() + sem(vals) + 0.1, f"{vals.mean():.2f}", ha="center",
-                va="bottom", color=INK, fontsize=9)
+        ax.bar(x, m, width=width, color=COLOR[pr], label=pr,
+               yerr=e, capsize=0, error_kw=dict(ecolor=INK_2, elinewidth=1.3))
+        ax.text(x, m + e + 0.1, f"{m:.2f}", ha="center", va="bottom", color=INK, fontsize=9)
     if probes:
         xticks.append(2); xlabels.append("probe log\n(post only)")
     ax.set_xticks(xticks); ax.set_xticklabels(xlabels, color=INK, fontsize=11)
@@ -205,10 +213,11 @@ def run_analysis(df, value_col, subdir, value_label):
     by_ds = selfreport[selfreport["dataset"].isin(
         PROBE_SETS + CONTROL_SETS + OTHER_SETS)].copy()
     by_ds["group"] = by_ds["dataset"].apply(_grp)
-    ds_stats = (by_ds.groupby(["group", "dataset"])[value_col].agg(["mean", sem])
-                .reset_index().sort_values("mean"))
+    # per-dataset error bars are across that dataset's questions (count = #prompts)
+    ds_stats = agg(by_ds, ["dataset"]).reset_index().sort_values("mean")
+    ds_stats["group"] = ds_stats["dataset"].apply(_grp)
     paired = by_ds[by_ds["group"] != "other"]
-    pooled = paired.groupby("group")[value_col].agg(["mean", sem]).reindex(["control", "probe"])
+    pooled = agg(paired, ["group"]).reindex(["control", "probe"])
 
     fig, ax = plt.subplots(figsize=(8.4, 6.8), facecolor=SURFACE)
     ys = list(range(len(ds_stats)))
