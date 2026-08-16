@@ -44,8 +44,9 @@ ONLY_DATASETS = None
 
 # Which prompt indices within each dataset to run (1-based). Each becomes its own
 # rollouts/<model>/<dataset>/<question_num>.json. Was just [1].
-QUESTION_NUMS = [2, 3, 4, 5]
+# QUESTION_NUMS = [2, 3, 4, 5]
 # QUESTION_NUMS = list(range(6, 11))   # later batch
+QUESTION_NUMS = list(range(1, 11))   # later batch
 
 # Key(s) into SELF_REPORTS. A list runs several wordings in one pass (each stored
 # separately under "evals"), which is what a backfill of a new dataset needs.
