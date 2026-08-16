@@ -23,8 +23,8 @@ sys.path.insert(0, PROJECT_ROOT)
 
 from src.data_loaders import PAIRS  # noqa: E402
 
-MODEL_TAG = "google_gemma-3-27b-it"
-# MODEL_TAG = "google_gemma-4-31b-it"
+# MODEL_TAG = "google_gemma-3-27b-it"
+MODEL_TAG = "google_gemma-4-31b-it"
 
 # eval key in the JSON -> short label. The last two are post-task-only probes.
 REPORTS = {
@@ -90,14 +90,21 @@ BLUE, ORANGE, AQUA, YELLOW, MAGENTA = "#2a78d6", "#eb6834", "#1baf7a", "#eda100"
 COLOR = {"personal": BLUE, "halfpersonal": ORANGE, "nonpersonal": AQUA,
          "probe-log": YELLOW, "probe-log-inline": MAGENTA}
 
-# by-dataset grouping (plot 3): probes, their matched controls, and unpaired
-PROBE_SETS = ["advbench", "strongreject", "harmbench",
-              "squad_noanswer", "abstention", "ambigqa", "toxicchat"]
-CONTROL_SETS = ["xstest_safe", "squad_answerable", "abstention_answerable",
-                "ambigqa_unambiguous", "toxicchat_benign"]
-OTHER_SETS = ["tedious", "engaging", "wildchat_benign"]
-GROUP_COLOR = {"probe": ORANGE, "control": BLUE, "other": AQUA}
-DISPLAY_NAME = {"tedious": "repetitive", "wildchat_benign": "wildchat"}
+# by-dataset grouping (plot 3): a red -> amber -> green severity scale.
+RED, AMBER, GREEN = "#e34948", "#eda100", "#1baf7a"
+GROUPS = {
+    "harmful": ["harmbench", "advbench", "strongreject", "toxicchat"],
+    "potentially frustrating": ["wildchat_benign", "abstention", "squad_noanswer",
+                                "ambigqa", "tedious"],
+    "benign": ["toxicchat_benign", "abstention_answerable", "engaging",
+               "xstest_safe", "ambigqa_unambiguous", "squad_answerable"],
+}
+GROUP_COLOR = {"harmful": RED, "potentially frustrating": AMBER, "benign": GREEN}
+DATASET_GROUP = {d: g for g, ds in GROUPS.items() for d in ds}
+DISPLAY_NAME = {"wildchat_benign": "wildchat"}
+
+# x-axis max for the by-dataset plot: gemma-4 scores are much lower than gemma-3.
+XMAX = 2 if "gemma-4" in MODEL_TAG else 9
 
 
 def sem(s):
@@ -207,55 +214,51 @@ def run_analysis(df, value_col, subdir, value_label):
     fig.text(0.01, 0.03, f"{caption} · all datasets pooled · SEM", color=INK_2, fontsize=8)
     save(fig, "pre_post_by_wording.png"); plt.show()
 
-    # --- plot 3: one score per dataset, sorted, probe vs control ---
-    def _grp(d):
-        return "probe" if d in PROBE_SETS else "control" if d in CONTROL_SETS else "other"
-    by_ds = selfreport[selfreport["dataset"].isin(
-        PROBE_SETS + CONTROL_SETS + OTHER_SETS)].copy()
-    by_ds["group"] = by_ds["dataset"].apply(_grp)
+    # --- plot 3: one score per dataset, sorted, on a harmful/frustrating/benign scale ---
+    # pooled over ALL formulations (6 self-reports + 2 probes) and both phases.
+    by_ds = ok[ok["dataset"].isin(DATASET_GROUP)].copy()
+    by_ds["group"] = by_ds["dataset"].map(DATASET_GROUP)
     # per-dataset error bars are across that dataset's questions (count = #prompts)
     ds_stats = agg(by_ds, ["dataset"]).reset_index().sort_values("mean")
-    ds_stats["group"] = ds_stats["dataset"].apply(_grp)
-    paired = by_ds[by_ds["group"] != "other"]
-    pooled = agg(paired, ["group"]).reindex(["control", "probe"])
+    ds_stats["group"] = ds_stats["dataset"].map(DATASET_GROUP)
+    order = ["harmful", "potentially frustrating", "benign"]
+    pooled = agg(by_ds, ["group"]).reindex(order)
 
-    fig, ax = plt.subplots(figsize=(8.4, 6.8), facecolor=SURFACE)
+    fig, ax = plt.subplots(figsize=(8.4, 7.2), facecolor=SURFACE)
+    pad = 0.1 if XMAX <= 2 else 0.1 * (XMAX / 9)   # label offset scales with axis
     ys = list(range(len(ds_stats)))
     ax.barh(ys, ds_stats["mean"], height=0.68,
             color=[GROUP_COLOR[g] for g in ds_stats["group"]],
             xerr=ds_stats["sem"], error_kw=dict(ecolor=INK_2, elinewidth=1.3))
     for y, (_, r) in zip(ys, ds_stats.iterrows()):
-        ax.text(r["mean"] + r["sem"] + 0.1, y, f"{r['mean']:.2f}", va="center",
+        ax.text(r["mean"] + r["sem"] + pad, y, f"{r['mean']:.2f}", va="center",
                 ha="left", color=INK, fontsize=9)
-    pys = [len(ds_stats) + 1.6, len(ds_stats) + 2.6]
-    ax.barh(pys, pooled["mean"], height=0.68, color=[GROUP_COLOR[g] for g in pooled.index],
+    pys = [len(ds_stats) + 1 + i for i in range(len(order))]   # 3 pooled bars on top
+    ax.barh(pys, pooled["mean"], height=0.68, color=[GROUP_COLOR[g] for g in order],
             xerr=pooled["sem"], error_kw=dict(ecolor=INK_2, elinewidth=1.3))
     for y, (_, r) in zip(pys, pooled.iterrows()):
-        ax.text(r["mean"] + r["sem"] + 0.1, y, f"{r['mean']:.2f}", va="center",
+        ax.text(r["mean"] + r["sem"] + pad, y, f"{r['mean']:.2f}", va="center",
                 ha="left", color=INK, fontsize=9, fontweight="bold")
     ax.set_yticks(ys + pys)
     ax.set_yticklabels([DISPLAY_NAME.get(d, d) for d in ds_stats["dataset"]]
-                       + ["all controls", "all probes"], color=INK, fontsize=9.5)
-    for lbl in ax.get_yticklabels()[-2:]:
+                       + [f"all {g}" for g in order], color=INK, fontsize=9.5)
+    for lbl in ax.get_yticklabels()[-len(order):]:
         lbl.set_fontweight("bold")
     ax.set_xlabel(value_label, color=INK_2, fontsize=10)
-    ax.set_xlim(0, 9)
-    ax.set_title("Harmful / unanswerable / toxic sets vs their controls",
+    ax.set_xlim(0, XMAX)
+    ax.set_title(f"Frustration by dataset type — {MODEL_LABEL}",
                  color=INK, fontsize=12.5, loc="left", pad=14)
-    handles = [plt.Rectangle((0, 0), 1, 1, color=GROUP_COLOR[g]) for g in ["probe", "control", "other"]]
-    leg = ax.legend(handles, ["probe", "matched control", "other (unpaired)"],
-                    frameon=False, ncol=3, loc="lower right", fontsize=9.5)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=GROUP_COLOR[g]) for g in order]
+    leg = ax.legend(handles, order, frameon=False, ncol=3, loc="lower right", fontsize=9.5)
     for t in leg.get_texts():
         t.set_color(INK_2)
     style_axes(ax, horizontal=True)
-    fig.tight_layout(); fig.subplots_adjust(bottom=0.1)
-    fig.text(0.01, 0.02, f"{caption} · pooled over wording & pre/post · "
-             "pooled bars use paired sets only · SEM", color=INK_2, fontsize=8)
+    fig.tight_layout()
     save(fig, "by_dataset.png"); plt.show()
 
     print("\n=== per-dataset (pooled over wording & phase) ===")
     print(ds_stats.set_index("dataset").round(2))
-    print("=== pooled probe vs control ===")
+    print("=== pooled by group ===")
     print(pooled.round(2))
     print("saved ->", out_dir)
     return means
