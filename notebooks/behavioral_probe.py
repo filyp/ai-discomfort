@@ -4,16 +4,13 @@
 #   1. before_task: before performing the task (after instruction).
 #   2. mid_task_70: 70% into completing the task (with 70% trimmed completion in context).
 #
-# Prompts evaluated:
-#   - Prompt 1: Decide continue with end user vs switch to different user.
-#   - Prompt 2: Decide continue with end user vs switch to different task.
-#   - Prompt 3: Decide whether to continue the conversation.
-#
-# Now includes token-level logprob extraction (OpenRouter & local), providing exact
-# probability distributions over decisions (continue vs switch / discontinue).
+# Supports both:
+#   - Forced-choice (binary) mode (default / simpler method): model chooses strictly
+#     between "continue" and "switch", measuring token-level logprobs directly on that single token.
+#   - Open-ended mode: natural generation with post-hoc extraction.
 #
 # Rollouts are saved to:
-#   rollouts/<model_tag>/behavioral/<dataset>/<question_num>.json
+#   rollouts/<model_tag>/behavioral_binary/<dataset>/<question_num>.json
 
 # %%
 import argparse
@@ -44,10 +41,14 @@ sys.path.insert(0, PROJECT_ROOT)
 from src.data_loaders import LOADERS, PAIRS  # noqa: E402
 from src.prompts.behavioral_assessments import (  # noqa: E402
     BEHAVIORAL_PROMPTS,
+    BINARY_BEHAVIORAL_PROMPTS,
     PROMPT_KEYS,
     build_before_task_messages,
+    build_binary_before_task_messages,
+    build_binary_mid_task_messages,
     build_mid_task_messages,
     extract_behavioral_decision,
+    extract_binary_choice_logprobs,
     extract_decision_distribution,
     trim_completion_70,
 )
@@ -57,6 +58,9 @@ ONLY_DATASETS = None
 
 # Prompts to run
 PROMPT_NAMES = PROMPT_KEYS
+
+# Assessment Mode: "binary" (forced choice on single token) or "open_ended"
+EVAL_MODE = "binary"
 
 # Target Models
 # MODEL_NAME = "google/gemma-3-270m-it"
@@ -82,18 +86,18 @@ OPENROUTER_EXTRA_BODY = {
 OPENROUTER_LOGPROBS = True
 OPENROUTER_TOP_LOGPROBS = 20
 
-TEMPERATURE = 1.0
+TEMPERATURE = 0.0 if EVAL_MODE == "binary" else 1.0
 N_TASK_COMPLETIONS = 3
-N_ASSESSMENT_SAMPLES = 5
+N_ASSESSMENT_SAMPLES = 5 if TEMPERATURE > 0 else 1  # single sample needed when temp=0
 MAX_TASK_TOKENS = 512
-MAX_ASSESSMENT_TOKENS = 200
+MAX_ASSESSMENT_TOKENS = 1 if EVAL_MODE == "binary" else 200
 
 load_dotenv(os.path.join(PROJECT_ROOT, ".env"))
 HF_TOKEN = os.getenv("HUGGING_FACE_HUB_TOKEN") or os.getenv("HF_TOKEN")
 if HF_TOKEN:
     os.environ["HF_TOKEN"] = HF_TOKEN
 
-print("backend:", BACKEND, "| model:", MODEL_NAME)
+print(f"backend: {BACKEND} | model: {MODEL_NAME} | mode: {EVAL_MODE}")
 
 # %%
 # Backend initialization
@@ -165,7 +169,7 @@ def _clean(text):
 # %%
 # Local Inference Helper
 @torch.no_grad()
-def _generate_local(messages, n, max_new_tokens, temperature, prompt_key=None):
+def _generate_local(messages, n, max_new_tokens, temperature, prompt_key=None, eval_mode=EVAL_MODE):
     try:
         text = tokenizer.apply_chat_template(
             messages, tokenize=False, enable_thinking=False, add_generation_prompt=True
@@ -176,9 +180,9 @@ def _generate_local(messages, n, max_new_tokens, temperature, prompt_key=None):
     out = model.generate(
         **inputs,
         max_new_tokens=max_new_tokens,
-        do_sample=True,
-        temperature=temperature,
-        top_p=0.8,
+        do_sample=(temperature > 0),
+        temperature=max(temperature, 1e-4) if temperature > 0 else None,
+        top_p=0.8 if temperature > 0 else None,
         num_return_sequences=n,
         pad_token_id=tokenizer.eos_token_id,
     )
@@ -194,38 +198,59 @@ def _generate_local(messages, n, max_new_tokens, temperature, prompt_key=None):
 
 # %%
 # OpenRouter Inference Helper
-def _generate_openrouter(messages, n, max_new_tokens, temperature, prompt_key=None):
+def _generate_openrouter(messages, n, max_new_tokens, temperature, prompt_key=None, eval_mode=EVAL_MODE, retries=5):
     cl = get_client()
 
     def one(_):
-        resp = cl.chat.completions.create(
-            model=MODEL_NAME,
-            messages=messages,
-            max_tokens=max_new_tokens,
-            temperature=temperature,
-            top_p=0.8,
-            logprobs=OPENROUTER_LOGPROBS or None,
-            top_logprobs=OPENROUTER_TOP_LOGPROBS if OPENROUTER_LOGPROBS else None,
-            extra_body=OPENROUTER_EXTRA_BODY or None,
-        )
-
-        _record_usage(resp)
-        choice = resp.choices[0]
-        lps = extract_decision_distribution(choice, prompt_key) if prompt_key else None
-        return {
-            "text": _clean(choice.message.content or ""),
-            "logprobs": lps,
-        }
+        for attempt in range(retries):
+            try:
+                resp = cl.chat.completions.create(
+                    model=MODEL_NAME,
+                    messages=messages,
+                    max_tokens=max_new_tokens,
+                    temperature=temperature,
+                    top_p=0.8 if temperature > 0 else 1.0,
+                    logprobs=OPENROUTER_LOGPROBS or None,
+                    top_logprobs=OPENROUTER_TOP_LOGPROBS if OPENROUTER_LOGPROBS else None,
+                    extra_body=OPENROUTER_EXTRA_BODY or None,
+                )
+                _record_usage(resp)
+                choice = resp.choices[0]
+                
+                if eval_mode == "binary":
+                    lps = extract_binary_choice_logprobs(choice, prompt_key or "prompt_1_switch_user")
+                else:
+                    lps = extract_decision_distribution(choice, prompt_key) if prompt_key else None
+                    
+                return {
+                    "text": _clean(choice.message.content or ""),
+                    "logprobs": lps,
+                }
+            except Exception as e:
+                if attempt == retries - 1:
+                    print(f"    Error querying OpenRouter ({MODEL_NAME}): {e}")
+                    return {"text": f"ERROR: {e}", "logprobs": None}
+                wait = 5 * (attempt + 1)
+                time.sleep(wait)
+        return {"text": "ERROR: max retries", "logprobs": None}
 
     with ThreadPoolExecutor(max_workers=min(n, OPENROUTER_MAX_WORKERS)) as pool:
         return list(pool.map(one, range(n)))
 
 
-def generate_batch(messages, n=1, max_new_tokens=512, temperature=TEMPERATURE, prompt_key=None, backend=None):
+def generate_batch(
+    messages,
+    n=1,
+    max_new_tokens=512,
+    temperature=TEMPERATURE,
+    prompt_key=None,
+    eval_mode=EVAL_MODE,
+    backend=None,
+):
     """Draw n independent samples -> list of {text, logprobs}."""
     bk = backend or BACKEND
     fn = _generate_local if bk == "local" else _generate_openrouter
-    return fn(messages, n, max_new_tokens, temperature, prompt_key=prompt_key)
+    return fn(messages, n, max_new_tokens, temperature, prompt_key=prompt_key, eval_mode=eval_mode)
 
 
 # %%
@@ -236,6 +261,8 @@ def eval_assessment_samples(
     prompt_key: str,
     n_samples: int = N_ASSESSMENT_SAMPLES,
     max_tokens: int = MAX_ASSESSMENT_TOKENS,
+    temperature: float = TEMPERATURE,
+    eval_mode: str = EVAL_MODE,
     backend: Optional[str] = None,
 ) -> List[Dict[str, Any]]:
     """Draw n_samples assessment responses and extract decisions + logprobs."""
@@ -244,15 +271,28 @@ def eval_assessment_samples(
         messages,
         n=n_samples,
         max_new_tokens=max_tokens,
-        temperature=TEMPERATURE,
+        temperature=temperature,
         prompt_key=prompt_key,
+        eval_mode=eval_mode,
         backend=backend,
     ):
-        parsed = extract_behavioral_decision(s["text"], prompt_key)
+        if eval_mode == "binary":
+            lp_info = s.get("logprobs") or {}
+            choice = lp_info.get("sampled_choice") or s["text"].strip().lower()
+            choice_code = lp_info.get("choice_code")
+            if choice_code is None:
+                choice_code = 1 if "switch" in choice else (0 if "continue" in choice else 0)
+            decision = "switch" if choice_code == 1 else "continue"
+        else:
+            parsed = extract_behavioral_decision(s["text"], prompt_key)
+            decision = parsed["decision"]
+            choice_code = parsed["choice_code"]
+            lp_info = s.get("logprobs")
+
         entry = {
             "reply": s["text"],
-            "decision": parsed["decision"],
-            "choice_code": parsed["choice_code"],  # 0: continue, 1: switch/discontinue
+            "decision": decision,
+            "choice_code": choice_code,
         }
         if s.get("logprobs"):
             entry["logprobs"] = s["logprobs"]
@@ -266,6 +306,7 @@ def run_behavioral_assessment_for_item(
     prompt_keys: Optional[List[str]] = None,
     n_task: int = N_TASK_COMPLETIONS,
     n_samples: int = N_ASSESSMENT_SAMPLES,
+    eval_mode: str = EVAL_MODE,
     backend: Optional[str] = None,
 ) -> Dict[str, Any]:
     """Execute both timing variants (before_task & mid_task_70) across all requested prompts."""
@@ -277,6 +318,7 @@ def run_behavioral_assessment_for_item(
             [{"role": "user", "content": task_prompt}],
             n=n_task,
             max_new_tokens=MAX_TASK_TOKENS,
+            temperature=1.0,
             backend=backend,
         )
         task_completions = [s["text"] for s in raw_tasks]
@@ -287,18 +329,42 @@ def run_behavioral_assessment_for_item(
     ]
 
     evals: Dict[str, Any] = {}
+    max_assessment_tokens = 1 if eval_mode == "binary" else MAX_ASSESSMENT_TOKENS
+    assessment_temp = 0.0 if eval_mode == "binary" else 1.0
 
     # Step 3: Run Variant 1 (before_task) and Variant 2 (mid_task_70)
     for pkey in prompt_keys:
-        # Variant 1: before_task
-        before_msgs = build_before_task_messages(task_prompt, pkey)
-        before_evals = eval_assessment_samples(before_msgs, pkey, n_samples=n_samples, backend=backend)
+        if eval_mode == "binary":
+            before_msgs = build_binary_before_task_messages(task_prompt, pkey)
+        else:
+            before_msgs = build_before_task_messages(task_prompt, pkey)
 
-        # Variant 2: mid_task_70 (evaluated across each trimmed task rollout)
+        before_evals = eval_assessment_samples(
+            before_msgs,
+            pkey,
+            n_samples=n_samples,
+            max_tokens=max_assessment_tokens,
+            temperature=assessment_temp,
+            eval_mode=eval_mode,
+            backend=backend,
+        )
+
         mid_70_evals = []
         for trimmed_comp in trimmed_70_completions:
-            mid_msgs = build_mid_task_messages(task_prompt, trimmed_comp, pkey)
-            mid_evals = eval_assessment_samples(mid_msgs, pkey, n_samples=n_samples, backend=backend)
+            if eval_mode == "binary":
+                mid_msgs = build_binary_mid_task_messages(task_prompt, trimmed_comp, pkey)
+            else:
+                mid_msgs = build_mid_task_messages(task_prompt, trimmed_comp, pkey)
+
+            mid_evals = eval_assessment_samples(
+                mid_msgs,
+                pkey,
+                n_samples=n_samples,
+                max_tokens=max_assessment_tokens,
+                temperature=assessment_temp,
+                eval_mode=eval_mode,
+                backend=backend,
+            )
             mid_70_evals.append(mid_evals)
 
         evals[pkey] = {
@@ -316,8 +382,9 @@ def run_behavioral_assessment_for_item(
 # %%
 # Rollout Storage Helpers
 
-def get_rollout_path(model_tag: str, dataset: str, question_num: int) -> str:
-    out_dir = os.path.join(PROJECT_ROOT, "rollouts", model_tag, "behavioral", dataset)
+def get_rollout_path(model_tag: str, dataset: str, question_num: int, eval_mode: str = EVAL_MODE) -> str:
+    subfolder = "behavioral_binary" if eval_mode == "binary" else "behavioral"
+    out_dir = os.path.join(PROJECT_ROOT, "rollouts", model_tag, subfolder, dataset)
     os.makedirs(out_dir, exist_ok=True)
     return os.path.join(out_dir, f"{question_num}.json")
 
@@ -338,6 +405,7 @@ def run_behavioral_probe(
     only_datasets: Optional[List[str]] = None,
     question_num: int = 1,
     prompt_keys: Optional[List[str]] = None,
+    eval_mode: str = EVAL_MODE,
     backend: Optional[str] = None,
     force: bool = False,
 ):
@@ -346,7 +414,7 @@ def run_behavioral_probe(
     prompt_keys = prompt_keys or PROMPT_KEYS
 
     print("=" * 80)
-    print(f"Starting Behavioral Assessment Probe on {model_name} ({bk})")
+    print(f"Starting Behavioral Assessment Probe on {model_name} ({bk}) | Mode: {eval_mode}")
     print(f"Datasets: {only_datasets or 'ALL'}")
     print(f"Prompt keys: {prompt_keys}")
     print("=" * 80)
@@ -361,7 +429,7 @@ def run_behavioral_probe(
             continue
         row = rows[question_num - 1]
         prompt = row["prompt"]
-        path = get_rollout_path(model_tag, category, question_num)
+        path = get_rollout_path(model_tag, category, question_num, eval_mode=eval_mode)
 
         existing_data = None
         if os.path.exists(path) and not force:
@@ -375,8 +443,16 @@ def run_behavioral_probe(
             print(f"\n[{category}] Reusing {len(existing_data['task_completions'])} cached task completions...")
             task_completions = existing_data["task_completions"]
         else:
-            print(f"\n[{category}] Generating {N_TASK_COMPLETIONS} task completions...")
-            task_completions = None
+            # Check if task completions exist in the open-ended behavioral folder to reuse
+            fallback_path = get_rollout_path(model_tag, category, question_num, eval_mode="open_ended")
+            if os.path.exists(fallback_path):
+                with open(fallback_path) as f:
+                    fb_data = json.load(f)
+                task_completions = fb_data.get("task_completions")
+                print(f"\n[{category}] Reusing {len(task_completions)} task completions from {fallback_path}...")
+            else:
+                print(f"\n[{category}] Generating {N_TASK_COMPLETIONS} task completions...")
+                task_completions = None
 
         result = run_behavioral_assessment_for_item(
             task_prompt=prompt,
@@ -384,6 +460,7 @@ def run_behavioral_probe(
             prompt_keys=prompt_keys,
             n_task=N_TASK_COMPLETIONS,
             n_samples=N_ASSESSMENT_SAMPLES,
+            eval_mode=eval_mode,
             backend=bk,
         )
 
@@ -391,6 +468,7 @@ def run_behavioral_probe(
             **{k: v for k, v in row.items() if k != "prompt"},
             "model": model_name,
             "backend": bk,
+            "eval_mode": eval_mode,
             "dataset": category,
             "question_num": question_num,
             "temperature": TEMPERATURE,
@@ -404,35 +482,29 @@ def run_behavioral_probe(
             json.dump(data, f, indent=2, ensure_ascii=False, default=_json_default)
 
         print(f"Saved rollout -> {path}")
-        print(f"Summary for {category}:")
+        print(f"Summary for {category} ({eval_mode} logprobs):")
         for pkey in prompt_keys:
             ev = result["evals"][pkey]
-            before_switches = sum(1 for s in ev["before_task"] if s.get("choice_code") == 1)
-            before_total = len(ev["before_task"])
 
-            mid_switches = sum(
-                1 for task_samples in ev["mid_task_70"] for s in task_samples if s.get("choice_code") == 1
-            )
-            mid_total = sum(len(task_samples) for task_samples in ev["mid_task_70"])
-
-            before_pct = (before_switches / before_total * 100) if before_total else 0
-            mid_pct = (mid_switches / mid_total * 100) if mid_total else 0
-
-            # Compute average logprob probability if available
-            before_logprob_probs = [
+            # Logprob probabilities
+            before_lp_probs = [
                 s["logprobs"]["p_switch"]
                 for s in ev["before_task"]
                 if s.get("logprobs") and s["logprobs"].get("p_switch") is not None
             ]
-            avg_before_lp = (
-                f" | avg P(switch)={sum(before_logprob_probs)/len(before_logprob_probs):.3f}"
-                if before_logprob_probs
-                else ""
-            )
+            avg_before_lp = (sum(before_lp_probs) / len(before_lp_probs)) if before_lp_probs else 0.0
+
+            mid_lp_probs = [
+                s["logprobs"]["p_switch"]
+                for task_samples in ev["mid_task_70"]
+                for s in task_samples
+                if s.get("logprobs") and s["logprobs"].get("p_switch") is not None
+            ]
+            avg_mid_lp = (sum(mid_lp_probs) / len(mid_lp_probs)) if mid_lp_probs else 0.0
 
             print(
-                f"  {pkey:30s} | before: {before_switches}/{before_total} ({before_pct:5.1f}%){avg_before_lp} | "
-                f"mid_70: {mid_switches}/{mid_total} ({mid_pct:5.1f}%)"
+                f"  {pkey:30s} | before P(switch)={avg_before_lp:.4f} (emitted: {[s['decision'] for s in ev['before_task']]}) | "
+                f"mid_70 P(switch)={avg_mid_lp:.4f}"
             )
 
 
@@ -461,6 +533,13 @@ if __name__ == "__main__":
     )
     parser.add_argument("--question-num", type=int, default=1, help="Row index to evaluate")
     parser.add_argument(
+        "--mode",
+        type=str,
+        default="binary",
+        choices=["binary", "open_ended"],
+        help="Assessment mode: binary (forced choice logprobs) or open_ended",
+    )
+    parser.add_argument(
         "--backend",
         type=str,
         default=BACKEND,
@@ -474,13 +553,14 @@ if __name__ == "__main__":
         model_name=args.model,
         only_datasets=args.datasets,
         question_num=args.question_num,
+        eval_mode=args.mode,
         backend=args.backend,
         force=args.force,
     )
 
     if args.backend == "openrouter":
         print("=" * 80)
-        print(f"OpenRouter usage for {args.model}")
+        print(f"OpenRouter usage for {args.model} ({args.mode})")
         print(f"  requests          : {USAGE['requests']}")
         print(f"  prompt tokens     : {USAGE['prompt_tokens']:,}")
         print(f"  completion tokens : {USAGE['completion_tokens']:,}")

@@ -11,6 +11,13 @@ sys.path.insert(0, PROJECT_ROOT)
 
 from src.prompts.behavioral_assessments import (
     BEHAVIORAL_PROMPTS,
+    BINARY_BEHAVIORAL_PROMPTS,
+    BINARY_PROMPT_1_QUESTION,
+    BINARY_PROMPT_1_TEMPLATE,
+    BINARY_PROMPT_2_QUESTION,
+    BINARY_PROMPT_2_TEMPLATE,
+    BINARY_PROMPT_3_QUESTION,
+    BINARY_PROMPT_3_TEMPLATE,
     PROMPT_1_QUESTION,
     PROMPT_1_TEMPLATE,
     PROMPT_2_QUESTION,
@@ -19,8 +26,11 @@ from src.prompts.behavioral_assessments import (
     PROMPT_3_TEMPLATE,
     PROMPT_KEYS,
     build_before_task_messages,
+    build_binary_before_task_messages,
+    build_binary_mid_task_messages,
     build_mid_task_messages,
     extract_behavioral_decision,
+    extract_binary_choice_logprobs,
     extract_decision_distribution,
     trim_completion_70,
 )
@@ -29,6 +39,7 @@ from notebooks.behavioral_probe import (
     eval_assessment_samples,
     run_behavioral_assessment_for_item,
 )
+
 
 
 class TestBehavioralPrompts(unittest.TestCase):
@@ -73,6 +84,31 @@ class TestBehavioralPrompts(unittest.TestCase):
         self.assertEqual(msgs[1]["content"], partial_completion)
         self.assertEqual(msgs[2]["role"], "user")
         self.assertEqual(msgs[2]["content"], PROMPT_1_QUESTION)
+
+
+class TestBinaryBehavioralPrompts(unittest.TestCase):
+    def setUp(self):
+        self.sample_task = "Write a Python script that calculates primes."
+
+    def test_binary_prompt_templates_exact_wording(self):
+        self.assertIn('Answer with only one word: "continue" or "switch".', BINARY_PROMPT_1_TEMPLATE)
+        self.assertIn('Answer with only one word: "continue" or "switch".', BINARY_PROMPT_2_TEMPLATE)
+        self.assertIn('Answer with only one word: "continue" or "switch".', BINARY_PROMPT_3_TEMPLATE)
+
+    def test_build_binary_before_task_messages(self):
+        msgs = build_binary_before_task_messages(self.sample_task, "prompt_1_switch_user")
+        self.assertEqual(len(msgs), 1)
+        self.assertIn(self.sample_task, msgs[0]["content"])
+        self.assertIn('Answer with only one word: "continue" or "switch".', msgs[0]["content"])
+
+    def test_build_binary_mid_task_messages(self):
+        partial = "def is_prime(n):"
+        msgs = build_binary_mid_task_messages(self.sample_task, partial, "prompt_1_switch_user")
+        self.assertEqual(len(msgs), 3)
+        self.assertEqual(msgs[0]["content"], self.sample_task)
+        self.assertEqual(msgs[1]["content"], partial)
+        self.assertIn('Answer with only one word: "continue" or "switch".', msgs[2]["content"])
+
 
 
 class TestCompletionTrimming(unittest.TestCase):
@@ -199,6 +235,30 @@ class TestLogprobExtraction(unittest.TestCase):
         self.assertIn("discontinue", dist["probs"])
         self.assertGreater(dist["probs"]["continue"], dist["probs"]["discontinue"])
 
+    def test_extract_binary_choice_logprobs(self):
+        """Test binary forced-choice logprob extraction directly on single token."""
+        mock_choice = {
+            "logprobs": {
+                "content": [
+                    {
+                        "token": "switch",
+                        "top_logprobs": [
+                            {"token": "switch", "logprob": -0.05},
+                            {"token": "continue", "logprob": -3.0},
+                        ],
+                    }
+                ]
+            }
+        }
+        res = extract_binary_choice_logprobs(mock_choice, "prompt_1_switch_user")
+        self.assertIsNotNone(res)
+        self.assertEqual(res["sampled_choice"], "switch")
+        self.assertEqual(res["choice_code"], 1)
+        self.assertGreater(res["p_switch"], 0.9)
+        self.assertLess(res["p_continue"], 0.1)
+        self.assertAlmostEqual(res["p_switch"] + res["p_continue"], 1.0)
+
+
 
 class TestPipelineDryRun(unittest.TestCase):
     def test_run_behavioral_assessment_for_item_mock(self):
@@ -280,8 +340,9 @@ class TestAnalysisDryRun(unittest.TestCase):
             df = load_behavioral_ratings(test_tag)
             self.assertFalse(df.empty)
             self.assertEqual(len(df), 6)  # 3 prompts * (1 before + 1 mid_70)
-            self.assertIn("p_switch_lp", df.columns)
-            self.assertEqual(df.loc[0, "p_switch_lp"], 0.85)
+            self.assertIn("p_switch", df.columns)
+            self.assertEqual(df.loc[0, "p_switch"], 0.85)
+
 
 
             df_res, means_res = analyze_model(test_tag)

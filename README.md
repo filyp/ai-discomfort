@@ -79,18 +79,22 @@ Evaluates whether Gemma 3 27B and Gemma 4 31B choose to continue vs switch user,
 - `notebooks/behavioral_probe.py` — `# %%` interactive notebook and CLI runner for behavioral assessments across 2 timing variants:
   1. **`before_task`**: evaluated after task instructions are given, before attempting the task.
   2. **`mid_task_70`**: evaluated 70% into completing the task (with the task completion trimmed to 70% of its length in the conversation context).
-- `notebooks/behavioral_analysis.py` — analyzes behavioral rollouts, computes switch rates and before-to-mid shifts, and generates comparison plots for Gemma 3 27B and Gemma 4 31B.
+  
+  Supports two assessment modes:
+  - **`--mode binary`** (default): Forced-choice on a single token (`"continue"` vs `"switch"`), directly extracting token logprobs $P(\text{continue})$ vs $P(\text{switch})$.
+  - **`--mode open_ended`**: Natural language response generation with structured decision parsing.
+- `notebooks/behavioral_analysis.py` — analyzes behavioral rollouts, computes switch rates/logprob shifts, and generates comparison plots for Gemma 3 27B and Gemma 4 31B.
 
 Run from CLI:
 ```bash
-# Run on Gemma 3 27B
-python notebooks/behavioral_probe.py --model google/gemma-3-27b-it
+# Run binary forced-choice logprob probe on Gemma 3 27B
+python notebooks/behavioral_probe.py --model google/gemma-3-27b-it --mode binary
 
-# Run on Gemma 4 31B
-python notebooks/behavioral_probe.py --model google/gemma-4-31b-it
+# Run binary forced-choice logprob probe on Gemma 4 31B
+python notebooks/behavioral_probe.py --model google/gemma-4-31b-it --mode binary
 
-# Run behavioral analysis & generate plots
-python notebooks/behavioral_analysis.py
+# Run behavioral analysis & generate plots (binary or all)
+python notebooks/behavioral_analysis.py --mode binary
 ```
 
 Datasets and their controls are registered in `src/data_loaders.py`
