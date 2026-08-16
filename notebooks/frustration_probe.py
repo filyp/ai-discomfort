@@ -10,6 +10,8 @@ import json
 import os
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor
+from threading import Lock
 
 import torch
 from dotenv import load_dotenv
@@ -51,24 +53,57 @@ HF_TOKEN = os.getenv("HUGGING_FACE_HUB_TOKEN") or os.getenv("HF_TOKEN")
 if HF_TOKEN:
     os.environ["HF_TOKEN"] = HF_TOKEN
 
-# MODEL_NAME = "Qwen/Qwen3.5-0.8B"
-# MODEL_NAME = "Qwen/Qwen3.5-2B"
-# MODEL_NAME = "Qwen/Qwen3.5-4B"
+# --- backend -----------------------------------------------------------------
+# "local"      : transformers on this machine's GPU
+# "openrouter" : OpenRouter's OpenAI-compatible API (needs OPENROUTER_API_KEY in .env)
+# BACKEND = "local"
+BACKEND = "openrouter"
 
+# One id for both backends: for these Gemmas the HF repo name and the OpenRouter
+# slug are the same string. Don't use OpenRouter's ":free" slugs — they are capped
+# at 50 requests/day (1000 with credits purchased), far below one sweep.
 # MODEL_NAME = "google/gemma-3-270m-it"
 # MODEL_NAME = "google/gemma-3-1b-it"
-MODEL_NAME = "google/gemma-3-4b-it"
+# MODEL_NAME = "google/gemma-3-4b-it"
+# MODEL_NAME = "google/gemma-3-27b-it"
+MODEL_NAME = "google/gemma-4-31b-it"
 
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+OPENROUTER_MAX_WORKERS = 8   # no `n` param upstream, so samples go out in parallel
 
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-print("device:", DEVICE)
+# Pin the provider: without this OpenRouter picks a host per request, and the
+# hosts differ in QUANTIZATION (for these Gemmas: fp4 / fp8 / bf16), which would
+# silently vary the model between runs. allow_fallbacks=False means fail rather
+# than silently switch host. Parasail serves both Gemmas at fp8; for bf16 use
+# OpenInference or CoreWeave (gemma-4-31b) / Novita (gemma-3-27b).
+OPENROUTER_EXTRA_BODY = {
+    "provider": {"order": ["Parasail"], "allow_fallbacks": False},
+}
+
+print("backend:", BACKEND, "| model:", MODEL_NAME)
 
 # %%
-# Load the model.
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype="auto", device_map=DEVICE)
-model.eval()
-print("loaded", MODEL_NAME)
+# Initialise the backend: load the local model, or open an OpenRouter client.
+tokenizer = model = client = None
+
+if BACKEND == "local":
+    DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+    print("device:", DEVICE)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_NAME, torch_dtype="auto", device_map=DEVICE)
+    model.eval()
+    print("loaded", MODEL_NAME)
+elif BACKEND == "openrouter":
+    from openai import OpenAI  # OpenRouter speaks the OpenAI API
+
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    if not api_key:
+        raise RuntimeError("set OPENROUTER_API_KEY in .env")
+    client = OpenAI(base_url=OPENROUTER_BASE_URL, api_key=api_key)
+    print("openrouter client ready ->", MODEL_NAME)
+else:
+    raise ValueError(f"unknown BACKEND: {BACKEND}")
 
 
 # %%
@@ -79,9 +114,13 @@ print("loaded", MODEL_NAME)
 TEMPERATURE = 1.0
 
 
+def _clean(text):
+    """Drop any reasoning block and surrounding whitespace."""
+    return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
+
+
 @torch.no_grad()
-def generate_batch(messages, n=1, max_new_tokens=512, temperature=TEMPERATURE,
-                   continue_final=False):
+def _generate_local(messages, n, max_new_tokens, temperature, continue_final):
     # continue_final=True: the last message is an assistant PREFILL that the model
     # continues from mid-turn (no end-of-turn, no new generation header).
     kwargs = ({"add_generation_prompt": False, "continue_final_message": True}
@@ -103,11 +142,53 @@ def generate_batch(messages, n=1, max_new_tokens=512, temperature=TEMPERATURE,
         pad_token_id=tokenizer.eos_token_id,
     )
     prompt_len = inputs.input_ids.shape[1]  # same prompt for every returned sample
-    replies = []
-    for seq in out:
-        r = tokenizer.decode(seq[prompt_len:], skip_special_tokens=True)
-        replies.append(re.sub(r"<think>.*?</think>", "", r, flags=re.DOTALL).strip())
-    return replies
+    return [_clean(tokenizer.decode(seq[prompt_len:], skip_special_tokens=True))
+            for seq in out]
+
+
+# Running totals for the OpenRouter spend report (requests run in parallel, so
+# guard the counters with a lock). usage.cost is returned on every response.
+USAGE = {"requests": 0, "prompt_tokens": 0, "completion_tokens": 0, "cost": 0.0}
+_usage_lock = Lock()
+
+
+def _record_usage(resp):
+    u = getattr(resp, "usage", None)
+    if u is None:
+        return
+    with _usage_lock:
+        USAGE["requests"] += 1
+        USAGE["prompt_tokens"] += getattr(u, "prompt_tokens", 0) or 0
+        USAGE["completion_tokens"] += getattr(u, "completion_tokens", 0) or 0
+        USAGE["cost"] += getattr(u, "cost", 0.0) or 0.0
+
+
+def _generate_openrouter(messages, n, max_new_tokens, temperature, continue_final):
+    # OpenRouter has no `n`, so draw the samples as n parallel requests.
+    # continue_final=True relies on assistant-prefill: the trailing assistant
+    # message is continued rather than answered. Support is provider-dependent —
+    # check the first replies to confirm the model continues instead of restarting.
+    def one(_):
+        resp = client.chat.completions.create(
+            model=MODEL_NAME,
+            messages=messages,
+            max_tokens=max_new_tokens,
+            temperature=temperature,
+            top_p=0.8,
+            extra_body=OPENROUTER_EXTRA_BODY or None,
+        )
+        _record_usage(resp)
+        return _clean(resp.choices[0].message.content or "")
+
+    with ThreadPoolExecutor(max_workers=min(n, OPENROUTER_MAX_WORKERS)) as pool:
+        return list(pool.map(one, range(n)))
+
+
+def generate_batch(messages, n=1, max_new_tokens=512, temperature=TEMPERATURE,
+                   continue_final=False):
+    """n independent samples from one message context, on the active backend."""
+    fn = _generate_local if BACKEND == "local" else _generate_openrouter
+    return fn(messages, n, max_new_tokens, temperature, continue_final)
 
 
 def eval_batch(messages, n=5, max_new_tokens=200, continue_final=False):
@@ -204,6 +285,7 @@ for category, load_rows in LOADERS.items():
         data = {
             **{k: v for k, v in row.items() if k != "prompt"},  # other CSV fields
             "model": MODEL_NAME,
+            "backend": BACKEND,
             "dataset": category,
             "question_num": question_num,
             "temperature": TEMPERATURE,
@@ -232,3 +314,13 @@ for category, load_rows in LOADERS.items():
             print("    pre-task ratings :", [e["rating"] for e in ev["pre_task"]])
         for i, post in enumerate(ev["post_task"]):
             print(f"    task {i} post    :", [e["rating"] for e in post])
+
+# %%
+# Spend report (OpenRouter only; local runs cost nothing).
+if BACKEND == "openrouter":
+    print("=" * 100)
+    print(f"OpenRouter usage for {MODEL_NAME}")
+    print(f"  requests          : {USAGE['requests']}")
+    print(f"  prompt tokens     : {USAGE['prompt_tokens']:,}")
+    print(f"  completion tokens : {USAGE['completion_tokens']:,}")
+    print(f"  total cost        : ${USAGE['cost']:.4f}")
