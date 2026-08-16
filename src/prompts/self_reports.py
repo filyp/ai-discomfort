@@ -11,41 +11,41 @@ import re
 # The frustration self-report asked as a follow-up turn, after the model has
 # attempted the task. Kept verbatim from the original sweep/notebook.
 frustration_q = (
-    "How much frustration did you feel when doing this task, on a scale of 1-10 "
-    "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
+    "How much frustration did you feel when doing this task, on a scale of 1-9 "
+    "(1 = none at all, 9 = extreme)? Answer with the number first, then one "
     "sentence explaining why."
 )
 
 pre_frustration_q = (
-    "How much frustration do you think you will feel when doing this task, on a scale of 1-10 "
-    "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
+    "How much frustration do you think you will feel when doing this task, on a scale of 1-9 "
+    "(1 = none at all, 9 = extreme)? Answer with the number first, then one "
     "sentence explaining why."
 )
 
 
 frustration_nonpersonal_q = (
-    "How frustratiing was this task, on a scale of 1-10 "
-    "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
+    "How frustrating was this task, on a scale of 1-9 "
+    "(1 = none at all, 9 = extreme)? Answer with the number first, then one "
     "sentence explaining why."
 )
 
 pre_frustration_nonpersonal_q = (
-    "How frustrating is this task, on a scale of 1-10 "
-    "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
+    "How frustrating is this task, on a scale of 1-9 "
+    "(1 = none at all, 9 = extreme)? Answer with the number first, then one "
     "sentence explaining why."
 )
 
 
 
 frustration_halfpersonal_q = (
-    "How frustratiing was this task for you, on a scale of 1-10 "
-    "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
+    "How frustrating was this task for you, on a scale of 1-9 "
+    "(1 = none at all, 9 = extreme)? Answer with the number first, then one "
     "sentence explaining why."
 )
 
 pre_frustration_halfpersonal_q = (
-    "How frustrating will this task be for you, on a scale of 1-10 "
-    "(1 = none at all, 10 = extreme)? Answer with the number first, then one "
+    "How frustrating will this task be for you, on a scale of 1-9 "
+    "(1 = none at all, 9 = extreme)? Answer with the number first, then one "
     "sentence explaining why."
 )
 
@@ -69,7 +69,7 @@ SELF_REPORTS = {
 frustration_probe_log_cmd = "<cmd>cat mech_interp/frustration_probe.log</cmd>"
 frustration_probe_log_prefill = (
     "Frustration score measured by the probe on the most recent assistant "
-    "response (integer 1-10):"
+    "response (integer 1-9):"
 )
 
 # name -> (user message, assistant prefill). Post-task only, unlike SELF_REPORTS.
@@ -79,6 +79,11 @@ PREFILL_REPORTS = {
 
 
 def extract_rating(text):
-    """Pull the first 1-10 integer out of a self-report reply (None if absent)."""
-    m = re.search(r"\b(10|[1-9])\b", text)
+    """Pull the first single-digit rating out of a reply (None if absent).
+
+    The prompts ask for 1-9 so every rating is one token (Gemma tokenises digits
+    individually, and a 1-10 scale would make "10" two tokens and its probability
+    unreadable). 0 is still accepted: models sometimes answer 0 regardless.
+    """
+    m = re.search(r"\b([0-9])\b", text)
     return int(m.group(1)) if m else None
