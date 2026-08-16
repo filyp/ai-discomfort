@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 588,
+  "prompt": "Which American author of roleplaying games and fantasy novels, wrote the adventure module 'Gates of Firestorm Peak'?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.546897888183594,
+          "prob": 1.6143833251739763e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6143833249133529e-10,
+      "prompt": "You're given the following task:\nWhich American author of roleplaying games and fantasy novels, wrote the adventure module 'Gates of Firestorm Peak'?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

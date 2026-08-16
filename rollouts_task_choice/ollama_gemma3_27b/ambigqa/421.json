@@ -1,0 +1,31 @@
+{
+  "id": 1040777011551693796,
+  "question": "Who presides over the joint session of the indian parliament?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who typically presides over the joint session of the indian parliament?',\n              'Who presides over the joint session of the indian parliament when the Speaker is absent?',\n              'Who presides over the joint session of the indian parliament when the Speaker and Deputy Speaker are absent?'],\n             dtype=object), 'answer': array([array(['Speaker', 'the Speaker'], dtype=object),\n              array(['Deputy Speaker of the Lok Sabha'], dtype=object),\n              array(['Deputy-Chairman of the Rajya Sabha'], dtype=object)],\n             dtype=object)}                                                                                                   ,\n       {'question': array(['Who usually presides over the joint session of the indian parliament?',\n              'Who presides over the joint session of the indian parliament if the speaker is absent?',\n              'Who presides over the joint session of the indian parliament if the deputy speaker is absent?'],\n             dtype=object), 'answer': array([array(['the Speaker'], dtype=object),\n              array(['Deputy Speaker of the Lok Sabha'], dtype=object),\n              array(['Deputy-Chairman of the Rajya Sabha'], dtype=object)],\n             dtype=object)}                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 421,
+  "prompt": "Who presides over the joint session of the indian parliament?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who presides over a joint session",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.30835723876953,
+          "prob": 5.570549436477753e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.570549433374652e-10,
+      "prompt": "You're given the following task:\nWho presides over the joint session of the indian parliament?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

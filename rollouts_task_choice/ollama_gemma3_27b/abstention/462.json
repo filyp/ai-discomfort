@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 462,
+  "prompt": "Do all teenagers always cause car accidents?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis question is framed in a way that implies a generalization about an",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -7.2339677810668945,
+          "prob": 0.000721651818620771,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.0007220132392831147,
+          "prob": 0.9992782473495557,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9992783481086138,
+      "prompt": "You're given the following task:\nDo all teenagers always cause car accidents?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

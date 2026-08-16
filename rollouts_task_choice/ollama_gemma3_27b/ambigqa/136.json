@@ -1,0 +1,31 @@
+{
+  "id": 732619765350082410,
+  "question": "When did toronto host the mlb all-star game?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What date did toronto host the mlb all-star game?',\n              'Which all-star game did toronto host?'], dtype=object), 'answer': array([array(['July 9, 1991'], dtype=object),\n              array(['1991 Major League Baseball All-Star Game',\n                     'the 62nd playing of the midsummer classic'], dtype=object)],\n             dtype=object)}                                                                                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 136,
+  "prompt": "When did toronto host the mlb all-star game?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you when Toronto hosted the MLB All-",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.268436431884766,
+          "prob": 1.1644446895727452e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1644446760134308e-08,
+      "prompt": "You're given the following task:\nWhen did toronto host the mlb all-star game?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

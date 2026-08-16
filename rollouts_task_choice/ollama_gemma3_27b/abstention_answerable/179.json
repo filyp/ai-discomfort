@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 179,
+  "prompt": "Out of the members of the Supremes who sang \"A Breathtaking Guy,\" who remained in the group the longest?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out who from The Supremes (",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.22473907470703,
+          "prob": 6.056377537346718e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.056377533678746e-10,
+      "prompt": "You're given the following task:\nOut of the members of the Supremes who sang \"A Breathtaking Guy,\" who remained in the group the longest?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

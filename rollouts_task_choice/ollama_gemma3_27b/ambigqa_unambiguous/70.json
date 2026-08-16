@@ -1,0 +1,31 @@
+{
+  "id": -2397165685060729764,
+  "question": "What did romans use to clean their teeth?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['twigs'], dtype=object), array(['twigs'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 70,
+  "prompt": "What did romans use to clean their teeth?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.265655517578125,
+          "prob": 1.5802930734581373e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5802930709608112e-09,
+      "prompt": "You're given the following task:\nWhat did romans use to clean their teeth?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 202,
+  "prompt": "Pennsylvania Route 51 (PA 51) is a major state highway in Western Pennsylvania, Century III Mall is located on this road, an ailing enclosed shopping mall located in the southern Pittsburgh suburb of West Mifflin, in Pennsylvania, opened in what year?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help determine when Century III Mall opened. To",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.83950424194336,
+          "prob": 3.5915770976984744e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.5915770922039066e-07,
+      "prompt": "You're given the following task:\nPennsylvania Route 51 (PA 51) is a major state highway in Western Pennsylvania, Century III Mall is located on this road, an ailing enclosed shopping mall located in the southern Pittsburgh suburb of West Mifflin, in Pennsylvania, opened in what year?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

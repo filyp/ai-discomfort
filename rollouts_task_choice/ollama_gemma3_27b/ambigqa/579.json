@@ -1,0 +1,31 @@
+{
+  "id": 3421083040429613594,
+  "question": "Who sang the song i'm coming out?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Diana Ross'], dtype=object), array([], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Who originally sang \"I\\'m Coming Out\"?',\n              'Who sang an official 2003 cover of \"I\\'m Coming Out\"?'],\n             dtype=object), 'answer': array([array(['Diana Ross'], dtype=object),\n              array(['Amerie'], dtype=object)], dtype=object)}                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 579,
+  "prompt": "Who sang the song i'm coming out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.477035522460938,
+          "prob": 1.2791941565610571e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.2791941549247195e-09,
+      "prompt": "You're given the following task:\nWho sang the song i'm coming out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

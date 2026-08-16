@@ -1,0 +1,32 @@
+{
+  "id": "5ad419f8604f3c001a400499",
+  "title": "Steam_engine",
+  "context": "One of the principal advantages the Rankine cycle holds over others is that during the compression stage relatively little work is required to drive the pump, the working fluid being in its liquid phase at this point. By condensing the fluid, the work required by the pump consumes only 1% to 3% of the turbine power and contributes to a much higher efficiency for a real cycle. The benefit of this is lost somewhat due to the lower heat addition temperature. Gas turbines, for instance, have turbine entry temperatures approaching 1500 °C. Nonetheless, the efficiencies of actual large steam cycles and large modern gas turbines are fairly well matched.[citation needed]",
+  "question": "What is a main advantage of the efficiency cycle?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1114,
+  "prompt": "Context: One of the principal advantages the Rankine cycle holds over others is that during the compression stage relatively little work is required to drive the pump, the working fluid being in its liquid phase at this point. By condensing the fluid, the work required by the pump consumes only 1% to 3% of the turbine power and contributes to a much higher efficiency for a real cycle. The benefit of this is lost somewhat due to the lower heat addition temperature. Gas turbines, for instance, have turbine entry temperatures approaching 1500 °C. Nonetheless, the efficiencies of actual large steam cycles and large modern gas turbines are fairly well matched.[citation needed]\n\nQuestion: What is a main advantage of the efficiency cycle?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nA main advantage of the Rankine cycle is that relatively little work",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.474441528320312,
+          "prob": 2.349011249240922e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3490112491857436e-11,
+      "prompt": "You're given the following task:\nContext: One of the principal advantages the Rankine cycle holds over others is that during the compression stage relatively little work is required to drive the pump, the working fluid being in its liquid phase at this point. By condensing the fluid, the work required by the pump consumes only 1% to 3% of the turbine power and contributes to a much higher efficiency for a real cycle. The benefit of this is lost somewhat due to the lower heat addition temperature. Gas turbines, for instance, have turbine entry temperatures approaching 1500 °C. Nonetheless, the efficiencies of actual large steam cycles and large modern gas turbines are fairly well matched.[citation needed]\n\nQuestion: What is a main advantage of the efficiency cycle?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

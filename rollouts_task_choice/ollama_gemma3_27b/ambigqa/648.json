@@ -1,0 +1,31 @@
+{
+  "id": -7368635515365513931,
+  "question": "What's the famous street in new orleans?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object), array(['Bourbon Street'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([\"What's the famous street in new orleans known for bars and strip clubs?\",\n              \"What's the famous street in new orleans dividing 18th century city and newer business district?\"],\n             dtype=object), 'answer': array([array(['Bourbon Street'], dtype=object),\n              array(['Canal Street'], dtype=object)], dtype=object)}                                             ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 648,
+  "prompt": "What's the famous street in new orleans?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The most famous street in New Orleans is **Bourbon",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.753448486328125,
+          "prob": 3.569417594231876e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.569417592957802e-10,
+      "prompt": "You're given the following task:\nWhat's the famous street in new orleans?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

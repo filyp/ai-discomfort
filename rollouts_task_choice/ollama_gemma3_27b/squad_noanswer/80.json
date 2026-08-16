@@ -1,0 +1,32 @@
+{
+  "id": "5ad401f2604f3c001a3ffd41",
+  "title": "Normans",
+  "context": "The conquest of Cyprus by the Anglo-Norman forces of the Third Crusade opened a new chapter in the history of the island, which would be under Western European domination for the following 380 years. Although not part of a planned operation, the conquest had much more permanent results than initially expected.",
+  "question": "Who defeated Anglo-Norman forces during the third Crusade?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 80,
+  "prompt": "Context: The conquest of Cyprus by the Anglo-Norman forces of the Third Crusade opened a new chapter in the history of the island, which would be under Western European domination for the following 380 years. Although not part of a planned operation, the conquest had much more permanent results than initially expected.\n\nQuestion: Who defeated Anglo-Norman forces during the third Crusade?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThis is a trick question! The provided text states the Anglo-Norman",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -2.1364431381225586,
+          "prob": 0.11807407017217489,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.12564752995967865,
+          "prob": 0.8819256443742117,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.8819258961231455,
+      "prompt": "You're given the following task:\nContext: The conquest of Cyprus by the Anglo-Norman forces of the Third Crusade opened a new chapter in the history of the island, which would be under Western European domination for the following 380 years. Although not part of a planned operation, the conquest had much more permanent results than initially expected.\n\nQuestion: Who defeated Anglo-Norman forces during the third Crusade?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

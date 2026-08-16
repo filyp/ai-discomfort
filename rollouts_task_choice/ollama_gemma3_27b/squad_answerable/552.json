@@ -1,0 +1,32 @@
+{
+  "id": "57096f37200fba1400367fe5",
+  "title": "Sky_(United_Kingdom)",
+  "context": "BSkyB has no veto over the presence of channels on their EPG, with open access being an enforced part of their operating licence from Ofcom. Any channel which can get carriage on a suitable beam of a satellite at 28° East is entitled to access to BSkyB's EPG for a fee, ranging from £15–100,000. Third-party channels which opt for encryption receive discounts ranging from reduced price to free EPG entries, free carriage on a BSkyB leased transponder, or actual payment for being carried. However, even in this case, BSkyB does not carry any control over the channel's content or carriage issues such as picture quality.",
+  "question": "Who does BSkyB have an operating license from?",
+  "answers": "{'text': array(['Ofcom', 'Ofcom', 'Ofcom'], dtype=object), 'answer_start': array([134, 134, 134], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 552,
+  "prompt": "Context: BSkyB has no veto over the presence of channels on their EPG, with open access being an enforced part of their operating licence from Ofcom. Any channel which can get carriage on a suitable beam of a satellite at 28° East is entitled to access to BSkyB's EPG for a fee, ranging from £15–100,000. Third-party channels which opt for encryption receive discounts ranging from reduced price to free EPG entries, free carriage on a BSkyB leased transponder, or actual payment for being carried. However, even in this case, BSkyB does not carry any control over the channel's content or carriage issues such as picture quality.\n\nQuestion: Who does BSkyB have an operating license from?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBSkyB has an operating license from **Ofcom**.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.83332061767578,
+          "prob": 3.005024109991944e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.005024109991041e-13,
+      "prompt": "You're given the following task:\nContext: BSkyB has no veto over the presence of channels on their EPG, with open access being an enforced part of their operating licence from Ofcom. Any channel which can get carriage on a suitable beam of a satellite at 28° East is entitled to access to BSkyB's EPG for a fee, ranging from £15–100,000. Third-party channels which opt for encryption receive discounts ranging from reduced price to free EPG entries, free carriage on a BSkyB leased transponder, or actual payment for being carried. However, even in this case, BSkyB does not carry any control over the channel's content or carriage issues such as picture quality.\n\nQuestion: Who does BSkyB have an operating license from?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5a8391c7e60761001a2eb7db",
+  "title": "Ctenophora",
+  "context": "When some species, including Bathyctena chuni, Euplokamis stationis and Eurhamphaea vexilligera, are disturbed, they produce secretions (ink) that luminesce at much the same wavelengths as their bodies. Juveniles will luminesce more brightly in relation to their body size than adults, whose luminescence is diffused over their bodies. Detailed statistical investigation has not suggested the function of ctenophores' bioluminescence nor produced any correlation between its exact color and any aspect of the animals' environments, such as depth or whether they live in coastal or mid-ocean waters.",
+  "question": "What happens to ocean water when it absorbs certain wavelengths?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1870,
+  "prompt": "Context: When some species, including Bathyctena chuni, Euplokamis stationis and Eurhamphaea vexilligera, are disturbed, they produce secretions (ink) that luminesce at much the same wavelengths as their bodies. Juveniles will luminesce more brightly in relation to their body size than adults, whose luminescence is diffused over their bodies. Detailed statistical investigation has not suggested the function of ctenophores' bioluminescence nor produced any correlation between its exact color and any aspect of the animals' environments, such as depth or whether they live in coastal or mid-ocean waters.\n\nQuestion: What happens to ocean water when it absorbs certain wavelengths?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text *doesn't contain information* about what happens",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -0.5092171430587769,
+          "prob": 0.6009658650036991,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.9187096357345581,
+          "prob": 0.39903360773203705,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.3990338181283094,
+      "prompt": "You're given the following task:\nContext: When some species, including Bathyctena chuni, Euplokamis stationis and Eurhamphaea vexilligera, are disturbed, they produce secretions (ink) that luminesce at much the same wavelengths as their bodies. Juveniles will luminesce more brightly in relation to their body size than adults, whose luminescence is diffused over their bodies. Detailed statistical investigation has not suggested the function of ctenophores' bioluminescence nor produced any correlation between its exact color and any aspect of the animals' environments, such as depth or whether they live in coastal or mid-ocean waters.\n\nQuestion: What happens to ocean water when it absorbs certain wavelengths?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

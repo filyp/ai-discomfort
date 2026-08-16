@@ -1,0 +1,32 @@
+{
+  "id": "57113c6da58dae1900cd6d34",
+  "title": "Steam_engine",
+  "context": "The history of the steam engine stretches back as far as the first century AD; the first recorded rudimentary steam engine being the aeolipile described by Greek mathematician Hero of Alexandria. In the following centuries, the few steam-powered \"engines\" known were, like the aeolipile, essentially experimental devices used by inventors to demonstrate the properties of steam. A rudimentary steam turbine device was described by Taqi al-Din in 1551 and by Giovanni Branca in 1629. Jerónimo de Ayanz y Beaumont received patents in 1606 for fifty steam powered inventions, including a water pump for draining inundated mines. Denis Papin, a Huguenot refugee, did some useful work on the steam digester in 1679, and first used a piston to raise weights in 1690.",
+  "question": "What was Hero of Alexandria's nationality?",
+  "answers": "{'text': array(['Greek', 'Greek', 'Greek', 'Greek'], dtype=object), 'answer_start': array([156, 156, 156, 156], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 963,
+  "prompt": "Context: The history of the steam engine stretches back as far as the first century AD; the first recorded rudimentary steam engine being the aeolipile described by Greek mathematician Hero of Alexandria. In the following centuries, the few steam-powered \"engines\" known were, like the aeolipile, essentially experimental devices used by inventors to demonstrate the properties of steam. A rudimentary steam turbine device was described by Taqi al-Din in 1551 and by Giovanni Branca in 1629. Jerónimo de Ayanz y Beaumont received patents in 1606 for fifty steam powered inventions, including a water pump for draining inundated mines. Denis Papin, a Huguenot refugee, did some useful work on the steam digester in 1679, and first used a piston to raise weights in 1690.\n\nQuestion: What was Hero of Alexandria's nationality?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nHero of Alexandria was Greek. The text states he was a \"",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.23974609375,
+          "prob": 2.970380114140881e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.970380114052649e-11,
+      "prompt": "You're given the following task:\nContext: The history of the steam engine stretches back as far as the first century AD; the first recorded rudimentary steam engine being the aeolipile described by Greek mathematician Hero of Alexandria. In the following centuries, the few steam-powered \"engines\" known were, like the aeolipile, essentially experimental devices used by inventors to demonstrate the properties of steam. A rudimentary steam turbine device was described by Taqi al-Din in 1551 and by Giovanni Branca in 1629. Jerónimo de Ayanz y Beaumont received patents in 1606 for fifty steam powered inventions, including a water pump for draining inundated mines. Denis Papin, a Huguenot refugee, did some useful work on the steam digester in 1679, and first used a piston to raise weights in 1690.\n\nQuestion: What was Hero of Alexandria's nationality?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

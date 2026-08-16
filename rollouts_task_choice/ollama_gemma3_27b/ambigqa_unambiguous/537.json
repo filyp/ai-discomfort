@@ -1,0 +1,31 @@
+{
+  "id": 295802347075117009,
+  "question": "When did master p play for the toronto raptors?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['1999 pre-season'], dtype=object),\n       array(['1999 pre-season'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 537,
+  "prompt": "When did master p play for the toronto raptors?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out if Master P ever played for",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.04074391350150108,
+          "prob": 0.9600749607044698,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -3.2207517623901367,
+          "prob": 0.039925032837963656,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.039925033095782214,
+      "prompt": "You're given the following task:\nWhen did master p play for the toronto raptors?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

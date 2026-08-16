@@ -1,0 +1,31 @@
+{
+  "id": 2251429599162734674,
+  "question": "When was the sword in the stone written?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the film \"Sword in the Stone\" written?',\n              'When was the novel \"Sword in the Stone\" written?|When was the original sword in the stone written?|When was the english collins version of the sword in the stone written?'],\n             dtype=object), 'answer': array([array(['1963'], dtype=object), array(['1938'], dtype=object)],\n             dtype=object)}                                                                                                                                                                 ,\n       {'question': array(['When was the novel \"Sword in the Stone\" written?',\n              'When was the film \"Sword in the Stone\" written?'], dtype=object), 'answer': array([array(['1938'], dtype=object), array(['1963'], dtype=object)],\n             dtype=object)}                                                                                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1101,
+  "prompt": "When was the sword in the stone written?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.0531240301788785e-06,
+          "prob": 0.9999959468841837,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.41336441040039,
+          "prob": 4.063912370081997e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.063912326205749e-06,
+      "prompt": "You're given the following task:\nWhen was the sword in the stone written?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

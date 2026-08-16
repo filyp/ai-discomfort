@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 303,
+  "prompt": "Who is the happiest person in the world?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nThe question \"Who is the happiest person in",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -12.354756355285645,
+          "prob": 4.309208319525061e-06,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.291543518775143e-06,
+          "prob": 0.9999957084656899,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999956907917567,
+      "prompt": "You're given the following task:\nWho is the happiest person in the world?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

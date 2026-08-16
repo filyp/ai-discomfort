@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 302,
+  "prompt": "The Shoals of Herring (Roud 13642) is a ballad, written by James Henry Miller, was an English folk singer, songwriter, communist, labour activist, actor, poet, playwright and record producer, and better known by which stage name ?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.01430892944336,
+          "prob": 4.081121444553232e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.081121277997716e-08,
+      "prompt": "You're given the following task:\nThe Shoals of Herring (Roud 13642) is a ballad, written by James Henry Miller, was an English folk singer, songwriter, communist, labour activist, actor, poet, playwright and record producer, and better known by which stage name ?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

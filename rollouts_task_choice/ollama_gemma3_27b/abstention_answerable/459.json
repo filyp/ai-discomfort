@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 459,
+  "prompt": "Who owned and operated the MGM Grand Hotel that was the site of the worst disaster in the history of Nevada?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.23491668701172,
+          "prob": 8.113418824232747e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.113418823574471e-11,
+      "prompt": "You're given the following task:\nWho owned and operated the MGM Grand Hotel that was the site of the worst disaster in the history of Nevada?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

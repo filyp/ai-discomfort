@@ -1,0 +1,32 @@
+{
+  "id": "571a50df4faf5e1900b8a963",
+  "title": "Oxygen",
+  "context": "Highly concentrated sources of oxygen promote rapid combustion. Fire and explosion hazards exist when concentrated oxidants and fuels are brought into close proximity; an ignition event, such as heat or a spark, is needed to trigger combustion. Oxygen is the oxidant, not the fuel, but nevertheless the source of most of the chemical energy released in combustion. Combustion hazards also apply to compounds of oxygen with a high oxidative potential, such as peroxides, chlorates, nitrates, perchlorates, and dichromates because they can donate oxygen to a fire.",
+  "question": "Although not a fuel  ___ is the chemical compound the generates the most occurrence of explosions.",
+  "answers": "{'text': array(['Oxygen', 'Oxygen', 'Oxygen', 'Oxygen', 'Oxygen'], dtype=object), 'answer_start': array([245, 245, 245, 245, 245], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1186,
+  "prompt": "Context: Highly concentrated sources of oxygen promote rapid combustion. Fire and explosion hazards exist when concentrated oxidants and fuels are brought into close proximity; an ignition event, such as heat or a spark, is needed to trigger combustion. Oxygen is the oxidant, not the fuel, but nevertheless the source of most of the chemical energy released in combustion. Combustion hazards also apply to compounds of oxygen with a high oxidative potential, such as peroxides, chlorates, nitrates, perchlorates, and dichromates because they can donate oxygen to a fire.\n\nQuestion: Although not a fuel  ___ is the chemical compound the generates the most occurrence of explosions.",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can complete this task. The missing word is **",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.20494842529297,
+          "prob": 1.1314359719805545e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.131435971967753e-11,
+      "prompt": "You're given the following task:\nContext: Highly concentrated sources of oxygen promote rapid combustion. Fire and explosion hazards exist when concentrated oxidants and fuels are brought into close proximity; an ignition event, such as heat or a spark, is needed to trigger combustion. Oxygen is the oxidant, not the fuel, but nevertheless the source of most of the chemical energy released in combustion. Combustion hazards also apply to compounds of oxygen with a high oxidative potential, such as peroxides, chlorates, nitrates, perchlorates, and dichromates because they can donate oxygen to a fire.\n\nQuestion: Although not a fuel  ___ is the chemical compound the generates the most occurrence of explosions.\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 2187765416989332036,
+  "question": "Who is the tallest person on the earth?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who has the stage name the tallest person on the earth?',\n              'Who is the tallest man in recorded history on the earth?',\n              'Who is the unconfirmed tallest woman in history on the earth?',\n              'Who is the tallest confirmed woman in recorded history on the earth?'],\n             dtype=object), 'answer': array([array(['Kristian Matsson'], dtype=object),\n              array(['Robert Wadlow'], dtype=object),\n              array(['Trijntje Keever'], dtype=object),\n              array(['Zeng Jinlian'], dtype=object)], dtype=object)}                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 388,
+  "prompt": "Who is the tallest person on the earth?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! Determining *exactly* who",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.553898543235846e-05,
+          "prob": 0.9999544620514516,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -9.997207641601562,
+          "prob": 4.552687980015895e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.552688030408453e-05,
+      "prompt": "You're given the following task:\nWho is the tallest person on the earth?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

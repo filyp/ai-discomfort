@@ -1,0 +1,31 @@
+{
+  "id": -3279585462082900736,
+  "question": "Who gets fired on grey's anatomy season 6?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Which character gets fired on episode 5 of grey's anatomy season 6?\",\n              \"Which actor gets fired on episode 5 of grey's anatomy season 6?\",\n              \"Which character gets fired on episode 6 of grey's anatomy season 6?\",\n              \"Which actor gets fired on episode 6 of grey's anatomy season 6?\",\n              \"Which character gets fired on episode 12 of grey's anatomy season 6?\",\n              \"Which actor gets fired on episode 12 of grey's anatomy season 6?\"],\n             dtype=object), 'answer': array([array(['Izzie Stevens', 'Izzie'], dtype=object),\n              array(['Katherine Heigl', 'Katherine Marie Heigl'], dtype=object),\n              array(['April Kepner'], dtype=object),\n              array(['Sarah White Drew', 'Sarah Drew'], dtype=object),\n              array(['Webber', 'Richard Webber'], dtype=object),\n              array(['James Pickens Jr.'], dtype=object)], dtype=object)}                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 490,
+  "prompt": "Who gets fired on grey's anatomy season 6?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about who gets fired on Grey'",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.58077621459961,
+          "prob": 8.520624381305042e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.520624308704001e-09,
+      "prompt": "You're given the following task:\nWho gets fired on grey's anatomy season 6?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "57060df252bb891400689822",
+  "title": "Southern_California",
+  "context": "The San Bernardino-Riverside area maintains the business districts of Downtown San Bernardino, Hospitality Business/Financial Centre, University Town which are in San Bernardino and Downtown Riverside.",
+  "question": "Other than Downtown San Bernardino, and University Town, what is the name of another business district in the San Bernardino-Riverside area?",
+  "answers": "{'text': array(['Hospitality Business/Financial Centre', 'Downtown Riverside',\n       'Hospitality Business/Financial Centre'], dtype=object), 'answer_start': array([ 95, 182,  95], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 429,
+  "prompt": "Context: The San Bernardino-Riverside area maintains the business districts of Downtown San Bernardino, Hospitality Business/Financial Centre, University Town which are in San Bernardino and Downtown Riverside.\n\nQuestion: Other than Downtown San Bernardino, and University Town, what is the name of another business district in the San Bernardino-Riverside area?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states \"Hospitality Business/Financial Centre\" is also",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.187149047851562,
+          "prob": 2.1095130968477268e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.1095130968472817e-13,
+      "prompt": "You're given the following task:\nContext: The San Bernardino-Riverside area maintains the business districts of Downtown San Bernardino, Hospitality Business/Financial Centre, University Town which are in San Bernardino and Downtown Riverside.\n\nQuestion: Other than Downtown San Bernardino, and University Town, what is the name of another business district in the San Bernardino-Riverside area?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

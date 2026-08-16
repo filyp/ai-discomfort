@@ -1,0 +1,31 @@
+{
+  "id": -8090073604523903044,
+  "question": "In which year did djokovic win roland garros?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['2016'], dtype=object), array(['2016'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 545,
+  "prompt": "In which year did djokovic win roland garros?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.817459106445312,
+          "prob": 1.827998472661111e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.8279984392453278e-08,
+      "prompt": "You're given the following task:\nIn which year did djokovic win roland garros?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

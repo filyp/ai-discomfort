@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 436,
+  "prompt": "What company publishes the magazine that selected Sam Yates as one of their Stars of Tomorrow in 2016?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.050525665283203,
+          "prob": 3.9359610317428586e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.935960876824973e-08,
+      "prompt": "You're given the following task:\nWhat company publishes the magazine that selected Sam Yates as one of their Stars of Tomorrow in 2016?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

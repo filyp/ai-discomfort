@@ -1,0 +1,31 @@
+{
+  "id": -8110325890451609363,
+  "question": "When did the song genie in a bottle come out?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"When did Christina Aguilera's Genie in a Bottle come out?\",\n              \"When did the Spanish version of Christina Aguilera's Genie in a Bottle come out?\"],\n             dtype=object), 'answer': array([array(['June 22, 1999'], dtype=object),\n              array(['2000'], dtype=object)], dtype=object)}                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 482,
+  "prompt": "When did the song genie in a bottle come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.648399353027344,
+          "prob": 1.077740245624153e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.077740244462629e-09,
+      "prompt": "You're given the following task:\nWhen did the song genie in a bottle come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 98,
+  "prompt": "When was the school that  Raoul Alexander Mulder is based in founded?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To find out when the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -8.344653679159819e-07,
+          "prob": 0.9999991655349802,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.942872047424316,
+          "prob": 8.804153541952487e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.804153137398706e-07,
+      "prompt": "You're given the following task:\nWhen was the school that  Raoul Alexander Mulder is based in founded?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1030199667335208614,
+  "question": "Where will the winter olympics be held in?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where will the winter olympics be held in 2014?',\n              'Where will the winter olympics be held in 2010?',\n              'Where will the winter olympics be held in 2006?'], dtype=object), 'answer': array([array(['Sochi, Russia', 'Sochi'], dtype=object),\n              array(['Vancouver, British Columbia, Canada', 'Vancouver'], dtype=object),\n              array(['Turin', 'Turin, Italy'], dtype=object)], dtype=object)}                                                                     ,\n       {'question': array(['Where were the 2014 Winter Olympics held?',\n              'Where were the 2014 Winter Paraympics held?',\n              'Where were the 2016 Youth Winter Olympics held?',\n              'Where were the 2010 Winter Olympics held?',\n              'Where were the 2010 WinterParalympics held?',\n              'Where were the 2012 Youth Winter Olympics held?',\n              'Where were the 2006 Winter Olympics held?',\n              'Where were the 2014 Winter Paralympics held?'], dtype=object), 'answer': array([array(['Sochi, Russia', 'Russia', 'Sochi'], dtype=object),\n              array(['Sochi, Russia', 'Russia', 'Sochi'], dtype=object),\n              array(['Lillehammer', 'Norway', 'Lillehammer, Norway'], dtype=object),\n              array(['Vancouver, British Columbia, Canada', 'Vancouver', 'Canada',\n                     'British Columbia'], dtype=object)                           ,\n              array(['Vancouver, British Columbia, Canada', 'Vancouver', 'Canada',\n                     'British Columbia'], dtype=object)                           ,\n              array(['Austria', 'Innsbruck, Austria', 'Innsbruck'], dtype=object),\n              array(['Turin', 'Italy', 'Turin, Italy'], dtype=object),\n              array(['Turin', 'Italy', 'Turin, Italy'], dtype=object)],\n             dtype=object)}                                                                                                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 770,
+  "prompt": "Where will the winter olympics be held in?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.876964569091797,
+          "prob": 6.336339703244246e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.336339663095045e-09,
+      "prompt": "You're given the following task:\nWhere will the winter olympics be held in?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

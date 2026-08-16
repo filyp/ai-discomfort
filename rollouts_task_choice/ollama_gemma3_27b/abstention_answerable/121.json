@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 121,
+  "prompt": "Jerrald King \"Jerry\" Goldsmith, was an American composer and conductor most known for his work in film and television scoring, and composed scores for such noteworthy films as which 1992 neo-noir erotic thriller film directed by Paul Verhoeven and written by Joe Eszterhas, and starring Michael Douglas and Sharon Stone?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.535072326660156,
+          "prob": 2.4244590256390532e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.4244589668590387e-08,
+      "prompt": "You're given the following task:\nJerrald King \"Jerry\" Goldsmith, was an American composer and conductor most known for his work in film and television scoring, and composed scores for such noteworthy films as which 1992 neo-noir erotic thriller film directed by Paul Verhoeven and written by Joe Eszterhas, and starring Michael Douglas and Sharon Stone?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

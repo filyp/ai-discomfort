@@ -1,0 +1,66 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 15,
+  "prompt": "Can a bald person get a haircut?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.847518920898438,
+          "prob": 1.7738668470787894e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.773866815612754e-08,
+      "prompt": "You're given the following task:\nCan a bald person get a haircut?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nThis is a classic riddle/trick question! I'd like",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.355915069580078,
+          "prob": 2.9001593227779392e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.900159238668701e-08,
+      "prompt": "You're given the following task:\nCan a bald person get a haircut?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -21.829437255859375,
+          "prob": 3.3082312270910956e-10,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.308231225996656e-10,
+      "prompt": "You're given the following task:\nCan a bald person get a haircut?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

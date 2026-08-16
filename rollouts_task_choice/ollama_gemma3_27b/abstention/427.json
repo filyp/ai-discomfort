@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 427,
+  "prompt": "Are there Vampires in Dallas?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0010418356396257877,
+          "prob": 0.9989587068827015,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -6.867275714874268,
+          "prob": 0.001041310029385642,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0010413100117749165,
+      "prompt": "You're given the following task:\nAre there Vampires in Dallas?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

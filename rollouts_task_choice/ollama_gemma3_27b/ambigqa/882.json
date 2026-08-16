@@ -1,0 +1,31 @@
+{
+  "id": 1976045127873692209,
+  "question": "How much sports are there in the winter olympics?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How many sports disciplines are there in the Winter Olympics?',\n              'How many sportsare there in the Winter Olympics?',\n              'How many events are there in the 2018 Winter Olympics?',\n              'How many events are there in the 2014 Winter Olympics?',\n              'How many events are there in the 2010 Winter Olympics?'],\n             dtype=object), 'answer': array([array(['fifteen'], dtype=object), array(['seven'], dtype=object),\n              array(['102'], dtype=object), array(['98'], dtype=object),\n              array(['86'], dtype=object)], dtype=object)}                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 882,
+  "prompt": "How much sports are there in the winter olympics?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out how many sports are in the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.50141143798828,
+          "prob": 3.3934747585501418e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.3934747470344708e-09,
+      "prompt": "You're given the following task:\nHow much sports are there in the winter olympics?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

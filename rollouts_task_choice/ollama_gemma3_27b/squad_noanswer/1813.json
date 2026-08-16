@@ -1,0 +1,32 @@
+{
+  "id": "5a8371dfe60761001a2eb725",
+  "title": "Ctenophora",
+  "context": "The largest single sensory feature is the aboral organ (at the opposite end from the mouth). Its main component is a statocyst, a balance sensor consisting of a statolith, a solid particle supported on four bundles of cilia, called \"balancers\", that sense its orientation. The statocyst is protected by a transparent dome made of long, immobile cilia. A ctenophore does not automatically try to keep the statolith resting equally on all the balancers. Instead its response is determined by the animal's \"mood\", in other words the overall state of the nervous system. For example, if a ctenophore with trailing tentacles captures prey, it will often put some comb rows into reverse, spinning the mouth towards the prey.",
+  "question": "What is the largest feature in the mouth?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1813,
+  "prompt": "Context: The largest single sensory feature is the aboral organ (at the opposite end from the mouth). Its main component is a statocyst, a balance sensor consisting of a statolith, a solid particle supported on four bundles of cilia, called \"balancers\", that sense its orientation. The statocyst is protected by a transparent dome made of long, immobile cilia. A ctenophore does not automatically try to keep the statolith resting equally on all the balancers. Instead its response is determined by the animal's \"mood\", in other words the overall state of the nervous system. For example, if a ctenophore with trailing tentacles captures prey, it will often put some comb rows into reverse, spinning the mouth towards the prey.\n\nQuestion: What is the largest feature in the mouth?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe question asks about the *mouth*, but the provided text focuses",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -8.641816139221191,
+          "prob": 0.00017656594254365782,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.000176504923729226,
+          "prob": 0.9998235106523484,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9998234340709805,
+      "prompt": "You're given the following task:\nContext: The largest single sensory feature is the aboral organ (at the opposite end from the mouth). Its main component is a statocyst, a balance sensor consisting of a statolith, a solid particle supported on four bundles of cilia, called \"balancers\", that sense its orientation. The statocyst is protected by a transparent dome made of long, immobile cilia. A ctenophore does not automatically try to keep the statolith resting equally on all the balancers. Instead its response is determined by the animal's \"mood\", in other words the overall state of the nervous system. For example, if a ctenophore with trailing tentacles captures prey, it will often put some comb rows into reverse, spinning the mouth towards the prey.\n\nQuestion: What is the largest feature in the mouth?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

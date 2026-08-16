@@ -1,0 +1,31 @@
+{
+  "id": 5706779148132378909,
+  "question": "When does the new season of got air?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When does Season 7 of Game of Thrones air?',\n              'When does Season 6 of Game of Thrones air?',\n              'When does Season 5 of Game of Thrones air?'], dtype=object), 'answer': array([array(['July 16, 2017'], dtype=object),\n              array(['April 24, 2016'], dtype=object),\n              array(['April 12, 2015'], dtype=object)], dtype=object)}                                                              ,\n       {'question': array(['When does the new season of got air in 2017?',\n              'When does the new season of got air in 2016?',\n              'When does the new season of got air in 2015?',\n              'When does the new season of got start airing in 2017?',\n              'When does the new season of got start airing in 2016?',\n              'When does the new season of got start airing in 2015?'],\n             dtype=object), 'answer': array([array(['July 16, 2017-August 27, 2017', 'July 16 – August 27, 2017'],\n                    dtype=object)                                                  ,\n              array(['April 24, 2016-June 26, 2016', 'April 24 – June 26, 2016'],\n                    dtype=object)                                                ,\n              array(['April 12, 2015-June 14, 2015', 'April 12 – June 14, 2015'],\n                    dtype=object)                                                ,\n              array(['July 16, 2017'], dtype=object),\n              array(['April 24, 2016'], dtype=object),\n              array(['April 12, 2015'], dtype=object)], dtype=object)}                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 806,
+  "prompt": "When does the new season of got air?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! To give you the most accurate answer about when the new",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.0728841743912199e-06,
+          "prob": 0.9999989271164011,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.790139198303223,
+          "prob": 1.025695951908388e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0256960003085687e-06,
+      "prompt": "You're given the following task:\nWhen does the new season of got air?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

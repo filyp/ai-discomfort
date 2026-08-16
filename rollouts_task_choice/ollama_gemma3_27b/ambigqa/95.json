@@ -1,0 +1,31 @@
+{
+  "id": 9208802889973064064,
+  "question": "How many grammy awards does whitney houston have?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How many competitive Grammy Awards does Whitney Houston have?',\n              'How many Grammy Hall of Fame Awards does Whitney Houston have?',\n              'How many total Grammy Awards does Whitney Houston have?'],\n             dtype=object), 'answer': array([array(['6'], dtype=object), array(['2'], dtype=object),\n              array(['8'], dtype=object)], dtype=object)}                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 95,
+  "prompt": "How many grammy awards does whitney houston have?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.46739959716797,
+          "prob": 1.7479633894658196e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7479633891602818e-10,
+      "prompt": "You're given the following task:\nHow many grammy awards does whitney houston have?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

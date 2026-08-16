@@ -1,0 +1,31 @@
+{
+  "id": 4425761024623325316,
+  "question": "Which last longer the mitotic phase or interphase?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['interphase'], dtype=object),\n       array(['Interphase'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 585,
+  "prompt": "Which last longer the mitotic phase or interphase?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.965190887451172,
+          "prob": 5.290063388371698e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.290063388343714e-12,
+      "prompt": "You're given the following task:\nWhich last longer the mitotic phase or interphase?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

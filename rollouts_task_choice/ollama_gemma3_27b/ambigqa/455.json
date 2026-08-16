@@ -1,0 +1,31 @@
+{
+  "id": -5898858615723263674,
+  "question": "Name a us president that ends with son?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Jefferson, Madison, Jackson, William Henry Harrison, Andrew Johnson, Benjamin Harrison, Woodrow Wilson, Lyndon Johnson'],\n             dtype=object)                                                                                                              ,\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Name a us president from 1801 that ends with son?',\n              'Name a us president from 1810 that ends with son?',\n              'Name a us president from 1829 that ends with son?',\n              'Name a us president from 1841 that ends with son?',\n              'Name a us president from 1865 that ends with son?',\n              'Name a us president from 1889 that ends with son?',\n              'Name a us president from 1913 that ends with son?',\n              'Name a us president from 1963 that ends with son?'], dtype=object), 'answer': array([array(['Thomas Jefferson'], dtype=object),\n              array(['James Madison'], dtype=object),\n              array(['Andrew Jackson'], dtype=object),\n              array(['William Henry Harrison'], dtype=object),\n              array(['Andrew Johnson'], dtype=object),\n              array(['Benjamin Harrison'], dtype=object),\n              array(['Woodrow Wilson'], dtype=object),\n              array(['Lyndon B. Johnson'], dtype=object)], dtype=object)}                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 455,
+  "prompt": "Name a us president that ends with son?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThat's an easy one! **Dwight D. Eisenhower",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.204341888427734,
+          "prob": 3.3748094231813385e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.374809309287956e-08,
+      "prompt": "You're given the following task:\nName a us president that ends with son?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

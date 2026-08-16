@@ -1,0 +1,31 @@
+{
+  "id": -8920035339566928579,
+  "question": "Who sang this is how we do it?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sang the 1995 version of This is How we Do it?',\n              'Who sang the version of This is How we do it that was at number 7 on the UK charts?',\n              'Who sang this is how we do it in 2017?',\n              'Who sang this is how we do it in the film Mike and Dave Need Wedding Dates?',\n              'Who sang this is how we do it in 2018?'], dtype=object), 'answer': array([array(['Montell Jordan'], dtype=object),\n              array(['Mis-Teeq'], dtype=object), array(['CDB'], dtype=object),\n              array(['Zac Efron, Anna Kendrick, Adam Devine, and Aubrey Plaza'],\n                    dtype=object)                                               ,\n              array(['Party Pupils and Audien'], dtype=object)], dtype=object)}                                                  ,\n       {'question': array(['Who sang this is how we do it in 1995?',\n              'Who sang this is how we do in 2014?'], dtype=object), 'answer': array([array(['Montell Jordan', \"Montell Du'Sean Barnett\"], dtype=object),\n              array(['Katy Perry', 'Katheryn Elizabeth Hudson'], dtype=object)],\n             dtype=object)}                                                                                                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 229,
+  "prompt": "Who sang this is how we do it?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! \"This Is How We Do It\" was sung by",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.329147338867188,
+          "prob": 8.097322124347977e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.097322433957692e-08,
+      "prompt": "You're given the following task:\nWho sang this is how we do it?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

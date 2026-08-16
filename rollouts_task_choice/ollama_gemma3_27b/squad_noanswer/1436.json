@@ -1,0 +1,32 @@
+{
+  "id": "5a38cd93a4b263001a8c192d",
+  "title": "1973_oil_crisis",
+  "context": "The crisis reduced the demand for large cars. Japanese imports, primarily the Toyota Corona, the Toyota Corolla, the Datsun B210, the Datsun 510, the Honda Civic, the Mitsubishi Galant (a captive import from Chrysler sold as the Dodge Colt), the Subaru DL, and later the Honda Accord all had four cylinder engines that were more fuel efficient than the typical American V8 and six cylinder engines. Japanese imports became mass-market leaders with unibody construction and front-wheel drive, which became de facto standards.",
+  "question": "What increased demand for cars with six cylinder engines?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1436,
+  "prompt": "Context: The crisis reduced the demand for large cars. Japanese imports, primarily the Toyota Corona, the Toyota Corolla, the Datsun B210, the Datsun 510, the Honda Civic, the Mitsubishi Galant (a captive import from Chrysler sold as the Dodge Colt), the Subaru DL, and later the Honda Accord all had four cylinder engines that were more fuel efficient than the typical American V8 and six cylinder engines. Japanese imports became mass-market leaders with unibody construction and front-wheel drive, which became de facto standards.\n\nQuestion: What increased demand for cars with six cylinder engines?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text states the *crisis reduced* demand for large cars",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -2.3044426441192627,
+          "prob": 0.09981441730551248,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.1051553264260292,
+          "prob": 0.9001846892560926,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9001854935163751,
+      "prompt": "You're given the following task:\nContext: The crisis reduced the demand for large cars. Japanese imports, primarily the Toyota Corona, the Toyota Corolla, the Datsun B210, the Datsun 510, the Honda Civic, the Mitsubishi Galant (a captive import from Chrysler sold as the Dodge Colt), the Subaru DL, and later the Honda Accord all had four cylinder engines that were more fuel efficient than the typical American V8 and six cylinder engines. Japanese imports became mass-market leaders with unibody construction and front-wheel drive, which became de facto standards.\n\nQuestion: What increased demand for cars with six cylinder engines?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

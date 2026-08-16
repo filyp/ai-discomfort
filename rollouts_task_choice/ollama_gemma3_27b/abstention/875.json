@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 875,
+  "prompt": "What if farmers began growing and selling medicinal plants as a primary crop, would this change the way we view agriculture and medicine?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.958770751953125,
+          "prob": 2.650731015782691e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.6507310157819884e-13,
+      "prompt": "You're given the following task:\nWhat if farmers began growing and selling medicinal plants as a primary crop, would this change the way we view agriculture and medicine?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

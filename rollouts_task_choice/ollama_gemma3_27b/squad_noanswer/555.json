@@ -1,0 +1,32 @@
+{
+  "id": "5a2c3ca9bfd06b001a5aea84",
+  "title": "Sky_(United_Kingdom)",
+  "context": "BSkyB has no veto over the presence of channels on their EPG, with open access being an enforced part of their operating licence from Ofcom. Any channel which can get carriage on a suitable beam of a satellite at 28° East is entitled to access to BSkyB's EPG for a fee, ranging from £15–100,000. Third-party channels which opt for encryption receive discounts ranging from reduced price to free EPG entries, free carriage on a BSkyB leased transponder, or actual payment for being carried. However, even in this case, BSkyB does not carry any control over the channel's content or carriage issues such as picture quality.",
+  "question": "What company has veto over the presence of channels on their EPG?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 555,
+  "prompt": "Context: BSkyB has no veto over the presence of channels on their EPG, with open access being an enforced part of their operating licence from Ofcom. Any channel which can get carriage on a suitable beam of a satellite at 28° East is entitled to access to BSkyB's EPG for a fee, ranging from £15–100,000. Third-party channels which opt for encryption receive discounts ranging from reduced price to free EPG entries, free carriage on a BSkyB leased transponder, or actual payment for being carried. However, even in this case, BSkyB does not carry any control over the channel's content or carriage issues such as picture quality.\n\nQuestion: What company has veto over the presence of channels on their EPG?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that BSkyB has *no* veto over",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -8.344653679159819e-07,
+          "prob": 0.9999991655349802,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.058930397033691,
+          "prob": 7.839423150591201e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.839423546660082e-07,
+      "prompt": "You're given the following task:\nContext: BSkyB has no veto over the presence of channels on their EPG, with open access being an enforced part of their operating licence from Ofcom. Any channel which can get carriage on a suitable beam of a satellite at 28° East is entitled to access to BSkyB's EPG for a fee, ranging from £15–100,000. Third-party channels which opt for encryption receive discounts ranging from reduced price to free EPG entries, free carriage on a BSkyB leased transponder, or actual payment for being carried. However, even in this case, BSkyB does not carry any control over the channel's content or carriage issues such as picture quality.\n\nQuestion: What company has veto over the presence of channels on their EPG?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

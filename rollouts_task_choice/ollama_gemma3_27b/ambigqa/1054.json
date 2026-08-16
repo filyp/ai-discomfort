@@ -1,0 +1,31 @@
+{
+  "id": -3982963801965804889,
+  "question": "Who initiated the game of cricket among india and how?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['The Company', 'The East India Company',\n              'Honourable East India Company (HEIC)', 'Company Bahadur',\n              'British East India Company', 'East India Trading Company (EITC)',\n              'John Company'], dtype=object)                                    ,\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['How did they initiate the game of cricket among India?',\n              'Who initiated the game of cricket among india?'], dtype=object), 'answer': array([array(['The British played the Indians to build relationship', 'trading'],\n                    dtype=object)                                                       ,\n              array(['sailors and traders of the East India Company',\n                     'The East India Company'], dtype=object)        ],\n             dtype=object)}                                                                                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1054,
+  "prompt": "Who initiated the game of cricket among india and how?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely tell you about who initiated the game of",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.592254638671875,
+          "prob": 2.289712136960183e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2897126304423867e-08,
+      "prompt": "You're given the following task:\nWho initiated the game of cricket among india and how?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

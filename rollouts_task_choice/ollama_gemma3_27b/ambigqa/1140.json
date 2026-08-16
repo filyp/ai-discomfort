@@ -1,0 +1,31 @@
+{
+  "id": 6017191541488869938,
+  "question": "When was rudolph the red-nosed reindeer song made?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the song \"Rudolph the Red-nosed Reindeer\" adapted from a story into a song?',\n              'When was the \"Rudolph The Red Nosed Reindeer\" song originally recorded?',\n              'When was \"Rudolph The Red Nosed Reindeer\" first sung?'],\n             dtype=object), 'answer': array([array(['1939'], dtype=object),\n              array(['June 27, 1949'], dtype=object),\n              array(['November 1949'], dtype=object)], dtype=object)}                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1140,
+  "prompt": "When was rudolph the red-nosed reindeer song made?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.43781280517578,
+          "prob": 4.894137815728512e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.894137813333254e-10,
+      "prompt": "You're given the following task:\nWhen was rudolph the red-nosed reindeer song made?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -1972594696824052898,
+  "question": "Who was the winner of dancing with the stars season 21?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who won \"Dancing with the Stars\" in season 21?',\n              'Who won \"Dancing with the Stars\" in 2015?'], dtype=object), 'answer': array([array(['Derek Hough', 'Bindi Irwin'], dtype=object),\n              array(['Derek Hough', 'Bindi Irwin'], dtype=object)], dtype=object)}                                                              ,\n       {'question': array(['Who was the celebrity winner of dancing with the stars, season 21?',\n              'Who was the Pro winner of dancing with the stars, season 21?'],\n             dtype=object), 'answer': array([array(['Bindi Irwin'], dtype=object),\n              array(['Derek Hough'], dtype=object)], dtype=object)}                             ,\n       {'question': array(['Who was the professional winner of dancing with the stars season 21?',\n              'Who was the celebrity winner of dancing with the stars season 21?'],\n             dtype=object), 'answer': array([array(['Derek Hough'], dtype=object),\n              array(['Bindi Irwin', 'Bindi Sue Irwin'], dtype=object)],\n             dtype=object)}                                                                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1037,
+  "prompt": "Who was the winner of dancing with the stars season 21?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.951126098632812,
+          "prob": 2.9291867691347984e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.929186768276785e-10,
+      "prompt": "You're given the following task:\nWho was the winner of dancing with the stars season 21?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

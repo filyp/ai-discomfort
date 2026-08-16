@@ -1,0 +1,31 @@
+{
+  "id": -8758094571677134532,
+  "question": "What is jo's real name in grey's anatomy?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"What is the full name of Jo Karev in Grey's Anatomy?\",\n              \"What is the name of the actor of Jo Karev in Grey's Anatomy?\",\n              \"What is the maiden name of Jo Karev in Grey's Anatomy?\"],\n             dtype=object), 'answer': array([array(['Josephin \"Jo\" Karev'], dtype=object),\n              array(['Camilla Anne Luddington'], dtype=object),\n              array(['Josephine \"Jo\" Wilson'], dtype=object)], dtype=object)}             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 52,
+  "prompt": "What is jo's real name in grey's anatomy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, so you want to know Jo Wilson's real name",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.144866943359375,
+          "prob": 1.3176025043801119e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3176024870193486e-08,
+      "prompt": "You're given the following task:\nWhat is jo's real name in grey's anatomy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

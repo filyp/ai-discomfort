@@ -1,0 +1,31 @@
+{
+  "id": 7913114169742689901,
+  "question": "When was put your head on my shoulder made?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the song, by Anka, put your head on my shoulder recorded?',\n              \"When was the song Don't talk put your head on my shoulder recorded?\",\n              'When was put your head on my shoulder (TV series) first released?',\n              'When was put your head on my shoulder (TV series) last released?'],\n             dtype=object), 'answer': array([array(['August 1958'], dtype=object),\n              array(['April 3, 1966', 'February 11, 1966'], dtype=object),\n              array(['10 April 2019'], dtype=object),\n              array(['16 May 2019'], dtype=object)], dtype=object)}                             ,\n       {'question': array(['When was Paul Anka\\'s \"Put Your Head On My Shoulder\" recorded?',\n              'When was the Chinese TV series Put Your Head on My Shoulder produced?',\n              'When was the Beach Boys\\' \"Don\\'t Talk (Put Yout Head on My Shoulder\" recorded?',\n              'When was the episode of Futurama \"Put Your Head on My Shoulders\" originally aired?'],\n             dtype=object), 'answer': array([array(['August 1958'], dtype=object),\n              array(['10 April – 16 May 2019'], dtype=object),\n              array(['February 11, April 3, 1966'], dtype=object),\n              array(['February 13, 2000'], dtype=object)], dtype=object)}                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 94,
+  "prompt": "When was put your head on my shoulder made?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you when \"Put Your Head On My",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.012603759765625,
+          "prob": 1.11125709351668e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.111257102499608e-07,
+      "prompt": "You're given the following task:\nWhen was put your head on my shoulder made?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

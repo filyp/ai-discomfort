@@ -1,0 +1,31 @@
+{
+  "id": -1062522255440685408,
+  "question": "When did the first generation kindle fire come out?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the first generation kindle fire come out in US?',\n              'When did the first generation kindle fire come out in Europe?',\n              'When did the first generation kindle fire come out in Japan?'],\n             dtype=object), 'answer': array([array(['November 15, 2011'], dtype=object),\n              array(['September 6, 2012'], dtype=object),\n              array(['December 18, 2012'], dtype=object)], dtype=object)}               ,\n       {'question': array(['When did the first generation kindle fire come out in the United States?',\n              'When did the first generation kindle fire come out in Europe?',\n              'When did the first generation kindle fire come out in Japan?'],\n             dtype=object), 'answer': array([array(['November 15, 2011'], dtype=object),\n              array(['September 6, 2012'], dtype=object),\n              array(['December 18, 2012'], dtype=object)], dtype=object)}                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 379,
+  "prompt": "When did the first generation kindle fire come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The first generation Kindle Fire came out on **November",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.591411590576172,
+          "prob": 2.2916432883293204e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2916432358130318e-08,
+      "prompt": "You're given the following task:\nWhen did the first generation kindle fire come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

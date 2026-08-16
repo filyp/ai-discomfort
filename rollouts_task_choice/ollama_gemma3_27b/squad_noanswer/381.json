@@ -1,0 +1,32 @@
+{
+  "id": "5ad02ee077cf76001a686d5a",
+  "title": "Southern_California",
+  "context": "In 1900, the Los Angeles Times defined southern California as including \"the seven counties of Los Angeles, San Bernardino, Orange, Riverside, San Diego, Ventura and Santa Barbara.\" In 1999, the Times added a newer county—Imperial—to that list.",
+  "question": "What did the California Times define twice?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 381,
+  "prompt": "Context: In 1900, the Los Angeles Times defined southern California as including \"the seven counties of Los Angeles, San Bernardino, Orange, Riverside, San Diego, Ventura and Santa Barbara.\" In 1999, the Times added a newer county—Imperial—to that list.\n\nQuestion: What did the California Times define twice?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe Los Angeles Times defined “Southern California” twice – once as",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.66958999633789,
+          "prob": 5.253245240058434e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.253245239782468e-11,
+      "prompt": "You're given the following task:\nContext: In 1900, the Los Angeles Times defined southern California as including \"the seven counties of Los Angeles, San Bernardino, Orange, Riverside, San Diego, Ventura and Santa Barbara.\" In 1999, the Times added a newer county—Imperial—to that list.\n\nQuestion: What did the California Times define twice?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

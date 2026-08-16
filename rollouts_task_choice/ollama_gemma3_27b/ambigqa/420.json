@@ -1,0 +1,31 @@
+{
+  "id": 4755016291477720863,
+  "question": "Where did the pilgrims originally plan to land in north america?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['In what region did the pilgrims originally plan to land in North America?',\n              'At what place did the pilgrims originally plan to land in North America?'],\n             dtype=object), 'answer': array([array(['Northern Virginia'], dtype=object),\n              array(['Hudson River'], dtype=object)], dtype=object)}                                   ,\n       {'question': array(['Where did the pilgrims originally plan to land in north america before they obtained a land grant?',\n              'Where did the pilgrims originally plan to land in north america after they obtained a land grant?'],\n             dtype=object), 'answer': array([array(['Virginia'], dtype=object),\n              array(['New England'], dtype=object)], dtype=object)}                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 420,
+  "prompt": "Where did the pilgrims originally plan to land in north america?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.52682113647461,
+          "prob": 3.3083338711580685e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.308333860212996e-09,
+      "prompt": "You're given the following task:\nWhere did the pilgrims originally plan to land in north america?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

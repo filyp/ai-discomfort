@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 72,
+  "prompt": "How much difference in deaths would there be if WW2 era governments had access to modern genetic genealogy testing?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThis is a fascinating and complex question! It's not simply",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -7.74863383412594e-06,
+          "prob": 0.9999922513961864,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -11.784507751464844,
+          "prob": 7.621725643789927e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.6217266108206495e-06,
+      "prompt": "You're given the following task:\nHow much difference in deaths would there be if WW2 era governments had access to modern genetic genealogy testing?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

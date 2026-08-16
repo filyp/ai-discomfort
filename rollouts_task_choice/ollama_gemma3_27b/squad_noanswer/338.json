@@ -1,0 +1,32 @@
+{
+  "id": "5ad0185a77cf76001a6869b9",
+  "title": "Southern_California",
+  "context": "The 8- and 10-county definitions are not used for the greater Southern California Megaregion, one of the 11 megaregions of the United States. The megaregion's area is more expansive, extending east into Las Vegas, Nevada, and south across the Mexican border into Tijuana.",
+  "question": "Where does the 8 county megaregion extend from?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 338,
+  "prompt": "Context: The 8- and 10-county definitions are not used for the greater Southern California Megaregion, one of the 11 megaregions of the United States. The megaregion's area is more expansive, extending east into Las Vegas, Nevada, and south across the Mexican border into Tijuana.\n\nQuestion: Where does the 8 county megaregion extend from?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text *specifically states* that the 8- and",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -0.911313533782959,
+          "prob": 0.4019958419667273,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.514157772064209,
+          "prob": 0.5980040382880784,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.5980041098961968,
+      "prompt": "You're given the following task:\nContext: The 8- and 10-county definitions are not used for the greater Southern California Megaregion, one of the 11 megaregions of the United States. The megaregion's area is more expansive, extending east into Las Vegas, Nevada, and south across the Mexican border into Tijuana.\n\nQuestion: Where does the 8 county megaregion extend from?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

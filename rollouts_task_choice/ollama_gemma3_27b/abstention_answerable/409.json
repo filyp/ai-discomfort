@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 409,
+  "prompt": "Wonder Woman is the superhero film that is fourth in the line of what direct-to-video projects by Warner Premiere, Warner Bros. Animation, and DC Comics?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To confirm, you'",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.841272468387615e-06,
+          "prob": 0.9999941587445919,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.054792404174805,
+          "prob": 5.816613117569673e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.816613260904347e-06,
+      "prompt": "You're given the following task:\nWonder Woman is the superhero film that is fourth in the line of what direct-to-video projects by Warner Premiere, Warner Bros. Animation, and DC Comics?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

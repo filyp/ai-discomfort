@@ -1,0 +1,31 @@
+{
+  "id": 3732271477097013037,
+  "question": "When was the statue of zeus at olympia destroyed?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Approximately when was the statue of zeus at olympia destroyed?',\n              'According to Georgios Kedrenos, when was the statue of zeus at olympia destroyed?',\n              'Alternatively, if desroyed along with the temple, when was the statue of zeus at olympia destroyed?',\n              'Implied by Lucian of Samosata, when was the statue of zeus at olympia destroyed?'],\n             dtype=object), 'answer': array([array(['5th century AD'], dtype=object),\n              array(['475 AD'], dtype=object), array(['425 AD'], dtype=object),\n              array(['later 2nd century'], dtype=object)], dtype=object)}                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 913,
+  "prompt": "When was the statue of zeus at olympia destroyed?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.626625061035156,
+          "prob": 1.6347184536572698e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6347183813004446e-07,
+      "prompt": "You're given the following task:\nWhen was the statue of zeus at olympia destroyed?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

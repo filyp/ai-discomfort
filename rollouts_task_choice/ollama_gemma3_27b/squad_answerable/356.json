@@ -1,0 +1,32 @@
+{
+  "id": "5705f13d52bb8914006896f4",
+  "title": "Southern_California",
+  "context": "In 1900, the Los Angeles Times defined southern California as including \"the seven counties of Los Angeles, San Bernardino, Orange, Riverside, San Diego, Ventura and Santa Barbara.\" In 1999, the Times added a newer county—Imperial—to that list.",
+  "question": "How many counties initially made up the definition of southern California?",
+  "answers": "{'text': array(['seven', 'seven', 'seven'], dtype=object), 'answer_start': array([77, 77, 77], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 356,
+  "prompt": "Context: In 1900, the Los Angeles Times defined southern California as including \"the seven counties of Los Angeles, San Bernardino, Orange, Riverside, San Diego, Ventura and Santa Barbara.\" In 1999, the Times added a newer county—Imperial—to that list.\n\nQuestion: How many counties initially made up the definition of southern California?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe Los Angeles Times initially defined Southern California as including seven counties.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.784114837646484,
+          "prob": 3.1565869705083323e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.1565869705073357e-13,
+      "prompt": "You're given the following task:\nContext: In 1900, the Los Angeles Times defined southern California as including \"the seven counties of Los Angeles, San Bernardino, Orange, Riverside, San Diego, Ventura and Santa Barbara.\" In 1999, the Times added a newer county—Imperial—to that list.\n\nQuestion: How many counties initially made up the definition of southern California?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

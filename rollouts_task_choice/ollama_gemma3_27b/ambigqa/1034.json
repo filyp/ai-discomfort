@@ -1,0 +1,31 @@
+{
+  "id": -1476676258276629330,
+  "question": "When did the us start using zip codes?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the USPS start using zip codes?',\n              'When did the USPS start using the extended zip+4 code?'],\n             dtype=object), 'answer': array([array(['1963'], dtype=object), array(['1983'], dtype=object)],\n             dtype=object)}                                                                                ,\n       {'question': array(['When did the US start utilizing ZIP codes?',\n              'When did the US start using ZIP+4 codes?'], dtype=object), 'answer': array([array(['1963', 'July 1, 1963'], dtype=object),\n              array(['1983'], dtype=object)], dtype=object)}                                                                             ,\n       {'question': array(['When did the US begin using zip codes?',\n              'When did the US begin using extended zip codes?'], dtype=object), 'answer': array([array(['1963', 'July 1, 1963'], dtype=object),\n              array(['1983'], dtype=object)], dtype=object)}                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1034,
+  "prompt": "When did the us start using zip codes?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can tell you when the US started using ZIP Codes",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.76724624633789,
+          "prob": 2.6013215142431944e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.6013215074763205e-09,
+      "prompt": "You're given the following task:\nWhen did the us start using zip codes?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

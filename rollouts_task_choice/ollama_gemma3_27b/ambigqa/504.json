@@ -1,0 +1,31 @@
+{
+  "id": 7738467492532390415,
+  "question": "When did the capital of virginia moved from williamsburg to richmond?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was williamsburg last used as the capital of virginia?',\n              'When was richmond first used as the capital of virginia?'],\n             dtype=object), 'answer': array([array(['December 24, 1779'], dtype=object),\n              array(['May 1, 1780'], dtype=object)], dtype=object)}                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 504,
+  "prompt": "When did the capital of virginia moved from williamsburg to richmond?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.146183013916016,
+          "prob": 1.7808358327121245e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7808358295407481e-09,
+      "prompt": "You're given the following task:\nWhen did the capital of virginia moved from williamsburg to richmond?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

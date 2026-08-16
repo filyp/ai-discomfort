@@ -1,0 +1,31 @@
+{
+  "id": -859070820016775385,
+  "question": "When did the financial crisis start in 2008?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['On what date did the financial crisis of 2008 actually start happening?',\n              'Upon what 2007 event did the financial crisis of 2008 start happening?',\n              'On what date did the financial crisis in 2008 start developing into a full-blown international banking crisis?',\n              'Upon what event did the financial crisis in 2008 start developing into a full-blown international banking crisis?'],\n             dtype=object), 'answer': array([array(['April 2007'], dtype=object),\n              array(['depreciation in the subprime mortgage market'], dtype=object),\n              array(['September 15, 2008'], dtype=object),\n              array(['collapse of the investment bank Lehman Brothers'], dtype=object)],\n             dtype=object)}                                                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 631,
+  "prompt": "When did the financial crisis start in 2008?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.976451873779297,
+          "prob": 1.0506395312742912e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0506395311639068e-10,
+      "prompt": "You're given the following task:\nWhen did the financial crisis start in 2008?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

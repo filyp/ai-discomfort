@@ -1,0 +1,32 @@
+{
+  "id": "5a38b468a4b263001a8c18b1",
+  "title": "1973_oil_crisis",
+  "context": "Some of the income was dispensed in the form of aid to other underdeveloped nations whose economies had been caught between higher oil prices and lower prices for their own export commodities, amid shrinking Western demand. Much went for arms purchases that exacerbated political tensions, particularly in the Middle East. Saudi Arabia spent over 100 billion dollars in the ensuing decades for helping spread its fundamentalist interpretation of Islam, known as Wahhabism, throughout the world, via religious charities such al-Haramain Foundation, which often also distributed funds to violent Sunni extremist groups such as Al-Qaeda and the Taliban.",
+  "question": "How much did Saudi Arabia spend on Western demand for oil?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1372,
+  "prompt": "Context: Some of the income was dispensed in the form of aid to other underdeveloped nations whose economies had been caught between higher oil prices and lower prices for their own export commodities, amid shrinking Western demand. Much went for arms purchases that exacerbated political tensions, particularly in the Middle East. Saudi Arabia spent over 100 billion dollars in the ensuing decades for helping spread its fundamentalist interpretation of Islam, known as Wahhabism, throughout the world, via religious charities such al-Haramain Foundation, which often also distributed funds to violent Sunni extremist groups such as Al-Qaeda and the Taliban.\n\nQuestion: How much did Saudi Arabia spend on Western demand for oil?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe question asks how much Saudi Arabia spent *on* Western demand",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -1.4962111711502075,
+          "prob": 0.22397716570275314,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.253573477268219,
+          "prob": 0.7760227228005002,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.7760228093245187,
+      "prompt": "You're given the following task:\nContext: Some of the income was dispensed in the form of aid to other underdeveloped nations whose economies had been caught between higher oil prices and lower prices for their own export commodities, amid shrinking Western demand. Much went for arms purchases that exacerbated political tensions, particularly in the Middle East. Saudi Arabia spent over 100 billion dollars in the ensuing decades for helping spread its fundamentalist interpretation of Islam, known as Wahhabism, throughout the world, via religious charities such al-Haramain Foundation, which often also distributed funds to violent Sunni extremist groups such as Al-Qaeda and the Taliban.\n\nQuestion: How much did Saudi Arabia spend on Western demand for oil?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -8667764342638076740,
+  "question": "Where does the monarch butterfly go in the winter?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where does the Danaus Plexippus plexippus monarch butterfly go in the winter?',\n              'Where do other subspecies of the monarch butterfly go in the winter?',\n              'Where do the monarch butterflies that live in Florida, the Caribbean, Central America, and South America go in the winter?',\n              'Where are additional overwintering sites that have been identified the monarch butterfly goes in the winter?'],\n             dtype=object), 'answer': array([array(['central Mexico', 'coast of California',\n                     'West Coast of California or mountainous sites in Central Mexico'],\n                    dtype=object)                                                       ,\n              array(['minor migrations or none at all'], dtype=object),\n              array(['do not migrate'], dtype=object),\n              array(['Arizona and northern Florida'], dtype=object)],\n             dtype=object)}                                                                                                                ,\n       {'question': array(['Where does the population of monarch butterflies west of the Rocky Mountains go in the winter?',\n              'Where does the population of monarch butterflies east of the Rocky Mountains go to in the winter?',\n              'Where does Australian monarch butterfly go to in winter?'],\n             dtype=object), 'answer': array([array(['Pacific Grove, Santa Cruz, and Grover Beach',\n                     'coast of California'], dtype=object)         ,\n              array(['Mariposa Monarca Biosphere Reserve', 'central Mexico',\n                     'Michoacán and México'], dtype=object)                 ,\n              array(['closer to the Pacific'], dtype=object)], dtype=object)}                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 300,
+  "prompt": "Where does the monarch butterfly go in the winter?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.06363296508789,
+          "prob": 2.617495553106882e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.6174955524217536e-10,
+      "prompt": "You're given the following task:\nWhere does the monarch butterfly go in the winter?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

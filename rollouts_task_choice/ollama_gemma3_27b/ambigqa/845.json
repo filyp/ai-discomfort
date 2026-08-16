@@ -1,0 +1,31 @@
+{
+  "id": 586233275728240023,
+  "question": "What is the os of samsung smart tv?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the OS for newer Samsung Smart TV sets?',\n              'What is the former OS for Samsung Smart TV sets?'], dtype=object), 'answer': array([array(['Tizen OS'], dtype=object),\n              array(['Samsung Smart TV (Orsay OS)'], dtype=object)], dtype=object)}                                                  ,\n       {'question': array(['What is the os of the older samsung smart tv?',\n              'What is the os of the newer samsung smart tv?'], dtype=object), 'answer': array([array(['Orsay', 'Orsay OS'], dtype=object),\n              array(['Tizen', 'Tizen OS for TV'], dtype=object)], dtype=object)}                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 845,
+  "prompt": "What is the os of samsung smart tv?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you about the OS Samsung Smart TVs use",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.501651763916016,
+          "prob": 4.5914650953338796e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.5914656405710485e-10,
+      "prompt": "You're given the following task:\nWhat is the os of samsung smart tv?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

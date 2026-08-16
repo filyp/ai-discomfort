@@ -1,0 +1,32 @@
+{
+  "id": "57107e6ca58dae1900cd69f6",
+  "title": "Huguenot",
+  "context": "The Catholic Church in France and many of its members opposed the Huguenots. Some Huguenot preachers and congregants were attacked as they attempted to meet for worship. The height of this persecution was the St. Bartholomew's Day massacre when 5,000 to 30,000 were killed, although there were also underlying political reasons for this as well, as some of the Huguenots were nobles trying to establish separate centers of power in southern France. Retaliating against the French Catholics, the Huguenots had their own militia.",
+  "question": "What was a non-religious reason for the massacre?",
+  "answers": "{'text': array(['some of the Huguenots were nobles trying to establish separate centers of power in southern France',\n       'political reasons',\n       'some of the Huguenots were nobles trying to establish separate centers of power in southern France'],\n      dtype=object), 'answer_start': array([349, 310, 349], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 754,
+  "prompt": "Context: The Catholic Church in France and many of its members opposed the Huguenots. Some Huguenot preachers and congregants were attacked as they attempted to meet for worship. The height of this persecution was the St. Bartholomew's Day massacre when 5,000 to 30,000 were killed, although there were also underlying political reasons for this as well, as some of the Huguenots were nobles trying to establish separate centers of power in southern France. Retaliating against the French Catholics, the Huguenots had their own militia.\n\nQuestion: What was a non-religious reason for the massacre?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that some Huguenots were nobles attempting to establish separate",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.46469497680664,
+          "prob": 1.1809581955916944e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1809581955902996e-12,
+      "prompt": "You're given the following task:\nContext: The Catholic Church in France and many of its members opposed the Huguenots. Some Huguenot preachers and congregants were attacked as they attempted to meet for worship. The height of this persecution was the St. Bartholomew's Day massacre when 5,000 to 30,000 were killed, although there were also underlying political reasons for this as well, as some of the Huguenots were nobles trying to establish separate centers of power in southern France. Retaliating against the French Catholics, the Huguenots had their own militia.\n\nQuestion: What was a non-religious reason for the massacre?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

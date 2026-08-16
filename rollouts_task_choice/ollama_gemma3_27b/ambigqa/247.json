@@ -1,0 +1,31 @@
+{
+  "id": 818057676954027913,
+  "question": "How many teams in the nba in 1956?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How many teams in the NBA in the 1955-56 season?',\n              'How many teams in the NBA in the 1956-57 season?'], dtype=object), 'answer': array([array(['8'], dtype=object), array(['8'], dtype=object)],\n             dtype=object)}                                                                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 247,
+  "prompt": "How many teams in the nba in 1956?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.608757019042969,
+          "prob": 1.6641901886232559e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6641901100572794e-07,
+      "prompt": "You're given the following task:\nHow many teams in the nba in 1956?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 3619189937567015715,
+  "question": "Who is currently the most listened to artist on spotify?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the most listened to artist on Spotify on December 2017?',\n              'Who is the most listened to artist on Spotify on November 2017?',\n              'Who is the most listened to artist on Spotify on October 2017?'],\n             dtype=object), 'answer': array([array(['Ed Sheeran'], dtype=object),\n              array(['Ed Sheeran'], dtype=object),\n              array(['Ed Sheeran'], dtype=object)], dtype=object)}                           ,\n       {'question': array(['Who is the most listened to artist on spotify from February 2017 to February 2018?',\n              'Who is the most listened to artist on spotify from December 2016 to January 2017?',\n              'Who is the most listened to artist on spotify from May 2016 to November 2016?'],\n             dtype=object), 'answer': array([array(['Edward Christopher Sheeran, MBE', 'Ed Sheeran',\n                     'Edward Christopher Sheeran'], dtype=object)    ,\n              array(['The Weeknd', 'Abel Makkonen Tesfaye'], dtype=object),\n              array(['Drake', 'Aubrey Drake Graham'], dtype=object)],\n             dtype=object)}                                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 431,
+  "prompt": "Who is currently the most listened to artist on spotify?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely help you find out who the most listened",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.914661407470703,
+          "prob": 1.225604563509784e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.2256045594025699e-07,
+      "prompt": "You're given the following task:\nWho is currently the most listened to artist on spotify?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

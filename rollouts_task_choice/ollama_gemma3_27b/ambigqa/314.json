@@ -1,0 +1,31 @@
+{
+  "id": 6926831701429902934,
+  "question": "When did italy enter the first world war?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did italy enter the first world war by signing the Treaty of London?',\n              'When did italy enter the first world war by declaring war against Austria-Hungary?'],\n             dtype=object), 'answer': array([array(['26 April 1915'], dtype=object),\n              array(['23 May 1915'], dtype=object)], dtype=object)}                                    ,\n       {'question': array(['When did italy enter the first world war by signing the Treaty of London?',\n              'When did italy enter the first world war by declaring war on Austria-Hungary?'],\n             dtype=object), 'answer': array([array(['26 April 1915'], dtype=object),\n              array(['23 May', '23 May 1915'], dtype=object)], dtype=object)}                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 314,
+  "prompt": "When did italy enter the first world war?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.158870697021484,
+          "prob": 1.7583838847909978e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.758383881699084e-09,
+      "prompt": "You're given the following task:\nWhen did italy enter the first world war?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

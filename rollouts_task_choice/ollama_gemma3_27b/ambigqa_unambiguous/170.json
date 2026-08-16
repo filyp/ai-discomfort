@@ -1,0 +1,31 @@
+{
+  "id": 1378274954990122999,
+  "question": "The number of persons per square kilometer in a country is called?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['population density', 'Arithmetic density'], dtype=object),\n       array(['population density'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 170,
+  "prompt": "The number of persons per square kilometer in a country is called?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.920753479003906,
+          "prob": 8.207902838441864e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.207902831704896e-10,
+      "prompt": "You're given the following task:\nThe number of persons per square kilometer in a country is called?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

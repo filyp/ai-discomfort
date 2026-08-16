@@ -1,0 +1,31 @@
+{
+  "id": 4712777671860202422,
+  "question": "What is the lowest # on the fm dial?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the lowest # on the fm dial in Japan?',\n              'What is the lowest # on the fm dial in America?',\n              'What is the lowest # on the fm dial in Eastern Europe?',\n              'What is the lowest channel number for an FM station in the U.S.?',\n              'What is the lowest # on the fm dial in Europe Australia and Africa?'],\n             dtype=object), 'answer': array([array(['76'], dtype=object), array(['88'], dtype=object),\n              array(['65.8'], dtype=object), array(['87.9'], dtype=object),\n              array(['87.5', '87.5 MHZ'], dtype=object)], dtype=object)}                              ,\n       {'question': array(['What is the lowest # on the fm dial in Japan?',\n              'What is the lowest # on the fm dial in America?',\n              'What is the lowest # on the fm dial in Eastern Europe?',\n              'What is the lowest channel number for an FM station?',\n              'What is the lowest # on the fm dial in Europe Australia and Africa?'],\n             dtype=object), 'answer': array([array(['76'], dtype=object), array(['88'], dtype=object),\n              array(['65.8'], dtype=object), array(['87.9'], dtype=object),\n              array(['87.5', '87.5 MHZ'], dtype=object)], dtype=object)}                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1126,
+  "prompt": "What is the lowest # on the fm dial?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out the lowest number on the FM",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.904975891113281,
+          "prob": 1.2375328491115864e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.237532843488234e-07,
+      "prompt": "You're given the following task:\nWhat is the lowest # on the fm dial?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

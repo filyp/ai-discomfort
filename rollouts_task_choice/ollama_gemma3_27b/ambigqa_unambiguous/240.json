@@ -1,0 +1,31 @@
+{
+  "id": -3784400955717699733,
+  "question": "When does switched at birth come back on 2017?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['January 31, 2017'], dtype=object),\n       array(['January 31, 2017'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 240,
+  "prompt": "When does switched at birth come back on 2017?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nThe show \"Switched at Birth\" ended",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -4.175943851470947,
+          "prob": 0.015360686604145371,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.015482332557439804,
+          "prob": 0.984636902613982,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9846392763645005,
+      "prompt": "You're given the following task:\nWhen does switched at birth come back on 2017?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

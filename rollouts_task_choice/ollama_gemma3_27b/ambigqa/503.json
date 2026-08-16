@@ -1,0 +1,31 @@
+{
+  "id": -8031333510244771356,
+  "question": "Who threw the last perfect game in mlb?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who threw the last perfect game in 2012?',\n              'Who threw the last perfect game in 2010?',\n              'Who threw the last perfect game in 2009?'], dtype=object), 'answer': array([array(['King Félix', 'Félix Abraham Graham Hernández García',\n                     'Félix Hernández'], dtype=object)                     ,\n              array(['Roy Halladay', 'Harry Leroy \"Roy\" Halladay III', 'Doc'],\n                    dtype=object)                                             ,\n              array(['Mark Buehrle'], dtype=object)], dtype=object)}                                                                                    ,\n       {'question': array(['What MLB player threw a perfect game on August 15, 2012?',\n              'What MLB player threw a perfect game on June 13, 2012?',\n              'What MLB player threw a perfect game on April 12, 2012?'],\n             dtype=object), 'answer': array([array(['Felix Hernandez'], dtype=object),\n              array(['Matt Cain'], dtype=object),\n              array(['Philip Humber'], dtype=object)], dtype=object)}                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 503,
+  "prompt": "Who threw the last perfect game in mlb?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who threw the last perfect game in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.666366577148438,
+          "prob": 2.1261528370091717e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.126152791803914e-08,
+      "prompt": "You're given the following task:\nWho threw the last perfect game in mlb?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -5980018027276110696,
+  "question": "Who wrote the books of luke and acts?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who wrote the books of luke and acts according to the traditional view?',\n              'Who wrote the books of luke and acts according to the critical views?'],\n             dtype=object), 'answer': array([array(['Luke the physician', 'Luke'], dtype=object),\n              array(['Anonymous non-eyewitness'], dtype=object)], dtype=object)}                     ,\n       {'question': array(['Who wrote the books of luke and acts according to the traditional view?',\n              'Who wrote the books of luke and acts according to the critical view?'],\n             dtype=object), 'answer': array([array(['Luke the physician', 'Luke'], dtype=object),\n              array(['Anonymous non-eyewitness'], dtype=object)], dtype=object)}                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1020,
+  "prompt": "Who wrote the books of luke and acts?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's talk about who wrote Luke and Acts.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.337947845458984,
+          "prob": 7.319105912964521e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.319105912428829e-11,
+      "prompt": "You're given the following task:\nWho wrote the books of luke and acts?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

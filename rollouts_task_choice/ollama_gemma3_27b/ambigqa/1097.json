@@ -1,0 +1,31 @@
+{
+  "id": 19984783779385550,
+  "question": "What season is the plane crash greys anatomy?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What season was the plane crash that brought back memories of a plane crash?|What season is the second plane crash greys anatomy?',\n              'What season is the first plane crash greys anatomy?|What season was the plane crash that killed Mark Sloan?'],\n             dtype=object), 'answer': array([array(['eleventh season', 'Season 11'], dtype=object),\n              array(['eighth season', 'Season 8', 'the eighth season'], dtype=object)],\n             dtype=object)}                                                                                                                                    ,\n       {'question': array(['What season was the plane crash that killed Mark Sloan?',\n              'What season is the second plane crash in Greys Anatomy?'],\n             dtype=object), 'answer': array([array(['eighth season', 'Season 8', 'the eighth season'], dtype=object),\n              array(['eleventh season', 'Season 11'], dtype=object)],\n             dtype=object)}                                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1097,
+  "prompt": "What season is the plane crash greys anatomy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! The infamous plane crash on",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.7423095703125,
+          "prob": 7.249672291219767e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.249672238662019e-09,
+      "prompt": "You're given the following task:\nWhat season is the plane crash greys anatomy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

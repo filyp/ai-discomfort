@@ -1,0 +1,31 @@
+{
+  "id": 7049879526021736257,
+  "question": "Who played big daddy in cat on a hot tin roof?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played Big Daddy in Cat on a Hot Tin Roof in the 1958 movie version?|Who played Big Daddy in the Cat on a Hot Tin Roof movie in 1958?',\n              'Who played Big Daddy in the original Broadway cast of Cat on a Hot Tin Roof?',\n              'Who played Big Daddy in Cat on a Hot Tin Roof in the 1984 movie version?|Who played Big Daddy in the Cat on a Hot Tin Roof movie in 1984?'],\n             dtype=object), 'answer': array([array(['Burl Ives', 'Burl Icle Ivanhoe Ives'], dtype=object),\n              array(['Burl Ives', 'Burl Icle Ivanhoe Ives'], dtype=object),\n              array(['Elmore Rual Torn Jr.', 'Elmore Rual \"Rip\" Torn Jr.', 'Rip Torn'],\n                    dtype=object)                                                      ],\n             dtype=object)}                                                                                                                                            ,\n       {'question': array(['Who played big daddy in cat on a hot tin roof(1958)?|Who played Big Daddy in Cat on a Hot Tin Roof movie (1958)?|Who played Big Daddy in the original Broadway cast of Cat on a Hot Tin Roof?',\n              'Who played big daddy in cat on a hot tin roof(1984)?|Who played Big Daddy in Cat on a Hot Tin Roof movie (1984)?'],\n             dtype=object), 'answer': array([array(['Burl Ives'], dtype=object),\n              array(['Rip Torn'], dtype=object)], dtype=object)}                                                                                                                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1150,
+  "prompt": "Who played big daddy in cat on a hot tin roof?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, so you'd like to know who played Big Daddy",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.146198272705078,
+          "prob": 1.3158495086663001e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.315849491351701e-08,
+      "prompt": "You're given the following task:\nWho played big daddy in cat on a hot tin roof?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

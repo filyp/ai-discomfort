@@ -1,0 +1,31 @@
+{
+  "id": 742597099377407250,
+  "question": "Who shifted the capital from calcutta to delhi?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What group shifted the capital of India from Calcutta to Delhi?',\n              'What individuals shifted the capital of India from Calcutta to Delhi?'],\n             dtype=object), 'answer': array([array(['Government of British India'], dtype=object),\n              array(['King George V and Queen Mary'], dtype=object)],\n             dtype=object)}                                                                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1154,
+  "prompt": "Who shifted the capital from calcutta to delhi?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.12616729736328,
+          "prob": 4.938682225206946e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.9386822008163644e-09,
+      "prompt": "You're given the following task:\nWho shifted the capital from calcutta to delhi?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

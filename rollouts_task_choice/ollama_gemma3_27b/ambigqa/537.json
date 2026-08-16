@@ -1,0 +1,31 @@
+{
+  "id": -6359539096826078233,
+  "question": "When was the first piece of music made?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['43100 ± 700 BP'], dtype=object), array([], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['When was the first piece of nonwritten music made?',\n              'When was the first piece of written music made?'], dtype=object), 'answer': array([array(['c. 3.3 million years ago', 'prior to the Paleolithic age'],\n                    dtype=object)                                                ,\n              array(['3400 years ago'], dtype=object)], dtype=object)}                                                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 537,
+  "prompt": "When was the first piece of music made?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! That's a fascinating (and surprisingly complex!) question",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.12613078171853e-05,
+          "prob": 0.9999487400060212,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -9.879125595092773,
+          "prob": 5.1233056725060286e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.1233058105138176e-05,
+      "prompt": "You're given the following task:\nWhen was the first piece of music made?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 3441937135807868086,
+  "question": "Who sings the song it's getting hot in here?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sings lead vocals for the song hot in herre in 2002?',\n              'Who sings additional vocals for the song hot in herre in 2002?',\n              'Who sings lead vocals for the song hot in herre in released in 2003?',\n              'Who sings the song hot in herre in 2004?',\n              'Who sings the song hot in herre on the television show Hit Me, Baby, One More Time?'],\n             dtype=object), 'answer': array([array(['Nelly', 'Cornell Iral Haynes Jr.'], dtype=object),\n              array(['Stevenson', 'Dani Stevenson'], dtype=object),\n              array(['Jason F. Sellards', 'Shears', 'Jake Shears'], dtype=object),\n              array(['Widespread Panic'], dtype=object),\n              array(['Wang Chung'], dtype=object)], dtype=object)}                                     ,\n       {'question': array(['Who sang the 2002 song Hot in Here?',\n              'Who sang Hot in Here in 2003?',\n              'Who sang a live version of Hot in Here in 2004?',\n              'Who sang an a cappella version of Hot in Here in 2013?'],\n             dtype=object), 'answer': array([array(['Nelly'], dtype=object),\n              array(['Beelzebubs'], dtype=object),\n              array(['Widespread Panic'], dtype=object),\n              array(['Ten'], dtype=object)], dtype=object)}                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 233,
+  "prompt": "Who sings the song it's getting hot in here?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.925804138183594,
+          "prob": 6.034311109148588e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.034311072735678e-09,
+      "prompt": "You're given the following task:\nWho sings the song it's getting hot in here?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

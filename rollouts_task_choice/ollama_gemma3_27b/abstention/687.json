@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 687,
+  "prompt": "If everyone mastered online business courses, then?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's explore that! \"If everyone mastered online",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.621089935302734,
+          "prob": 5.5143075520931034e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.514307551789028e-11,
+      "prompt": "You're given the following task:\nIf everyone mastered online business courses, then?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

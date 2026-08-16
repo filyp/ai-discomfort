@@ -1,0 +1,32 @@
+{
+  "id": "56de49a8cffd8e1900b4b7a7",
+  "title": "Normans",
+  "context": "Bethencourt took the title of King of the Canary Islands, as vassal to Henry III of Castile. In 1418, Jean's nephew Maciot de Bethencourt sold the rights to the islands to Enrique Pérez de Guzmán, 2nd Count de Niebla.",
+  "question": "Who became the King of the Canary Islands?",
+  "answers": "{'text': array(['Bethencourt', 'Bethencourt', 'Bethencourt'], dtype=object), 'answer_start': array([0, 0, 0], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 74,
+  "prompt": "Context: Bethencourt took the title of King of the Canary Islands, as vassal to Henry III of Castile. In 1418, Jean's nephew Maciot de Bethencourt sold the rights to the islands to Enrique Pérez de Guzmán, 2nd Count de Niebla.\n\nQuestion: Who became the King of the Canary Islands?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBethencourt became the King of the Canary Islands. Is there",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.130760192871094,
+          "prob": 3.020526364394923e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.020526364394832e-14,
+      "prompt": "You're given the following task:\nContext: Bethencourt took the title of King of the Canary Islands, as vassal to Henry III of Castile. In 1418, Jean's nephew Maciot de Bethencourt sold the rights to the islands to Enrique Pérez de Guzmán, 2nd Count de Niebla.\n\nQuestion: Who became the King of the Canary Islands?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -3587852235107899284,
+  "question": "Who sings the song you got to keep your head up?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sings the song you got to keep your head up from February 24, 2011?',\n              'Who sings the song you got to keep your head up from August 26, 2011?',\n              'Who sings the song you got to keep your head up from 2009?',\n              'Who sings the song Keep Ya Head Up?'], dtype=object), 'answer': array([array(['Andy Grammer', 'Andrew Charles Grammer'], dtype=object),\n              array(['Ben Howard', 'Benjamin John \"Ben\" Howard', 'Benjamin John Howard'],\n                    dtype=object)                                                        ,\n              array([\"Girls Can't Catch\"], dtype=object),\n              array(['2pac', 'Tupac', 'Tupac Amaru Shakur', 'Lesane Parish Crooks',\n                     'Makaveli'], dtype=object)                                    ],\n             dtype=object)}                                                                                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 90,
+  "prompt": "Who sings the song you got to keep your head up?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! The song \"Keep Your",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.773143768310547,
+          "prob": 3.838001861669424e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.838001761219996e-07,
+      "prompt": "You're given the following task:\nWho sings the song you got to keep your head up?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

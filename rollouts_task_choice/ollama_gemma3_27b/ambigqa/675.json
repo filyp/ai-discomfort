@@ -1,0 +1,31 @@
+{
+  "id": 1986535647972136716,
+  "question": "Where is sperm made in the human body?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Which organ is sperm made in the human body?',\n              'Where in the testis is sperm made in the human body?',\n              'Where in the seminiferous tubules are sperm made in the human body?',\n              'Where does maturation of the sperm occur in the human body?'],\n             dtype=object), 'answer': array([array(['Testis'], dtype=object),\n              array(['seminiferous tubules'], dtype=object),\n              array(['inner tubule wall'], dtype=object),\n              array(['epididymis'], dtype=object)], dtype=object)}                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 675,
+  "prompt": "Where is sperm made in the human body?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.172142028808594,
+          "prob": 1.1691698816450485e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1691698816313789e-11,
+      "prompt": "You're given the following task:\nWhere is sperm made in the human body?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

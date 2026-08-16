@@ -1,0 +1,31 @@
+{
+  "id": 220856851122025289,
+  "question": "Where did anne of green gables take place?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where did the novel Anne of Green Gables take place?',\n              'Where did the 1985 film Anne of Green Gables take place?',\n              'Where did the 1956 film Anne of Green Gables take place?',\n              'In what type of residence did Anne of Green Gables take place?'],\n             dtype=object), 'answer': array([array(['Avonlea on Prince Edward Island, Canada'], dtype=object),\n              array(['Prince Edward Island'], dtype=object),\n              array(['Avonlea, Prince Edward Island'], dtype=object),\n              array(['a farm'], dtype=object)], dtype=object)}                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 662,
+  "prompt": "Where did anne of green gables take place?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! So you're asking where *Anne of Green G",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.17371368408203,
+          "prob": 6.37342655614535e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.373426552083294e-10,
+      "prompt": "You're given the following task:\nWhere did anne of green gables take place?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

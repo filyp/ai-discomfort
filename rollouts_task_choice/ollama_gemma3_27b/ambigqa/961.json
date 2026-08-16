@@ -1,0 +1,31 @@
+{
+  "id": 4249908079104820528,
+  "question": "Who made the clock in grand central station?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who designed the clock in grand central station?',\n              'Who built the clock in grand central station?'], dtype=object), 'answer': array([array(['Self Winding Clock Company', 'Henry Edward Bedford'], dtype=object),\n              array(['Seth Thomas Clock Company'], dtype=object)], dtype=object)}                                                                                           ,\n       {'question': array(['Who designed the clock in Grand Central Station?',\n              'Who built the clock in Grand Central Station?'], dtype=object), 'answer': array([array(['Self Winding Clock Company', 'Henry Edward Bedford'], dtype=object),\n              array(['Seth Thomas Clock Company'], dtype=object)], dtype=object)}                                                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 961,
+  "prompt": "Who made the clock in grand central station?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.637474060058594,
+          "prob": 5.9489021141032555e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.948901760208914e-08,
+      "prompt": "You're given the following task:\nWho made the clock in grand central station?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

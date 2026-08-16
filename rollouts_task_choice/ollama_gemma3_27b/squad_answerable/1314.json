@@ -1,0 +1,32 @@
+{
+  "id": "571ccc00dd7acb1400e4c15d",
+  "title": "Oxygen",
+  "context": "The unusually high concentration of oxygen gas on Earth is the result of the oxygen cycle. This biogeochemical cycle describes the movement of oxygen within and between its three main reservoirs on Earth: the atmosphere, the biosphere, and the lithosphere. The main driving factor of the oxygen cycle is photosynthesis, which is responsible for modern Earth's atmosphere. Photosynthesis releases oxygen into the atmosphere, while respiration and decay remove it from the atmosphere. In the present equilibrium, production and consumption occur at the same rate of roughly 1/2000th of the entire atmospheric oxygen per year.",
+  "question": "What process is responsible for the planet's oxygen content?",
+  "answers": "{'text': array(['photosynthesis', 'photosynthesis', 'photosynthesis',\n       'photosynthesis', 'photosynthesis'], dtype=object), 'answer_start': array([304, 304, 304, 304, 304], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1314,
+  "prompt": "Context: The unusually high concentration of oxygen gas on Earth is the result of the oxygen cycle. This biogeochemical cycle describes the movement of oxygen within and between its three main reservoirs on Earth: the atmosphere, the biosphere, and the lithosphere. The main driving factor of the oxygen cycle is photosynthesis, which is responsible for modern Earth's atmosphere. Photosynthesis releases oxygen into the atmosphere, while respiration and decay remove it from the atmosphere. In the present equilibrium, production and consumption occur at the same rate of roughly 1/2000th of the entire atmospheric oxygen per year.\n\nQuestion: What process is responsible for the planet's oxygen content?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that **photosynthesis** is responsible for modern Earth",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.17382049560547,
+          "prob": 1.0643569418353345e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0643569418353231e-14,
+      "prompt": "You're given the following task:\nContext: The unusually high concentration of oxygen gas on Earth is the result of the oxygen cycle. This biogeochemical cycle describes the movement of oxygen within and between its three main reservoirs on Earth: the atmosphere, the biosphere, and the lithosphere. The main driving factor of the oxygen cycle is photosynthesis, which is responsible for modern Earth's atmosphere. Photosynthesis releases oxygen into the atmosphere, while respiration and decay remove it from the atmosphere. In the present equilibrium, production and consumption occur at the same rate of roughly 1/2000th of the entire atmospheric oxygen per year.\n\nQuestion: What process is responsible for the planet's oxygen content?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

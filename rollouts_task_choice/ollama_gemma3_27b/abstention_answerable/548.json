@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 548,
+  "prompt": "What low-cost airline headquartered near Kuala Lumpur, Malaysia, is used by an airport that operates in Kota Bharu?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To confirm, you'",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.658348083496094,
+          "prob": 3.925535780264104e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.925535778723121e-10,
+      "prompt": "You're given the following task:\nWhat low-cost airline headquartered near Kuala Lumpur, Malaysia, is used by an airport that operates in Kota Bharu?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

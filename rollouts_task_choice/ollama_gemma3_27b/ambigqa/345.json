@@ -1,0 +1,31 @@
+{
+  "id": -3235975868779554978,
+  "question": "When did the kim family come to power?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the kim family come to power in Silla?',\n              'When did the kim family come to power in Geumgwan Gaya?',\n              'When did the kim family come to power in North Korea?'],\n             dtype=object), 'answer': array([array(['262'], dtype=object), array(['532'], dtype=object),\n              array(['1948'], dtype=object)], dtype=object)}                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 345,
+  "prompt": "When did the kim family come to power?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To give you the most",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.11766815185547,
+          "prob": 3.680367429232837e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.680367293781798e-08,
+      "prompt": "You're given the following task:\nWhen did the kim family come to power?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

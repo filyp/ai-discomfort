@@ -1,0 +1,31 @@
+{
+  "id": -3421486869502537513,
+  "question": "When does the new royal liverpool hospital open?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When does the new royal liverpool hospital open before redevelopment?',\n              'When does the new royal liverpool hospital open after redevelopment?'],\n             dtype=object), 'answer': array([array(['1978'], dtype=object), array(['2022'], dtype=object)],\n             dtype=object)}                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 879,
+  "prompt": "When does the new royal liverpool hospital open?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To give you the *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.927310943603516,
+          "prob": 4.4520728661933714e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.452072667983852e-08,
+      "prompt": "You're given the following task:\nWhen does the new royal liverpool hospital open?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

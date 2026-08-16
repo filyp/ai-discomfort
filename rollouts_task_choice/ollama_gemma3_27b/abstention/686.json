@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 686,
+  "prompt": "If dinosaurs managed restaurants, how would taxation change?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, this is a *fantastic* prompt! I'm",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.585002899169922,
+          "prob": 2.846295194148963e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.8462951941408614e-12,
+      "prompt": "You're given the following task:\nIf dinosaurs managed restaurants, how would taxation change?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 111,
+  "prompt": "If we take care of pets and animal husbandry pet liver diesease will form?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about this! The question \"If",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.960466182841628e-07,
+          "prob": 0.9999994039535594,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.268555641174316,
+          "prob": 6.356894740583059e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.356894488576479e-07,
+      "prompt": "You're given the following task:\nIf we take care of pets and animal husbandry pet liver diesease will form?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

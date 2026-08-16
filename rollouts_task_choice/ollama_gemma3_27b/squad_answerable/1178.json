@@ -1,0 +1,32 @@
+{
+  "id": "571c7abfdd7acb1400e4c0ba",
+  "title": "Oxygen",
+  "context": "One of the first known experiments on the relationship between combustion and air was conducted by the 2nd century BCE Greek writer on mechanics, Philo of Byzantium. In his work Pneumatica, Philo observed that inverting a vessel over a burning candle and surrounding the vessel's neck with water resulted in some water rising into the neck. Philo incorrectly surmised that parts of the air in the vessel were converted into the classical element fire and thus were able to escape through pores in the glass. Many centuries later Leonardo da Vinci built on Philo's work by observing that a portion of air is consumed during combustion and respiration.",
+  "question": "What early Greek wrote about experiments on air and combustion?",
+  "answers": "{'text': array(['Philo of Byzantium', 'Philo of Byzantium', 'Philo', 'Philo',\n       'Philo of Byzantium'], dtype=object), 'answer_start': array([146, 146, 190, 146, 146], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1178,
+  "prompt": "Context: One of the first known experiments on the relationship between combustion and air was conducted by the 2nd century BCE Greek writer on mechanics, Philo of Byzantium. In his work Pneumatica, Philo observed that inverting a vessel over a burning candle and surrounding the vessel's neck with water resulted in some water rising into the neck. Philo incorrectly surmised that parts of the air in the vessel were converted into the classical element fire and thus were able to escape through pores in the glass. Many centuries later Leonardo da Vinci built on Philo's work by observing that a portion of air is consumed during combustion and respiration.\n\nQuestion: What early Greek wrote about experiments on air and combustion?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nPhilo of Byzantium was the early Greek writer who wrote",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.904842376708984,
+          "prob": 1.3928457065067826e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3928457065067632e-14,
+      "prompt": "You're given the following task:\nContext: One of the first known experiments on the relationship between combustion and air was conducted by the 2nd century BCE Greek writer on mechanics, Philo of Byzantium. In his work Pneumatica, Philo observed that inverting a vessel over a burning candle and surrounding the vessel's neck with water resulted in some water rising into the neck. Philo incorrectly surmised that parts of the air in the vessel were converted into the classical element fire and thus were able to escape through pores in the glass. Many centuries later Leonardo da Vinci built on Philo's work by observing that a portion of air is consumed during combustion and respiration.\n\nQuestion: What early Greek wrote about experiments on air and combustion?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

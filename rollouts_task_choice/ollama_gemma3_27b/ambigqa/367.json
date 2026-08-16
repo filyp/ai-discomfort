@@ -1,0 +1,31 @@
+{
+  "id": -8900080097940527212,
+  "question": "When will the next fifty shades of grey movie be released?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When will the 2017 fifty shades of grey movie be released in Hamburg?',\n              'When will the 2017 fifty shades of grey movie be released in the United States?',\n              'When will the 2015 fifty shades of grey movie be released in Los Angeles?',\n              'When will the 2015 fifty shades of grey movie be released in all of the United States?',\n              'When will the 2015 fifty shades of grey movie be released in Berlin?'],\n             dtype=object), 'answer': array([array(['February 7, 2017'], dtype=object),\n              array(['February 10, 2017'], dtype=object),\n              array(['February 9, 2015'], dtype=object),\n              array(['February 13, 2015'], dtype=object),\n              array(['February 11, 2015'], dtype=object)], dtype=object)}                              ,\n       {'question': array(['When will the 3rd fifty shades of grey movie be released in Paris?',\n              'When will the 3rd fifty shades of grey movie be released in the United States?',\n              'When will the 2nd fifty shades of grey movie be released in Hamburg?',\n              'When will the 2nd fifty shades of grey movie be released in the United States?'],\n             dtype=object), 'answer': array([array(['February 6, 2018'], dtype=object),\n              array(['February 9, 2018'], dtype=object),\n              array(['February 7, 2017'], dtype=object),\n              array(['February 10, 2017'], dtype=object)], dtype=object)}                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 367,
+  "prompt": "When will the next fifty shades of grey movie be released?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nWhile I can *provide* information about past \"Fifty Shades\" movies",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -9.980758666992188,
+          "prob": 4.628194327536261e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.625427391147241e-05,
+          "prob": 0.999953746795801,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999537180580548,
+      "prompt": "You're given the following task:\nWhen will the next fifty shades of grey movie be released?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

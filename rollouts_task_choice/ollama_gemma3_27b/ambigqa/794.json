@@ -1,0 +1,31 @@
+{
+  "id": 1921599235933874587,
+  "question": "When was the first in car navigation sustem invented?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object), array(['1981'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['When was the first in car Electronic Auto Compass invented?',\n              'When was the first generation of automobile navigation systems invented?'],\n             dtype=object), 'answer': array([array(['1980'], dtype=object), array(['1981'], dtype=object)],\n             dtype=object)}                                                                                ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 794,
+  "prompt": "When was the first in car navigation sustem invented?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's find out when the first in-car",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.468299865722656,
+          "prob": 9.534968841304947e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.534968750389317e-09,
+      "prompt": "You're given the following task:\nWhen was the first in car navigation sustem invented?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

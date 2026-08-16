@@ -1,0 +1,31 @@
+{
+  "id": 1833600376521871545,
+  "question": "When was july 4th declared a national holiday?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was july 4th declared an unpaid national holiday for federal employees?',\n              'When was july 4th declared paid a national holiday for federal employees?'],\n             dtype=object), 'answer': array([array(['1870'], dtype=object), array(['1938'], dtype=object)],\n             dtype=object)}                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 469,
+  "prompt": "When was july 4th declared a national holiday?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.305740356445312,
+          "prob": 3.04938639223955e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.0493862992519793e-08,
+      "prompt": "You're given the following task:\nWhen was july 4th declared a national holiday?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "57060df252bb891400689820",
+  "title": "Southern_California",
+  "context": "The San Bernardino-Riverside area maintains the business districts of Downtown San Bernardino, Hospitality Business/Financial Centre, University Town which are in San Bernardino and Downtown Riverside.",
+  "question": "The Sand Bernardino - Riverside area maintains what kind of district?",
+  "answers": "{'text': array(['business', 'business districts', 'business'], dtype=object), 'answer_start': array([48, 48, 48], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 427,
+  "prompt": "Context: The San Bernardino-Riverside area maintains the business districts of Downtown San Bernardino, Hospitality Business/Financial Centre, University Town which are in San Bernardino and Downtown Riverside.\n\nQuestion: The Sand Bernardino - Riverside area maintains what kind of district?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe San Bernardino-Riverside area maintains business districts including Downtown San",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.709548950195312,
+          "prob": 1.2511426562135695e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.251142656213413e-13,
+      "prompt": "You're given the following task:\nContext: The San Bernardino-Riverside area maintains the business districts of Downtown San Bernardino, Hospitality Business/Financial Centre, University Town which are in San Bernardino and Downtown Riverside.\n\nQuestion: The Sand Bernardino - Riverside area maintains what kind of district?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

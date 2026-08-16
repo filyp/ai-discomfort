@@ -1,0 +1,31 @@
+{
+  "id": -1004998905086430798,
+  "question": "When was the bellagio in las vegas built?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did construction begin on the Bellagio in Las Vegas?',\n              'When did the Bellagio in Las Vegas open?'], dtype=object), 'answer': array([array(['May, 1996'], dtype=object),\n              array(['October 15, 1998'], dtype=object)], dtype=object)}                                                      ,\n       {'question': array(['When did the bellagio in las vegas first start to be built?',\n              'When was the bellagio in las vegas finished being built and opened?'],\n             dtype=object), 'answer': array([array(['May 1996'], dtype=object),\n              array(['October 15, 1998'], dtype=object)], dtype=object)}                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 64,
+  "prompt": "When was the bellagio in las vegas built?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.65151596069336,
+          "prob": 7.93870271788261e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.938702654859608e-09,
+      "prompt": "You're given the following task:\nWhen was the bellagio in las vegas built?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

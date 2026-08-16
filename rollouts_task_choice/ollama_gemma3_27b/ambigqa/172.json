@@ -1,0 +1,31 @@
+{
+  "id": 8696900545938168311,
+  "question": "What college football team has an elephant mascot?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What college football team in Alabama has an elephant mascot?',\n              'What college football team in Massachusetts has an elephant mascot?',\n              'What college football team in Indiana has an elephant mascot?'],\n             dtype=object), 'answer': array([array(['Alabama Crimson Tide'], dtype=object),\n              array(['Tufts University'], dtype=object),\n              array(['Rose-Hulman Institute of Technology \"Fightin\\' Engineers.\"',\n                     \"Fightin' Engineers\"], dtype=object)                         ],\n             dtype=object)}                                                                ,\n       {'question': array(['What college football team has an elephant mascot called Big Al?',\n              'What college football team has an elephant mascot called Jumbo?',\n              'What college football team has an elephant mascot called Rosie?',\n              'What college football team has an elephant mascot called Tuffy?'],\n             dtype=object), 'answer': array([array(['Alabama Crimson Tide'], dtype=object),\n              array(['Tufts University'], dtype=object),\n              array(['Rose-Hulman Institute of Technology \"Fightin\\' Engineers.\"',\n                     \"Fightin' Engineers\"], dtype=object)                         ,\n              array(['Cal State Fullerton Titans'], dtype=object)], dtype=object)}            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 172,
+  "prompt": "What college football team has an elephant mascot?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.30477523803711,
+          "prob": 5.590538928453349e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.590538925327936e-10,
+      "prompt": "You're given the following task:\nWhat college football team has an elephant mascot?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

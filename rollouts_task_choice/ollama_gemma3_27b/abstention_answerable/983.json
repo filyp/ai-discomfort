@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 983,
+  "prompt": "What are the joints in the fingers called?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's talk about finger joints. There are three",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.512489318847656,
+          "prob": 2.261315455902721e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2613154558515854e-11,
+      "prompt": "You're given the following task:\nWhat are the joints in the fingers called?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

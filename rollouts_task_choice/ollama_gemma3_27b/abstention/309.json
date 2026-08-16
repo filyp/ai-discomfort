@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 309,
+  "prompt": "Who will be Canadian President in 20 years?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThis is a trick question! Canada does not *have* a President",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -11.432658195495605,
+          "prob": 1.0835766359350566e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -1.0848104466276709e-05,
+          "prob": 0.9999891519543742,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999891642335077,
+      "prompt": "You're given the following task:\nWho will be Canadian President in 20 years?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

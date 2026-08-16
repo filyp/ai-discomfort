@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 34,
+  "prompt": "Do people who have Alzheimers' souls disappear when they die or before that?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis question delves into philosophical and spiritual beliefs about consciousness, the soul",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -4.663252353668213,
+          "prob": 0.00943572413095223,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.009481895714998245,
+          "prob": 0.9905629157139038,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9905642630349816,
+      "prompt": "You're given the following task:\nDo people who have Alzheimers' souls disappear when they die or before that?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

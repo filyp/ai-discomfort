@@ -1,0 +1,31 @@
+{
+  "id": 5489717211503600508,
+  "question": "How many seasons of marco polo will there be?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How many seasons of marco polo 2014 series will there be?',\n              'How many seasons of marco polo 1982 series will there be?',\n              'How many seasons of marco polo 1964 series will there be?'],\n             dtype=object), 'answer': array([array(['2'], dtype=object), array(['1'], dtype=object),\n              array(['1'], dtype=object)], dtype=object)}                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 319,
+  "prompt": "How many seasons of marco polo will there be?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out how many seasons of *Marco",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0004703912709373981,
+          "prob": 0.9995297193456915,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -7.662045478820801,
+          "prob": 0.00047034434676821894,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0004703443168108325,
+      "prompt": "You're given the following task:\nHow many seasons of marco polo will there be?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

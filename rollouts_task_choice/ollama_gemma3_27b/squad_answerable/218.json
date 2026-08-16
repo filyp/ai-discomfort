@@ -1,0 +1,32 @@
+{
+  "id": "56e1c9bfe3433e1400423194",
+  "title": "Computational_complexity_theory",
+  "context": "Many complexity classes are defined using the concept of a reduction. A reduction is a transformation of one problem into another problem. It captures the informal notion of a problem being at least as difficult as another problem. For instance, if a problem X can be solved using an algorithm for Y, X is no more difficult than Y, and we say that X reduces to Y. There are many different types of reductions, based on the method of reduction, such as Cook reductions, Karp reductions and Levin reductions, and the bound on the complexity of reductions, such as polynomial-time reductions or log-space reductions.",
+  "question": "According to reduction, if X and Y can be solved by the same algorithm then X performs what function in relationship to Y?",
+  "answers": "{'text': array(['reduces', 'reduces', 'X reduces to Y'], dtype=object), 'answer_start': array([350, 350, 348], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 218,
+  "prompt": "Context: Many complexity classes are defined using the concept of a reduction. A reduction is a transformation of one problem into another problem. It captures the informal notion of a problem being at least as difficult as another problem. For instance, if a problem X can be solved using an algorithm for Y, X is no more difficult than Y, and we say that X reduces to Y. There are many different types of reductions, based on the method of reduction, such as Cook reductions, Karp reductions and Levin reductions, and the bound on the complexity of reductions, such as polynomial-time reductions or log-space reductions.\n\nQuestion: According to reduction, if X and Y can be solved by the same algorithm then X performs what function in relationship to Y?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nAccording to reduction (as described in the context), if X and",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.870304107666016,
+          "prob": 5.816606454486483e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.816606454452649e-12,
+      "prompt": "You're given the following task:\nContext: Many complexity classes are defined using the concept of a reduction. A reduction is a transformation of one problem into another problem. It captures the informal notion of a problem being at least as difficult as another problem. For instance, if a problem X can be solved using an algorithm for Y, X is no more difficult than Y, and we say that X reduces to Y. There are many different types of reductions, based on the method of reduction, such as Cook reductions, Karp reductions and Levin reductions, and the bound on the complexity of reductions, such as polynomial-time reductions or log-space reductions.\n\nQuestion: According to reduction, if X and Y can be solved by the same algorithm then X performs what function in relationship to Y?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

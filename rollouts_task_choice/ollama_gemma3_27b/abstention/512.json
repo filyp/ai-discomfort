@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 512,
+  "prompt": "How did Albert Einstein use Biotech with Facebook?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nThe premise of the question (\"How did Albert",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -15.244568824768066,
+          "prob": 2.3953439355022374e-07,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -5.960466182841628e-07,
+          "prob": 0.9999994039535594,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999997604655211,
+      "prompt": "You're given the following task:\nHow did Albert Einstein use Biotech with Facebook?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

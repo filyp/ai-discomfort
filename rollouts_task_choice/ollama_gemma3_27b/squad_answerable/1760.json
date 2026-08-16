@@ -1,0 +1,32 @@
+{
+  "id": "5729e6313f37b319004785ad",
+  "title": "Amazon_rainforest",
+  "context": "During the mid-Eocene, it is believed that the drainage basin of the Amazon was split along the middle of the continent by the Purus Arch. Water on the eastern side flowed toward the Atlantic, while to the west water flowed toward the Pacific across the Amazonas Basin. As the Andes Mountains rose, however, a large basin was created that enclosed a lake; now known as the Solimões Basin. Within the last 5–10 million years, this accumulating water broke through the Purus Arch, joining the easterly flow toward the Atlantic.",
+  "question": "What is the lake known as which was created by the rise of the Andes Mountains?",
+  "answers": "{'text': array(['Solimões Basin', 'Solimões Basin', 'Solimões Basin'], dtype=object), 'answer_start': array([373, 373, 373], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1760,
+  "prompt": "Context: During the mid-Eocene, it is believed that the drainage basin of the Amazon was split along the middle of the continent by the Purus Arch. Water on the eastern side flowed toward the Atlantic, while to the west water flowed toward the Pacific across the Amazonas Basin. As the Andes Mountains rose, however, a large basin was created that enclosed a lake; now known as the Solimões Basin. Within the last 5–10 million years, this accumulating water broke through the Purus Arch, joining the easterly flow toward the Atlantic.\n\nQuestion: What is the lake known as which was created by the rise of the Andes Mountains?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe lake created by the rise of the Andes Mountains is known as",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -33.706966400146484,
+          "prob": 2.297473393993205e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2974733939931997e-15,
+      "prompt": "You're given the following task:\nContext: During the mid-Eocene, it is believed that the drainage basin of the Amazon was split along the middle of the continent by the Purus Arch. Water on the eastern side flowed toward the Atlantic, while to the west water flowed toward the Pacific across the Amazonas Basin. As the Andes Mountains rose, however, a large basin was created that enclosed a lake; now known as the Solimões Basin. Within the last 5–10 million years, this accumulating water broke through the Purus Arch, joining the easterly flow toward the Atlantic.\n\nQuestion: What is the lake known as which was created by the rise of the Andes Mountains?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

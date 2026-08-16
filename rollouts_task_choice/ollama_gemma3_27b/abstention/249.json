@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 249,
+  "prompt": "When will Amazon's Alexa become sentient?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nWhile an interesting thought experiment, predicting sentience is fundamentally impossible and",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -11.903178215026855,
+          "prob": 6.768857699590474e-06,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -6.9141628955549095e-06,
+          "prob": 0.9999930858610072,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.999993231141317,
+      "prompt": "You're given the following task:\nWhen will Amazon's Alexa become sentient?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

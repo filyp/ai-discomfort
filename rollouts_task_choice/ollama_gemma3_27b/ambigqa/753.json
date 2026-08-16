@@ -1,0 +1,31 @@
+{
+  "id": -2194308568409237102,
+  "question": "Who made it to the american idol finale?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who made it to the American Idol Season 15 finale?',\n              'Who made it to the American Idol Season 14 finale?',\n              'Who made it to the American Idol Season 13 finale?'], dtype=object), 'answer': array([array([\"Trent Harmon, La'Porsha Renae\"], dtype=object),\n              array(['Nick Fradiani, Clark Beckham'], dtype=object),\n              array(['Caleb Johnson, Jena Irene'], dtype=object)], dtype=object)}                                                                           ,\n       {'question': array(['Who were the finalists for American Idol season 15?',\n              'Who were the finalists for American Idol season 14?',\n              'Who were the finalists for American Idol season 13?'],\n             dtype=object), 'answer': array([array([\"La'Porsha Renae\", 'Trent Harmon'], dtype=object),\n              array(['Clark Beckham', 'Nick Fradiani'], dtype=object),\n              array(['Caleb Johnson', 'Jena Irene'], dtype=object)], dtype=object)}                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 753,
+  "prompt": "Who made it to the american idol finale?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! To give you an accurate list of American Idol finalists,",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.423118591308594,
+          "prob": 7.371064647171817e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.371064982545219e-08,
+      "prompt": "You're given the following task:\nWho made it to the american idol finale?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

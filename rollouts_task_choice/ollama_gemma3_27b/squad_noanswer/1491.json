@@ -1,0 +1,32 @@
+{
+  "id": "5ad11186645df0001a2d0c02",
+  "title": "European_Union_law",
+  "context": "Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.",
+  "question": "Which caused the reform to come into force?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1491,
+  "prompt": "Context: Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.\n\nQuestion: Which caused the reform to come into force?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states the proposed constitutional reform *did not* come into",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0015675785252824426,
+          "prob": 0.9984336494841831,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -6.459025859832764,
+          "prob": 0.001566320783446038,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.00156632083001647,
+      "prompt": "You're given the following task:\nContext: Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.\n\nQuestion: Which caused the reform to come into force?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

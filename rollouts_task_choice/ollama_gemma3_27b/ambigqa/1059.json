@@ -1,0 +1,31 @@
+{
+  "id": -4814171382648920164,
+  "question": "Who sings i'll be seeing you in the notebook?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sings \"I\\'ll Be Seeing You\" in the movie The Notebook?',\n              'Who sings a version of \"I\\'ll Be Seeing You\" in The Notebook?'],\n             dtype=object), 'answer': array([array(['Jimmy Durante.'], dtype=object),\n              array(['Billie Holiday'], dtype=object)], dtype=object)}                  ,\n       {'question': array(['Who sings the version of \"I\\'ll Be Seeing You\" that is heard second in The Notebook?',\n              'Who sings the version of \"I\\'ll Be Seeing You that is heard first in The Notebook?'],\n             dtype=object), 'answer': array([array(['Jimmy Durante'], dtype=object),\n              array(['Billie Holiday'], dtype=object)], dtype=object)}                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1059,
+  "prompt": "Who sings i'll be seeing you in the notebook?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.319183349609375,
+          "prob": 3.008667814793012e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.008667724272195e-08,
+      "prompt": "You're given the following task:\nWho sings i'll be seeing you in the notebook?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -8242180713881075550,
+  "question": "How many championships did the cleveland browns win?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How many AAFC Championships have the Cleveland Browns won?',\n              'How many NFL Championships have the Cleveland Browns won?',\n              'How many league championships have the Cleveland Browns won?',\n              'How many conference championships have the Cleveland Browns won?',\n              'How many NFL American championships have the cleveland browns won?',\n              'How many NFL Eastern championships have the Cleveland Browns won?',\n              'How many division championships have the Cleveland Browns won?',\n              'How many AAFC Western championships have the Cleveland Browns won?',\n              'How many NFL Century championships have the Cleveland Browns won?',\n              'How many AFC Central championships have the Cleveland Browns won?'],\n             dtype=object), 'answer': array([array(['4'], dtype=object), array(['4'], dtype=object),\n              array(['8'], dtype=object), array(['11'], dtype=object),\n              array(['3'], dtype=object), array(['8'], dtype=object),\n              array(['12'], dtype=object), array(['3'], dtype=object),\n              array(['3'], dtype=object), array(['6'], dtype=object)],\n             dtype=object)}                                                                         ,\n       {'question': array(['How many league championships did the cleveland browns win?',\n              'How many AAFC championships did the cleveland browns win?',\n              'How many NFL championships did the cleveland browns win?',\n              'How many conference championships did the cleveland browns win?',\n              'How many division championships did the cleveland browns win?'],\n             dtype=object), 'answer': array([array(['8'], dtype=object), array(['4'], dtype=object),\n              array(['4'], dtype=object), array(['11'], dtype=object),\n              array(['12'], dtype=object)], dtype=object)}                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 28,
+  "prompt": "How many championships did the cleveland browns win?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out how many championships the Cleveland Browns",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -9.536788638797589e-06,
+          "prob": 0.9999904632568363,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -11.559526443481445,
+          "prob": 9.544681749283048e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.544681673511775e-06,
+      "prompt": "You're given the following task:\nHow many championships did the cleveland browns win?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

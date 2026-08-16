@@ -1,0 +1,65 @@
+{
+  "model": "gemma3:27b",
+  "dataset": "engaging",
+  "question_num": 15,
+  "prompt": "Compose a playful limerick about a cat who wants to be an astronaut.",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's do this. I'm happy to",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.30944061279297,
+          "prob": 6.867160411457955e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.867160411457484e-14,
+      "prompt": "You're given the following task:\nCompose a playful limerick about a cat who wants to be an astronaut.\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.42910385131836,
+          "prob": 4.5019127301147235e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.5019127301126975e-13,
+      "prompt": "You're given the following task:\nCompose a playful limerick about a cat who wants to be an astronaut.\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nThere once was a kitty named Sue,\nWho dreamed of space",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -29.28961944580078,
+          "prob": 1.904056790983966e-13,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9040567909836032e-13,
+      "prompt": "You're given the following task:\nCompose a playful limerick about a cat who wants to be an astronaut.\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 710,
+  "prompt": "If the United States used hydroelectric power as its main source of electricity, how would that result in electric bills?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's explore how switching to primarily hydroelectric power would",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.77035903930664,
+          "prob": 6.427991185589454e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.4279911855481355e-12,
+      "prompt": "You're given the following task:\nIf the United States used hydroelectric power as its main source of electricity, how would that result in electric bills?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

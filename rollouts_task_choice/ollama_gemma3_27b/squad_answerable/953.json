@@ -1,0 +1,32 @@
+{
+  "id": "57113ba6b654c5140001fc21",
+  "title": "Steam_engine",
+  "context": "Lead fusible plugs may be present in the crown of the boiler's firebox. If the water level drops, such that the temperature of the firebox crown increases significantly, the lead melts and the steam escapes, warning the operators, who may then manually suppress the fire. Except in the smallest of boilers the steam escape has little effect on dampening the fire. The plugs are also too small in area to lower steam pressure significantly, depressurizing the boiler. If they were any larger, the volume of escaping steam would itself endanger the crew.[citation needed]",
+  "question": "What happens after the lead melts?",
+  "answers": "{'text': array(['steam escapes', 'steam escapes,', 'the steam escapes'],\n      dtype=object), 'answer_start': array([193, 193, 189], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 953,
+  "prompt": "Context: Lead fusible plugs may be present in the crown of the boiler's firebox. If the water level drops, such that the temperature of the firebox crown increases significantly, the lead melts and the steam escapes, warning the operators, who may then manually suppress the fire. Except in the smallest of boilers the steam escape has little effect on dampening the fire. The plugs are also too small in area to lower steam pressure significantly, depressurizing the boiler. If they were any larger, the volume of escaping steam would itself endanger the crew.[citation needed]\n\nQuestion: What happens after the lead melts?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nAfter the lead melts, steam escapes, warning the operators who can",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.855724334716797,
+          "prob": 7.987532385401527e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.987532385395148e-13,
+      "prompt": "You're given the following task:\nContext: Lead fusible plugs may be present in the crown of the boiler's firebox. If the water level drops, such that the temperature of the firebox crown increases significantly, the lead melts and the steam escapes, warning the operators, who may then manually suppress the fire. Except in the smallest of boilers the steam escape has little effect on dampening the fire. The plugs are also too small in area to lower steam pressure significantly, depressurizing the boiler. If they were any larger, the volume of escaping steam would itself endanger the crew.[citation needed]\n\nQuestion: What happens after the lead melts?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

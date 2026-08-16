@@ -1,0 +1,31 @@
+{
+  "id": -7777910189889414373,
+  "question": "When is the paschal candle lit in church?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When is the paschal candle lit in church during Easter?',\n              'Which season does the paschal candle remain lit in church?',\n              'When other than Easter is the paschal candle lit in church?'],\n             dtype=object), 'answer': array([array(['At the opening of the Easter Vigil',\n                     'opening of the Easter Vigil'], dtype=object),\n              array(['Easter season', 'Easter'], dtype=object),\n              array(['during baptisms', 'during funeral services'], dtype=object)],\n             dtype=object)}                                                              ,\n       {'question': array(['When is the paschal candle usually lit in church?',\n              'Besides Easter, when is the paschal candle lit in church that signifies the Holy Spirit ?',\n              'Besides Easter, when is the paschal candle lit in church that signifies hope of the resurrection?'],\n             dtype=object), 'answer': array([array(['throughout Easter season', 'Easter'], dtype=object),\n              array(['Baptisms'], dtype=object),\n              array(['Mass of Requiem', 'Mass of Repose', 'funeral services'],\n                    dtype=object)                                             ],\n             dtype=object)}                                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 748,
+  "prompt": "When is the paschal candle lit in church?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you about when the Paschal Candle is",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.613662719726562,
+          "prob": 4.104928028936434e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.1049280272513904e-10,
+      "prompt": "You're given the following task:\nWhen is the paschal candle lit in church?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

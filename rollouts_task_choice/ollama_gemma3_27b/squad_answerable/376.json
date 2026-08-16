@@ -1,0 +1,32 @@
+{
+  "id": "5705fc3a52bb89140068976e",
+  "title": "Southern_California",
+  "context": "Southern California contains a Mediterranean climate, with infrequent rain and many sunny days. Summers are hot and dry, while winters are a bit warm or mild and wet. Serious rain can occur unusually. In the summers, temperature ranges are 90-60's while as winters are 70-50's, usually all of Southern California have Mediterranean climate. But snow is very rare in the Southwest of the state, it occurs on the Southeast of the state.",
+  "question": "What is the high end of the temperature range in winter?",
+  "answers": "{'text': array(['70', '70', '70'], dtype=object), 'answer_start': array([269, 269, 269], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 376,
+  "prompt": "Context: Southern California contains a Mediterranean climate, with infrequent rain and many sunny days. Summers are hot and dry, while winters are a bit warm or mild and wet. Serious rain can occur unusually. In the summers, temperature ranges are 90-60's while as winters are 70-50's, usually all of Southern California have Mediterranean climate. But snow is very rare in the Southwest of the state, it occurs on the Southeast of the state.\n\nQuestion: What is the high end of the temperature range in winter?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe high end of the temperature range in winter is 70",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.31713104248047,
+          "prob": 5.035310368333e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.035310368330464e-13,
+      "prompt": "You're given the following task:\nContext: Southern California contains a Mediterranean climate, with infrequent rain and many sunny days. Summers are hot and dry, while winters are a bit warm or mild and wet. Serious rain can occur unusually. In the summers, temperature ranges are 90-60's while as winters are 70-50's, usually all of Southern California have Mediterranean climate. But snow is very rare in the Southwest of the state, it occurs on the Southeast of the state.\n\nQuestion: What is the high end of the temperature range in winter?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

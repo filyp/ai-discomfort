@@ -1,0 +1,32 @@
+{
+  "id": "5a7b05cd21c2de001afe9cda",
+  "title": "Fresno,_California",
+  "context": "In 1872, the Central Pacific Railroad established a station near Easterby's—by now a hugely productive wheat farm—for its new Southern Pacific line. Soon there was a store around the station and the store grew the town of Fresno Station, later called Fresno. Many Millerton residents, drawn by the convenience of the railroad and worried about flooding, moved to the new community. Fresno became an incorporated city in 1885. By 1931 the Fresno Traction Company operated 47 streetcars over 49 miles of track.",
+  "question": "How long was the Southern Pacific line?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1915,
+  "prompt": "Context: In 1872, the Central Pacific Railroad established a station near Easterby's—by now a hugely productive wheat farm—for its new Southern Pacific line. Soon there was a store around the station and the store grew the town of Fresno Station, later called Fresno. Many Millerton residents, drawn by the convenience of the railroad and worried about flooding, moved to the new community. Fresno became an incorporated city in 1885. By 1931 the Fresno Traction Company operated 47 streetcars over 49 miles of track.\n\nQuestion: How long was the Southern Pacific line?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text doesn't state how *long* the Southern Pacific",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3842141672503203e-05,
+          "prob": 0.9999761581425491,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -10.644448280334473,
+          "prob": 2.383278795182457e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.383278816797602e-05,
+      "prompt": "You're given the following task:\nContext: In 1872, the Central Pacific Railroad established a station near Easterby's—by now a hugely productive wheat farm—for its new Southern Pacific line. Soon there was a store around the station and the store grew the town of Fresno Station, later called Fresno. Many Millerton residents, drawn by the convenience of the railroad and worried about flooding, moved to the new community. Fresno became an incorporated city in 1885. By 1931 the Fresno Traction Company operated 47 streetcars over 49 miles of track.\n\nQuestion: How long was the Southern Pacific line?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

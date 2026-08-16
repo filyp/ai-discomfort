@@ -1,0 +1,31 @@
+{
+  "id": -3465316806880325333,
+  "question": "Who plays lola in kinky boots the movie?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played older Lola in Kinky Boots the movie?',\n              'Who played young lola in Kinky Boots the movie?'], dtype=object), 'answer': array([array(['Chiwetel Ejiofor'], dtype=object),\n              array(['Courtney Philip'], dtype=object)], dtype=object)}                                                                     ,\n       {'question': array(['Who plays old lola in kinky boots the movie?',\n              'Who plays young lola in kinky boots the movie?'], dtype=object), 'answer': array([array(['Chiwetel Umeadi Ejiofor', 'Chiwetel Ejiofor'], dtype=object),\n              array(['Courtney Philip'], dtype=object)], dtype=object)}                                                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 632,
+  "prompt": "Who plays lola in kinky boots the movie?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out who plays Lola in *K",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.526473999023438,
+          "prob": 1.8069162300086868e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.8069163343164667e-07,
+      "prompt": "You're given the following task:\nWho plays lola in kinky boots the movie?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

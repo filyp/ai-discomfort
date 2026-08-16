@@ -1,0 +1,31 @@
+{
+  "id": 5861248450139485139,
+  "question": "Where was the movie beast of no nation acted?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Ghana'], dtype=object),\n       array(['Eastern Region of Ghana', 'Ezile Bay at Akwidaa', 'Koforidua'],\n             dtype=object)                                                    ],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 365,
+  "prompt": "Where was the movie beast of no nation acted?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.358856201171875,
+          "prob": 3.913412031425056e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.913412016110262e-09,
+      "prompt": "You're given the following task:\nWhere was the movie beast of no nation acted?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

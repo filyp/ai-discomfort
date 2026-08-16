@@ -1,0 +1,31 @@
+{
+  "id": -499575708009156809,
+  "question": "What is the families last name on this is us?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Pearson'], dtype=object), array(['Pearson'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 408,
+  "prompt": "What is the families last name on this is us?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The family's last name on *This Is Us",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.6051025390625,
+          "prob": 2.2604823164881312e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2604822653903293e-08,
+      "prompt": "You're given the following task:\nWhat is the families last name on this is us?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

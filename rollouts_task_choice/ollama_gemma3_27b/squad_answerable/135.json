@@ -1,0 +1,32 @@
+{
+  "id": "56e1a0dccd28a01900c67a2e",
+  "title": "Computational_complexity_theory",
+  "context": "It is tempting to think that the notion of function problems is much richer than the notion of decision problems. However, this is not really the case, since function problems can be recast as decision problems. For example, the multiplication of two integers can be expressed as the set of triples (a, b, c) such that the relation a × b = c holds. Deciding whether a given triple is a member of this set corresponds to solving the problem of multiplying two numbers.",
+  "question": "How can function problems typically be restated?",
+  "answers": "{'text': array(['decision problems', 'as decision problems',\n       'as decision problems'], dtype=object), 'answer_start': array([ 95, 190, 190], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 135,
+  "prompt": "Context: It is tempting to think that the notion of function problems is much richer than the notion of decision problems. However, this is not really the case, since function problems can be recast as decision problems. For example, the multiplication of two integers can be expressed as the set of triples (a, b, c) such that the relation a × b = c holds. Deciding whether a given triple is a member of this set corresponds to solving the problem of multiplying two numbers.\n\nQuestion: How can function problems typically be restated?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nFunction problems can typically be restated as **decision problems** by",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.489315032958984,
+          "prob": 2.1103973957189235e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.110397395718879e-14,
+      "prompt": "You're given the following task:\nContext: It is tempting to think that the notion of function problems is much richer than the notion of decision problems. However, this is not really the case, since function problems can be recast as decision problems. For example, the multiplication of two integers can be expressed as the set of triples (a, b, c) such that the relation a × b = c holds. Deciding whether a given triple is a member of this set corresponds to solving the problem of multiplying two numbers.\n\nQuestion: How can function problems typically be restated?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

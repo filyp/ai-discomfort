@@ -1,0 +1,32 @@
+{
+  "id": "57060f3e75f01819005e7922",
+  "title": "Southern_California",
+  "context": "Downtown San Diego is the central business district of San Diego, though the city is filled with business districts. These include Carmel Valley, Del Mar Heights, Mission Valley, Rancho Bernardo, Sorrento Mesa, and University City. Most of these districts are located in Northern San Diego and some within North County regions.",
+  "question": "What is the central business district of San Diego?",
+  "answers": "{'text': array(['Downtown San Diego', 'Downtown San Diego', 'Downtown'],\n      dtype=object), 'answer_start': array([0, 0, 0], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 435,
+  "prompt": "Context: Downtown San Diego is the central business district of San Diego, though the city is filled with business districts. These include Carmel Valley, Del Mar Heights, Mission Valley, Rancho Bernardo, Sorrento Mesa, and University City. Most of these districts are located in Northern San Diego and some within North County regions.\n\nQuestion: What is the central business district of San Diego?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nThe central business district of San Diego is Downtown San Diego.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -33.074851989746094,
+          "prob": 4.322891059520819e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.322891059520801e-15,
+      "prompt": "You're given the following task:\nContext: Downtown San Diego is the central business district of San Diego, though the city is filled with business districts. These include Carmel Valley, Del Mar Heights, Mission Valley, Rancho Bernardo, Sorrento Mesa, and University City. Most of these districts are located in Northern San Diego and some within North County regions.\n\nQuestion: What is the central business district of San Diego?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

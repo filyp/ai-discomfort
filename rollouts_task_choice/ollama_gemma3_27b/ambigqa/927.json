@@ -1,0 +1,31 @@
+{
+  "id": 2998178262284903248,
+  "question": "Some mice have a wheel in the middle. generally what is this wheel for?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Some computer mice have a wheel in the middle. Generally, what is this used for?',\n              'Some mouse cages have a wheel in the middle. Generally, what is this used for?'],\n             dtype=object), 'answer': array([array(['scrolling'], dtype=object),\n              array(['running', 'exercise'], dtype=object)], dtype=object)}                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 927,
+  "prompt": "Some mice have a wheel in the middle. generally what is this wheel for?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! That's an interesting observation about mice having a wheel",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.35608673095703,
+          "prob": 5.310915330286665e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.310915327466082e-10,
+      "prompt": "You're given the following task:\nSome mice have a wheel in the middle. generally what is this wheel for?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

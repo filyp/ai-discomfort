@@ -1,0 +1,31 @@
+{
+  "id": -6164888606684560938,
+  "question": "Where did they film girl on a train?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where did they film the 2013 film, Girl on a Train?',\n              'Where did they film the 2009 film, Girl on a Train?',\n              'Where did they film the 2016 film, Girl on a Train?',\n              'Where did they film the 2020 film Girl on a Train?'], dtype=object), 'answer': array([array(['Wall Street area, an abandoned Catholic school, and Grand Central Terminal in New York City'],\n                    dtype=object)                                                                                   ,\n              array([\"Paris Charles de Gaulle Airport, Roissy-en-France, Val-d'Oise, France\"],\n                    dtype=object)                                                             ,\n              array(['New York City, White Plains, Hastings-on-Hudson, and Irvington, New York'],\n                    dtype=object)                                                                ,\n              array(['London'], dtype=object)], dtype=object)}                                                                                                                                             ,\n       {'question': array(['Where did they film the 2009 movie, Girl on a Train?',\n              'Where did they film the 2013 movie, Girl on a Train?',\n              'Where did they film the 2016 movie, Girl on a Train?',\n              'Where did they film the 2020 movie, Girl on a Train?'],\n             dtype=object), 'answer': array([array(['Paris, France'], dtype=object),\n              array(['New York City'], dtype=object),\n              array(['New York City, White Plains, Hastings-on-Hudson, Irvington NY'],\n                    dtype=object)                                                     ,\n              array(['London England'], dtype=object)], dtype=object)}                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 687,
+  "prompt": "Where did they film girl on a train?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.616744995117188,
+          "prob": 8.219594211312947e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.21959414375122e-09,
+      "prompt": "You're given the following task:\nWhere did they film girl on a train?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 789,
+  "prompt": "Is there any animals in the universe that have yet to be identified?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about whether there are unidentified animals in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.192909240722656,
+          "prob": 2.3000749036698625e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3000749031408278e-10,
+      "prompt": "You're given the following task:\nIs there any animals in the universe that have yet to be identified?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

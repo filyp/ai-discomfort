@@ -1,0 +1,32 @@
+{
+  "id": "572a09abaf94a219006aa75e",
+  "title": "Amazon_rainforest",
+  "context": "To accurately map the Amazon's biomass and subsequent carbon related emissions, the classification of tree growth stages within different parts of the forest is crucial. In 2006 Tatiana Kuplich organized the trees of the Amazon into four categories: (1) mature forest, (2) regenerating forest [less than three years], (3) regenerating forest [between three and five years of regrowth], and (4) regenerating forest [eleven to eighteen years of continued development]. The researcher used a combination of Synthetic aperture radar (SAR) and Thematic Mapper (TM) to accurately place the different portions of the Amazon into one of the four classifications.",
+  "question": "In what year did one individual suggest classifying the trees of the Amazon into four categories?",
+  "answers": "{'text': array(['2006', '2006', '2006'], dtype=object), 'answer_start': array([173, 173, 173], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1887,
+  "prompt": "Context: To accurately map the Amazon's biomass and subsequent carbon related emissions, the classification of tree growth stages within different parts of the forest is crucial. In 2006 Tatiana Kuplich organized the trees of the Amazon into four categories: (1) mature forest, (2) regenerating forest [less than three years], (3) regenerating forest [between three and five years of regrowth], and (4) regenerating forest [eleven to eighteen years of continued development]. The researcher used a combination of Synthetic aperture radar (SAR) and Thematic Mapper (TM) to accurately place the different portions of the Amazon into one of the four classifications.\n\nQuestion: In what year did one individual suggest classifying the trees of the Amazon into four categories?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe researcher Tatiana Kuplich suggested classifying the trees of the Amazon",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.57440185546875,
+          "prob": 5.268730525049261e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.2687305250489837e-14,
+      "prompt": "You're given the following task:\nContext: To accurately map the Amazon's biomass and subsequent carbon related emissions, the classification of tree growth stages within different parts of the forest is crucial. In 2006 Tatiana Kuplich organized the trees of the Amazon into four categories: (1) mature forest, (2) regenerating forest [less than three years], (3) regenerating forest [between three and five years of regrowth], and (4) regenerating forest [eleven to eighteen years of continued development]. The researcher used a combination of Synthetic aperture radar (SAR) and Thematic Mapper (TM) to accurately place the different portions of the Amazon into one of the four classifications.\n\nQuestion: In what year did one individual suggest classifying the trees of the Amazon into four categories?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

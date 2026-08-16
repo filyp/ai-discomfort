@@ -1,0 +1,32 @@
+{
+  "id": "570d4e6cb3d812140066d66f",
+  "title": "Victoria_(Australia)",
+  "context": "The Premier of Victoria is the leader of the political party or coalition with the most seats in the Legislative Assembly. The Premier is the public face of government and, with cabinet, sets the legislative and political agenda. Cabinet consists of representatives elected to either house of parliament. It is responsible for managing areas of government that are not exclusively the Commonwealth's, by the Australian Constitution, such as education, health and law enforcement. The current Premier of Victoria is Daniel Andrews.",
+  "question": "Who can be in the Victorian cabinet?",
+  "answers": "{'text': array(['representatives',\n       'representatives elected to either house of parliament',\n       'representatives elected to either house of parliament'],\n      dtype=object), 'answer_start': array([250, 250, 250], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 693,
+  "prompt": "Context: The Premier of Victoria is the leader of the political party or coalition with the most seats in the Legislative Assembly. The Premier is the public face of government and, with cabinet, sets the legislative and political agenda. Cabinet consists of representatives elected to either house of parliament. It is responsible for managing areas of government that are not exclusively the Commonwealth's, by the Australian Constitution, such as education, health and law enforcement. The current Premier of Victoria is Daniel Andrews.\n\nQuestion: Who can be in the Victorian cabinet?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nOkay, based on the provided text, members of the Victorian",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.11758804321289,
+          "prob": 6.147331994818427e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.147331994814648e-13,
+      "prompt": "You're given the following task:\nContext: The Premier of Victoria is the leader of the political party or coalition with the most seats in the Legislative Assembly. The Premier is the public face of government and, with cabinet, sets the legislative and political agenda. Cabinet consists of representatives elected to either house of parliament. It is responsible for managing areas of government that are not exclusively the Commonwealth's, by the Australian Constitution, such as education, health and law enforcement. The current Premier of Victoria is Daniel Andrews.\n\nQuestion: Who can be in the Victorian cabinet?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

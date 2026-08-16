@@ -1,0 +1,31 @@
+{
+  "id": 4469900475790977237,
+  "question": "Who plays the voice of darth vader in star wars?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who plays the voice of darth vader in star wars Episodes III–VI, IX, and Rebels?',\n              'Who plays the voice of darth vader in star wars for vocal effects?',\n              'Who plays the voice of darth vader in the star wars radio series?'],\n             dtype=object), 'answer': array([array(['James Earl Jones'], dtype=object),\n              array(['Ben Burtt', 'Benjamin Burtt Jr.'], dtype=object),\n              array(['Brock G. Peters', 'Brock Peters'], dtype=object)],\n             dtype=object)}                                                                                   ,\n       {'question': array(['Who plays the voice of darth vader in star wars Episodes III–VI, IX, Rogue One, Rebels?',\n              'Who plays the vocal effect of darth vader in star wars?',\n              'Who plays the voice of darth vader in star wars radio drama?'],\n             dtype=object), 'answer': array([array(['James Earl Jones'], dtype=object),\n              array(['Ben Burtt', 'Benjamin Burtt Jr.'], dtype=object),\n              array(['George Fisher', 'Brock G. Peters', 'Brock Peters'], dtype=object)],\n             dtype=object)}                                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 947,
+  "prompt": "Who plays the voice of darth vader in star wars?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.28406524658203,
+          "prob": 2.0996815352710106e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0996815348301445e-10,
+      "prompt": "You're given the following task:\nWho plays the voice of darth vader in star wars?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 9196916511658554228,
+  "question": "Greenland is the largest island in the world in which continent it is situated?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Greenland is the largest island in the world in which continent it is physiographically situated?',\n              'Greenland is the largest island in the world in which continent it is politically situated?',\n              'Greenland is the largest island in the world in which continent it is culturally situated?'],\n             dtype=object), 'answer': array([array(['North America'], dtype=object),\n              array(['Europe'], dtype=object), array(['Europe'], dtype=object)],\n             dtype=object)}                                                                                                    ,\n       {'question': array(['which continent is Greenland, largest island in the world situated physiographically?',\n              'which continent is Greenland, largest island in the world situated politically and culturally?'],\n             dtype=object), 'answer': array([array(['North America'], dtype=object),\n              array(['Europe'], dtype=object)], dtype=object)}                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 325,
+  "prompt": "Greenland is the largest island in the world in which continent it is situated?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.172622680664062,
+          "prob": 6.380383780790119e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.38038377671919e-10,
+      "prompt": "You're given the following task:\nGreenland is the largest island in the world in which continent it is situated?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

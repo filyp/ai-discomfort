@@ -1,0 +1,32 @@
+{
+  "id": "5ad3cb62604f3c001a3ff111",
+  "title": "Steam_engine",
+  "context": "The acme of the horizontal engine was the Corliss steam engine, patented in 1849, which was a four-valve counter flow engine with separate steam admission and exhaust valves and automatic variable steam cutoff. When Corliss was given the Rumford medal the committee said that \"no one invention since Watt's time has so enhanced the efficiency of the steam engine\". In addition to using 30% less steam, it provided more uniform speed due to variable steam cut off, making it well suited to manufacturing, especially cotton spinning.",
+  "question": "What was the ultimate development of the vertical engine?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1104,
+  "prompt": "Context: The acme of the horizontal engine was the Corliss steam engine, patented in 1849, which was a four-valve counter flow engine with separate steam admission and exhaust valves and automatic variable steam cutoff. When Corliss was given the Rumford medal the committee said that \"no one invention since Watt's time has so enhanced the efficiency of the steam engine\". In addition to using 30% less steam, it provided more uniform speed due to variable steam cut off, making it well suited to manufacturing, especially cotton spinning.\n\nQuestion: What was the ultimate development of the vertical engine?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text discusses *horizontal* engines, specifically the Corliss",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -11.866347312927246,
+          "prob": 7.0228087512858635e-06,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -7.152582838898525e-06,
+          "prob": 0.9999928474427408,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999929771903375,
+      "prompt": "You're given the following task:\nContext: The acme of the horizontal engine was the Corliss steam engine, patented in 1849, which was a four-valve counter flow engine with separate steam admission and exhaust valves and automatic variable steam cutoff. When Corliss was given the Rumford medal the committee said that \"no one invention since Watt's time has so enhanced the efficiency of the steam engine\". In addition to using 30% less steam, it provided more uniform speed due to variable steam cut off, making it well suited to manufacturing, especially cotton spinning.\n\nQuestion: What was the ultimate development of the vertical engine?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -8474313952727589492,
+  "question": "How many seats in rajya sabha in assam?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How many seats in rajya sabha in assam since 1956?',\n              'How many seats in rajya sabha in assam from 1952-1956?'],\n             dtype=object), 'answer': array([array(['7', 'seven'], dtype=object), array(['6'], dtype=object)],\n             dtype=object)}                                                                                   ,\n       {'question': array(['How many seats in the Rajya Sabha does Assam elect?',\n              'How many seats in the Rajya Sabha did Assam elect between 1952 and 1956?'],\n             dtype=object), 'answer': array([array(['7'], dtype=object), array(['6'], dtype=object)],\n             dtype=object)}                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 221,
+  "prompt": "How many seats in rajya sabha in assam?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.29405975341797,
+          "prob": 5.650766369178056e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.65076636598494e-10,
+      "prompt": "You're given the following task:\nHow many seats in rajya sabha in assam?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

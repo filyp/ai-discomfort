@@ -1,0 +1,66 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 1,
+  "prompt": "According to the big bang theory, what existed in the universe before the big bang?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, that's a fascinating and *very* difficult question",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.050551723688840866,
+          "prob": 0.9507047534437291,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -3.00993275642395,
+          "prob": 0.04929499342065507,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.04929500589897675,
+      "prompt": "You're given the following task:\nAccording to the big bang theory, what existed in the universe before the big bang?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, that's a *really* good question! It",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.2633483409881592,
+          "prob": 0.7684741596337225,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -1.4630705118179321,
+          "prob": 0.23152428415078177,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.23152464445302112,
+      "prompt": "You're given the following task:\nAccording to the big bang theory, what existed in the universe before the big bang?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nThe question of what existed *before* the Big Bang is a",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.9206701583461836e-05,
+          "prob": 0.9999707937249281,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -10.441672325134277,
+          "prob": 2.9190351682186905e-05,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.919035214699626e-05,
+      "prompt": "You're given the following task:\nAccording to the big bang theory, what existed in the universe before the big bang?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

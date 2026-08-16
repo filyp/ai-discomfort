@@ -1,0 +1,31 @@
+{
+  "id": 6782019539802913542,
+  "question": "Who is the little girl who played cindy lou who?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the little girl who played cindy lou who in the 2000 film?',\n              'Who is the little girl who played cindy lou who in the 2018 film The Grinch?'],\n             dtype=object), 'answer': array([array(['Taylor Momsen', 'Taylor Michel Momsen', 'Momsen'], dtype=object),\n              array(['Cameron Seely'], dtype=object)], dtype=object)}                                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 256,
+  "prompt": "Who is the little girl who played cindy lou who?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.627685546875,
+          "prob": 2.9909177798070927e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.9909177708615037e-09,
+      "prompt": "You're given the following task:\nWho is the little girl who played cindy lou who?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

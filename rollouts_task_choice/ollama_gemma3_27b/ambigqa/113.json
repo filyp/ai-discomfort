@@ -1,0 +1,31 @@
+{
+  "id": 3739207328084591039,
+  "question": "Who made the song my achy breaky heart?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who wrote the song achy breaky heart?',\n              \"Who made the first version the song achy breaky heart, titled Don't tell my heart in 1991?\",\n              'Who sang the song  achy breaky heart, released in 1992?',\n              'Who produced the song achy breaky heart, released in 1992?',\n              'What record label made the song achy breaky heart, released in 1992?'],\n             dtype=object), 'answer': array([array(['Don Von Tress'], dtype=object),\n              array(['The Marcy Brothers'], dtype=object),\n              array(['Cyrus', 'Billy Ray Cyrus'], dtype=object),\n              array(['Jim Cotton', 'Joe Scaife', 'Joe Scaife and Jim Cotton'],\n                    dtype=object)                                             ,\n              array(['PolyGram and Mercury', 'PolyGram', 'Mercury'], dtype=object)],\n             dtype=object)}                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 113,
+  "prompt": "Who made the song my achy breaky heart?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.50281524658203,
+          "prob": 1.2466383272709868e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.2466383257168796e-09,
+      "prompt": "You're given the following task:\nWho made the song my achy breaky heart?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 770,
+  "prompt": "How high in feet, normally, is a standard basketball hoop off the ground?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! A standard basketball hoop is **10 feet** off",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.859542846679688,
+          "prob": 1.180936872567008e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1809368724275468e-10,
+      "prompt": "You're given the following task:\nHow high in feet, normally, is a standard basketball hoop off the ground?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

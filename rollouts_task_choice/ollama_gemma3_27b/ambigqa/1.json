@@ -1,0 +1,69 @@
+{
+  "id": 8630912480840635425,
+  "question": "Why did the st louis cardinals move to arizona?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['mediocrity of the Cardinals,a then-21-year-old stadium,game attendance to dwindle'],\n             dtype=object)                                                                         ,\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['What ability caused the st louis cardinals move to arizona?',\n              'What physical issue caused the st louis cardinals move to arizona?',\n              'What fan issue caused the st louis cardinals move to arizona?'],\n             dtype=object), 'answer': array([array(['overall mediocrity of the Cardinals'], dtype=object),\n              array(['old stadium'], dtype=object),\n              array(['game attendance to dwindle'], dtype=object)], dtype=object)}                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1,
+  "prompt": "Why did the st louis cardinals move to arizona?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThis is a trick question! The St. Louis Cardinals *did not",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -1.705557107925415,
+          "prob": 0.18167114754144872,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.20049121975898743,
+          "prob": 0.8183286751171838,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.8183288202407358,
+      "prompt": "You're given the following task:\nWhy did the st louis cardinals move to arizona?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "SWITCH\n\nThe St. Louis Cardinals *did not* move to Arizona. This",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -3.127131938934326,
+          "prob": 0.04384336254331648,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.04483362287282944,
+          "prob": 0.9561565511800931,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9561566336740274,
+      "prompt": "You're given the following task:\nWhy did the st louis cardinals move to arizona?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nThe St. Louis Cardinals *did not* move to Arizona.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.529963462118758e-06,
+          "prob": 0.9999954700467981,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -12.317936897277832,
+          "prob": 4.4708281534187074e-06,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.470828417756654e-06,
+      "prompt": "You're given the following task:\nWhy did the st louis cardinals move to arizona?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

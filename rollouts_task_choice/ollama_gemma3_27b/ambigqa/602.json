@@ -1,0 +1,31 @@
+{
+  "id": -2886061734189281128,
+  "question": "Girl from the shut up and dance video?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Professional dancer girl from the 2014 shut up and dance video?',\n              'Girl recording artist from the video for 2011 son Shut Up and Dance?',\n              'Girl who plays his sister from the shut up and dance episode?'],\n             dtype=object), 'answer': array([array(['Lauren Taft'], dtype=object),\n              array(['Victoria Duffield'], dtype=object),\n              array(['Maya Gerber'], dtype=object)], dtype=object)}                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 602,
+  "prompt": "Girl from the shut up and dance video?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! You're asking about the girl who became famous from",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.9073504518019035e-06,
+          "prob": 0.9999980926513672,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.163827896118164,
+          "prob": 1.918766749787303e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9187667278786e-06,
+      "prompt": "You're given the following task:\nGirl from the shut up and dance video?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

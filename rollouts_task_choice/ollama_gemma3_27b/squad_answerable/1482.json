@@ -1,0 +1,32 @@
+{
+  "id": "57265e11708984140094c3bc",
+  "title": "1973_oil_crisis",
+  "context": "OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Saudi Arabia, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This \"sale\" price was a windfall for oil-importing nations, both developing and developed.",
+  "question": "Which year did the price of oil drop to $10 per barrel?",
+  "answers": "{'text': array(['1980s', 'during the 1980s', '1980s', '1980s', '1980s'],\n      dtype=object), 'answer_start': array([419, 408, 419, 419, 419], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1482,
+  "prompt": "Context: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Saudi Arabia, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This \"sale\" price was a windfall for oil-importing nations, both developing and developed.\n\nQuestion: Which year did the price of oil drop to $10 per barrel?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states the price decreased *during* the 19",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.566051483154297,
+          "prob": 2.1433811091918656e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.1433811091459247e-11,
+      "prompt": "You're given the following task:\nContext: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Saudi Arabia, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This \"sale\" price was a windfall for oil-importing nations, both developing and developed.\n\nQuestion: Which year did the price of oil drop to $10 per barrel?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

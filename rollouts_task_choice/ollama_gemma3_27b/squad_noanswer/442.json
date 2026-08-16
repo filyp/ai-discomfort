@@ -1,0 +1,32 @@
+{
+  "id": "5ad0483977cf76001a686f8a",
+  "title": "Southern_California",
+  "context": "Orange County is a rapidly developing business center that includes Downtown Santa Ana, the South Coast Metro and Newport Center districts; as well as the Irvine business centers of The Irvine Spectrum, West Irvine, and international corporations headquartered at the University of California, Irvine. West Irvine includes the Irvine Tech Center and Jamboree Business Parks.",
+  "question": "What county does the rapidly developing downtown Santa Ana include?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 442,
+  "prompt": "Context: Orange County is a rapidly developing business center that includes Downtown Santa Ana, the South Coast Metro and Newport Center districts; as well as the Irvine business centers of The Irvine Spectrum, West Irvine, and international corporations headquartered at the University of California, Irvine. West Irvine includes the Irvine Tech Center and Jamboree Business Parks.\n\nQuestion: What county does the rapidly developing downtown Santa Ana include?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe context states that Downtown Santa Ana is included in **Orange County",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.290428161621094,
+          "prob": 6.998971014318435e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.998971014317946e-14,
+      "prompt": "You're given the following task:\nContext: Orange County is a rapidly developing business center that includes Downtown Santa Ana, the South Coast Metro and Newport Center districts; as well as the Irvine business centers of The Irvine Spectrum, West Irvine, and international corporations headquartered at the University of California, Irvine. West Irvine includes the Irvine Tech Center and Jamboree Business Parks.\n\nQuestion: What county does the rapidly developing downtown Santa Ana include?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

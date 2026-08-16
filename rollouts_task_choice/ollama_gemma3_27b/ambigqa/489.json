@@ -1,0 +1,31 @@
+{
+  "id": 2705368089666670726,
+  "question": "When was the first film made in america?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the first motion-picture film made in america?',\n              'When was the first sync-sound musical film made in america?',\n              'When was Monkeyshines, believed to be the first film shot in the US, made in america?'],\n             dtype=object), 'answer': array([array(['1878'], dtype=object), array(['1927'], dtype=object),\n              array(['1889 or 1890'], dtype=object)], dtype=object)}                                      ,\n       {'question': array(['When was the first projected proto-movie made in america?',\n              'When was the first filmed motion picture made in america projected?',\n              'When was the first sync-sound film made in america?'],\n             dtype=object), 'answer': array([array(['1877'], dtype=object),\n              array(['June 6, 1894'], dtype=object),\n              array(['1927'], dtype=object)], dtype=object)}                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 489,
+  "prompt": "When was the first film made in america?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.975433349609375,
+          "prob": 4.242901682864153e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.2429015028420136e-08,
+      "prompt": "You're given the following task:\nWhen was the first film made in america?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

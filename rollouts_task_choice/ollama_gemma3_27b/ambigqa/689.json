@@ -1,0 +1,31 @@
+{
+  "id": 6600807838972032239,
+  "question": "Earth's interior heat is the engine that powers?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['mountain building', 'earthquakes', 'plate tectonics',\n              'volcanic activity',\n              'plate tectonics, volcanic activity, earthquakes, and mountain building'],\n             dtype=object)                                                              ,\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([\"Earth's interior heat is the engine that powers what processes?\",\n              \"Earth's interior heat is the engine that powers what theory of movement?\"],\n             dtype=object), 'answer': array([array(['geological'], dtype=object),\n              array(['plate techtonics'], dtype=object)], dtype=object)}                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 689,
+  "prompt": "Earth's interior heat is the engine that powers?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! Earth's interior heat",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.813690185546875,
+          "prob": 1.2363466048917879e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.2363466047389326e-10,
+      "prompt": "You're given the following task:\nEarth's interior heat is the engine that powers?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

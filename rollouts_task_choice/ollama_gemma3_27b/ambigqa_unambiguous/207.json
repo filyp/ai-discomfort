@@ -1,0 +1,31 @@
+{
+  "id": -427320724183601140,
+  "question": "When does season 4 of orange is the new black start?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['June 17, 2016'], dtype=object),\n       array(['June 17, 2016'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 207,
+  "prompt": "When does season 4 of orange is the new black start?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Season 4 of Orange is the New Black started on",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.27688980102539,
+          "prob": 8.531719662861713e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.531719952019498e-08,
+      "prompt": "You're given the following task:\nWhen does season 4 of orange is the new black start?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

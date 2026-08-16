@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 284,
+  "prompt": "When will wildlife sanctuaries be able protect all the species that exists in the world?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis question is fundamentally unanswerable and leans heavily into speculative fut",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -8.201187133789062,
+          "prob": 0.00027432771289518385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.0002743978111539036,
+          "prob": 0.9997256398324823,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9997256722782016,
+      "prompt": "You're given the following task:\nWhen will wildlife sanctuaries be able protect all the species that exists in the world?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

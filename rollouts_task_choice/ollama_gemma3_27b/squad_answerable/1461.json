@@ -1,0 +1,32 @@
+{
+  "id": "5726581fdd62a815002e823a",
+  "title": "1973_oil_crisis",
+  "context": "The crisis reduced the demand for large cars. Japanese imports, primarily the Toyota Corona, the Toyota Corolla, the Datsun B210, the Datsun 510, the Honda Civic, the Mitsubishi Galant (a captive import from Chrysler sold as the Dodge Colt), the Subaru DL, and later the Honda Accord all had four cylinder engines that were more fuel efficient than the typical American V8 and six cylinder engines. Japanese imports became mass-market leaders with unibody construction and front-wheel drive, which became de facto standards.",
+  "question": "Which sized cars were the least demanded cars in the crisis?",
+  "answers": "{'text': array(['large cars', 'large', 'large', 'large'], dtype=object), 'answer_start': array([34, 34, 34, 34], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1461,
+  "prompt": "Context: The crisis reduced the demand for large cars. Japanese imports, primarily the Toyota Corona, the Toyota Corolla, the Datsun B210, the Datsun 510, the Honda Civic, the Mitsubishi Galant (a captive import from Chrysler sold as the Dodge Colt), the Subaru DL, and later the Honda Accord all had four cylinder engines that were more fuel efficient than the typical American V8 and six cylinder engines. Japanese imports became mass-market leaders with unibody construction and front-wheel drive, which became de facto standards.\n\nQuestion: Which sized cars were the least demanded cars in the crisis?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, based on the text provided, **large cars** were",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.45361328125,
+          "prob": 4.3929146126784867e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.392914612676557e-13,
+      "prompt": "You're given the following task:\nContext: The crisis reduced the demand for large cars. Japanese imports, primarily the Toyota Corona, the Toyota Corolla, the Datsun B210, the Datsun 510, the Honda Civic, the Mitsubishi Galant (a captive import from Chrysler sold as the Dodge Colt), the Subaru DL, and later the Honda Accord all had four cylinder engines that were more fuel efficient than the typical American V8 and six cylinder engines. Japanese imports became mass-market leaders with unibody construction and front-wheel drive, which became de facto standards.\n\nQuestion: Which sized cars were the least demanded cars in the crisis?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

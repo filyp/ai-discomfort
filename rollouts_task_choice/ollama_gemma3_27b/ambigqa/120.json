@@ -1,0 +1,31 @@
+{
+  "id": 7353317519038173786,
+  "question": "Where is the rogers cup held in montreal?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where is the rogers cup held in montreal in 1981?',\n              'Where is the rogers cup held in montreal beginning in 1996?'],\n             dtype=object), 'answer': array([array(['Jarry Park Stadium'], dtype=object),\n              array(['Stade Du Maurier', 'Stade IGA', 'Stade Uniprix', 'Du Maurier',\n                     'Uniprix'], dtype=object)                                      ],\n             dtype=object)}                                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 120,
+  "prompt": "Where is the rogers cup held in montreal?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! To clarify, are you asking where the Rogers Cup (",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.538501739501953,
+          "prob": 3.2699153490861213e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.2699153383937746e-09,
+      "prompt": "You're given the following task:\nWhere is the rogers cup held in montreal?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

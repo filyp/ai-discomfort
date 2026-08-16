@@ -1,0 +1,32 @@
+{
+  "id": "571163172419e314009555e9",
+  "title": "Steam_engine",
+  "context": "The steam engine contributed much to the development of thermodynamic theory; however, the only applications of scientific theory that influenced the steam engine were the original concepts of harnessing the power of steam and atmospheric pressure and knowledge of properties of heat and steam. The experimental measurements made by Watt on a model steam engine led to the development of the separate condenser. Watt independently discovered latent heat, which was confirmed by the original discoverer Joseph Black, who also advised Watt on experimental procedures. Watt was also aware of the change in the boiling point of water with pressure. Otherwise, the improvements to the engine itself were more mechanical in nature. The thermodynamic concepts of the Rankine cycle did give engineers the understanding needed to calculate efficiency which aided the development of modern high-pressure and -temperature boilers and the steam turbine.",
+  "question": "What was developed from Watt's measurements on a model steam engine?",
+  "answers": "{'text': array(['condenser', 'separate condenser', 'the separate condenser'],\n      dtype=object), 'answer_start': array([401, 392, 388], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1111,
+  "prompt": "Context: The steam engine contributed much to the development of thermodynamic theory; however, the only applications of scientific theory that influenced the steam engine were the original concepts of harnessing the power of steam and atmospheric pressure and knowledge of properties of heat and steam. The experimental measurements made by Watt on a model steam engine led to the development of the separate condenser. Watt independently discovered latent heat, which was confirmed by the original discoverer Joseph Black, who also advised Watt on experimental procedures. Watt was also aware of the change in the boiling point of water with pressure. Otherwise, the improvements to the engine itself were more mechanical in nature. The thermodynamic concepts of the Rankine cycle did give engineers the understanding needed to calculate efficiency which aided the development of modern high-pressure and -temperature boilers and the steam turbine.\n\nQuestion: What was developed from Watt's measurements on a model steam engine?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that Watt's experimental measurements made *on a",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.34021759033203,
+          "prob": 2.4497199492255562e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.4497199492254963e-14,
+      "prompt": "You're given the following task:\nContext: The steam engine contributed much to the development of thermodynamic theory; however, the only applications of scientific theory that influenced the steam engine were the original concepts of harnessing the power of steam and atmospheric pressure and knowledge of properties of heat and steam. The experimental measurements made by Watt on a model steam engine led to the development of the separate condenser. Watt independently discovered latent heat, which was confirmed by the original discoverer Joseph Black, who also advised Watt on experimental procedures. Watt was also aware of the change in the boiling point of water with pressure. Otherwise, the improvements to the engine itself were more mechanical in nature. The thermodynamic concepts of the Rankine cycle did give engineers the understanding needed to calculate efficiency which aided the development of modern high-pressure and -temperature boilers and the steam turbine.\n\nQuestion: What was developed from Watt's measurements on a model steam engine?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

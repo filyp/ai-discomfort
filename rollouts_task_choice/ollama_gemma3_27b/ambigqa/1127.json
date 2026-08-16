@@ -1,0 +1,31 @@
+{
+  "id": 4882717743056960348,
+  "question": "Who is number 10 for england football team?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who is number 10 for England men's national football team?\",\n              \"Who is number 10 for England women's national football team?|Who is number 10 for the England women's national football team?\",\n              'Who is number 10 for the England national team for the 2016 European Championships?',\n              'Who is number 10 for the England national team for the 2014 World Cup?',\n              'Who is number 10 for the England national team for the 2012 European Championship?'],\n             dtype=object), 'answer': array([array(['Harry Winks'], dtype=object),\n              array(['Lucy Staniforth'], dtype=object),\n              array(['Wayne Rooney'], dtype=object),\n              array(['Wayne Rooney'], dtype=object),\n              array(['Wayne Rooney'], dtype=object)], dtype=object)}                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1127,
+  "prompt": "Who is number 10 for england football team?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.20648193359375,
+          "prob": 1.6766267757355092e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6766267729244318e-09,
+      "prompt": "You're given the following task:\nWho is number 10 for england football team?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 6776234528515962047,
+  "question": "Who is the most run in cricket history?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the most run in cricket list a history?',\n              'Who is the most run in cricket combined international history?'],\n             dtype=object), 'answer': array([array(['Graham Gooch', 'Graham Alan Gooch'], dtype=object),\n              array(['Sachin Tendulkar', 'Sachin Ramesh Tendulkar'], dtype=object)],\n             dtype=object)}                                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 685,
+  "prompt": "Who is the most run in cricket history?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.712112426757812,
+          "prob": 2.7487696462159346e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.7487696386602e-09,
+      "prompt": "You're given the following task:\nWho is the most run in cricket history?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

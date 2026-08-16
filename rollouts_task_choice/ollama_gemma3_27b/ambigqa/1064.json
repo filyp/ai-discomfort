@@ -1,0 +1,31 @@
+{
+  "id": -5144857012337911560,
+  "question": "What is the most played song ever on spotify?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Shape of You', '\"Shape of You\"'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['What is the most played song on Spotify (total plays)?',\n              'What is the most played song ever on spotify in a single week?',\n              'What is the most played song ever on spotify in a single day?'],\n             dtype=object), 'answer': array([array(['Shape of You'], dtype=object),\n              array(['7 Rings'], dtype=object),\n              array(['All I Want for Christmas is You'], dtype=object)],\n             dtype=object)}                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1064,
+  "prompt": "What is the most played song ever on spotify?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.464805603027344,
+          "prob": 2.6009457813116883e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.6009457136625003e-08,
+      "prompt": "You're given the following task:\nWhat is the most played song ever on spotify?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

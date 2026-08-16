@@ -1,0 +1,31 @@
+{
+  "id": -2403867946266681362,
+  "question": "How many starbucks are there around the world?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How many starbucks are there around the world, as of early 2019?',\n              'How many starbucks are there around the world, as of 2018?',\n              'How many starbucks are there around the world as of November 2019?',\n              'How many independently operated and licensed starbucks locations are there around the world as of 2015?'],\n             dtype=object), 'answer': array([array(['30,000', 'over 30,000'], dtype=object),\n              array(['28,218'], dtype=object), array(['31,256'], dtype=object),\n              array(['4,962'], dtype=object)], dtype=object)}                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 736,
+  "prompt": "How many starbucks are there around the world?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.598251342773438,
+          "prob": 3.080261494437385e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.080261484949374e-09,
+      "prompt": "You're given the following task:\nHow many starbucks are there around the world?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

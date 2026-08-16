@@ -1,0 +1,32 @@
+{
+  "id": "57106d2fb654c5140001f8f1",
+  "title": "Huguenot",
+  "context": "Montpellier was among the most important of the 66 \"villes de sûreté\" that the Edict of 1598 granted to the Huguenots. The city's political institutions and the university were all handed over to the Huguenots. Tension with Paris led to a siege by the royal army in 1622. Peace terms called for the dismantling of the city's fortifications. A royal citadel was built and the university and consulate were taken over by the Catholic party. Even before the Edict of Alès (1629), Protestant rule was dead and the ville de sûreté was no more.[citation needed]",
+  "question": "France laid siege to Montpellier in what year?",
+  "answers": "{'text': array(['1622', '1622', '1622'], dtype=object), 'answer_start': array([266, 266, 266], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 723,
+  "prompt": "Context: Montpellier was among the most important of the 66 \"villes de sûreté\" that the Edict of 1598 granted to the Huguenots. The city's political institutions and the university were all handed over to the Huguenots. Tension with Paris led to a siege by the royal army in 1622. Peace terms called for the dismantling of the city's fortifications. A royal citadel was built and the university and consulate were taken over by the Catholic party. Even before the Edict of Alès (1629), Protestant rule was dead and the ville de sûreté was no more.[citation needed]\n\nQuestion: France laid siege to Montpellier in what year?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nFrance (or rather, the royal army) laid siege to Montpellier",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.42190170288086,
+          "prob": 6.136715100247267e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.13671510024689e-14,
+      "prompt": "You're given the following task:\nContext: Montpellier was among the most important of the 66 \"villes de sûreté\" that the Edict of 1598 granted to the Huguenots. The city's political institutions and the university were all handed over to the Huguenots. Tension with Paris led to a siege by the royal army in 1622. Peace terms called for the dismantling of the city's fortifications. A royal citadel was built and the university and consulate were taken over by the Catholic party. Even before the Edict of Alès (1629), Protestant rule was dead and the ville de sûreté was no more.[citation needed]\n\nQuestion: France laid siege to Montpellier in what year?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

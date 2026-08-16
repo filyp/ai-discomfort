@@ -1,0 +1,32 @@
+{
+  "id": "572a020f6aef051400155199",
+  "title": "Amazon_rainforest",
+  "context": "Environmentalists are concerned about loss of biodiversity that will result from destruction of the forest, and also about the release of the carbon contained within the vegetation, which could accelerate global warming. Amazonian evergreen forests account for about 10% of the world's terrestrial primary productivity and 10% of the carbon stores in ecosystems—of the order of 1.1 × 1011 metric tonnes of carbon. Amazonian forests are estimated to have accumulated 0.62 ± 0.37 tons of carbon per hectare per year between 1975 and 1996.",
+  "question": "The loss of biodiversity may be the result of what, according to environmentalists?",
+  "answers": "{'text': array(['destruction of the forest', 'destruction of the forest',\n       'destruction of the forest'], dtype=object), 'answer_start': array([81, 81, 81], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1865,
+  "prompt": "Context: Environmentalists are concerned about loss of biodiversity that will result from destruction of the forest, and also about the release of the carbon contained within the vegetation, which could accelerate global warming. Amazonian evergreen forests account for about 10% of the world's terrestrial primary productivity and 10% of the carbon stores in ecosystems—of the order of 1.1 × 1011 metric tonnes of carbon. Amazonian forests are estimated to have accumulated 0.62 ± 0.37 tons of carbon per hectare per year between 1975 and 1996.\n\nQuestion: The loss of biodiversity may be the result of what, according to environmentalists?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe loss of biodiversity, according to environmentalists presented in the text",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.144561767578125,
+          "prob": 8.098100551292016e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.09810055129136e-14,
+      "prompt": "You're given the following task:\nContext: Environmentalists are concerned about loss of biodiversity that will result from destruction of the forest, and also about the release of the carbon contained within the vegetation, which could accelerate global warming. Amazonian evergreen forests account for about 10% of the world's terrestrial primary productivity and 10% of the carbon stores in ecosystems—of the order of 1.1 × 1011 metric tonnes of carbon. Amazonian forests are estimated to have accumulated 0.62 ± 0.37 tons of carbon per hectare per year between 1975 and 1996.\n\nQuestion: The loss of biodiversity may be the result of what, according to environmentalists?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

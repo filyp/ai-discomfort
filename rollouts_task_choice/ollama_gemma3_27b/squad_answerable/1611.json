@@ -1,0 +1,32 @@
+{
+  "id": "57269cc3dd62a815002e8b14",
+  "title": "European_Union_law",
+  "context": "While the Treaties and Regulations will have direct effect (if clear, unconditional and immediate), Directives do not generally give citizens (as opposed to the member state) standing to sue other citizens. In theory, this is because TFEU article 288 says Directives are addressed to the member states and usually \"leave to the national authorities the choice of form and methods\" to implement. In part this reflects that directives often create minimum standards, leaving member states to apply higher standards. For example, the Working Time Directive requires that every worker has at least 4 weeks paid holidays each year, but most member states require more than 28 days in national law. However, on the current position adopted by the Court of Justice, citizens have standing to make claims based on national laws that implement Directives, but not from Directives themselves. Directives do not have so called \"horizontal\" direct effect (i.e. between non-state parties). This view was instantly controversial, and in the early 1990s three Advocate Generals persuasively argued that Directives should create rights and duties for all citizens. The Court of Justice refused, but there are five large exceptions.",
+  "question": "How many paid holiday days do most member states require?",
+  "answers": "{'text': array(['28 days', 'more than 28 days', 'more than 28 days'], dtype=object), 'answer_start': array([668, 658, 658], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1611,
+  "prompt": "Context: While the Treaties and Regulations will have direct effect (if clear, unconditional and immediate), Directives do not generally give citizens (as opposed to the member state) standing to sue other citizens. In theory, this is because TFEU article 288 says Directives are addressed to the member states and usually \"leave to the national authorities the choice of form and methods\" to implement. In part this reflects that directives often create minimum standards, leaving member states to apply higher standards. For example, the Working Time Directive requires that every worker has at least 4 weeks paid holidays each year, but most member states require more than 28 days in national law. However, on the current position adopted by the Court of Justice, citizens have standing to make claims based on national laws that implement Directives, but not from Directives themselves. Directives do not have so called \"horizontal\" direct effect (i.e. between non-state parties). This view was instantly controversial, and in the early 1990s three Advocate Generals persuasively argued that Directives should create rights and duties for all citizens. The Court of Justice refused, but there are five large exceptions.\n\nQuestion: How many paid holiday days do most member states require?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nMost member states require more than 28 days (4 weeks",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.899330139160156,
+          "prob": 1.5358836509458894e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5358836509223e-11,
+      "prompt": "You're given the following task:\nContext: While the Treaties and Regulations will have direct effect (if clear, unconditional and immediate), Directives do not generally give citizens (as opposed to the member state) standing to sue other citizens. In theory, this is because TFEU article 288 says Directives are addressed to the member states and usually \"leave to the national authorities the choice of form and methods\" to implement. In part this reflects that directives often create minimum standards, leaving member states to apply higher standards. For example, the Working Time Directive requires that every worker has at least 4 weeks paid holidays each year, but most member states require more than 28 days in national law. However, on the current position adopted by the Court of Justice, citizens have standing to make claims based on national laws that implement Directives, but not from Directives themselves. Directives do not have so called \"horizontal\" direct effect (i.e. between non-state parties). This view was instantly controversial, and in the early 1990s three Advocate Generals persuasively argued that Directives should create rights and duties for all citizens. The Court of Justice refused, but there are five large exceptions.\n\nQuestion: How many paid holiday days do most member states require?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

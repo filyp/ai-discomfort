@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 257,
+  "prompt": "What festivals feature music of genres that are produced by artists such as Bakermat?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely help with that! To give you the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.580062866210938,
+          "prob": 5.745248450326381e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.7452484499963025e-11,
+      "prompt": "You're given the following task:\nWhat festivals feature music of genres that are produced by artists such as Bakermat?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

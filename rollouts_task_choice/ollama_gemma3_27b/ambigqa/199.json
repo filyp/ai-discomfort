@@ -1,0 +1,31 @@
+{
+  "id": -7961043553862861992,
+  "question": "Who is hosting the fifa world cup in 2022?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the host country for the fifa world cup in 2022?',\n              'Who is the host cities for the fifa world cup in 2022?'],\n             dtype=object), 'answer': array([array(['Qatar'], dtype=object),\n              array(['Doha', 'Lusail', 'Al Wakrah', 'Al Rayyan', 'Al Khor',\n                     'Lusail, Al Khor, Al Rayyan, Al Wakrah, and Doha'], dtype=object)],\n             dtype=object)}                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 199,
+  "prompt": "Who is hosting the fifa world cup in 2022?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.150638580322266,
+          "prob": 6.522203960810578e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.522203956556663e-10,
+      "prompt": "You're given the following task:\nWho is hosting the fifa world cup in 2022?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

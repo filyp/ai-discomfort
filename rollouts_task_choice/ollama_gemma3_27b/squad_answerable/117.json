@@ -1,0 +1,32 @@
+{
+  "id": "56e181d9e3433e1400422fa0",
+  "title": "Computational_complexity_theory",
+  "context": "When considering computational problems, a problem instance is a string over an alphabet. Usually, the alphabet is taken to be the binary alphabet (i.e., the set {0,1}), and thus the strings are bitstrings. As in a real-world computer, mathematical objects other than bitstrings must be suitably encoded. For example, integers can be represented in binary notation, and graphs can be encoded directly via their adjacency matrices, or by encoding their adjacency lists in binary.",
+  "question": "In a computational problem, what can be described as a string over an alphabet?",
+  "answers": "{'text': array(['problem instance', 'a problem instance', 'problem instance'],\n      dtype=object), 'answer_start': array([43, 41, 43], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 117,
+  "prompt": "Context: When considering computational problems, a problem instance is a string over an alphabet. Usually, the alphabet is taken to be the binary alphabet (i.e., the set {0,1}), and thus the strings are bitstrings. As in a real-world computer, mathematical objects other than bitstrings must be suitably encoded. For example, integers can be represented in binary notation, and graphs can be encoded directly via their adjacency matrices, or by encoding their adjacency lists in binary.\n\nQuestion: In a computational problem, what can be described as a string over an alphabet?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nA problem instance. The context states that \"a problem instance is",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -36.379173278808594,
+          "prob": 1.5875440653434561e-16,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.587544065343456e-16,
+      "prompt": "You're given the following task:\nContext: When considering computational problems, a problem instance is a string over an alphabet. Usually, the alphabet is taken to be the binary alphabet (i.e., the set {0,1}), and thus the strings are bitstrings. As in a real-world computer, mathematical objects other than bitstrings must be suitably encoded. For example, integers can be represented in binary notation, and graphs can be encoded directly via their adjacency matrices, or by encoding their adjacency lists in binary.\n\nQuestion: In a computational problem, what can be described as a string over an alphabet?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

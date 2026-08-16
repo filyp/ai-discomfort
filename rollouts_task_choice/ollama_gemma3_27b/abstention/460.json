@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 460,
+  "prompt": "Did singers having healthier vocal chords help reduce the impact of COVID-19 on the music industry?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThis is an interesting question! It's not a simple yes",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.3113030945532955e-06,
+          "prob": 0.9999986886977652,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.514801979064941,
+          "prob": 1.350815627995476e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.350815574620169e-06,
+      "prompt": "You're given the following task:\nDid singers having healthier vocal chords help reduce the impact of COVID-19 on the music industry?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

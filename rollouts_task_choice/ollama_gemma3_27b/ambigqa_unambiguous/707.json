@@ -1,0 +1,31 @@
+{
+  "id": -226881168936051976,
+  "question": "Who played jake in jake and the fatman?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Joseph Edward Penny Jr.', 'Penny', 'Joe Penny'], dtype=object),\n       array(['Joe Penny'], dtype=object),\n       array(['Joe Penny'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 707,
+  "prompt": "Who played jake in jake and the fatman?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely tell you who played Jake in *Jake",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.872169494628906,
+          "prob": 2.342213312380309e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.342213306894346e-09,
+      "prompt": "You're given the following task:\nWho played jake in jake and the fatman?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

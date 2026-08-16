@@ -1,0 +1,31 @@
+{
+  "id": -8184134749620599612,
+  "question": "When did the great fire of london happen?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the Great Fire of London occur?',\n              'When did the Great Fire of London start?'], dtype=object), 'answer': array([array(['2 September to 6 September 1666'], dtype=object),\n              array(['Sunday , 2 September'], dtype=object)], dtype=object)}                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1081,
+  "prompt": "When did the great fire of london happen?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.57721710205078,
+          "prob": 8.55100427312228e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.551004200002605e-09,
+      "prompt": "You're given the following task:\nWhen did the great fire of london happen?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

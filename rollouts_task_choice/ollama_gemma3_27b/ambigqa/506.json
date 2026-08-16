@@ -1,0 +1,31 @@
+{
+  "id": -6991224545943940317,
+  "question": "When was the first helicopter made and flown?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the first transverse twin-rotor helicopter made and successfully flown?',\n              'When was the first manned helicopter made and flown at a height of 2 ft for 1 minute?',\n              'When was the first truly free helicopter made and flown with a pilot?',\n              'When was the first turbine-powered helicopter made and flown?'],\n             dtype=object), 'answer': array([array(['26 June 1936'], dtype=object),\n              array(['1907', 'sometime between 14 August and 29 September 1907'],\n                    dtype=object)                                                ,\n              array(['13 November 1907'], dtype=object),\n              array(['11 December 1951'], dtype=object)], dtype=object)}                                      ,\n       {'question': array(['When was the first helicopter made?',\n              'When did the first helicopter fly?'], dtype=object), 'answer': array([array(['1861'], dtype=object), array(['1878'], dtype=object)],\n             dtype=object)}                                                                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 506,
+  "prompt": "When was the first helicopter made and flown?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.573623657226562,
+          "prob": 8.581787110258299e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.58178703661123e-09,
+      "prompt": "You're given the following task:\nWhen was the first helicopter made and flown?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

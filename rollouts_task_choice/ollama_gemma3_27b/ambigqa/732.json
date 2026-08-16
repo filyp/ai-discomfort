@@ -1,0 +1,31 @@
+{
+  "id": -7661494060639193915,
+  "question": "Who had the most hits in the 90s?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who had the most hits in the 90s in baseball?',\n              'Who had the highest number of top hits on the top 100 Billboard charts in the 1990s?'],\n             dtype=object), 'answer': array([array(['Mark Grace'], dtype=object),\n              array(['Mariah Carey'], dtype=object)], dtype=object)}                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 732,
+  "prompt": "Who had the most hits in the 90s?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.334556579589844,
+          "prob": 2.962768586207066e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.9627684984270914e-08,
+      "prompt": "You're given the following task:\nWho had the most hits in the 90s?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

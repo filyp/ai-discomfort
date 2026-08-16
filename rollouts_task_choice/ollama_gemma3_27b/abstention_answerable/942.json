@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 942,
+  "prompt": "What cloud term means 'sheet' or 'sheetlike' or 'layer'?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, the cloud term that means 'sheet' or 'sheet",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.158367156982422,
+          "prob": 6.471990895208741e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.471990891020074e-10,
+      "prompt": "You're given the following task:\nWhat cloud term means 'sheet' or 'sheetlike' or 'layer'?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

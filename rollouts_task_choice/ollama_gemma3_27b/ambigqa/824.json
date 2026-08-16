@@ -1,0 +1,31 @@
+{
+  "id": 988271751607485679,
+  "question": "How many books are in stephen king's dark tower?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['eight'], dtype=object), array([], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([\"How many main story books are in stephen king's dark tower?\",\n              \"How many short story books are in stephen king's dark tower?\"],\n             dtype=object), 'answer': array([array(['eight'], dtype=object), array(['one'], dtype=object)],\n             dtype=object)}                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 824,
+  "prompt": "How many books are in stephen king's dark tower?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out how many books are in Stephen",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.49909210205078,
+          "prob": 6.229798077037933e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.229798076649829e-11,
+      "prompt": "You're given the following task:\nHow many books are in stephen king's dark tower?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

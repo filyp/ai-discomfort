@@ -1,0 +1,31 @@
+{
+  "id": 3127369420834732535,
+  "question": "When did the last season of jersey shore air?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did season 4 of jersey shore first air?',\n              'When did season 4 of jersey shore last air?',\n              'When did season 5 of jersey shore first air?',\n              'When did season 5 of jersey shore last air?',\n              'When did season 6 of jersey shore first air?',\n              'When did season 6 of jersey shore last air?'], dtype=object), 'answer': array([array(['August 4, 2011'], dtype=object),\n              array(['October 20, 2011'], dtype=object),\n              array(['January 5, 2012'], dtype=object),\n              array(['March 15, 2012'], dtype=object),\n              array(['October 4, 2012'], dtype=object),\n              array(['December 20, 2012'], dtype=object)], dtype=object)}                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 698,
+  "prompt": "When did the last season of jersey shore air?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The last season of *Jersey Shore: Family Vacation*",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.983074188232422,
+          "prob": 1.5489953441547906e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.548995320160925e-08,
+      "prompt": "You're given the following task:\nWhen did the last season of jersey shore air?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

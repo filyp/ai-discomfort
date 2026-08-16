@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 960,
+  "prompt": "What materials were excavated from the 2023 earthquake in Qatar which measured 8.5?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nThe premise of the question is factually incorrect",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -15.807144165039062,
+          "prob": 1.3647230112977568e-07,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.999999863527685,
+      "prompt": "You're given the following task:\nWhat materials were excavated from the 2023 earthquake in Qatar which measured 8.5?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

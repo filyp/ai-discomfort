@@ -1,0 +1,31 @@
+{
+  "id": 5282874161727982406,
+  "question": "Number of cigarettes in a pack in usa?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"What is the number of cigarettes in a pack of 'Export As' brand packs in the USA?\",\n              'What is the number of cigarettes in a standard pack in the USA?'],\n             dtype=object), 'answer': array([array(['25'], dtype=object), array(['20'], dtype=object)],\n             dtype=object)}                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1128,
+  "prompt": "Number of cigarettes in a pack in usa?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! Generally, a standard pack",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.71773910522461,
+          "prob": 2.0196851617135603e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0196851209222797e-08,
+      "prompt": "You're given the following task:\nNumber of cigarettes in a pack in usa?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

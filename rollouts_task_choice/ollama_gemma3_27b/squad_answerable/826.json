@@ -1,0 +1,32 @@
+{
+  "id": "571099b2b654c5140001f9b6",
+  "title": "Huguenot",
+  "context": "In Berlin, the Huguenots created two new neighbourhoods: Dorotheenstadt and Friedrichstadt. By 1700, one-fifth of the city's population was French speaking. The Berlin Huguenots preserved the French language in their church services for nearly a century. They ultimately decided to switch to German in protest against the occupation of Prussia by Napoleon in 1806-07. Many of their descendents rose to positions of prominence. Several congregations were founded, such as those of Fredericia (Denmark), Berlin, Stockholm, Hamburg, Frankfurt, Helsinki, and Emden.",
+  "question": "What years did this occupation take place?",
+  "answers": "{'text': array(['1806-07', '1806-07.', '1806-07'], dtype=object), 'answer_start': array([359, 359, 359], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 826,
+  "prompt": "Context: In Berlin, the Huguenots created two new neighbourhoods: Dorotheenstadt and Friedrichstadt. By 1700, one-fifth of the city's population was French speaking. The Berlin Huguenots preserved the French language in their church services for nearly a century. They ultimately decided to switch to German in protest against the occupation of Prussia by Napoleon in 1806-07. Many of their descendents rose to positions of prominence. Several congregations were founded, such as those of Fredericia (Denmark), Berlin, Stockholm, Hamburg, Frankfurt, Helsinki, and Emden.\n\nQuestion: What years did this occupation take place?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states the occupation of Prussia by Napoleon took place in **",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.0916748046875,
+          "prob": 2.320845140950617e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.320845140950078e-13,
+      "prompt": "You're given the following task:\nContext: In Berlin, the Huguenots created two new neighbourhoods: Dorotheenstadt and Friedrichstadt. By 1700, one-fifth of the city's population was French speaking. The Berlin Huguenots preserved the French language in their church services for nearly a century. They ultimately decided to switch to German in protest against the occupation of Prussia by Napoleon in 1806-07. Many of their descendents rose to positions of prominence. Several congregations were founded, such as those of Fredericia (Denmark), Berlin, Stockholm, Hamburg, Frankfurt, Helsinki, and Emden.\n\nQuestion: What years did this occupation take place?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

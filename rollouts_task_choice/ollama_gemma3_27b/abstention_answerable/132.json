@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 132,
+  "prompt": "Buddy Stephens is an American football coach who is currently the head coach at East Mississippi Community College, where he coached players such as which American football quarterback for the Denver Broncos of the National Football League (NFL), and played college football at Clemson and Ole Miss?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nLet's finish this! The question is asking for an",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.061023712158203,
+          "prob": 7.133679910633305e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.133679905544366e-10,
+      "prompt": "You're given the following task:\nBuddy Stephens is an American football coach who is currently the head coach at East Mississippi Community College, where he coached players such as which American football quarterback for the Denver Broncos of the National Football League (NFL), and played college football at Clemson and Ole Miss?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 422810910814179234,
+  "question": "Who wrote the song don't give up on me?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who wrote the song \"Don\\'t Give Up on Me\" in the album Naive?',\n              'Who wrote the song \"Don\\'t Give up on Me\" released in 2002?'],\n             dtype=object), 'answer': array([array(['Andy Grammer'], dtype=object),\n              array(['Dan Penn, Carson Whitsett, Hoy Lindsey'], dtype=object)],\n             dtype=object)}                                                                ,\n       {'question': array(['Who wrote the Andy Grammer song \"Don\\'t Give Up On Me\"?',\n              'Who wrote the Solomon Burke song \"Don\\'t Give Up On Me\"?'],\n             dtype=object), 'answer': array([array(['Grammer, Bram Inscore, Torrey, and Sam Farrar'], dtype=object),\n              array(['Dan Penn and Carson Whitsett with Hoy Lindsey'], dtype=object)],\n             dtype=object)}                                                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1123,
+  "prompt": "Who wrote the song don't give up on me?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! \"Don't Give Up On Me\" has a",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.57860565185547,
+          "prob": 2.3211786421859612e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3211785883072595e-08,
+      "prompt": "You're given the following task:\nWho wrote the song don't give up on me?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1831919131775885164,
+  "question": "Who was told beware the ides of march?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Julius Caesar', 'Gaius Julius Caesar'], dtype=object),\n       array(['Julius Caesar'], dtype=object),\n       array(['Julius Caesar'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 779,
+  "prompt": "Who was told beware the ides of march?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.244556427001953,
+          "prob": 1.6139900579466964e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6139900553417326e-09,
+      "prompt": "You're given the following task:\nWho was told beware the ides of march?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

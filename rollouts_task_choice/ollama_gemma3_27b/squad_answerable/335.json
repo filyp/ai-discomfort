@@ -1,0 +1,32 @@
+{
+  "id": "5705eccb52bb8914006896ba",
+  "title": "Southern_California",
+  "context": "Many locals and tourists frequent the southern California coast for its popular beaches, and the desert city of Palm Springs is popular for its resort feel and nearby open spaces.",
+  "question": "Which region of California is Palm Springs located in?",
+  "answers": "{'text': array(['southern', 'the desert', 'southern'], dtype=object), 'answer_start': array([38, 93, 38], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 335,
+  "prompt": "Context: Many locals and tourists frequent the southern California coast for its popular beaches, and the desert city of Palm Springs is popular for its resort feel and nearby open spaces.\n\nQuestion: Which region of California is Palm Springs located in?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nPalm Springs is located in **Southern California**. Specifically, it",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.433197021484375,
+          "prob": 1.808782394084685e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.8087823937575157e-10,
+      "prompt": "You're given the following task:\nContext: Many locals and tourists frequent the southern California coast for its popular beaches, and the desert city of Palm Springs is popular for its resort feel and nearby open spaces.\n\nQuestion: Which region of California is Palm Springs located in?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

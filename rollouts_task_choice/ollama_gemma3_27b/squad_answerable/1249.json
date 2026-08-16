@@ -1,0 +1,32 @@
+{
+  "id": "571c9348dd7acb1400e4c116",
+  "title": "Oxygen",
+  "context": "In 1891 Scottish chemist James Dewar was able to produce enough liquid oxygen to study. The first commercially viable process for producing liquid oxygen was independently developed in 1895 by German engineer Carl von Linde and British engineer William Hampson. Both men lowered the temperature of air until it liquefied and then distilled the component gases by boiling them off one at a time and capturing them. Later, in 1901, oxyacetylene welding was demonstrated for the first time by burning a mixture of acetylene and compressed O\n2. This method of welding and cutting metal later became common.",
+  "question": "When was liquid oxygen developed for commercial use?",
+  "answers": "{'text': array(['1895', '1895', '1895', '1895', '1895'], dtype=object), 'answer_start': array([185, 185, 185, 185, 185], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1249,
+  "prompt": "Context: In 1891 Scottish chemist James Dewar was able to produce enough liquid oxygen to study. The first commercially viable process for producing liquid oxygen was independently developed in 1895 by German engineer Carl von Linde and British engineer William Hampson. Both men lowered the temperature of air until it liquefied and then distilled the component gases by boiling them off one at a time and capturing them. Later, in 1901, oxyacetylene welding was demonstrated for the first time by burning a mixture of acetylene and compressed O\n2. This method of welding and cutting metal later became common.\n\nQuestion: When was liquid oxygen developed for commercial use?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nOkay, based on the provided text, liquid oxygen was developed",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.537322998046875,
+          "prob": 2.2058502266327943e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2058502265841364e-11,
+      "prompt": "You're given the following task:\nContext: In 1891 Scottish chemist James Dewar was able to produce enough liquid oxygen to study. The first commercially viable process for producing liquid oxygen was independently developed in 1895 by German engineer Carl von Linde and British engineer William Hampson. Both men lowered the temperature of air until it liquefied and then distilled the component gases by boiling them off one at a time and capturing them. Later, in 1901, oxyacetylene welding was demonstrated for the first time by burning a mixture of acetylene and compressed O\n2. This method of welding and cutting metal later became common.\n\nQuestion: When was liquid oxygen developed for commercial use?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 860,
+  "prompt": "What fields does synthetic biology",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely explain what fields synthetic biology encompasses! It",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.099384307861328,
+          "prob": 1.7017154118084745e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7017154118055786e-12,
+      "prompt": "You're given the following task:\nWhat fields does synthetic biology\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

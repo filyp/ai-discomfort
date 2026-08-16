@@ -1,0 +1,32 @@
+{
+  "id": "5a2c41c8bfd06b001a5aeaa8",
+  "title": "Sky_(United_Kingdom)",
+  "context": "In July 2013, the English High Court of Justice found that Microsoft’s use of the term \"SkyDrive\" infringed on Sky’s right to the \"Sky\" trademark. On 31 July 2013, BSkyB and Microsoft announced their settlement, in which Microsoft will not appeal the ruling, and will rename its SkyDrive cloud storage service after an unspecified \"reasonable period of time to allow for an orderly transition to a new brand,\" plus \"financial and other terms, the details of which are confidential\". On 27 January 2014, Microsoft announced \"that SkyDrive will soon become OneDrive\" and \"SkyDrive Pro\" becomes \"OneDrive for Business\".",
+  "question": "When did Microsoft decide to appeal the ruling?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 509,
+  "prompt": "Context: In July 2013, the English High Court of Justice found that Microsoft’s use of the term \"SkyDrive\" infringed on Sky’s right to the \"Sky\" trademark. On 31 July 2013, BSkyB and Microsoft announced their settlement, in which Microsoft will not appeal the ruling, and will rename its SkyDrive cloud storage service after an unspecified \"reasonable period of time to allow for an orderly transition to a new brand,\" plus \"financial and other terms, the details of which are confidential\". On 27 January 2014, Microsoft announced \"that SkyDrive will soon become OneDrive\" and \"SkyDrive Pro\" becomes \"OneDrive for Business\".\n\nQuestion: When did Microsoft decide to appeal the ruling?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that Microsoft will *not* appeal the ruling.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.27227020263672,
+          "prob": 1.5698744284926655e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5698744260281597e-09,
+      "prompt": "You're given the following task:\nContext: In July 2013, the English High Court of Justice found that Microsoft’s use of the term \"SkyDrive\" infringed on Sky’s right to the \"Sky\" trademark. On 31 July 2013, BSkyB and Microsoft announced their settlement, in which Microsoft will not appeal the ruling, and will rename its SkyDrive cloud storage service after an unspecified \"reasonable period of time to allow for an orderly transition to a new brand,\" plus \"financial and other terms, the details of which are confidential\". On 27 January 2014, Microsoft announced \"that SkyDrive will soon become OneDrive\" and \"SkyDrive Pro\" becomes \"OneDrive for Business\".\n\nQuestion: When did Microsoft decide to appeal the ruling?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

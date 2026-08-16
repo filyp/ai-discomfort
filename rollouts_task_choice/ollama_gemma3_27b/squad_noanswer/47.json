@@ -1,0 +1,32 @@
+{
+  "id": "5ad3f028604f3c001a3ff824",
+  "title": "Normans",
+  "context": "The further decline of Byzantine state-of-affairs paved the road to a third attack in 1185, when a large Norman army invaded Dyrrachium, owing to the betrayal of high Byzantine officials. Some time later, Dyrrachium—one of the most important naval bases of the Adriatic—fell again to Byzantine hands.",
+  "question": "Who betrayed the Normans?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 47,
+  "prompt": "Context: The further decline of Byzantine state-of-affairs paved the road to a third attack in 1185, when a large Norman army invaded Dyrrachium, owing to the betrayal of high Byzantine officials. Some time later, Dyrrachium—one of the most important naval bases of the Adriatic—fell again to Byzantine hands.\n\nQuestion: Who betrayed the Normans?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that *high Byzantine officials* betrayed **the Norm",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0001601108961040154,
+          "prob": 0.9998399019209615,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.740150451660156,
+          "prob": 0.00016002980934776799,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0001600298202729543,
+      "prompt": "You're given the following task:\nContext: The further decline of Byzantine state-of-affairs paved the road to a third attack in 1185, when a large Norman army invaded Dyrrachium, owing to the betrayal of high Byzantine officials. Some time later, Dyrrachium—one of the most important naval bases of the Adriatic—fell again to Byzantine hands.\n\nQuestion: Who betrayed the Normans?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

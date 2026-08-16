@@ -1,0 +1,32 @@
+{
+  "id": "57268f2bf1498d1400e8e3c4",
+  "title": "European_Union_law",
+  "context": "Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.",
+  "question": "What reform was attempted following the Nice Treaty?",
+  "answers": "{'text': array(['there was an attempt to reform the constitutional law of the European Union and make it more transparent',\n       'an attempt to reform the constitutional law of the European Union and make it more transparent',\n       'there was an attempt to reform the constitutional law of the European Union and make it more transparent',\n       'an attempt to reform the constitutional law of the European Union and make it more transparent'],\n      dtype=object), 'answer_start': array([27, 37, 27, 37], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1538,
+  "prompt": "Context: Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.\n\nQuestion: What reform was attempted following the Nice Treaty?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nFollowing the Nice Treaty, an attempt was made to reform the constitutional",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.182998657226562,
+          "prob": 2.8667891622334495e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.8667891622333675e-14,
+      "prompt": "You're given the following task:\nContext: Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.\n\nQuestion: What reform was attempted following the Nice Treaty?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

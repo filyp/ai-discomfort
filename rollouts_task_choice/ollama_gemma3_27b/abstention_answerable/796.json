@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 796,
+  "prompt": "‘Tacky’s War’ (or Tacky’s Rebellion) was a 1760 uprising of black African slaves in which British colony?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.663131713867188,
+          "prob": 2.1330417871505086e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.133041741651837e-08,
+      "prompt": "You're given the following task:\n‘Tacky’s War’ (or Tacky’s Rebellion) was a 1760 uprising of black African slaves in which British colony?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

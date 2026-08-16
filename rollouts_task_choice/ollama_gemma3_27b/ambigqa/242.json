@@ -1,0 +1,31 @@
+{
+  "id": -5091579308296294034,
+  "question": "Who did the shot heard round the world?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who did the shot heard round the world in 1775?',\n              'Who did the shot heard round the world in 1914?',\n              'Who did the shot heard round the world in baseball?',\n              'Who did the shot heard round the world in association football?'],\n             dtype=object), 'answer': array([array(['no single shot can be cited'], dtype=object),\n              array(['Princip', 'Gavrilo Princip'], dtype=object),\n              array(['Thompson', 'Bobby Thomson'], dtype=object),\n              array(['Paul Caligiuri', 'Caligiuri'], dtype=object)], dtype=object)}               ,\n       {'question': array(['Who coined the term shot heard around the world?',\n              'Who \"fired\" the shot heard around the world in association football?',\n              'Who \"fired\" the shot heard around the world in baseball?',\n              'Who fired the shot heard around the world associated with the assassination of Franz Ferdinand?'],\n             dtype=object), 'answer': array([array(['Ralph Waldo Emerson'], dtype=object),\n              array(['Paul Caligiuri'], dtype=object),\n              array(['Bobby Thomson'], dtype=object),\n              array(['Gavrilo Princip'], dtype=object)], dtype=object)}                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 242,
+  "prompt": "Who did the shot heard round the world?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.768372718899627e-07,
+          "prob": 0.9999995231628418,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.490052223205566,
+          "prob": 5.0938983818034e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.093898215983362e-07,
+      "prompt": "You're given the following task:\nWho did the shot heard round the world?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

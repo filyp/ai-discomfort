@@ -1,0 +1,31 @@
+{
+  "id": -5700241817712358648,
+  "question": "The only child of a president to be born in the whitehouse?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object), array(['Esther Cleveland'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['Who is the only president to have had a child born in the White House?',\n              'Who is the only child of a president born in the White House?'],\n             dtype=object), 'answer': array([array(['Grover Cleveland'], dtype=object),\n              array(['Esther Cleveland'], dtype=object)], dtype=object)}                            ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 914,
+  "prompt": "The only child of a president to be born in the whitehouse?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.158782958984375,
+          "prob": 3.532118331845389e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.5321182070867945e-08,
+      "prompt": "You're given the following task:\nThe only child of a president to be born in the whitehouse?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

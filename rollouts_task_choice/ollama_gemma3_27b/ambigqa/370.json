@@ -1,0 +1,31 @@
+{
+  "id": -2162714330037272999,
+  "question": "Who sang what is love baby don't hurt me?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Haddaway', 'Nestor Alexander Haddaway'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Who sang the original version of \"What is Love\"?',\n              'Who sang What is Love in 2013?', 'Who sang What is Love in 2014?',\n              'Who sang What is Love in 2009?'], dtype=object), 'answer': array([array(['Haddaway'], dtype=object),\n              array(['Foolstop'], dtype=object), array(['Kiesza'], dtype=object),\n              array(['Klaas'], dtype=object)], dtype=object)}                                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 370,
+  "prompt": "Who sang what is love baby don't hurt me?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThat song is famously sung by Haddaway! Is there anything else",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.310382843017578,
+          "prob": 1.5111681997354026e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.511168197451773e-09,
+      "prompt": "You're given the following task:\nWho sang what is love baby don't hurt me?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

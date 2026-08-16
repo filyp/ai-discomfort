@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 952,
+  "prompt": "What kind of entertainment is most popular here?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I'll continue! To figure out what kind of",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.389007568359375,
+          "prob": 6.954774864727985e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.954774864244297e-11,
+      "prompt": "You're given the following task:\nWhat kind of entertainment is most popular here?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

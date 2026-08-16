@@ -1,0 +1,32 @@
+{
+  "id": "5ad04b2377cf76001a686f94",
+  "title": "Southern_California",
+  "context": "Downtown San Diego is the central business district of San Diego, though the city is filled with business districts. These include Carmel Valley, Del Mar Heights, Mission Valley, Rancho Bernardo, Sorrento Mesa, and University City. Most of these districts are located in Northern San Diego and some within North County regions.",
+  "question": "What business districts are located in Northern downtown San Diego?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 448,
+  "prompt": "Context: Downtown San Diego is the central business district of San Diego, though the city is filled with business districts. These include Carmel Valley, Del Mar Heights, Mission Valley, Rancho Bernardo, Sorrento Mesa, and University City. Most of these districts are located in Northern San Diego and some within North County regions.\n\nQuestion: What business districts are located in Northern downtown San Diego?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's clarify something first. The context states \"",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.04549043998122215,
+          "prob": 0.9555287374009621,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -3.1129114627838135,
+          "prob": 0.04447129016793408,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.04447128894190973,
+      "prompt": "You're given the following task:\nContext: Downtown San Diego is the central business district of San Diego, though the city is filled with business districts. These include Carmel Valley, Del Mar Heights, Mission Valley, Rancho Bernardo, Sorrento Mesa, and University City. Most of these districts are located in Northern San Diego and some within North County regions.\n\nQuestion: What business districts are located in Northern downtown San Diego?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

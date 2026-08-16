@@ -1,0 +1,31 @@
+{
+  "id": -510674597244580359,
+  "question": "Who plays tate on days of our lives?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who plays tate on days of our lives in 2015-16?',\n              'Who plays tate on days of our lives in 2016?',\n              'Who plays tate on days of our lives in 2016-18?',\n              'Who plays tate on days of our lives in 2018?'], dtype=object), 'answer': array([array(['Peter and Thomas'], dtype=object),\n              array(['Matthew and Nathan Goss'], dtype=object),\n              array(['Jacob and Wyatt Walker'], dtype=object),\n              array(['Colin and Kyle Schroeder'], dtype=object)], dtype=object)}                                                         ,\n       {'question': array(['Who played Tate Black  on Days of Our lives from 2016-18?',\n              'Who played Tate Black  on Days of Our lives in only 2016?',\n              'Who played Tate Black  on Days of Our lives from 2015-16?'],\n             dtype=object), 'answer': array([array(['Wyatt Walker', 'Jacob Walker'], dtype=object),\n              array(['Matthew Goss', 'Nathan Goss'], dtype=object),\n              array(['Thomas Machala', 'Peter Machala'], dtype=object)],\n             dtype=object)}                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 509,
+  "prompt": "Who plays tate on days of our lives?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can tell you who plays Tate on *Days of",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.301692962646484,
+          "prob": 2.262346815202252e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2623468427664544e-07,
+      "prompt": "You're given the following task:\nWho plays tate on days of our lives?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

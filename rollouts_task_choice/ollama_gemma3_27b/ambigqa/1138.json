@@ -1,0 +1,31 @@
+{
+  "id": 5989278478968918912,
+  "question": "When does the next new episode of supernatural air?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What date does the next new episode of supernatural air?|When does episode #319 of Supernatural air?|When does the next episode of Supernatural air?|When is the original air date for episode #319 of Supernatural?',\n              'What time does the next new episode of supernatural air?',\n              'What day of the week does the next new episode of supernatural air?'],\n             dtype=object), 'answer': array([array(['2020', 'March 16, 2020'], dtype=object),\n              array(['8:00 pm (ET)', '8:00 pm'], dtype=object),\n              array(['Monday'], dtype=object)], dtype=object)}                                                                                                                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1138,
+  "prompt": "When does the next new episode of supernatural air?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\n\"Supernatural\" ended its run in November",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -7.1680684089660645,
+          "prob": 0.0007708101842299044,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.0007712238002568483,
+          "prob": 0.9992290735163807,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9992291897261254,
+      "prompt": "You're given the following task:\nWhen does the next new episode of supernatural air?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

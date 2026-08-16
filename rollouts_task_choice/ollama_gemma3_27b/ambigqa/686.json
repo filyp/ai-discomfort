@@ -1,0 +1,31 @@
+{
+  "id": 3503903374197114510,
+  "question": "When did the simpsons get a new intro?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the simpsons get a new intro to improve the quality and add new characters?',\n              'When did the simpsons get a new high-def intro?',\n              'When did the simpsons get a new intro for one episode?',\n              'When is airdate when the simpsons get a new high-def intro?'],\n             dtype=object), 'answer': array([array(['1990', 'start of the second season'], dtype=object),\n              array(['episode \"Take My Life, Please\"',\n                     'Season 20 episode \"Take My Life, Please\"', 'season 20'],\n                    dtype=object)                                             ,\n              array(['500th episode'], dtype=object),\n              array(['February 15, 2009'], dtype=object)], dtype=object)}                                         ,\n       {'question': array([\"What year did the Simpson's first get a new intro?\",\n              \"What season did the Simpson's first second a new intro?\",\n              'What year did the Simpsons get a new intro produced in high-definition?',\n              'What season did the Simpsons get new intro produced in high-definition?'],\n             dtype=object), 'answer': array([array(['1990'], dtype=object), array(['2'], dtype=object),\n              array(['2009'], dtype=object), array(['20'], dtype=object)],\n             dtype=object)}                                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 686,
+  "prompt": "When did the simpsons get a new intro?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely help with that! \"The Simpsons\"",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.810043334960938,
+          "prob": 1.841604880257418e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.841604846342333e-08,
+      "prompt": "You're given the following task:\nWhen did the simpsons get a new intro?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

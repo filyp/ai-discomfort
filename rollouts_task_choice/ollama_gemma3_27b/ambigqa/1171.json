@@ -1,0 +1,31 @@
+{
+  "id": 8948953399361241368,
+  "question": "Where did the free settlers settle in australia?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where did the \"free settlers\" first settle in Australia in 1787?',\n              'What was the place the free settlers settled in Australia called by them?',\n              'What is the place that the free settlers settled in Australia called today?'],\n             dtype=object), 'answer': array([array(['Sydney Cove'], dtype=object),\n              array(['Liberty Plains'], dtype=object),\n              array(['the suburbs of Strathfield and Homebush'], dtype=object)],\n             dtype=object)}                                                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1171,
+  "prompt": "Where did the free settlers settle in australia?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.588245391845703,
+          "prob": 2.0963351030493364e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0963351030053898e-11,
+      "prompt": "You're given the following task:\nWhere did the free settlers settle in australia?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

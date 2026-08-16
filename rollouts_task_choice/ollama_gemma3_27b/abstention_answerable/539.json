@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 539,
+  "prompt": "How many voters did it take to award the manager of Tianjin Quanjian the Ballon d'Or?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis is a trick question designed to test my knowledge and ability to",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -3.4381091594696045,
+          "prob": 0.03212537189069846,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.032652758061885834,
+          "prob": 0.967874587891847,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9678746268173009,
+      "prompt": "You're given the following task:\nHow many voters did it take to award the manager of Tianjin Quanjian the Ballon d'Or?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

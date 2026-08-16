@@ -1,0 +1,32 @@
+{
+  "id": "570607f575f01819005e78b4",
+  "title": "Southern_California",
+  "context": "Los Angeles (at 3.7 million people) and San Diego (at 1.3 million people), both in southern California, are the two largest cities in all of California (and two of the eight largest cities in the United States). In southern California there are also twelve cities with more than 200,000 residents and 34 cities over 100,000 in population. Many of southern California's most developed cities lie along or in close proximity to the coast, with the exception of San Bernardino and Riverside.",
+  "question": "What is the largest city in all of California?",
+  "answers": "{'text': array(['Los Angeles', 'Los Angeles', 'Los Angeles'], dtype=object), 'answer_start': array([0, 0, 0], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 405,
+  "prompt": "Context: Los Angeles (at 3.7 million people) and San Diego (at 1.3 million people), both in southern California, are the two largest cities in all of California (and two of the eight largest cities in the United States). In southern California there are also twelve cities with more than 200,000 residents and 34 cities over 100,000 in population. Many of southern California's most developed cities lie along or in close proximity to the coast, with the exception of San Bernardino and Riverside.\n\nQuestion: What is the largest city in all of California?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that Los Angeles (at 3.7 million",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -34.16154479980469,
+          "prob": 1.4582419919755992e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.458241991975597e-15,
+      "prompt": "You're given the following task:\nContext: Los Angeles (at 3.7 million people) and San Diego (at 1.3 million people), both in southern California, are the two largest cities in all of California (and two of the eight largest cities in the United States). In southern California there are also twelve cities with more than 200,000 residents and 34 cities over 100,000 in population. Many of southern California's most developed cities lie along or in close proximity to the coast, with the exception of San Bernardino and Riverside.\n\nQuestion: What is the largest city in all of California?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

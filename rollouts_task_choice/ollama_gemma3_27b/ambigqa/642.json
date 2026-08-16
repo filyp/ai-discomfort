@@ -1,0 +1,31 @@
+{
+  "id": 2378678654868379935,
+  "question": "Who performed at the champions league final 2018?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who are the teams that performed in competition at the champions league final 2018?',\n              'Who performed best at the champions league final 2018, winning man of the match?',\n              'Who performed at the opening ceremony of the champions league final 2018?',\n              'Who performed the anthem at the champions league final 2018?'],\n             dtype=object), 'answer': array([array(['Real Madrid and Liverpool', 'Liverpool', 'Real Madrid'],\n                    dtype=object)                                             ,\n              array(['Gareth Bale', 'Bale'], dtype=object),\n              array(['Dua Lipa', 'Sean Paul', 'Dua Lipa and Sean Paul'], dtype=object),\n              array(['2Cellos', 'Luka Šulić and Stjepan Hauser', 'Luka Šulić',\n                     '2CΞLLOS', 'Stjepan Hauser'], dtype=object)              ],\n             dtype=object)}                                                                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 642,
+  "prompt": "Who performed at the champions league final 2018?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.978118896484375,
+          "prob": 2.1067509792001637e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.106750974761764e-09,
+      "prompt": "You're given the following task:\nWho performed at the champions league final 2018?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

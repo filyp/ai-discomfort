@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 495,
+  "prompt": "The incumbent Democrat that was term-limited in the 1983 Mississippi gubernatorial election is best remembered for the passage of what act?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nLet's figure this out! I know who the term",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.822906494140625,
+          "prob": 1.818067729136217e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.8180676960825152e-08,
+      "prompt": "You're given the following task:\nThe incumbent Democrat that was term-limited in the 1983 Mississippi gubernatorial election is best remembered for the passage of what act?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

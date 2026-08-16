@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 77,
+  "prompt": "How much longer are we going to be on this planet?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nWhile a fascinating (and existential!) question, \"How much longer",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -1.1879903078079224,
+          "prob": 0.3048332699314829,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.36360377073287964,
+          "prob": 0.6951665855270733,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.6951666860074698,
+      "prompt": "You're given the following task:\nHow much longer are we going to be on this planet?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

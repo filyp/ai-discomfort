@@ -1,0 +1,32 @@
+{
+  "id": "57264e66dd62a815002e811a",
+  "title": "Ctenophora",
+  "context": "It is uncertain how ctenophores control their buoyancy, but experiments have shown that some species rely on osmotic pressure to adapt to water of different densities. Their body fluids are normally as concentrated as seawater. If they enter less dense brackish water, the ciliary rosettes in the body cavity may pump this into the mesoglea to increase its bulk and decrease its density, to avoid sinking. Conversely if they move from brackish to full-strength seawater, the rosettes may pump water out of the mesoglea to reduce its volume and increase its density.",
+  "question": "How do ctenophores control buoyancy?",
+  "answers": "{'text': array(['osmotic pressure', 'It is uncertain', 'rely on osmotic pressure'],\n      dtype=object), 'answer_start': array([109,   0, 101], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1978,
+  "prompt": "Context: It is uncertain how ctenophores control their buoyancy, but experiments have shown that some species rely on osmotic pressure to adapt to water of different densities. Their body fluids are normally as concentrated as seawater. If they enter less dense brackish water, the ciliary rosettes in the body cavity may pump this into the mesoglea to increase its bulk and decrease its density, to avoid sinking. Conversely if they move from brackish to full-strength seawater, the rosettes may pump water out of the mesoglea to reduce its volume and increase its density.\n\nQuestion: How do ctenophores control buoyancy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nOkay, I understand the context and question. Based on the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.54620361328125,
+          "prob": 8.043123499004266e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.043123498939574e-12,
+      "prompt": "You're given the following task:\nContext: It is uncertain how ctenophores control their buoyancy, but experiments have shown that some species rely on osmotic pressure to adapt to water of different densities. Their body fluids are normally as concentrated as seawater. If they enter less dense brackish water, the ciliary rosettes in the body cavity may pump this into the mesoglea to increase its bulk and decrease its density, to avoid sinking. Conversely if they move from brackish to full-strength seawater, the rosettes may pump water out of the mesoglea to reduce its volume and increase its density.\n\nQuestion: How do ctenophores control buoyancy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

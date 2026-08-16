@@ -1,0 +1,31 @@
+{
+  "id": 7341847432427402002,
+  "question": "Who sings the song for stuck in the middle?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Which band sings the 1973 song \"Stuck in the Middle with You\"?',\n              'Who sings the lead vocals in the 1973 song \"Stuck in the Middle with You\"?',\n              'Who sings harmony in the 1973 song \"Stuck in the Middle with You\"?',\n              'Who sings the 2004 song \"Stuck in the  Middle\"?',\n              'Who sings the theme song for the TV show Stuck in the Middle?'],\n             dtype=object), 'answer': array([array(['Stealers Wheel'], dtype=object),\n              array(['Gerry Rafferty'], dtype=object),\n              array(['Joe Egan'], dtype=object), array(['Clea'], dtype=object),\n              array(['Sonus'], dtype=object)], dtype=object)}                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 96,
+  "prompt": "Who sings the song for stuck in the middle?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.199974060058594,
+          "prob": 4.587300739416575e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.587300718373246e-09,
+      "prompt": "You're given the following task:\nWho sings the song for stuck in the middle?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

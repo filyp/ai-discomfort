@@ -1,0 +1,32 @@
+{
+  "id": "5ad0511577cf76001a686fca",
+  "title": "Southern_California",
+  "context": "College sports are also popular in southern California. The UCLA Bruins and the USC Trojans both field teams in NCAA Division I in the Pac-12 Conference, and there is a longtime rivalry between the schools.",
+  "question": "What is the ULCA mascot?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 474,
+  "prompt": "Context: College sports are also popular in southern California. The UCLA Bruins and the USC Trojans both field teams in NCAA Division I in the Pac-12 Conference, and there is a longtime rivalry between the schools.\n\nQuestion: What is the ULCA mascot?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThis question requires external knowledge (the UCLA mascot) that isn't",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -3.463684558868408,
+          "prob": 0.03131417029302183,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.03181508928537369,
+          "prob": 0.9686856858820059,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9686858252032178,
+      "prompt": "You're given the following task:\nContext: College sports are also popular in southern California. The UCLA Bruins and the USC Trojans both field teams in NCAA Division I in the Pac-12 Conference, and there is a longtime rivalry between the schools.\n\nQuestion: What is the ULCA mascot?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -7582650876403615860,
+  "question": "Who sang still crazy after all these years?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who originally sang still crazy after all these years?',\n              'Who sang still crazy after all these years in 2000?',\n              'Who sang still crazy after all these years in 1996?',\n              'Who sang still crazy after all these years in 1993?'],\n             dtype=object), 'answer': array([array(['Paul Simon'], dtype=object),\n              array(['Willie Nelson'], dtype=object),\n              array(['Karen Carpenter'], dtype=object),\n              array(['Ray Charles'], dtype=object)], dtype=object)}                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 369,
+  "prompt": "Who sang still crazy after all these years?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.040603637695312,
+          "prob": 5.3798591807594165e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.3798591518165314e-09,
+      "prompt": "You're given the following task:\nWho sang still crazy after all these years?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

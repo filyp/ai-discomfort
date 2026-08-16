@@ -1,0 +1,31 @@
+{
+  "id": 1351054510212973354,
+  "question": "Where was mama mia herewe go again filmed?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object),\n       array(['Shepperton Studios', 'Island of Vis', 'Croatia',\n              'Surrey, England'], dtype=object)                ],\n      dtype=object), 'qaPairs': array([{'question': array(['Where was principal photography of Mama Mia! Here We Go Again filmed?',\n              'Where were the song and dance numbers with Cher on Mama Mia! Here We Go Again filmed?',\n              'Where was Mama Mia! Here We Go Again filmed from August to December 2017?'],\n             dtype=object), 'answer': array([array(['Croatia', 'island of Vis'], dtype=object),\n              array(['Shepperton Studios in Surrey, England'], dtype=object),\n              array(['Croatia, Bordeaux, Stockholm, Oxford, Hampton and at Shepperton Studios'],\n                    dtype=object)                                                               ],\n             dtype=object)}                                                                           ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 600,
+  "prompt": "Where was mama mia herewe go again filmed?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.445682525634766,
+          "prob": 3.5879582614517344e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.5879582485782903e-09,
+      "prompt": "You're given the following task:\nWhere was mama mia herewe go again filmed?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -6486067540167521760,
+  "question": "Who do you play as in gta 5?",
+  "annotations": "{'type': array(['singleAnswer'], dtype=object), 'answer': array([array(['Trevor Philips',\n              'Michael De Santa, Trevor Philips and Franklin Clinton',\n              'Franklin Clinton', 'Michael De Santa'], dtype=object)  ],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 746,
+  "prompt": "Who do you play as in gta 5?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, great! So you want to know who you play as",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.911922454833984,
+          "prob": 1.1206719660744593e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1206719659488687e-10,
+      "prompt": "You're given the following task:\nWho do you play as in gta 5?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

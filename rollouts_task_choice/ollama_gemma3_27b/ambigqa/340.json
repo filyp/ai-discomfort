@@ -1,0 +1,31 @@
+{
+  "id": 4335813272684976790,
+  "question": "Where does it rain the most in texas?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Piney Woods', 'Piney Woods,  East Texas'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Where in general does it rain the most in texas?',\n              'Where does it rain the most in the Piney Woods in texas?'],\n             dtype=object), 'answer': array([array(['Piney Woods', 'eastern region of Texas'], dtype=object),\n              array(['the far east'], dtype=object)], dtype=object)}                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 340,
+  "prompt": "Where does it rain the most in texas?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.093883514404297,
+          "prob": 2.5395005187614877e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.5395005181165815e-10,
+      "prompt": "You're given the following task:\nWhere does it rain the most in texas?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

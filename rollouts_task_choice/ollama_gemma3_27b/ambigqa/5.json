@@ -1,0 +1,69 @@
+{
+  "id": -196855123397981737,
+  "question": "Who took control of the italian government in 1922?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What party took control of the Italian government in 1922?',\n              'What leader took control of the Italian government in 1922?',\n              'What faction took control of the Italian government in 1922?'],\n             dtype=object), 'answer': array([array(['National Fascist Party'], dtype=object),\n              array(['Benito Mussolini'], dtype=object),\n              array(['Italian fascists'], dtype=object)], dtype=object)}                     ,\n       {'question': array(['Who is the party that took control of the italian government in 1922?',\n              'Who is the prime minister that took control of the italian government in 1922?'],\n             dtype=object), 'answer': array([array(['National Fascist Party', 'PNF', 'Partito Nazionale Fascista'],\n                    dtype=object)                                                   ,\n              array(['Benito Mussolini', 'Benito Amilcare Andrea Mussolini'],\n                    dtype=object)                                            ],\n             dtype=object)}                                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 5,
+  "prompt": "Who took control of the italian government in 1922?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.352176666259766,
+          "prob": 9.765389488113852e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.76538948801849e-12,
+      "prompt": "You're given the following task:\nWho took control of the italian government in 1922?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who took control of the Italian government",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.627578735351562,
+          "prob": 2.210241992935256e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2102419440835604e-08,
+      "prompt": "You're given the following task:\nWho took control of the italian government in 1922?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -27.097702026367188,
+          "prob": 1.7045805854926666e-12,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.704580585489761e-12,
+      "prompt": "You're given the following task:\nWho took control of the italian government in 1922?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

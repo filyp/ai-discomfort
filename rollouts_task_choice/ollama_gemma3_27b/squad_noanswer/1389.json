@@ -1,0 +1,32 @@
+{
+  "id": "5a38b9b3a4b263001a8c18d1",
+  "title": "1973_oil_crisis",
+  "context": "The embargo was not uniform across Europe. Of the nine members of the European Economic Community (EEC), the Netherlands faced a complete embargo, the UK and France received almost uninterrupted supplies (having refused to allow America to use their airfields and embargoed arms and supplies to both the Arabs and the Israelis), while the other six faced partial cutbacks. The UK had traditionally been an ally of Israel, and Harold Wilson's government supported the Israelis during the Six-Day War. His successor, Ted Heath, reversed this policy in 1970, calling for Israel to withdraw to its pre-1967 borders.",
+  "question": "Who did the EEC support during the Six-Day War?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1389,
+  "prompt": "Context: The embargo was not uniform across Europe. Of the nine members of the European Economic Community (EEC), the Netherlands faced a complete embargo, the UK and France received almost uninterrupted supplies (having refused to allow America to use their airfields and embargoed arms and supplies to both the Arabs and the Israelis), while the other six faced partial cutbacks. The UK had traditionally been an ally of Israel, and Harold Wilson's government supported the Israelis during the Six-Day War. His successor, Ted Heath, reversed this policy in 1970, calling for Israel to withdraw to its pre-1967 borders.\n\nQuestion: Who did the EEC support during the Six-Day War?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBased on the text provided, the UK (a member of the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.449783325195312,
+          "prob": 2.4076536829705536e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.4076536829125857e-11,
+      "prompt": "You're given the following task:\nContext: The embargo was not uniform across Europe. Of the nine members of the European Economic Community (EEC), the Netherlands faced a complete embargo, the UK and France received almost uninterrupted supplies (having refused to allow America to use their airfields and embargoed arms and supplies to both the Arabs and the Israelis), while the other six faced partial cutbacks. The UK had traditionally been an ally of Israel, and Harold Wilson's government supported the Israelis during the Six-Day War. His successor, Ted Heath, reversed this policy in 1970, calling for Israel to withdraw to its pre-1967 borders.\n\nQuestion: Who did the EEC support during the Six-Day War?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

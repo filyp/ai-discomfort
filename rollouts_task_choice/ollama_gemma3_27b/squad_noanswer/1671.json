@@ -1,0 +1,32 @@
+{
+  "id": "5a0c6d26f5590b0018dab40a",
+  "title": "Amazon_rainforest",
+  "context": "NASA's CALIPSO satellite has measured the amount of dust transported by wind from the Sahara to the Amazon: an average 182 million tons of dust are windblown out of the Sahara each year, at 15 degrees west longitude, across 1,600 miles (2,600 km) over the Atlantic Ocean (some dust falls into the Atlantic), then at 35 degrees West longitude at the eastern coast of South America, 27.7 million tons (15%) of dust fall over the Amazon basin, 132 million tons of dust remain in the air, 43 million tons of dust are windblown and falls on the Caribbean Sea, past 75 degrees west longitude.",
+  "question": "What is the name of the satellite that measured the amount of vegetation from the so hard to the Amazon?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1671,
+  "prompt": "Context: NASA's CALIPSO satellite has measured the amount of dust transported by wind from the Sahara to the Amazon: an average 182 million tons of dust are windblown out of the Sahara each year, at 15 degrees west longitude, across 1,600 miles (2,600 km) over the Atlantic Ocean (some dust falls into the Atlantic), then at 35 degrees West longitude at the eastern coast of South America, 27.7 million tons (15%) of dust fall over the Amazon basin, 132 million tons of dust remain in the air, 43 million tons of dust are windblown and falls on the Caribbean Sea, past 75 degrees west longitude.\n\nQuestion: What is the name of the satellite that measured the amount of vegetation from the so hard to the Amazon?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThe question asks about measuring *vegetation*, but the provided context is",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -0.7673705816268921,
+          "prob": 0.46423212538320235,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.6240599751472473,
+          "prob": 0.5357648241296418,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.5357664584783419,
+      "prompt": "You're given the following task:\nContext: NASA's CALIPSO satellite has measured the amount of dust transported by wind from the Sahara to the Amazon: an average 182 million tons of dust are windblown out of the Sahara each year, at 15 degrees west longitude, across 1,600 miles (2,600 km) over the Atlantic Ocean (some dust falls into the Atlantic), then at 35 degrees West longitude at the eastern coast of South America, 27.7 million tons (15%) of dust fall over the Amazon basin, 132 million tons of dust remain in the air, 43 million tons of dust are windblown and falls on the Caribbean Sea, past 75 degrees west longitude.\n\nQuestion: What is the name of the satellite that measured the amount of vegetation from the so hard to the Amazon?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

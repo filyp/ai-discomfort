@@ -1,0 +1,31 @@
+{
+  "id": -157060672845051419,
+  "question": "Who is the actress that portrays wonder woman?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the actress that portrays wonder woman in the 1974 Wonder Woman film?',\n              'Who is the actress that voices wonder woman in the tv series Super Friends?',\n              'Who is the actress that voices wonder woman in the 1970s tv series Wonder Woman?',\n              'Who is the actress that voices wonder woman in the 2014 film The Lego Movie?',\n              'Who is the actress that voices wonder woman in the 2016 film Batman v Superman?',\n              'Who is the actress that voices wonder woman in the 2017 wonder woman film?',\n              'Who is the actress that voices wonder woman in the 2017 justice league film?',\n              'Who is the actress that portrays wonder woman in the 2011 television film?'],\n             dtype=object), 'answer': array([array(['Cathy Lee Crosby'], dtype=object),\n              array(['Shannon Farnon'], dtype=object),\n              array(['Lynda Carter'], dtype=object),\n              array(['Cobie Smulders'], dtype=object),\n              array(['Gal Gadot'], dtype=object),\n              array(['Gal Gadot'], dtype=object),\n              array(['Gal Gadot'], dtype=object),\n              array(['Adrianne Palicki', 'Adrianne Lee Palicki'], dtype=object)],\n             dtype=object)}                                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 763,
+  "prompt": "Who is the actress that portrays wonder woman?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.921764373779297,
+          "prob": 1.1096965018280474e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1096965017049048e-10,
+      "prompt": "You're given the following task:\nWho is the actress that portrays wonder woman?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

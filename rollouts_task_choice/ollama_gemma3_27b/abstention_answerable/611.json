@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 611,
+  "prompt": " A Time for Miracles chronicles the life story of America's first native born saint who was born in what year?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To figure out when America",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.232019273331389e-05,
+          "prob": 0.9999576807027534,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -10.071002960205078,
+          "prob": 4.228817929715554e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.2288180613077004e-05,
+      "prompt": "You're given the following task:\n A Time for Miracles chronicles the life story of America's first native born saint who was born in what year?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

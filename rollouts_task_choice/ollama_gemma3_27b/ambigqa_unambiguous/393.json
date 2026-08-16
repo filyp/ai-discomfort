@@ -1,0 +1,31 @@
+{
+  "id": 4150123471912042742,
+  "question": "What car is grace kelly driving in to catch a thief?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['metallic blue 1953 Sunbeam Alpine Mk', 'Sunbeam Alpine',\n              'Sunbeam Alpine Mk'], dtype=object)                      ,\n       array(['1953 Sunbeam Alpine Mk I'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 393,
+  "prompt": "What car is grace kelly driving in to catch a thief?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out what car Grace Kelly is driving",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.123786926269531,
+          "prob": 2.7028552782116995e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.702855192079952e-07,
+      "prompt": "You're given the following task:\nWhat car is grace kelly driving in to catch a thief?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

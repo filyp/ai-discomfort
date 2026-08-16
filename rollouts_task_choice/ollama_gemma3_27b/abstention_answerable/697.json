@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 697,
+  "prompt": "What contributes to the greenhouse effect at lower atmospheric levels, but in the upper atmosphere protects life on Earth?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.11534881591797,
+          "prob": 1.2374925645726717e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.2374925645573577e-11,
+      "prompt": "You're given the following task:\nWhat contributes to the greenhouse effect at lower atmospheric levels, but in the upper atmosphere protects life on Earth?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

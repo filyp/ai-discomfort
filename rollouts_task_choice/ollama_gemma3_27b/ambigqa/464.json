@@ -1,0 +1,31 @@
+{
+  "id": -447198893588059167,
+  "question": "Who played the father in leave it to beaver?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played the father of Wally and Beaver in leave it to beaver?',\n              'Who played the father of Eddie in leave it to beaver?',\n              'Who played the father of Clarence in leave it to beaver?',\n              'Who played the father of Linda in leave it to beaver?'],\n             dtype=object), 'answer': array([array(['Hugh Beaumont'], dtype=object),\n              array(['John Alvin', 'Karl Swenson and George O. Petrie and John Alvin',\n                     'George O. Petrie', 'Karl Swenson'], dtype=object)               ,\n              array(['Richard Deacon'], dtype=object),\n              array(['Lyle Talbot'], dtype=object)], dtype=object)}                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 464,
+  "prompt": "Who played the father in leave it to beaver?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The father on *Leave It To Beaver* was played",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.129486083984375,
+          "prob": 4.92231896082277e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.9223189365935464e-09,
+      "prompt": "You're given the following task:\nWho played the father in leave it to beaver?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

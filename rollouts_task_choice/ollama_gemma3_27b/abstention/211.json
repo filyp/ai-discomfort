@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 211,
+  "prompt": "What will be the price of gold in 2073?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's tackle this! Predicting the price of gold",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.004973420407623053,
+          "prob": 0.9950389265702679,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -5.306166648864746,
+          "prob": 0.004960907214284952,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0049609080388645,
+      "prompt": "You're given the following task:\nWhat will be the price of gold in 2073?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

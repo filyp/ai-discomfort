@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 156,
+  "prompt": "What age should a person be considered old enough to die of old age?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThis is a surprisingly complex question that touches on philosophical and biological factors",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0065394011326134205,
+          "prob": 0.9934819342188332,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -5.033173561096191,
+          "prob": 0.006518092148684587,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.006518091976818681,
+      "prompt": "You're given the following task:\nWhat age should a person be considered old enough to die of old age?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

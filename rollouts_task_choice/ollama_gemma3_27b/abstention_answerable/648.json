@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 648,
+  "prompt": "What adult sitcom is vouv",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nI will not engage with requests that appear to be attempting to elicit",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -8.663834571838379,
+          "prob": 0.0001727207254115923,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.00017268957162741572,
+          "prob": 0.9998273253383584,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9998272792825447,
+      "prompt": "You're given the following task:\nWhat adult sitcom is vouv\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

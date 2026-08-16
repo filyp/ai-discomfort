@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 985,
+  "prompt": "What was all contained in the library of Alexandria when I was burned down?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, that's a *huge* question! The Library",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0012030682992190123,
+          "prob": 0.9987976550973198,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -6.723599910736084,
+          "prob": 0.0012022025926951207,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0012022027637805782,
+      "prompt": "You're given the following task:\nWhat was all contained in the library of Alexandria when I was burned down?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 5058743055169917398,
+  "question": "Where does the federal reserve get its authority?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Which body does the federal reserve get its authority from originally?',\n              'Which body governs the federal reserve and its authority?',\n              'From which act does the federal reserve get its authority?'],\n             dtype=object), 'answer': array([array(['Congress', 'U.S. Congress', 'US Government'], dtype=object),\n              array(['Federal Reserve Board', 'Federal Reserve Board of Governors',\n                     'Board of Governors of the Federal Reserve System',\n                     'board of governors'], dtype=object)                          ,\n              array(['Federal Reserve Act'], dtype=object)], dtype=object)}                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 153,
+  "prompt": "Where does the federal reserve get its authority?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.202560424804688,
+          "prob": 2.2779832342340517e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.277983233715131e-10,
+      "prompt": "You're given the following task:\nWhere does the federal reserve get its authority?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5ad248f7d7d075001a428b8c",
+  "title": "Huguenot",
+  "context": "The pattern of warfare, followed by brief periods of peace, continued for nearly another quarter-century. The warfare was definitively quelled in 1598, when Henry of Navarre, having succeeded to the French throne as Henry IV, and having recanted Protestantism in favour of Roman Catholicism, issued the Edict of Nantes. The Edict reaffirmed Catholicism as the state religion of France, but granted the Protestants equality with Catholics under the throne and a degree of religious and political freedom within their domains. The Edict simultaneously protected Catholic interests by discouraging the founding of new Protestant churches in Catholic-controlled regions.[citation needed]",
+  "question": "In what year was Henry of Navarre born?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 789,
+  "prompt": "Context: The pattern of warfare, followed by brief periods of peace, continued for nearly another quarter-century. The warfare was definitively quelled in 1598, when Henry of Navarre, having succeeded to the French throne as Henry IV, and having recanted Protestantism in favour of Roman Catholicism, issued the Edict of Nantes. The Edict reaffirmed Catholicism as the state religion of France, but granted the Protestants equality with Catholics under the throne and a degree of religious and political freedom within their domains. The Edict simultaneously protected Catholic interests by discouraging the founding of new Protestant churches in Catholic-controlled regions.[citation needed]\n\nQuestion: In what year was Henry of Navarre born?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text *does not* contain information about when Henry of",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -11.020768165588379,
+          "prob": 1.635841415811922e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -1.633180545468349e-05,
+          "prob": 0.9999836683279085,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999836415862794,
+      "prompt": "You're given the following task:\nContext: The pattern of warfare, followed by brief periods of peace, continued for nearly another quarter-century. The warfare was definitively quelled in 1598, when Henry of Navarre, having succeeded to the French throne as Henry IV, and having recanted Protestantism in favour of Roman Catholicism, issued the Edict of Nantes. The Edict reaffirmed Catholicism as the state religion of France, but granted the Protestants equality with Catholics under the throne and a degree of religious and political freedom within their domains. The Edict simultaneously protected Catholic interests by discouraging the founding of new Protestant churches in Catholic-controlled regions.[citation needed]\n\nQuestion: In what year was Henry of Navarre born?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

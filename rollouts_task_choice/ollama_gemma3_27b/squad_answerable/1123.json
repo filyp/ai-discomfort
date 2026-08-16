@@ -1,0 +1,32 @@
+{
+  "id": "5711658e50c2381900b54ad5",
+  "title": "Steam_engine",
+  "context": "Land-based steam engines could exhaust much of their steam, as feed water was usually readily available. Prior to and during World War I, the expansion engine dominated marine applications where high vessel speed was not essential. It was however superseded by the British invention steam turbine where speed was required, for instance in warships, such as the dreadnought battleships, and ocean liners. HMS Dreadnought of 1905 was the first major warship to replace the proven technology of the reciprocating engine with the then-novel steam turbine.[citation needed]",
+  "question": "The frequent availability of what substance allowed land-based steam engines to exhaust a great deal of steam?",
+  "answers": "{'text': array(['feed water', 'water', 'feed water'], dtype=object), 'answer_start': array([63, 68, 63], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1123,
+  "prompt": "Context: Land-based steam engines could exhaust much of their steam, as feed water was usually readily available. Prior to and during World War I, the expansion engine dominated marine applications where high vessel speed was not essential. It was however superseded by the British invention steam turbine where speed was required, for instance in warships, such as the dreadnought battleships, and ocean liners. HMS Dreadnought of 1905 was the first major warship to replace the proven technology of the reciprocating engine with the then-novel steam turbine.[citation needed]\n\nQuestion: The frequent availability of what substance allowed land-based steam engines to exhaust a great deal of steam?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe frequent availability of **feed water** allowed land-based steam",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.699081420898438,
+          "prob": 1.7110545580008537e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7110545580008244e-14,
+      "prompt": "You're given the following task:\nContext: Land-based steam engines could exhaust much of their steam, as feed water was usually readily available. Prior to and during World War I, the expansion engine dominated marine applications where high vessel speed was not essential. It was however superseded by the British invention steam turbine where speed was required, for instance in warships, such as the dreadnought battleships, and ocean liners. HMS Dreadnought of 1905 was the first major warship to replace the proven technology of the reciprocating engine with the then-novel steam turbine.[citation needed]\n\nQuestion: The frequent availability of what substance allowed land-based steam engines to exhaust a great deal of steam?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

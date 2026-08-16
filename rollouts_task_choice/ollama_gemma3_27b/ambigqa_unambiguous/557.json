@@ -1,0 +1,31 @@
+{
+  "id": 8857960269310476106,
+  "question": "Who plays joy from my name is earl?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Jaime Pressly', 'Jaime Elizabeth Pressly'], dtype=object),\n       array(['Jaime Pressly', 'Jaime Elizabeth Pressly'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 557,
+  "prompt": "Who plays joy from my name is earl?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The character Joy Turner on *My Name Is Earl*",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.7881409348774469e-06,
+          "prob": 0.9999982118606638,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.234834671020508,
+          "prob": 1.787245998850268e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7872460004468815e-06,
+      "prompt": "You're given the following task:\nWho plays joy from my name is earl?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

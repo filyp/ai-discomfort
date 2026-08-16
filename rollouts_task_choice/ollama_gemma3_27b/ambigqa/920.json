@@ -1,0 +1,31 @@
+{
+  "id": 8314084536670330783,
+  "question": "When did the song country roads come out?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the song Take Me Home, country roads come out?',\n              'When did the song country road come out?',\n              'When did the song Fast Lanes and country roads come out?'],\n             dtype=object), 'answer': array([array(['April 12, 1971'], dtype=object),\n              array(['February 1971'], dtype=object),\n              array(['November 25, 1985'], dtype=object)], dtype=object)}            ,\n       {'question': array(['When did John Denver\\'s \"Take Me Home, Country Roads\" originally realease?',\n              'When did James Taylor\\'s \"Country Road\" release?'], dtype=object), 'answer': array([array(['April 12, 1971'], dtype=object),\n              array(['February 1971'], dtype=object)], dtype=object)}                                                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 920,
+  "prompt": "When did the song country roads come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! \"Take Me Home, Country Roads\" was originally released",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.187976837158203,
+          "prob": 4.642667065891586e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.642667044337228e-09,
+      "prompt": "You're given the following task:\nWhen did the song country roads come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

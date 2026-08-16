@@ -1,0 +1,32 @@
+{
+  "id": "5ad0421177cf76001a686f17",
+  "title": "Southern_California",
+  "context": "As of the 2010 United States Census, southern California has a population of 22,680,010. Despite a reputation for high growth rates, southern California's rate grew less than the state average of 10.0% in the 2000s as California's growth became concentrated in the northern part of the state due to a stronger, tech-oriented economy in the Bay Area and an emerging Greater Sacramento region.",
+  "question": "What city is in the Greater Bay Region?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 415,
+  "prompt": "Context: As of the 2010 United States Census, southern California has a population of 22,680,010. Despite a reputation for high growth rates, southern California's rate grew less than the state average of 10.0% in the 2000s as California's growth became concentrated in the northern part of the state due to a stronger, tech-oriented economy in the Bay Area and an emerging Greater Sacramento region.\n\nQuestion: What city is in the Greater Bay Region?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The text mentions the \"Bay Area\" and \"Greater",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.335372924804688,
+          "prob": 7.337976314417792e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.337976313879334e-11,
+      "prompt": "You're given the following task:\nContext: As of the 2010 United States Census, southern California has a population of 22,680,010. Despite a reputation for high growth rates, southern California's rate grew less than the state average of 10.0% in the 2000s as California's growth became concentrated in the northern part of the state due to a stronger, tech-oriented economy in the Bay Area and an emerging Greater Sacramento region.\n\nQuestion: What city is in the Greater Bay Region?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

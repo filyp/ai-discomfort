@@ -1,0 +1,32 @@
+{
+  "id": "57115b8b50c2381900b54a8b",
+  "title": "Steam_engine",
+  "context": "Around 1800 Richard Trevithick and, separately, Oliver Evans in 1801 introduced engines using high-pressure steam; Trevithick obtained his high-pressure engine patent in 1802. These were much more powerful for a given cylinder size than previous engines and could be made small enough for transport applications. Thereafter, technological developments and improvements in manufacturing techniques (partly brought about by the adoption of the steam engine as a power source) resulted in the design of more efficient engines that could be smaller, faster, or more powerful, depending on the intended application.",
+  "question": "In what year did Richard Trevithick patent his device?",
+  "answers": "{'text': array(['1802', '1802', '1802', '1802'], dtype=object), 'answer_start': array([170, 170, 170, 170], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1049,
+  "prompt": "Context: Around 1800 Richard Trevithick and, separately, Oliver Evans in 1801 introduced engines using high-pressure steam; Trevithick obtained his high-pressure engine patent in 1802. These were much more powerful for a given cylinder size than previous engines and could be made small enough for transport applications. Thereafter, technological developments and improvements in manufacturing techniques (partly brought about by the adoption of the steam engine as a power source) resulted in the design of more efficient engines that could be smaller, faster, or more powerful, depending on the intended application.\n\nQuestion: In what year did Richard Trevithick patent his device?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nRichard Trevithick patented his high-pressure engine in **",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.50185775756836,
+          "prob": 4.1860118352218964e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.1860118352201445e-13,
+      "prompt": "You're given the following task:\nContext: Around 1800 Richard Trevithick and, separately, Oliver Evans in 1801 introduced engines using high-pressure steam; Trevithick obtained his high-pressure engine patent in 1802. These were much more powerful for a given cylinder size than previous engines and could be made small enough for transport applications. Thereafter, technological developments and improvements in manufacturing techniques (partly brought about by the adoption of the steam engine as a power source) resulted in the design of more efficient engines that could be smaller, faster, or more powerful, depending on the intended application.\n\nQuestion: In what year did Richard Trevithick patent his device?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

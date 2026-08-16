@@ -1,0 +1,32 @@
+{
+  "id": "5ad3de8b604f3c001a3ff46a",
+  "title": "Normans",
+  "context": "One of the first Norman mercenaries to serve as a Byzantine general was Hervé in the 1050s. By then however, there were already Norman mercenaries serving as far away as Trebizond and Georgia. They were based at Malatya and Edessa, under the Byzantine duke of Antioch, Isaac Komnenos. In the 1060s, Robert Crispin led the Normans of Edessa against the Turks. Roussel de Bailleul even tried to carve out an independent state in Asia Minor with support from the local population, but he was stopped by the Byzantine general Alexius Komnenos.",
+  "question": "When did Herve go up against the Turks?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 31,
+  "prompt": "Context: One of the first Norman mercenaries to serve as a Byzantine general was Hervé in the 1050s. By then however, there were already Norman mercenaries serving as far away as Trebizond and Georgia. They were based at Malatya and Edessa, under the Byzantine duke of Antioch, Isaac Komnenos. In the 1060s, Robert Crispin led the Normans of Edessa against the Turks. Roussel de Bailleul even tried to carve out an independent state in Asia Minor with support from the local population, but he was stopped by the Byzantine general Alexius Komnenos.\n\nQuestion: When did Herve go up against the Turks?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text doesn't state that Hervé went up against the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.2550211250782013,
+          "prob": 0.7749001279623714,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -1.4912118911743164,
+          "prob": 0.22509969384060288,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.22509973395270597,
+      "prompt": "You're given the following task:\nContext: One of the first Norman mercenaries to serve as a Byzantine general was Hervé in the 1050s. By then however, there were already Norman mercenaries serving as far away as Trebizond and Georgia. They were based at Malatya and Edessa, under the Byzantine duke of Antioch, Isaac Komnenos. In the 1060s, Robert Crispin led the Normans of Edessa against the Turks. Roussel de Bailleul even tried to carve out an independent state in Asia Minor with support from the local population, but he was stopped by the Byzantine general Alexius Komnenos.\n\nQuestion: When did Herve go up against the Turks?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

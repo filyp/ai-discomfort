@@ -1,0 +1,31 @@
+{
+  "id": -8671730800953225881,
+  "question": "Who played flash gordon in the tv series?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played flash gordon in the 1954 tv series?',\n              \"Who was flash gordon's voice in the 1996 tv series?\",\n              'Who played flash gordon in the 2007tv series?'], dtype=object), 'answer': array([array(['Steve Holland'], dtype=object),\n              array(['Toby Proctor'], dtype=object),\n              array(['Eric Johnson'], dtype=object)], dtype=object)}                                                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 966,
+  "prompt": "Who played flash gordon in the tv series?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out who played Flash Gordon in the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.74428939819336,
+          "prob": 1.9667675268332458e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9667674881515013e-08,
+      "prompt": "You're given the following task:\nWho played flash gordon in the tv series?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

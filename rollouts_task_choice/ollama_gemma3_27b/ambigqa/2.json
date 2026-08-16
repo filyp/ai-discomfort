@@ -1,0 +1,69 @@
+{
+  "id": 5780388869788119926,
+  "question": "Who is the current chairman of african union commission?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the 4th chairman of african union commission?',\n              'Who is the 3rd chairman of african union commission?',\n              'Who is the 2nd chairman of african union commission?'],\n             dtype=object), 'answer': array([array(['Moussa Faki', 'Moussa Faki Mahamat'], dtype=object),\n              array(['Nkosazana Clarice Dlamini-Zuma', 'Nkosazana Dlamini-Zuma'],\n                    dtype=object)                                                ,\n              array(['Jean Ping'], dtype=object)], dtype=object)}                                        ,\n       {'question': array(['Who became the chairman of african union commission in 2017?',\n              'Who became the chairman of african union commission in 2012?',\n              'Who became the chairman of african union commission in 2008?'],\n             dtype=object), 'answer': array([array(['Moussa Faki', 'Moussa Faki Mahamat'], dtype=object),\n              array(['Nkosazana Clarice Dlamini-Zuma', 'Nkosazana Dlamini-Zuma', 'NDZ'],\n                    dtype=object)                                                       ,\n              array(['Jean Ping'], dtype=object)], dtype=object)}                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 2,
+  "prompt": "Who is the current chairman of african union commission?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.961257934570312,
+          "prob": 7.882089197924882e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.882089191712149e-10,
+      "prompt": "You're given the following task:\nWho is the current chairman of african union commission?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! The current Chairman of the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.03736114501953,
+          "prob": 3.9881186321354266e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.98811847308453e-08,
+      "prompt": "You're given the following task:\nWho is the current chairman of african union commission?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nThe current Chairman of the African Union Commission is **Moussa",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -24.596263885498047,
+          "prob": 2.0795928667950568e-11,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0795928667518095e-11,
+      "prompt": "You're given the following task:\nWho is the current chairman of african union commission?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

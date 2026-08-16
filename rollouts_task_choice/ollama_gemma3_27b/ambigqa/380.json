@@ -1,0 +1,31 @@
+{
+  "id": 839574015330081836,
+  "question": "What instrument do you blow into with a keyboard?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What instrument do you blow into with a keyboard that was invented in 1950?',\n              'What instrument do you blow into with a keyboard that was invented in 1960?'],\n             dtype=object), 'answer': array([array(['Melodica'], dtype=object),\n              array(['Claviola'], dtype=object)], dtype=object)}                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 380,
+  "prompt": "What instrument do you blow into with a keyboard?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.550281524658203,
+          "prob": 1.1888474546415082e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.18884745322815e-09,
+      "prompt": "You're given the following task:\nWhat instrument do you blow into with a keyboard?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

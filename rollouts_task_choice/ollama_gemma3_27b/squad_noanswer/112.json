@@ -1,0 +1,32 @@
+{
+  "id": "5ad3fccf604f3c001a3ffbb5",
+  "title": "Normans",
+  "context": "At Saint Evroul, a tradition of singing had developed and the choir achieved fame in Normandy. Under the Norman abbot Robert de Grantmesnil, several monks of Saint-Evroul fled to southern Italy, where they were patronised by Robert Guiscard and established a Latin monastery at Sant'Eufemia. There they continued the tradition of singing.",
+  "question": "Who fled from southern Italy?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 112,
+  "prompt": "Context: At Saint Evroul, a tradition of singing had developed and the choir achieved fame in Normandy. Under the Norman abbot Robert de Grantmesnil, several monks of Saint-Evroul fled to southern Italy, where they were patronised by Robert Guiscard and established a Latin monastery at Sant'Eufemia. There they continued the tradition of singing.\n\nQuestion: Who fled from southern Italy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states monks *from* Saint-Evroul fled",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0001512880262453109,
+          "prob": 0.9998487234172111,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.796385765075684,
+          "prob": 0.0001512788455168926,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.00015127884517458974,
+      "prompt": "You're given the following task:\nContext: At Saint Evroul, a tradition of singing had developed and the choir achieved fame in Normandy. Under the Norman abbot Robert de Grantmesnil, several monks of Saint-Evroul fled to southern Italy, where they were patronised by Robert Guiscard and established a Latin monastery at Sant'Eufemia. There they continued the tradition of singing.\n\nQuestion: Who fled from southern Italy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

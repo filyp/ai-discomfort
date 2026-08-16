@@ -1,0 +1,32 @@
+{
+  "id": "571135b8a58dae1900cd6d0f",
+  "title": "Steam_engine",
+  "context": "The Rankine cycle and most practical steam engines have a water pump to recycle or top up the boiler water, so that they may be run continuously. Utility and industrial boilers commonly use multi-stage centrifugal pumps; however, other types are used. Another means of supplying lower-pressure boiler feed water is an injector, which uses a steam jet usually supplied from the boiler. Injectors became popular in the 1850s but are no longer widely used, except in applications such as steam locomotives.",
+  "question": "What types of pumps are typically used in industrial boilers?",
+  "answers": "{'text': array(['multi-stage centrifugal', 'multi-stage centrifugal',\n       'multi-stage centrifugal pumps'], dtype=object), 'answer_start': array([190, 190, 190], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 939,
+  "prompt": "Context: The Rankine cycle and most practical steam engines have a water pump to recycle or top up the boiler water, so that they may be run continuously. Utility and industrial boilers commonly use multi-stage centrifugal pumps; however, other types are used. Another means of supplying lower-pressure boiler feed water is an injector, which uses a steam jet usually supplied from the boiler. Injectors became popular in the 1850s but are no longer widely used, except in applications such as steam locomotives.\n\nQuestion: What types of pumps are typically used in industrial boilers?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, based on the provided text, the answer is **multi",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.359115600585938,
+          "prob": 9.697862644896053e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.697862644802005e-12,
+      "prompt": "You're given the following task:\nContext: The Rankine cycle and most practical steam engines have a water pump to recycle or top up the boiler water, so that they may be run continuously. Utility and industrial boilers commonly use multi-stage centrifugal pumps; however, other types are used. Another means of supplying lower-pressure boiler feed water is an injector, which uses a steam jet usually supplied from the boiler. Injectors became popular in the 1850s but are no longer widely used, except in applications such as steam locomotives.\n\nQuestion: What types of pumps are typically used in industrial boilers?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

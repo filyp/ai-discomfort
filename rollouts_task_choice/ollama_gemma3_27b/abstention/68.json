@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 68,
+  "prompt": "How many times a week can you bbq without it increasing your carcinogens and thus decreasing your longevity?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, this is a complex question! It's not about",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.648143768310547,
+          "prob": 2.1652524844369938e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.1652524375538115e-08,
+      "prompt": "You're given the following task:\nHow many times a week can you bbq without it increasing your carcinogens and thus decreasing your longevity?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

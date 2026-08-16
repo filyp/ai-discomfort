@@ -1,0 +1,31 @@
+{
+  "id": 3397865411559231398,
+  "question": "Who is the author of delta of venus?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who wrote Delta of Venus (book)?',\n              'Who wrote Delta of Venus (movie)?',\n              'Who is the author character in the movie Delta of Venus?',\n              'Who plays the author character in the movie Delta of Venus?'],\n             dtype=object), 'answer': array([array(['Anaïs Nin'], dtype=object),\n              array(['Patricia Louisianna Knop', 'Elisa M. Rothstein'], dtype=object),\n              array(['Elena Martin'], dtype=object),\n              array(['Audie England'], dtype=object)], dtype=object)}                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 693,
+  "prompt": "Who is the author of delta of venus?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.122642517089844,
+          "prob": 9.95463455215099e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.954634747888346e-08,
+      "prompt": "You're given the following task:\nWho is the author of delta of venus?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

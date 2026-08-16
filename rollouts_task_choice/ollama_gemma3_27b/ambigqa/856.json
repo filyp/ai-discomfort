@@ -1,0 +1,31 @@
+{
+  "id": 3143098267219565878,
+  "question": "When did florida stop using the electric chair?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did Florida execute the last person using the electric chair?',\n              'When did Florida stop using the electric chair, and sign lethal injection into law?'],\n             dtype=object), 'answer': array([array(['1999'], dtype=object), array(['2000'], dtype=object)],\n             dtype=object)}                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 856,
+  "prompt": "When did florida stop using the electric chair?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.04114532470703,
+          "prob": 1.0799884279863695e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0799884400935147e-07,
+      "prompt": "You're given the following task:\nWhen did florida stop using the electric chair?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

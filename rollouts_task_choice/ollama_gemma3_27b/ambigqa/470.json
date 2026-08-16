@@ -1,0 +1,31 @@
+{
+  "id": -8793431850990091319,
+  "question": "Who presented the first this is your life?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object),\n       array(['Ralph Livingstone Edwards', 'Ralph Edwards'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['Who was the presenter on the original NBC radio show This Is Your Life?',\n              'What company first aired presentations of the original radio show This Is Your Life?'],\n             dtype=object), 'answer': array([array(['Ralph Edwards'], dtype=object),\n              array(['NBC'], dtype=object)], dtype=object)}                                           ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 470,
+  "prompt": "Who presented the first this is your life?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.006802894058637e-06,
+          "prob": 0.9999949932096399,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.209881782531738,
+          "prob": 4.980990542790439e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.980990671299088e-06,
+      "prompt": "You're given the following task:\nWho presented the first this is your life?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

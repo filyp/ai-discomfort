@@ -1,0 +1,32 @@
+{
+  "id": "5705eccb52bb8914006896b8",
+  "title": "Southern_California",
+  "context": "Many locals and tourists frequent the southern California coast for its popular beaches, and the desert city of Palm Springs is popular for its resort feel and nearby open spaces.",
+  "question": "What is the name of the desert city?",
+  "answers": "{'text': array(['Palm Springs', 'Palm Springs', 'Palm Springs'], dtype=object), 'answer_start': array([112, 112, 112], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 333,
+  "prompt": "Context: Many locals and tourists frequent the southern California coast for its popular beaches, and the desert city of Palm Springs is popular for its resort feel and nearby open spaces.\n\nQuestion: What is the name of the desert city?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe name of the desert city is Palm Springs. \n\nDo",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.77609634399414,
+          "prob": 4.722506415741783e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.722506415518762e-11,
+      "prompt": "You're given the following task:\nContext: Many locals and tourists frequent the southern California coast for its popular beaches, and the desert city of Palm Springs is popular for its resort feel and nearby open spaces.\n\nQuestion: What is the name of the desert city?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -1577289527989199556,
+  "question": "Who loves helena in a midsummer night's dream?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who loves helena in a midsummer night's dream only due to the potion?\",\n              \"Who loves helena in a midsummer night's dream after the potion wears off?\"],\n             dtype=object), 'answer': array([array(['Lysander'], dtype=object),\n              array(['Demetrius'], dtype=object)], dtype=object)}                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 163,
+  "prompt": "Who loves helena in a midsummer night's dream?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about who loves Helena in *A",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.289222717285156,
+          "prob": 2.8269921605642932e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.8269921604843746e-11,
+      "prompt": "You're given the following task:\nWho loves helena in a midsummer night's dream?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 606,
+  "prompt": "What is the name of the band that  released an album named 'A Different Beat' and also had as a member a 1976 Irish born singer-songwriter who has taken up auto racing?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely help with that! It sounds like we",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.92612075805664,
+          "prob": 1.6397765554809403e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.639776528592269e-08,
+      "prompt": "You're given the following task:\nWhat is the name of the band that  released an album named 'A Different Beat' and also had as a member a 1976 Irish born singer-songwriter who has taken up auto racing?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

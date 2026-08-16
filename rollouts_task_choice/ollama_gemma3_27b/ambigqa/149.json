@@ -1,0 +1,31 @@
+{
+  "id": -4561791635646149573,
+  "question": "When were the first us immigration laws passed?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the first us general immigration law passed?',\n              'When was the first us law passed regarding naturalization?'],\n             dtype=object), 'answer': array([array(['August 3, 1882'], dtype=object),\n              array(['1790'], dtype=object)], dtype=object)}                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 149,
+  "prompt": "When were the first us immigration laws passed?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.097793579101562,
+          "prob": 1.869128459609613e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.8691284561159717e-09,
+      "prompt": "You're given the following task:\nWhen were the first us immigration laws passed?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

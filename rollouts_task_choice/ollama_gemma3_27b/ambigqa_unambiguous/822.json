@@ -1,0 +1,31 @@
+{
+  "id": 8074165592261630409,
+  "question": "Who plays lead guitar on i want you she's so heavy?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['John Lennon'], dtype=object),\n       array(['John Lennon'], dtype=object),\n       array(['John Lennon'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 822,
+  "prompt": "Who plays lead guitar on i want you she's so heavy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! To answer your question: Tom Petty plays lead guitar on",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -9.536747711536009e-07,
+          "prob": 0.9999990463256836,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.816086769104004,
+          "prob": 9.994239548380281e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.994239091147456e-07,
+      "prompt": "You're given the following task:\nWho plays lead guitar on i want you she's so heavy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

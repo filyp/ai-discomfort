@@ -1,0 +1,31 @@
+{
+  "id": 223527143081061606,
+  "question": "Where are most of your taste buds located on your tounge?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where on your tongue do you find the taste buds?',\n              'Where can you find your taste buds on your tongue?'], dtype=object), 'answer': array([array(['the upper surface of the tongue', 'Upper surface of the tongue'],\n                    dtype=object)                                                      ,\n              array(['small structures known as papillae', 'papillae'], dtype=object)],\n             dtype=object)}                                                                                                                                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1100,
+  "prompt": "Where are most of your taste buds located on your tounge?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's talk about taste buds! While it was",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.187950134277344,
+          "prob": 9.325295086322307e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.325295328372764e-08,
+      "prompt": "You're given the following task:\nWhere are most of your taste buds located on your tounge?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

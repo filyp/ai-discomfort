@@ -1,0 +1,31 @@
+{
+  "id": -111267617843919663,
+  "question": "Who played guitar on whitesnake still of the night?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played bowed guitar on whitesnake still of the night?',\n              'Who played bass guitar on whitesnake still of the night?'],\n             dtype=object), 'answer': array([array(['John Sykes'], dtype=object),\n              array(['Neil Murray'], dtype=object)], dtype=object)}                    ,\n       {'question': array(['Who played the bowed guitar on Whitesnake\\'s song \"Still of the Night\"?',\n              'Who played the bass guitar on Whitesnake\\'s song \"Still of the Night\"?'],\n             dtype=object), 'answer': array([array(['John Sykes'], dtype=object),\n              array(['Neil Murray'], dtype=object)], dtype=object)}                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 839,
+  "prompt": "Who played guitar on whitesnake still of the night?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.58061981201172,
+          "prob": 3.1350528278592452e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.135052818030689e-09,
+      "prompt": "You're given the following task:\nWho played guitar on whitesnake still of the night?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

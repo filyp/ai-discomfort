@@ -1,0 +1,31 @@
+{
+  "id": 7770189418888034470,
+  "question": "Who did the artwork for pink floyd's wall?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who did the art work for the album cover of Pink Floyd's The Wall?\",\n              'Who was the cinematographer for Pink Floyd - The Wall (1982 film)?'],\n             dtype=object), 'answer': array([array(['Gerald Scarfe'], dtype=object),\n              array(['Peter Biziou'], dtype=object)], dtype=object)}                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 306,
+  "prompt": "Who did the artwork for pink floyd's wall?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you about the artwork for Pink Floyd'",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.16185760498047,
+          "prob": 6.449440126582875e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.449440122423347e-10,
+      "prompt": "You're given the following task:\nWho did the artwork for pink floyd's wall?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

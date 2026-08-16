@@ -1,0 +1,31 @@
+{
+  "id": 2514325043916901100,
+  "question": "Who plays buck on the tv show 9-1-1?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Oliver Stark'], dtype=object), array([], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Who plays Evan \"Buck\" Buckley on the tv show 9-1-1?',\n              'Who plays Madeline \"Maddie\" Buckley Kendall on the tv show 9-1-1?'],\n             dtype=object), 'answer': array([array(['Oliver Stark'], dtype=object),\n              array(['Jennifer Love Hewitt'], dtype=object)], dtype=object)}       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 269,
+  "prompt": "Who plays buck on the tv show 9-1-1?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can tell you who plays Buck on *9-",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.34366226196289,
+          "prob": 1.9782026263668128e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9782026259754843e-10,
+      "prompt": "You're given the following task:\nWho plays buck on the tv show 9-1-1?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

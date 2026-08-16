@@ -1,0 +1,31 @@
+{
+  "id": 5405286095412226119,
+  "question": "How much tv does the average person watch a day?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How much minutes of tv does the average person watch a day in Asia Pacific?',\n              'How much minutes of tv does the average person watch a day in Central and Eastern Europe?',\n              'How much minutes of tv does the average person watch a day in Latin America?',\n              'How much minutes of tv does the average person watch a day in North America?',\n              'How much minutes of tv does the average person watch a day in MENA?',\n              'How much minutes of tv does the average person watch a day in Western Europe?',\n              'How much minutes of tv does the average person watch a day in the United States?'],\n             dtype=object), 'answer': array([array(['154.5'], dtype=object), array(['222.9'], dtype=object),\n              array(['199.0'], dtype=object), array(['292.6'], dtype=object),\n              array(['249.7'], dtype=object), array(['220.5'], dtype=object),\n              array(['238'], dtype=object)], dtype=object)}                                                 ,\n       {'question': array(['How much tv does the average person watch a day in Asia Pacific?',\n              'How much tv does the average person watch a day in Central and Eastern Europe?',\n              'How much tv does the average person watch a day in Latin America?',\n              'How much tv does the average person watch a day in North America?',\n              'How much tv does the average person watch a day in MENA?',\n              'How much tv does the average person watch a day in Western Europe?'],\n             dtype=object), 'answer': array([array(['154.5 minutes'], dtype=object),\n              array(['222.9 minutes'], dtype=object),\n              array(['199.0 minutes'], dtype=object),\n              array(['292.6 minutes'], dtype=object),\n              array(['249.7 minutes'], dtype=object),\n              array(['220.5 minutes'], dtype=object)], dtype=object)}                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 271,
+  "prompt": "How much tv does the average person watch a day?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out how much TV the average person",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.638927459716797,
+          "prob": 2.185300361321026e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.1853003135656504e-08,
+      "prompt": "You're given the following task:\nHow much tv does the average person watch a day?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

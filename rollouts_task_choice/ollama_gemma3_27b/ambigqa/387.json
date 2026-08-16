@@ -1,0 +1,31 @@
+{
+  "id": 7150599999316106461,
+  "question": "Who was the first singing brothers in the hall of fame?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who was the first singing brothers in the rock and roll hall of fame?',\n              'Who was the first singing brothers in the country music hall of fame?'],\n             dtype=object), 'answer': array([array(['The Everly Brothers', 'Don Everly Phil Everly'], dtype=object),\n              array(['The Louvin Brothers, the Everly Brothers, and the Delmore Brothers',\n                     'The Louvin Brothers', 'the Everly Brothers',\n                     'the Delmore Brothers'], dtype=object)                               ],\n             dtype=object)}                                                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 387,
+  "prompt": "Who was the first singing brothers in the hall of fame?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To clarify, are you",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.960466182841628e-07,
+          "prob": 0.9999994039535594,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.30907154083252,
+          "prob": 6.104487217184445e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.104487129265905e-07,
+      "prompt": "You're given the following task:\nWho was the first singing brothers in the hall of fame?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

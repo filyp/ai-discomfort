@@ -1,0 +1,32 @@
+{
+  "id": "5a63888168151a001a922342",
+  "title": "Victoria_(Australia)",
+  "context": "About 61.1% of Victorians describe themselves as Christian. Roman Catholics form the single largest religious group in the state with 26.7% of the Victorian population, followed by Anglicans and members of the Uniting Church. Buddhism is the state's largest non-Christian religion, with 168,637 members as of the most recent census. Victoria is also home of 152,775 Muslims and 45,150 Jews. Hinduism is the fastest growing religion. Around 20% of Victorians claim no religion. Amongst those who declare a religious affiliation, church attendance is low.",
+  "question": "What religion are most of the lower class in Victoria?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 601,
+  "prompt": "Context: About 61.1% of Victorians describe themselves as Christian. Roman Catholics form the single largest religious group in the state with 26.7% of the Victorian population, followed by Anglicans and members of the Uniting Church. Buddhism is the state's largest non-Christian religion, with 168,637 members as of the most recent census. Victoria is also home of 152,775 Muslims and 45,150 Jews. Hinduism is the fastest growing religion. Around 20% of Victorians claim no religion. Amongst those who declare a religious affiliation, church attendance is low.\n\nQuestion: What religion are most of the lower class in Victoria?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis question is impossible to answer based on the provided text *and",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -10.983770370483398,
+          "prob": 1.6974974775781808e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -1.6927862816373818e-05,
+          "prob": 0.9999830722804591,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999830250260264,
+      "prompt": "You're given the following task:\nContext: About 61.1% of Victorians describe themselves as Christian. Roman Catholics form the single largest religious group in the state with 26.7% of the Victorian population, followed by Anglicans and members of the Uniting Church. Buddhism is the state's largest non-Christian religion, with 168,637 members as of the most recent census. Victoria is also home of 152,775 Muslims and 45,150 Jews. Hinduism is the fastest growing religion. Around 20% of Victorians claim no religion. Amongst those who declare a religious affiliation, church attendance is low.\n\nQuestion: What religion are most of the lower class in Victoria?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

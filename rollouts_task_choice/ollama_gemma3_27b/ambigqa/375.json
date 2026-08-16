@@ -1,0 +1,31 @@
+{
+  "id": -648842070307266365,
+  "question": "What is a ford mondeo in the usa?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What class of car is a ford mondeo in the usa?',\n              'What name was the ford Mk I mondeo sold under in the usa?',\n              'What name was the ford Mk II mondeo sold under in the usa?',\n              'What name was the ford Mk V mondeo sold under in the usa?',\n              'What car is a ford mondeo design based off of in the usa?'],\n             dtype=object), 'answer': array([array(['Mid-size car', 'Mid-size', 'intermediate'], dtype=object),\n              array(['Ford Contour', 'Contour'], dtype=object),\n              array(['Mercury Mystique', 'Mystique'], dtype=object),\n              array(['Ford Fusion', 'Fusion'], dtype=object),\n              array(['Ford Tempo/Mercury Topaz', 'Ford Tempo', 'Mercury Topaz'],\n                    dtype=object)                                               ],\n             dtype=object)}                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 375,
+  "prompt": "What is a ford mondeo in the usa?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, so you're asking about the Ford Mondeo in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.9908149624825455e-05,
+          "prob": 0.9999800920485411,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -10.861248970031738,
+          "prob": 1.9187549169664988e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9187562992429292e-05,
+      "prompt": "You're given the following task:\nWhat is a ford mondeo in the usa?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

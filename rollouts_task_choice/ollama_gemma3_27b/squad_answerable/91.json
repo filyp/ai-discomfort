@@ -1,0 +1,32 @@
+{
+  "id": "56de51c64396321400ee27f7",
+  "title": "Normans",
+  "context": "Normandy was the site of several important developments in the history of classical music in the 11th century. Fécamp Abbey and Saint-Evroul Abbey were centres of musical production and education. At Fécamp, under two Italian abbots, William of Volpiano and John of Ravenna, the system of denoting notes by letters was developed and taught. It is still the most common form of pitch representation in English- and German-speaking countries today. Also at Fécamp, the staff, around which neumes were oriented, was first developed and taught in the 11th century. Under the German abbot Isembard, La Trinité-du-Mont became a centre of musical composition.",
+  "question": "In what century did important classical music developments occur in Normandy?",
+  "answers": "{'text': array(['11th', 'the 11th', '11th'], dtype=object), 'answer_start': array([97, 93, 97], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 91,
+  "prompt": "Context: Normandy was the site of several important developments in the history of classical music in the 11th century. Fécamp Abbey and Saint-Evroul Abbey were centres of musical production and education. At Fécamp, under two Italian abbots, William of Volpiano and John of Ravenna, the system of denoting notes by letters was developed and taught. It is still the most common form of pitch representation in English- and German-speaking countries today. Also at Fécamp, the staff, around which neumes were oriented, was first developed and taught in the 11th century. Under the German abbot Isembard, La Trinité-du-Mont became a centre of musical composition.\n\nQuestion: In what century did important classical music developments occur in Normandy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nThe text states that important classical music developments occurred in Normandy in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.45110321044922,
+          "prob": 2.192600081584714e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.1926000815846658e-14,
+      "prompt": "You're given the following task:\nContext: Normandy was the site of several important developments in the history of classical music in the 11th century. Fécamp Abbey and Saint-Evroul Abbey were centres of musical production and education. At Fécamp, under two Italian abbots, William of Volpiano and John of Ravenna, the system of denoting notes by letters was developed and taught. It is still the most common form of pitch representation in English- and German-speaking countries today. Also at Fécamp, the staff, around which neumes were oriented, was first developed and taught in the 11th century. Under the German abbot Isembard, La Trinité-du-Mont became a centre of musical composition.\n\nQuestion: In what century did important classical music developments occur in Normandy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

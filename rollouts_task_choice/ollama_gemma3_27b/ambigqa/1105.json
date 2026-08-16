@@ -1,0 +1,31 @@
+{
+  "id": 2629293950498571614,
+  "question": "When were the first magnetic compasses used by chinese ships?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When were the first magnetic compasses used by Chinese ships for maritime navigation?',\n              'When were the first magnetic compasses used by Chinese ships for navigational orienteering?'],\n             dtype=object), 'answer': array([array(['1111-1117'], dtype=object),\n              array(['1040-1044', '1040 -- 44'], dtype=object)], dtype=object)}                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1105,
+  "prompt": "When were the first magnetic compasses used by chinese ships?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.01952362060547,
+          "prob": 7.435957164865355e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.43595715933601e-10,
+      "prompt": "You're given the following task:\nWhen were the first magnetic compasses used by chinese ships?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

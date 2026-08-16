@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 475,
+  "prompt": "Grand Rapids–Itasca County Airport is a public airport located two miles (3 km) southeast of the central business district (CBD) of which city in Itasca County, Minnesota, United States?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nI can answer that! Do you want me to tell you the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.9073504518019035e-06,
+          "prob": 0.9999980926513672,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.141130447387695,
+          "prob": 1.962815869975334e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9628157611033664e-06,
+      "prompt": "You're given the following task:\nGrand Rapids–Itasca County Airport is a public airport located two miles (3 km) southeast of the central business district (CBD) of which city in Itasca County, Minnesota, United States?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "570d30fdfed7b91900d45ce4",
+  "title": "Victoria_(Australia)",
+  "context": "The Mallee and upper Wimmera are Victoria's warmest regions with hot winds blowing from nearby semi-deserts. Average temperatures exceed 32 °C (90 °F) during summer and 15 °C (59 °F) in winter. Except at cool mountain elevations, the inland monthly temperatures are 2–7 °C (4–13 °F) warmer than around Melbourne (see chart). Victoria's highest maximum temperature since World War II, of 48.8 °C (119.8 °F) was recorded in Hopetoun on 7 February 2009, during the 2009 southeastern Australia heat wave.",
+  "question": "What does the average temperatures exceed in the summer?",
+  "answers": "{'text': array(['32 °C', '32 °C', '32 °C (90 °F)'], dtype=object), 'answer_start': array([137, 137, 137], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 628,
+  "prompt": "Context: The Mallee and upper Wimmera are Victoria's warmest regions with hot winds blowing from nearby semi-deserts. Average temperatures exceed 32 °C (90 °F) during summer and 15 °C (59 °F) in winter. Except at cool mountain elevations, the inland monthly temperatures are 2–7 °C (4–13 °F) warmer than around Melbourne (see chart). Victoria's highest maximum temperature since World War II, of 48.8 °C (119.8 °F) was recorded in Hopetoun on 7 February 2009, during the 2009 southeastern Australia heat wave.\n\nQuestion: What does the average temperatures exceed in the summer?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe average temperatures exceed 32 °C (90 °",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.74945831298828,
+          "prob": 4.422623132413175e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.4226231324129795e-14,
+      "prompt": "You're given the following task:\nContext: The Mallee and upper Wimmera are Victoria's warmest regions with hot winds blowing from nearby semi-deserts. Average temperatures exceed 32 °C (90 °F) during summer and 15 °C (59 °F) in winter. Except at cool mountain elevations, the inland monthly temperatures are 2–7 °C (4–13 °F) warmer than around Melbourne (see chart). Victoria's highest maximum temperature since World War II, of 48.8 °C (119.8 °F) was recorded in Hopetoun on 7 February 2009, during the 2009 southeastern Australia heat wave.\n\nQuestion: What does the average temperatures exceed in the summer?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

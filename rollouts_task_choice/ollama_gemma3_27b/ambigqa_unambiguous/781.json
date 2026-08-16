@@ -1,0 +1,31 @@
+{
+  "id": 1878103752796630343,
+  "question": "The number on kiss me thru the phone?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['6 7 8 999 8 2 1 2'], dtype=object),\n       array(['678-999-8212'], dtype=object),\n       array(['678-999-8212'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 781,
+  "prompt": "The number on kiss me thru the phone?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nThe prompt \"The number on kiss me thru",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -12.246102333068848,
+          "prob": 4.8038045805104125e-06,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.768382950715022e-06,
+          "prob": 0.999995231628418,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999951961955896,
+      "prompt": "You're given the following task:\nThe number on kiss me thru the phone?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 853,
+  "prompt": "What events triggered specific family tragedies?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nWhile I can process information about events and tragedies, directly asking *",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -7.674065113067627,
+          "prob": 0.0004647248197348058,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.00046597846085205674,
+          "prob": 0.9995341300902495,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9995352746481129,
+      "prompt": "You're given the following task:\nWhat events triggered specific family tragedies?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

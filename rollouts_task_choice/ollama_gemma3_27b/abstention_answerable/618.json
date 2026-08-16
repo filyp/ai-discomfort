@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 618,
+  "prompt": "Sylvio's engine has been extended to how many target platforms?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To determine how many target",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.00026259294827468693,
+          "prob": 0.9997374415262359,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.24549388885498,
+          "prob": 0.0002624384738194216,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0002624385053120277,
+      "prompt": "You're given the following task:\nSylvio's engine has been extended to how many target platforms?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

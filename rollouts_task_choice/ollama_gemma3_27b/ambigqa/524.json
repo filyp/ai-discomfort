@@ -1,0 +1,31 @@
+{
+  "id": -3904805932335139116,
+  "question": "What was the daughter's name on the jetsons?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What was the name of the daughter on the Jetsons?',\n              'What was the name of the actor who was the voice of the daughter in the Jetsons TV series?',\n              'What was the name of the actor who was the voice of the daughter in Jetsons: The Movie?',\n              'What was the name of the actor who was the voice of the daughter in The Jetsons & WWE: Robo-WrestleMania!?'],\n             dtype=object), 'answer': array([array(['Judy Jetson', 'Judy'], dtype=object),\n              array(['Janet Waldo'], dtype=object),\n              array(['Tiffany Renee Darwish', 'Tiffany'], dtype=object),\n              array(['Danica McKellar'], dtype=object)], dtype=object)}                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 524,
+  "prompt": "What was the daughter's name on the jetsons?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.0447998046875,
+          "prob": 2.6672583916178583e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.667258390906432e-10,
+      "prompt": "You're given the following task:\nWhat was the daughter's name on the jetsons?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 516,
+  "prompt": "How do IoT fire suppression sensors breathe?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, that's a clever question! It highlights how we",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.00010610189929138869,
+          "prob": 0.9998939037293161,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -9.152495384216309,
+          "prob": 0.00010595507396460866,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.00010595508892511961,
+      "prompt": "You're given the following task:\nHow do IoT fire suppression sensors breathe?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

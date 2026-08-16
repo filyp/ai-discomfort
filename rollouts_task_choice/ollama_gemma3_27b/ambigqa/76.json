@@ -1,0 +1,31 @@
+{
+  "id": 3916740640435538629,
+  "question": "What movie is the song all star from?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What 2000 movie does the song \"All Star\" appear in?',\n              'What DreamWorks Animation movie from 2001 does the song \"All Star appear in?',\n              'In what 2001 movie is the song \"All Star\" performed at a charity concert?'],\n             dtype=object), 'answer': array([array(['Digimon: The Movie'], dtype=object),\n              array(['Shrek'], dtype=object), array(['Rat Race'], dtype=object)],\n             dtype=object)}                                                                  ,\n       {'question': array(['What movie is the song all star from 1999?',\n              'What movie is the song all star from 2000?',\n              'What movie is the song all star from 2001?'], dtype=object), 'answer': array([array(['Inspector Gadget'], dtype=object),\n              array(['Digimon: The Movie'], dtype=object),\n              array(['Shrek'], dtype=object)], dtype=object)}                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 76,
+  "prompt": "What movie is the song all star from?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.577857971191406,
+          "prob": 6.314337066891934e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.314337420911019e-08,
+      "prompt": "You're given the following task:\nWhat movie is the song all star from?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

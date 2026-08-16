@@ -1,0 +1,32 @@
+{
+  "id": "570d30fdfed7b91900d45ce3",
+  "title": "Victoria_(Australia)",
+  "context": "The Mallee and upper Wimmera are Victoria's warmest regions with hot winds blowing from nearby semi-deserts. Average temperatures exceed 32 °C (90 °F) during summer and 15 °C (59 °F) in winter. Except at cool mountain elevations, the inland monthly temperatures are 2–7 °C (4–13 °F) warmer than around Melbourne (see chart). Victoria's highest maximum temperature since World War II, of 48.8 °C (119.8 °F) was recorded in Hopetoun on 7 February 2009, during the 2009 southeastern Australia heat wave.",
+  "question": "What is the weather type of Mallee and upper Wimmera?",
+  "answers": "{'text': array(['warmest regions', 'semi-deserts', 'semi-deserts'], dtype=object), 'answer_start': array([44, 95, 95], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 627,
+  "prompt": "Context: The Mallee and upper Wimmera are Victoria's warmest regions with hot winds blowing from nearby semi-deserts. Average temperatures exceed 32 °C (90 °F) during summer and 15 °C (59 °F) in winter. Except at cool mountain elevations, the inland monthly temperatures are 2–7 °C (4–13 °F) warmer than around Melbourne (see chart). Victoria's highest maximum temperature since World War II, of 48.8 °C (119.8 °F) was recorded in Hopetoun on 7 February 2009, during the 2009 southeastern Australia heat wave.\n\nQuestion: What is the weather type of Mallee and upper Wimmera?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text describes the weather type of Mallee and upper W",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.647483825683594,
+          "prob": 4.897414810670215e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.8974148106699745e-14,
+      "prompt": "You're given the following task:\nContext: The Mallee and upper Wimmera are Victoria's warmest regions with hot winds blowing from nearby semi-deserts. Average temperatures exceed 32 °C (90 °F) during summer and 15 °C (59 °F) in winter. Except at cool mountain elevations, the inland monthly temperatures are 2–7 °C (4–13 °F) warmer than around Melbourne (see chart). Victoria's highest maximum temperature since World War II, of 48.8 °C (119.8 °F) was recorded in Hopetoun on 7 February 2009, during the 2009 southeastern Australia heat wave.\n\nQuestion: What is the weather type of Mallee and upper Wimmera?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

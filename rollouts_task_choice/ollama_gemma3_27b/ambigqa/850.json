@@ -1,0 +1,31 @@
+{
+  "id": -4286108617234818000,
+  "question": "When does the new super troopers movie come out?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When does the second super troopers movie come out?',\n              'When does the first super troopers movie come out at Sundance?',\n              'When does the first super troopers movie come out in all of the United States?'],\n             dtype=object), 'answer': array([array(['April 20, 2018'], dtype=object),\n              array(['January 19, 2001'], dtype=object),\n              array(['February 15, 2002'], dtype=object)], dtype=object)}                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 850,
+  "prompt": "When does the new super troopers movie come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.21969985961914,
+          "prob": 1.2226014007589754e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.2226013858114337e-08,
+      "prompt": "You're given the following task:\nWhen does the new super troopers movie come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

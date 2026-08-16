@@ -1,0 +1,32 @@
+{
+  "id": "57265e11708984140094c3be",
+  "title": "1973_oil_crisis",
+  "context": "OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Saudi Arabia, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This \"sale\" price was a windfall for oil-importing nations, both developing and developed.",
+  "question": "In 1979, during the oil crisis, what was the highest price of oil?",
+  "answers": "{'text': array(['nearly $40 per barrel', 'nearly $40 per barrel', '$40 per barrel',\n       '$40 per barrel', '$40 per barrel'], dtype=object), 'answer_start': array([375, 375, 382, 382, 382], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1484,
+  "prompt": "Context: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Saudi Arabia, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This \"sale\" price was a windfall for oil-importing nations, both developing and developed.\n\nQuestion: In 1979, during the oil crisis, what was the highest price of oil?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nAccording to the text, the world price of oil peaked during the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.890899658203125,
+          "prob": 5.195935766921309e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.195935766921282e-15,
+      "prompt": "You're given the following task:\nContext: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Saudi Arabia, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This \"sale\" price was a windfall for oil-importing nations, both developing and developed.\n\nQuestion: In 1979, during the oil crisis, what was the highest price of oil?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

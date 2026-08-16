@@ -1,0 +1,32 @@
+{
+  "id": "5ad3d4db604f3c001a3ff2b5",
+  "title": "Steam_engine",
+  "context": "Although the reciprocating steam engine is no longer in widespread commercial use, various companies are exploring or exploiting the potential of the engine as an alternative to internal combustion engines. The company Energiprojekt AB in Sweden has made progress in using modern materials for harnessing the power of steam. The efficiency of Energiprojekt's steam engine reaches some 27-30% on high-pressure engines. It is a single-step, 5-cylinder engine (no compound) with superheated steam and consumes approx. 4 kg (8.8 lb) of steam per kWh.[not in citation given]",
+  "question": "What percentage of a high pressure engine's efficiency has the compound engine achieved?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1053,
+  "prompt": "Context: Although the reciprocating steam engine is no longer in widespread commercial use, various companies are exploring or exploiting the potential of the engine as an alternative to internal combustion engines. The company Energiprojekt AB in Sweden has made progress in using modern materials for harnessing the power of steam. The efficiency of Energiprojekt's steam engine reaches some 27-30% on high-pressure engines. It is a single-step, 5-cylinder engine (no compound) with superheated steam and consumes approx. 4 kg (8.8 lb) of steam per kWh.[not in citation given]\n\nQuestion: What percentage of a high pressure engine's efficiency has the compound engine achieved?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nThe provided text *only* gives the efficiency",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -0.5527768731117249,
+          "prob": 0.5753499163446596,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.8564954400062561,
+          "prob": 0.4246476808864618,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.42464870121914544,
+      "prompt": "You're given the following task:\nContext: Although the reciprocating steam engine is no longer in widespread commercial use, various companies are exploring or exploiting the potential of the engine as an alternative to internal combustion engines. The company Energiprojekt AB in Sweden has made progress in using modern materials for harnessing the power of steam. The efficiency of Energiprojekt's steam engine reaches some 27-30% on high-pressure engines. It is a single-step, 5-cylinder engine (no compound) with superheated steam and consumes approx. 4 kg (8.8 lb) of steam per kWh.[not in citation given]\n\nQuestion: What percentage of a high pressure engine's efficiency has the compound engine achieved?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

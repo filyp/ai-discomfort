@@ -1,0 +1,32 @@
+{
+  "id": "5706111a52bb89140068984f",
+  "title": "Southern_California",
+  "context": "Six of the seven lines of the commuter rail system, Metrolink, run out of Downtown Los Angeles, connecting Los Angeles, Ventura, San Bernardino, Riverside, Orange, and San Diego counties with the other line connecting San Bernardino, Riverside, and Orange counties directly.",
+  "question": "A single line connects San Bernardino, Riverside and what other county?",
+  "answers": "{'text': array(['Orange', 'Orange', 'Orange'], dtype=object), 'answer_start': array([249, 249, 249], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 447,
+  "prompt": "Context: Six of the seven lines of the commuter rail system, Metrolink, run out of Downtown Los Angeles, connecting Los Angeles, Ventura, San Bernardino, Riverside, Orange, and San Diego counties with the other line connecting San Bernardino, Riverside, and Orange counties directly.\n\nQuestion: A single line connects San Bernardino, Riverside and what other county?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can answer that! According to the provided context,",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.40239715576172,
+          "prob": 2.5244895078361504e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.52448950777242e-11,
+      "prompt": "You're given the following task:\nContext: Six of the seven lines of the commuter rail system, Metrolink, run out of Downtown Los Angeles, connecting Los Angeles, Ventura, San Bernardino, Riverside, Orange, and San Diego counties with the other line connecting San Bernardino, Riverside, and Orange counties directly.\n\nQuestion: A single line connects San Bernardino, Riverside and what other county?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

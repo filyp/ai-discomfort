@@ -1,0 +1,31 @@
+{
+  "id": -4262786612758830698,
+  "question": "What is the bow room in buckingham palace?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['room at the centre of the garden façade',\n              'the huge low room at the centre of the garden façade'],\n             dtype=object)                                            ,\n       array([\"A room through which thousands of guests pass annually to the Queen's garden parties.\"],\n             dtype=object)                                                                             ],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 528,
+  "prompt": "What is the bow room in buckingham palace?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you about the Bow Room at Buckingham Palace",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.548934936523438,
+          "prob": 4.3794186769261923e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.3794186750082613e-10,
+      "prompt": "You're given the following task:\nWhat is the bow room in buckingham palace?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

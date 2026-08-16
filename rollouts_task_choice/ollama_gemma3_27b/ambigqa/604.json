@@ -1,0 +1,31 @@
+{
+  "id": -2600937891712143352,
+  "question": "Who plays andromeda in clash of the titans?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who plays Andromeda in the original British-American film Clash of the Titans?',\n              'Who plays Andromeda in the 2010 remake of the 1981 film Clash of the Titans?',\n              'Who plays Andromeda in the 2012 remake of the 1981 film Clash of the Titans called Wrath of the Titans?'],\n             dtype=object), 'answer': array([array(['Judi Bowker'], dtype=object),\n              array(['Alexa Davalos'], dtype=object),\n              array(['Rosamund Pike'], dtype=object)], dtype=object)}                                                    ,\n       {'question': array(['Who plays andromeda in the 1981 film Clash of the Titans?',\n              'Who plays andromeda in the 2010 film Clash of the Titans?'],\n             dtype=object), 'answer': array([array(['Judi Bowker'], dtype=object),\n              array(['Alexa Davalos'], dtype=object)], dtype=object)}                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 604,
+  "prompt": "Who plays andromeda in clash of the titans?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who played Andromeda in *Clash",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.846298217773438,
+          "prob": 3.5672587125062746e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.567258715723907e-07,
+      "prompt": "You're given the following task:\nWho plays andromeda in clash of the titans?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

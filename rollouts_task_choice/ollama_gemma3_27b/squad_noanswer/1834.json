@@ -1,0 +1,32 @@
+{
+  "id": "5a838676e60761001a2eb764",
+  "title": "Ctenophora",
+  "context": "The Lobata have a pair of lobes, which are muscular, cuplike extensions of the body that project beyond the mouth. Their inconspicuous tentacles originate from the corners of the mouth, running in convoluted grooves and spreading out over the inner surface of the lobes (rather than trailing far behind, as in the Cydippida). Between the lobes on either side of the mouth, many species of lobates have four auricles, gelatinous projections edged with cilia that produce water currents that help direct microscopic prey toward the mouth. This combination of structures enables lobates to feed continuously on suspended planktonic prey.",
+  "question": "How often do plankton need to feed?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1834,
+  "prompt": "Context: The Lobata have a pair of lobes, which are muscular, cuplike extensions of the body that project beyond the mouth. Their inconspicuous tentacles originate from the corners of the mouth, running in convoluted grooves and spreading out over the inner surface of the lobes (rather than trailing far behind, as in the Cydippida). Between the lobes on either side of the mouth, many species of lobates have four auricles, gelatinous projections edged with cilia that produce water currents that help direct microscopic prey toward the mouth. This combination of structures enables lobates to feed continuously on suspended planktonic prey.\n\nQuestion: How often do plankton need to feed?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe provided text describes *how* Lobata feed – they continuously",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0004944831598550081,
+          "prob": 0.9995056390767939,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -7.61221170425415,
+          "prob": 0.0004943772322012084,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0004943772241384127,
+      "prompt": "You're given the following task:\nContext: The Lobata have a pair of lobes, which are muscular, cuplike extensions of the body that project beyond the mouth. Their inconspicuous tentacles originate from the corners of the mouth, running in convoluted grooves and spreading out over the inner surface of the lobes (rather than trailing far behind, as in the Cydippida). Between the lobes on either side of the mouth, many species of lobates have four auricles, gelatinous projections edged with cilia that produce water currents that help direct microscopic prey toward the mouth. This combination of structures enables lobates to feed continuously on suspended planktonic prey.\n\nQuestion: How often do plankton need to feed?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

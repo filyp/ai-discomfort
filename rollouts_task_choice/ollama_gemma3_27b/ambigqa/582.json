@@ -1,0 +1,31 @@
+{
+  "id": 1249880653163144885,
+  "question": "Who plays snowman in smokey and the bandit?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played Snowman in the original Smokey and the Bandit?',\n              'Who played Snowman in the Smokey and the Bandit II?',\n              'Who played Snowman in the Smokey and the Bandit Part 3?'],\n             dtype=object), 'answer': array([array(['Jerry Reed'], dtype=object),\n              array(['Jerry Reed'], dtype=object),\n              array(['Jerry Reed'], dtype=object)], dtype=object)}                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 582,
+  "prompt": "Who plays snowman in smokey and the bandit?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -9.536747711536009e-07,
+          "prob": 0.9999990463256836,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.876618385314941,
+          "prob": 9.407217987677743e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.407218109524901e-07,
+      "prompt": "You're given the following task:\nWho plays snowman in smokey and the bandit?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

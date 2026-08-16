@@ -1,0 +1,32 @@
+{
+  "id": "571ce3745efbb31900334e21",
+  "title": "Oxygen",
+  "context": "Oxygen toxicity to the lungs and central nervous system can also occur in deep scuba diving and surface supplied diving. Prolonged breathing of an air mixture with an O\n2 partial pressure more than 60 kPa can eventually lead to permanent pulmonary fibrosis. Exposure to a O\n2 partial pressures greater than 160 kPa (about 1.6 atm) may lead to convulsions (normally fatal for divers). Acute oxygen toxicity (causing seizures, its most feared effect for divers) can occur by breathing an air mixture with 21% O\n2 at 66 m or more of depth; the same thing can occur by breathing 100% O\n2 at only 6 m.",
+  "question": "To what can the use of prolonged breathing of oxygen at 60 kPa lead?",
+  "answers": "{'text': array(['pulmonary fibrosis', 'permanent pulmonary fibrosis',\n       'permanent pulmonary fibrosis', 'permanent pulmonary fibrosis',\n       'pulmonary fibrosis'], dtype=object), 'answer_start': array([238, 228, 228, 228, 238], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1365,
+  "prompt": "Context: Oxygen toxicity to the lungs and central nervous system can also occur in deep scuba diving and surface supplied diving. Prolonged breathing of an air mixture with an O\n2 partial pressure more than 60 kPa can eventually lead to permanent pulmonary fibrosis. Exposure to a O\n2 partial pressures greater than 160 kPa (about 1.6 atm) may lead to convulsions (normally fatal for divers). Acute oxygen toxicity (causing seizures, its most feared effect for divers) can occur by breathing an air mixture with 21% O\n2 at 66 m or more of depth; the same thing can occur by breathing 100% O\n2 at only 6 m.\n\nQuestion: To what can the use of prolonged breathing of oxygen at 60 kPa lead?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nTo what can the use of prolonged breathing of oxygen at 6",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.375682830810547,
+          "prob": 2.3643625981785512e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3643625981784957e-14,
+      "prompt": "You're given the following task:\nContext: Oxygen toxicity to the lungs and central nervous system can also occur in deep scuba diving and surface supplied diving. Prolonged breathing of an air mixture with an O\n2 partial pressure more than 60 kPa can eventually lead to permanent pulmonary fibrosis. Exposure to a O\n2 partial pressures greater than 160 kPa (about 1.6 atm) may lead to convulsions (normally fatal for divers). Acute oxygen toxicity (causing seizures, its most feared effect for divers) can occur by breathing an air mixture with 21% O\n2 at 66 m or more of depth; the same thing can occur by breathing 100% O\n2 at only 6 m.\n\nQuestion: To what can the use of prolonged breathing of oxygen at 60 kPa lead?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

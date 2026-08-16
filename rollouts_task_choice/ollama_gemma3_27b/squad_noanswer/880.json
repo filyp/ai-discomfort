@@ -1,0 +1,32 @@
+{
+  "id": "5ad24d2ad7d075001a428c21",
+  "title": "Huguenot",
+  "context": "Louis XIV gained the throne in 1643 and acted increasingly aggressively to force the Huguenots to convert. At first he sent missionaries, backed by a fund to financially reward converts to Catholicism. Then he imposed penalties, closed Huguenot schools and excluded them from favored professions. Escalating, he instituted dragonnades, which included the occupation and looting of Huguenot homes by military troops, in an effort to forcibly convert them. In 1685, he issued the Edict of Fontainebleau, revoking the Edict of Nantes and declaring Protestantism illegal.[citation needed]",
+  "question": "In what year was the Edict of Nantes issued?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 880,
+  "prompt": "Context: Louis XIV gained the throne in 1643 and acted increasingly aggressively to force the Huguenots to convert. At first he sent missionaries, backed by a fund to financially reward converts to Catholicism. Then he imposed penalties, closed Huguenot schools and excluded them from favored professions. Escalating, he instituted dragonnades, which included the occupation and looting of Huguenot homes by military troops, in an effort to forcibly convert them. In 1685, he issued the Edict of Fontainebleau, revoking the Edict of Nantes and declaring Protestantism illegal.[citation needed]\n\nQuestion: In what year was the Edict of Nantes issued?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text *states* when the Edict of Nantes was",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -2.625044584274292,
+          "prob": 0.07243652743224947,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.07519403845071793,
+          "prob": 0.9275634858838705,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.927563473532324,
+      "prompt": "You're given the following task:\nContext: Louis XIV gained the throne in 1643 and acted increasingly aggressively to force the Huguenots to convert. At first he sent missionaries, backed by a fund to financially reward converts to Catholicism. Then he imposed penalties, closed Huguenot schools and excluded them from favored professions. Escalating, he instituted dragonnades, which included the occupation and looting of Huguenot homes by military troops, in an effort to forcibly convert them. In 1685, he issued the Edict of Fontainebleau, revoking the Edict of Nantes and declaring Protestantism illegal.[citation needed]\n\nQuestion: In what year was the Edict of Nantes issued?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

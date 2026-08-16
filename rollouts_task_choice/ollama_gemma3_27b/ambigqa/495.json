@@ -1,0 +1,31 @@
+{
+  "id": 7797208395147217894,
+  "question": "When did west germany win the world cup?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did west germany win the world cup for a first time?',\n              'When did west germany win the world cup for a second time?',\n              'When did west germany win the world cup for a third time?'],\n             dtype=object), 'answer': array([array(['4 July 1954'], dtype=object),\n              array(['7 July 1974'], dtype=object),\n              array(['8 July 1990'], dtype=object)], dtype=object)}                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 495,
+  "prompt": "When did west germany win the world cup?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.56731414794922,
+          "prob": 2.3475367712999676e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3475367161906802e-08,
+      "prompt": "You're given the following task:\nWhen did west germany win the world cup?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

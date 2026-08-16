@@ -1,0 +1,32 @@
+{
+  "id": "57115c7450c2381900b54a9f",
+  "title": "Steam_engine",
+  "context": "Where CHP is not used, steam turbines in power stations use surface condensers as a cold sink. The condensers are cooled by water flow from oceans, rivers, lakes, and often by cooling towers which evaporate water to provide cooling energy removal. The resulting condensed hot water output from the condenser is then put back into the boiler via a pump. A dry type cooling tower is similar to an automobile radiator and is used in locations where water is costly. Evaporative (wet) cooling towers use the rejected heat to evaporate water; this water is kept separate from the condensate, which circulates in a closed system and returns to the boiler. Such towers often have visible plumes due to the evaporated water condensing into droplets carried up by the warm air. Evaporative cooling towers need less water flow than \"once-through\" cooling by river or lake water; a 700 megawatt coal-fired power plant may use about 3600 cubic metres of make-up water every hour for evaporative cooling, but would need about twenty times as much if cooled by river water.[citation needed]",
+  "question": "In what sort of places are dry cooling towers used?",
+  "answers": "{'text': array(['where water is costly', 'where water is costly',\n       'locations where water is costly'], dtype=object), 'answer_start': array([440, 440, 430], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1059,
+  "prompt": "Context: Where CHP is not used, steam turbines in power stations use surface condensers as a cold sink. The condensers are cooled by water flow from oceans, rivers, lakes, and often by cooling towers which evaporate water to provide cooling energy removal. The resulting condensed hot water output from the condenser is then put back into the boiler via a pump. A dry type cooling tower is similar to an automobile radiator and is used in locations where water is costly. Evaporative (wet) cooling towers use the rejected heat to evaporate water; this water is kept separate from the condensate, which circulates in a closed system and returns to the boiler. Such towers often have visible plumes due to the evaporated water condensing into droplets carried up by the warm air. Evaporative cooling towers need less water flow than \"once-through\" cooling by river or lake water; a 700 megawatt coal-fired power plant may use about 3600 cubic metres of make-up water every hour for evaporative cooling, but would need about twenty times as much if cooled by river water.[citation needed]\n\nQuestion: In what sort of places are dry cooling towers used?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nDry cooling towers are used in locations where water is costly.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.08905029296875,
+          "prob": 2.32694422628e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.326944226279458e-13,
+      "prompt": "You're given the following task:\nContext: Where CHP is not used, steam turbines in power stations use surface condensers as a cold sink. The condensers are cooled by water flow from oceans, rivers, lakes, and often by cooling towers which evaporate water to provide cooling energy removal. The resulting condensed hot water output from the condenser is then put back into the boiler via a pump. A dry type cooling tower is similar to an automobile radiator and is used in locations where water is costly. Evaporative (wet) cooling towers use the rejected heat to evaporate water; this water is kept separate from the condensate, which circulates in a closed system and returns to the boiler. Such towers often have visible plumes due to the evaporated water condensing into droplets carried up by the warm air. Evaporative cooling towers need less water flow than \"once-through\" cooling by river or lake water; a 700 megawatt coal-fired power plant may use about 3600 cubic metres of make-up water every hour for evaporative cooling, but would need about twenty times as much if cooled by river water.[citation needed]\n\nQuestion: In what sort of places are dry cooling towers used?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

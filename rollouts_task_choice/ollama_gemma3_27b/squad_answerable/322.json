@@ -1,0 +1,32 @@
+{
+  "id": "5705e99452bb89140068968c",
+  "title": "Southern_California",
+  "context": "Its counties of Los Angeles, Orange, San Diego, San Bernardino, and Riverside are the five most populous in the state and all are in the top 15 most populous counties in the United States.",
+  "question": "What is the smallest geographical region discussed?",
+  "answers": "{'text': array(['counties', 'Riverside'], dtype=object), 'answer_start': array([ 4, 68], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 322,
+  "prompt": "Context: Its counties of Los Angeles, Orange, San Diego, San Bernardino, and Riverside are the five most populous in the state and all are in the top 15 most populous counties in the United States.\n\nQuestion: What is the smallest geographical region discussed?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nThe smallest geographical region discussed is a **county**. The text",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.75183868408203,
+          "prob": 6.548149114964633e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.5481491149217554e-12,
+      "prompt": "You're given the following task:\nContext: Its counties of Los Angeles, Orange, San Diego, San Bernardino, and Riverside are the five most populous in the state and all are in the top 15 most populous counties in the United States.\n\nQuestion: What is the smallest geographical region discussed?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

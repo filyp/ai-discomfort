@@ -1,0 +1,31 @@
+{
+  "id": -7700162683345248054,
+  "question": "What is the name of the stadium where the carolina panthers play?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the name of the stadium for the Carolina Panthers?|What is the name of the stadium for the Charlotte MLS team?|What is the name of the stadium the Carolina Panthers usually play in?|What is the name of the stadium where the carolina panthers have played since 1996?',\n              'What is the name of the stadium the Carolina Panthers played in their first season?|What is the name of the stadium where the carolina panthers played through 1995?'],\n             dtype=object), 'answer': array([array(['The B of A', 'Bank of America Stadium', 'The Bank', 'The Vault',\n                     'The BOA'], dtype=object)                                        ,\n              array(['Memorial Stadium'], dtype=object)], dtype=object)}                                                                                                                                                                                                                                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1075,
+  "prompt": "What is the name of the stadium where the carolina panthers play?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.64989471435547,
+          "prob": 3.958860437658055e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.9588604360907975e-10,
+      "prompt": "You're given the following task:\nWhat is the name of the stadium where the carolina panthers play?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

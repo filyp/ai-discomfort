@@ -1,0 +1,31 @@
+{
+  "id": 1013412399740253548,
+  "question": "Who presided over the first conference of the india national congress?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Bonnerjee', 'Umesh Chandra Banerjee', 'Womesh Chunder Bonnerjee'],\n             dtype=object)                                                       ,\n       array(['Umesh Chandra Banerjee'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 90,
+  "prompt": "Who presided over the first conference of the india national congress?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.168201446533203,
+          "prob": 2.35761256831872e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3576125677628866e-10,
+      "prompt": "You're given the following task:\nWho presided over the first conference of the india national congress?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

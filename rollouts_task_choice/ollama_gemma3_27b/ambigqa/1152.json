@@ -1,0 +1,31 @@
+{
+  "id": 721036449503491425,
+  "question": "What is the salary for the president of the united states of america?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the salary for the president of the united states of america, set in 1789?',\n              'What is the salary for the president of the united states of america, set in 1873?',\n              'What is the salary for the president of the united states of america, set in 1909?',\n              'What is the salary for the president of the united states of america, set in 1949?',\n              'What is the salary for the president of the united states of america, set in 1969?',\n              'What is the salary for the president of the united states of america, since 2001?'],\n             dtype=object), 'answer': array([array(['$25,000'], dtype=object), array(['$50,000'], dtype=object),\n              array(['$75,000'], dtype=object),\n              array(['$100,000'], dtype=object),\n              array(['$200,000'], dtype=object),\n              array(['$400,000/year', '$400,000 annual', '$400,000',\n                     '$400,000 annually'], dtype=object)            ],\n             dtype=object)}                                                                                     ,\n       {'question': array(['What is the salary for the president of the united states of america set in 1969?',\n              'What is the salary for the president of the united states of america since 2001?',\n              'What is the salary for the president of the united states of america since 2001 in 2018 USD?'],\n             dtype=object), 'answer': array([array(['$200,000'], dtype=object),\n              array(['$400,000'], dtype=object),\n              array(['$567,000'], dtype=object)], dtype=object)}                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1152,
+  "prompt": "What is the salary for the president of the united states of america?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.42547607421875,
+          "prob": 4.954889444974848e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.954889442519756e-10,
+      "prompt": "You're given the following task:\nWhat is the salary for the president of the united states of america?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

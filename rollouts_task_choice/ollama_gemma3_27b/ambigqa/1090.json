@@ -1,0 +1,31 @@
+{
+  "id": -9113782586090855759,
+  "question": "When was the niv version of the bible written?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"When was the niv version of the bible's new testament written and published in English?|When was the NIV version of the New Testament written?\",\n              'When was the niv version of the bible written and published in Portuguese?|When was the NIV version of the complete Bible written in Portuguese?',\n              'When was the niv version of the bible written and published in Spanish?|When was the NIV version of the complete Bible written in Spanish?',\n              'When was the newest niv version of the bible written and published in English?',\n              \"When was the niv version of the complete bible written and published in English?|When was the niv version of the bible's Old testament first written and published in English?|When was the NIV version of the Old Testament of the bible first written?\"],\n             dtype=object), 'answer': array([array(['1973'], dtype=object), array(['1993'], dtype=object),\n              array(['1999'], dtype=object), array(['2011'], dtype=object),\n              array(['1978', 'first published in 1978'], dtype=object)],\n             dtype=object)}                                                                                                                                                                                                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1090,
+  "prompt": "When was the niv version of the bible written?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you about when the NIV Bible was written",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.58850860595703,
+          "prob": 3.110418338056125e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.1104183283814225e-09,
+      "prompt": "You're given the following task:\nWhen was the niv version of the bible written?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5710f114a58dae1900cd6b64",
+  "title": "Huguenot",
+  "context": "Both before and after the 1708 passage of the Foreign Protestants Naturalization Act, an estimated 50,000 Protestant Walloons and Huguenots fled to England, with many moving on to Ireland and elsewhere. In relative terms, this was one of the largest waves of immigration ever of a single ethnic community to Britain. Andrew Lortie (born André Lortie), a leading Huguenot theologian and writer who led the exiled community in London, became known for articulating their criticism of the Pope and the doctrine of transubstantiation during Mass.",
+  "question": "What Catholic Church liturgical belief did Lortie criticize openly?",
+  "answers": "{'text': array(['the doctrine of transubstantiation',\n       'doctrine of transubstantiation during Mass',\n       'the Pope and the doctrine of transubstantiation'], dtype=object), 'answer_start': array([495, 499, 482], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 857,
+  "prompt": "Context: Both before and after the 1708 passage of the Foreign Protestants Naturalization Act, an estimated 50,000 Protestant Walloons and Huguenots fled to England, with many moving on to Ireland and elsewhere. In relative terms, this was one of the largest waves of immigration ever of a single ethnic community to Britain. Andrew Lortie (born André Lortie), a leading Huguenot theologian and writer who led the exiled community in London, became known for articulating their criticism of the Pope and the doctrine of transubstantiation during Mass.\n\nQuestion: What Catholic Church liturgical belief did Lortie criticize openly?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states Andrew Lortie criticized the doctrine of **trans",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.24117660522461,
+          "prob": 9.950271026921136e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.950271026921036e-15,
+      "prompt": "You're given the following task:\nContext: Both before and after the 1708 passage of the Foreign Protestants Naturalization Act, an estimated 50,000 Protestant Walloons and Huguenots fled to England, with many moving on to Ireland and elsewhere. In relative terms, this was one of the largest waves of immigration ever of a single ethnic community to Britain. Andrew Lortie (born André Lortie), a leading Huguenot theologian and writer who led the exiled community in London, became known for articulating their criticism of the Pope and the doctrine of transubstantiation during Mass.\n\nQuestion: What Catholic Church liturgical belief did Lortie criticize openly?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

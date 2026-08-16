@@ -1,0 +1,31 @@
+{
+  "id": 228510935925327011,
+  "question": "The most common type of rock in earth's crust is?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object),\n       array(['felsic', 'igneous'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"The most common type of rock in the earth's oceanic crust is?\",\n              \"The most common type of rock in the earth's continential crust is?\"],\n             dtype=object), 'answer': array([array(['Mafic rocks', 'basalt, diabase, and gabbro'], dtype=object),\n              array(['granite', 'felsic rocks'], dtype=object)], dtype=object)}                                  ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1103,
+  "prompt": "The most common type of rock in earth's crust is?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.88827896118164,
+          "prob": 8.478825762045164e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.478825754856114e-10,
+      "prompt": "You're given the following task:\nThe most common type of rock in earth's crust is?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

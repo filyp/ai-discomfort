@@ -1,0 +1,31 @@
+{
+  "id": -6361742699258154699,
+  "question": "Who sings wake me up when it's all over?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sings the lyrics \"wake me up when it\\'s all over\" in the song Wake Me Up?',\n              \"Who sings Wake Me When It's Over, released in 1962?\"],\n             dtype=object), 'answer': array([array(['Aloe Blacc', 'Egbert Nathaniel Dawkins III'], dtype=object),\n              array(['Willie Nelson', 'Nelson'], dtype=object)], dtype=object)}                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 811,
+  "prompt": "Who sings wake me up when it's all over?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.815547943115234,
+          "prob": 2.4786595098742324e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.4786595037304796e-09,
+      "prompt": "You're given the following task:\nWho sings wake me up when it's all over?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

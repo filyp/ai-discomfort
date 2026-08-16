@@ -1,0 +1,32 @@
+{
+  "id": "56e1a564cd28a01900c67a4c",
+  "title": "Computational_complexity_theory",
+  "context": "If the input size is n, the time taken can be expressed as a function of n. Since the time taken on different inputs of the same size can be different, the worst-case time complexity T(n) is defined to be the maximum time taken over all inputs of size n. If T(n) is a polynomial in n, then the algorithm is said to be a polynomial time algorithm. Cobham's thesis says that a problem can be solved with a feasible amount of resources if it admits a polynomial time algorithm.",
+  "question": "Assuming that T represents a polynomial in T(n), what is the term given to the corresponding algorithm?",
+  "answers": "{'text': array(['polynomial time algorithm', 'polynomial time',\n       'polynomial time algorithm'], dtype=object), 'answer_start': array([320, 320, 320], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 146,
+  "prompt": "Context: If the input size is n, the time taken can be expressed as a function of n. Since the time taken on different inputs of the same size can be different, the worst-case time complexity T(n) is defined to be the maximum time taken over all inputs of size n. If T(n) is a polynomial in n, then the algorithm is said to be a polynomial time algorithm. Cobham's thesis says that a problem can be solved with a feasible amount of resources if it admits a polynomial time algorithm.\n\nQuestion: Assuming that T represents a polynomial in T(n), what is the term given to the corresponding algorithm?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBased on the provided context, if T(n) is a",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.94091033935547,
+          "prob": 3.6520219114392275e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.6520219114390944e-14,
+      "prompt": "You're given the following task:\nContext: If the input size is n, the time taken can be expressed as a function of n. Since the time taken on different inputs of the same size can be different, the worst-case time complexity T(n) is defined to be the maximum time taken over all inputs of size n. If T(n) is a polynomial in n, then the algorithm is said to be a polynomial time algorithm. Cobham's thesis says that a problem can be solved with a feasible amount of resources if it admits a polynomial time algorithm.\n\nQuestion: Assuming that T represents a polynomial in T(n), what is the term given to the corresponding algorithm?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

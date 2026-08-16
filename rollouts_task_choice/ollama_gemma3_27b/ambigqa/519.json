@@ -1,0 +1,31 @@
+{
+  "id": 8537092201535378763,
+  "question": "Who sings been through the desert on a horse with no name?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the lead vocal of been through the desert on a horse with no name?',\n              'Which band sings been through the desert on a horse with no name?'],\n             dtype=object), 'answer': array([array(['Dewey Bunnell'], dtype=object),\n              array(['America'], dtype=object)], dtype=object)}                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 519,
+  "prompt": "Who sings been through the desert on a horse with no name?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.07046890258789,
+          "prob": 1.920905970450371e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9209059667604917e-09,
+      "prompt": "You're given the following task:\nWho sings been through the desert on a horse with no name?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

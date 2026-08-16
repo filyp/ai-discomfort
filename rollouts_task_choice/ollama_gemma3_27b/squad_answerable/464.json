@@ -1,0 +1,32 @@
+{
+  "id": "5706149552bb891400689883",
+  "title": "Southern_California",
+  "context": "From 2005 to 2014, there were two Major League Soccer teams in Los Angeles — the LA Galaxy and Chivas USA — that both played at the StubHub Center and were local rivals. However, Chivas were suspended following the 2014 MLS season, with a second MLS team scheduled to return in 2018.",
+  "question": "What was the name of the stadium that the teams played in?",
+  "answers": "{'text': array(['StubHub Center', 'the StubHub Center', 'StubHub Center'],\n      dtype=object), 'answer_start': array([132, 128, 132], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 464,
+  "prompt": "Context: From 2005 to 2014, there were two Major League Soccer teams in Los Angeles — the LA Galaxy and Chivas USA — that both played at the StubHub Center and were local rivals. However, Chivas were suspended following the 2014 MLS season, with a second MLS team scheduled to return in 2018.\n\nQuestion: What was the name of the stadium that the teams played in?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe stadium that both the LA Galaxy and Chivas USA played in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.66606903076172,
+          "prob": 3.552093607199351e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.5520936071980887e-13,
+      "prompt": "You're given the following task:\nContext: From 2005 to 2014, there were two Major League Soccer teams in Los Angeles — the LA Galaxy and Chivas USA — that both played at the StubHub Center and were local rivals. However, Chivas were suspended following the 2014 MLS season, with a second MLS team scheduled to return in 2018.\n\nQuestion: What was the name of the stadium that the teams played in?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

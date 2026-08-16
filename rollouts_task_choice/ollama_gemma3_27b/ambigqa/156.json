@@ -1,0 +1,31 @@
+{
+  "id": 2946416303727163823,
+  "question": "Indian has the largest higher education system in the world after?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['the United States and China'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Indian has the largest higher education system in the world after which Asian country?',\n              'Indian has the largest higher education system in the world after which North American country?'],\n             dtype=object), 'answer': array([array(['China'], dtype=object),\n              array(['United States'], dtype=object)], dtype=object)}                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 156,
+  "prompt": "Indian has the largest higher education system in the world after?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To confirm, you'",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.197273254394531,
+          "prob": 2.511354870525043e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.5113548385883745e-07,
+      "prompt": "You're given the following task:\nIndian has the largest higher education system in the world after?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

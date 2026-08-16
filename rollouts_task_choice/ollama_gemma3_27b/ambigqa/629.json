@@ -1,0 +1,31 @@
+{
+  "id": 7473890225580353748,
+  "question": "Who has the record for most super bowl losses?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What team has the record for most super bowl losses?',\n              'What player has the record for most super bowl losses?',\n              'What coach has the record for the most super bowl losses?'],\n             dtype=object), 'answer': array([array(['New England Patriots', 'Denver Broncos'], dtype=object),\n              array(['Gale Gilbert', 'Cornelius Bennett', 'Glenn parker'], dtype=object),\n              array(['Don Shula'], dtype=object)], dtype=object)}                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 629,
+  "prompt": "Who has the record for most super bowl losses?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.464305877685547,
+          "prob": 1.92281406770832e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.922814156421528e-07,
+      "prompt": "You're given the following task:\nWho has the record for most super bowl losses?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

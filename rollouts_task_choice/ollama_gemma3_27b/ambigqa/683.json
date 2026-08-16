@@ -1,0 +1,31 @@
+{
+  "id": 7187307382496449890,
+  "question": "Who is the best golfer in the world?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who was the best male golfer in the world according to the Official World Golf Ranking on February 19, 2017?',\n              'Who was the best male golfer in the world according to the Official World Golf Ranking on March 27, 2016?',\n              'Who was the best male golfer in the world according to the Official World Golf Ranking on November 8, 2015?',\n              \"Who was the best female golfer in the world according to the Women's World Golf Rankings on 13 November 2017?\",\n              \"Who was the best female golfer in the world according to the Women's World Golf Rankings on 6 November 2017?\",\n              \"Who was the best female golfer in the world according to the Women's World Golf Rankings on 26 June 2017?\"],\n             dtype=object), 'answer': array([array(['Dustin Johnson'], dtype=object),\n              array(['Jason Day'], dtype=object),\n              array(['Jordan Spieth'], dtype=object),\n              array(['Shanshan Feng'], dtype=object),\n              array(['Park Sung-hyun'], dtype=object),\n              array(['Ryu So-yeon'], dtype=object)], dtype=object)}                                                                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 683,
+  "prompt": "Who is the best golfer in the world?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, that's a great question! Determining the \"best",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.66388702392578,
+          "prob": 2.8845785699631975e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.884578561642404e-09,
+      "prompt": "You're given the following task:\nWho is the best golfer in the world?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

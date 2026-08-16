@@ -1,0 +1,31 @@
+{
+  "id": -1320167278626755103,
+  "question": "Who wrote the music for once more with feeling?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who wrote the music for 2006 song once more with feeling?',\n              'Who wrote the music for 1970 Willie Nelson song once more with feeling?',\n              'Who wrote the music for 1970 Jerry Lee Lewis song once more with feeling?',\n              'Who wrote the music for the 2016 documentary once more with feeling?',\n              'Who wrote the music for the 2009 film once more with feeling?',\n              'Who wrote the music for the Buffy the Vampire Slayer episode once more with feeling?',\n              'Who wrote the music for the 1960 movie Once More With Feeling!?'],\n             dtype=object), 'answer': array([array(['Sam Duckworth', 'Get Cape. Wear Cape. Fly',\n                     'Samuel Lloyd \"Sam\" Duckworth', ' Samuel Lloyd Duckworth'],\n                    dtype=object)                                               ,\n              array(['Shirley Nelson'], dtype=object),\n              array(['Kris Kristofferson and Shel Silverstein'], dtype=object),\n              array(['Nick Cave and the Bad Seeds'], dtype=object),\n              array(['Paul Hsu'], dtype=object),\n              array(['Joss Whedon', 'Joseph Hill Whedon'], dtype=object),\n              array(['Franz Liszt, Ludwig van Beethoven, and Richard Wagner'],\n                    dtype=object)                                             ],\n             dtype=object)}                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 35,
+  "prompt": "Who wrote the music for once more with feeling?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.356285095214844,
+          "prob": 3.923486774477314e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.923486759083566e-09,
+      "prompt": "You're given the following task:\nWho wrote the music for once more with feeling?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

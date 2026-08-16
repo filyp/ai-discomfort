@@ -1,0 +1,31 @@
+{
+  "id": 2270336132751414260,
+  "question": "When does the rockefeller christmas tree go up?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the first rockefeller christmas tree go up?',\n              'When is the rockefeller christmas tree erected in general?',\n              'When is the rockefeller christmas tree lighted in general?',\n              'When is the rockefeller christmas tree lighted in 2017?',\n              'When is the rockefeller christmas tree lighted in 2016?',\n              'When is the rockefeller christmas tree lighted in 2015?'],\n             dtype=object), 'answer': array([array(['1931'], dtype=object),\n              array(['mid November'], dtype=object),\n              array(['late November or early December'], dtype=object),\n              array(['November 29, 2017'], dtype=object),\n              array(['November 30, 2016'], dtype=object),\n              array(['December 2, 2015'], dtype=object)], dtype=object)}          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 890,
+  "prompt": "When does the rockefeller christmas tree go up?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To give you the *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.834808349609375,
+          "prob": 8.944533650005286e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.944533642004818e-10,
+      "prompt": "You're given the following task:\nWhen does the rockefeller christmas tree go up?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

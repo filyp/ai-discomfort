@@ -1,0 +1,69 @@
+{
+  "id": 5818337347612986915,
+  "question": "Who sang i fooled around and fell in love?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sang i fooled around and fell in love in 1976?',\n              'Who sang i fooled around and fell in love in 1985?'], dtype=object), 'answer': array([array(['Mickey Thomas'], dtype=object),\n              array(['T. G. Sheppard', 'William Neal Browder'], dtype=object)],\n             dtype=object)}                                                                                                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 12,
+  "prompt": "Who sang i fooled around and fell in love?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.259033203125,
+          "prob": 3.1951931531664716e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.1951930510738816e-08,
+      "prompt": "You're given the following task:\nWho sang i fooled around and fell in love?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who sang \"I Fooled Around",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.7881409348774469e-06,
+          "prob": 0.9999982118606638,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.20689582824707,
+          "prob": 1.8378836689120375e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.8378835774877453e-06,
+      "prompt": "You're given the following task:\nWho sang i fooled around and fell in love?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nElvin Bishop sang \"I Fooled Around and Fell In Love",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -20.750038146972656,
+          "prob": 9.735828913526377e-10,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.73582890404774e-10,
+      "prompt": "You're given the following task:\nWho sang i fooled around and fell in love?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

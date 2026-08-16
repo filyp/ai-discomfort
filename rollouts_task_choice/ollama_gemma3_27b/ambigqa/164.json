@@ -1,0 +1,31 @@
+{
+  "id": 5407802673882771425,
+  "question": "Who sang the theme tune to dear john?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sang the theme tune to the American series, dear john?',\n              'Who sang the theme tune to the British series, dear john?'],\n             dtype=object), 'answer': array([array(['Wendy Talbot'], dtype=object),\n              array(['Joan Baxter'], dtype=object)], dtype=object)}                     ,\n       {'question': array(['Who sang the theme tune to the American version of dear john?',\n              'Who sang the theme tune to the British version  of dear john?'],\n             dtype=object), 'answer': array([array(['Wendy Talbot'], dtype=object),\n              array(['Joan Baxter'], dtype=object)], dtype=object)}                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 164,
+  "prompt": "Who sang the theme tune to dear john?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.191200256347656,
+          "prob": 2.5266527286629956e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.526652692666548e-07,
+      "prompt": "You're given the following task:\nWho sang the theme tune to dear john?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

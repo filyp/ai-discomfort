@@ -1,0 +1,31 @@
+{
+  "id": 2215574890678862752,
+  "question": "Who came up with a cure for tuberculosis?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who induced the first successful therapeutic pneumothorax resulting in a cured tuberculosis patient?',\n              'Who came up with the first effective antibiotic for tuberculosis?',\n              'Who originally tested the first oral mycobactericidal drug on tuberculosis?',\n              'Who came up with a drug in the 1970s that shortened recovery and reduced cases of tuberculosis?',\n              'Who came up with the first vaccine immunizing against tuberculosis?'],\n             dtype=object), 'answer': array([array(['F.H. Ramadge'], dtype=object),\n              array(['Albert Schatz, Elizabeth Bugie, and Selman Waksman'], dtype=object),\n              array(['Walsh McDermott'], dtype=object),\n              array(['Piero Sensi and Maria Teresa Timbal', 'Sensi, Timbal',\n                     'Lepetit Pharmaceuticals'], dtype=object)              ,\n              array(['Albert Calmette and Camille Guérin'], dtype=object)],\n             dtype=object)}                                                                                                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 972,
+  "prompt": "Who came up with a cure for tuberculosis?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about who \"cured\" tuberculosis",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.2649790025752736e-06,
+          "prob": 0.9999977350235625,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.988618850708008,
+          "prob": 2.2862015012262362e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.286201452701465e-06,
+      "prompt": "You're given the following task:\nWho came up with a cure for tuberculosis?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

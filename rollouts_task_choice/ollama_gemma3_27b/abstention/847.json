@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 847,
+  "prompt": "What are the technologies involved in Russia's space laser that can blow up the moon?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nWhile the claim of a \"space laser that can blow up the",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -10.510815620422363,
+          "prob": 2.7240230349512668e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -2.741851312748622e-05,
+          "prob": 0.9999725818627565,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999727597648043,
+      "prompt": "You're given the following task:\nWhat are the technologies involved in Russia's space laser that can blow up the moon?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

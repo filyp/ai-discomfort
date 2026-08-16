@@ -1,0 +1,31 @@
+{
+  "id": -4439488219491815127,
+  "question": "When did leonardo da vinci finish painting the mona lisa?",
+  "annotations": "{'type': array(['singleAnswer'], dtype=object), 'answer': array([array(['c. 1506', 'c.1517'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 439,
+  "prompt": "When did leonardo da vinci finish painting the mona lisa?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.57724380493164,
+          "prob": 6.318216310799629e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.318216664791109e-08,
+      "prompt": "You're given the following task:\nWhen did leonardo da vinci finish painting the mona lisa?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

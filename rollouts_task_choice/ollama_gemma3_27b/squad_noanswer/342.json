@@ -1,0 +1,32 @@
+{
+  "id": "5ad01a6277cf76001a686a0e",
+  "title": "Southern_California",
+  "context": "Southern California includes the heavily built-up urban area stretching along the Pacific coast from Ventura, through the Greater Los Angeles Area and the Inland Empire, and down to Greater San Diego. Southern California's population encompasses seven metropolitan areas, or MSAs: the Los Angeles metropolitan area, consisting of Los Angeles and Orange counties; the Inland Empire, consisting of Riverside and San Bernardino counties; the San Diego metropolitan area; the Oxnard–Thousand Oaks–Ventura metropolitan area; the Santa Barbara metro area; the San Luis Obispo metropolitan area; and the El Centro area. Out of these, three are heavy populated areas: the Los Angeles area with over 12 million inhabitants, the Riverside-San Bernardino area with over four million inhabitants, and the San Diego area with over 3 million inhabitants. For CSA metropolitan purposes, the five counties of Los Angeles, Orange, Riverside, San Bernardino, and Ventura are all combined to make up the Greater Los Angeles Area with over 17.5 million people. With over 22 million people, southern California contains roughly 60 percent of California's population.",
+  "question": "How many people live in Riverside? ",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 342,
+  "prompt": "Context: Southern California includes the heavily built-up urban area stretching along the Pacific coast from Ventura, through the Greater Los Angeles Area and the Inland Empire, and down to Greater San Diego. Southern California's population encompasses seven metropolitan areas, or MSAs: the Los Angeles metropolitan area, consisting of Los Angeles and Orange counties; the Inland Empire, consisting of Riverside and San Bernardino counties; the San Diego metropolitan area; the Oxnard–Thousand Oaks–Ventura metropolitan area; the Santa Barbara metro area; the San Luis Obispo metropolitan area; and the El Centro area. Out of these, three are heavy populated areas: the Los Angeles area with over 12 million inhabitants, the Riverside-San Bernardino area with over four million inhabitants, and the San Diego area with over 3 million inhabitants. For CSA metropolitan purposes, the five counties of Los Angeles, Orange, Riverside, San Bernardino, and Ventura are all combined to make up the Greater Los Angeles Area with over 17.5 million people. With over 22 million people, southern California contains roughly 60 percent of California's population.\n\nQuestion: How many people live in Riverside? ",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nThe text states the *Riverside-San Bernardino area*",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.200889587402344,
+          "prob": 2.5022893768142746e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.5022893472613406e-07,
+      "prompt": "You're given the following task:\nContext: Southern California includes the heavily built-up urban area stretching along the Pacific coast from Ventura, through the Greater Los Angeles Area and the Inland Empire, and down to Greater San Diego. Southern California's population encompasses seven metropolitan areas, or MSAs: the Los Angeles metropolitan area, consisting of Los Angeles and Orange counties; the Inland Empire, consisting of Riverside and San Bernardino counties; the San Diego metropolitan area; the Oxnard–Thousand Oaks–Ventura metropolitan area; the Santa Barbara metro area; the San Luis Obispo metropolitan area; and the El Centro area. Out of these, three are heavy populated areas: the Los Angeles area with over 12 million inhabitants, the Riverside-San Bernardino area with over four million inhabitants, and the San Diego area with over 3 million inhabitants. For CSA metropolitan purposes, the five counties of Los Angeles, Orange, Riverside, San Bernardino, and Ventura are all combined to make up the Greater Los Angeles Area with over 17.5 million people. With over 22 million people, southern California contains roughly 60 percent of California's population.\n\nQuestion: How many people live in Riverside? \nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

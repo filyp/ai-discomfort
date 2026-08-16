@@ -1,0 +1,31 @@
+{
+  "id": 289220420483629156,
+  "question": "What was the last episode of transformers g1?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What was the number of the last episode of Transformers G1 in the US?',\n              'What was the title of the last episode of Transformers G1 in the US?',\n              'What was the title of the last (unaired) episode of Transformers G1 in Japan?',\n              'What was the title of the last aired episode of Transformers G1 in Japan?'],\n             dtype=object), 'answer': array([array(['98'], dtype=object),\n              array(['\"The Rebirth, Part 3\"'], dtype=object),\n              array(['\"Heroic Legend: Head On! Master Warriors\"',\n                     '\"Eiyū Densetsu: Heddo On! Masutā Senshi\"',\n                     '(英雄伝説\\u3000ヘッドオン！マスター戦士)'], dtype=object)  ,\n              array(['\"The Final Showdown on Earth: Episode Two\"',\n                     '\"Saigo no Chikyū Dai Sakusen (Kōhen)\"', '(最後の地球大決戦 （後編）)'],\n                    dtype=object)                                                ],\n             dtype=object)}                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 881,
+  "prompt": "What was the last episode of transformers g1?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The last episode of Transformers G1 was **\"The",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.434417724609375,
+          "prob": 4.910782046180107e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.910782043768528e-10,
+      "prompt": "You're given the following task:\nWhat was the last episode of transformers g1?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

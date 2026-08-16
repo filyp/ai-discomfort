@@ -1,0 +1,31 @@
+{
+  "id": 9091381647734902001,
+  "question": "Who is the minister of health in malawi?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the Minister of Health in Malawi as of June 2014?',\n              'Who was the Minister of Health in Malawi as of September 8, 2011?',\n              'Who was the deputy Minister of Health in Malawi as of September 8, 2011?',\n              'Who was the Minister of Health in Malawi as of 19 August 2011?',\n              'Who was the deputy Minister of Health in Malawi as of 9 August 2010?',\n              'Who was the deputy Minister of Health in Malawi as of 15 June 2009?'],\n             dtype=object), 'answer': array([array(['Hon. Peter Kumpalume MP'], dtype=object),\n              array(['Jean Kalilani'], dtype=object),\n              array(['Ralph Jooma'], dtype=object),\n              array(['Bingo wa Mutharika'], dtype=object),\n              array(['Felton Mulli'], dtype=object),\n              array(['Gloria Mwale'], dtype=object)], dtype=object)}                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 353,
+  "prompt": "Who is the minister of health in malawi?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.22091293334961,
+          "prob": 3.3193461162794845e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.319346006098902e-08,
+      "prompt": "You're given the following task:\nWho is the minister of health in malawi?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

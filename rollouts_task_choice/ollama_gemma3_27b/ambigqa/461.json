@@ -1,0 +1,31 @@
+{
+  "id": -2038850573562257182,
+  "question": "When does dr owen come to grey's anatomy?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"When does the episode air where dr owen comes to grey's anatomy?\",\n              \"What episode does dr owen come to grey's anatomy?\"], dtype=object), 'answer': array([array(['September 25, 2008'], dtype=object),\n              array(['79', 'Dream a Little Dream of Me'], dtype=object)],\n             dtype=object)}                                                                                                                     ,\n       {'question': array([\"Which episode does dr owen come to grey's anatomy?\",\n              \"When is the episode where dr owen comes to grey's anatomy?\"],\n             dtype=object), 'answer': array([array(['Dream a Little Dream of Me, Part 1', '79'], dtype=object),\n              array(['September 25, 2008'], dtype=object)], dtype=object)}                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 461,
+  "prompt": "When does dr owen come to grey's anatomy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.378986358642578,
+          "prob": 3.835422039984442e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.835422025273981e-09,
+      "prompt": "You're given the following task:\nWhen does dr owen come to grey's anatomy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 977,
+  "prompt": "What was Lieut. C D Lucas, RN, the first to receive as a result of his involvement in the bombardment of a Russian fortress in the Baltic on 21 June 1854?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.7423095703125,
+          "prob": 1.970665245150574e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9706652063153596e-08,
+      "prompt": "You're given the following task:\nWhat was Lieut. C D Lucas, RN, the first to receive as a result of his involvement in the bombardment of a Russian fortress in the Baltic on 21 June 1854?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

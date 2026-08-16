@@ -1,0 +1,32 @@
+{
+  "id": "57060a1175f01819005e78d2",
+  "title": "Southern_California",
+  "context": "Since the 1920s, motion pictures, petroleum and aircraft manufacturing have been major industries. In one of the richest agricultural regions in the U.S., cattle and citrus were major industries until farmlands were turned into suburbs. Although military spending cutbacks have had an impact, aerospace continues to be a major factor.",
+  "question": "Motion pictures, petroleum and aircraft manufacturing have been major industries since which decade?",
+  "answers": "{'text': array(['1920s', '1920s', '1920s'], dtype=object), 'answer_start': array([10, 10, 10], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 415,
+  "prompt": "Context: Since the 1920s, motion pictures, petroleum and aircraft manufacturing have been major industries. In one of the richest agricultural regions in the U.S., cattle and citrus were major industries until farmlands were turned into suburbs. Although military spending cutbacks have had an impact, aerospace continues to be a major factor.\n\nQuestion: Motion pictures, petroleum and aircraft manufacturing have been major industries since which decade?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states these industries have been major since the **19",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.451332092285156,
+          "prob": 8.064278949039684e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.064278949039619e-15,
+      "prompt": "You're given the following task:\nContext: Since the 1920s, motion pictures, petroleum and aircraft manufacturing have been major industries. In one of the richest agricultural regions in the U.S., cattle and citrus were major industries until farmlands were turned into suburbs. Although military spending cutbacks have had an impact, aerospace continues to be a major factor.\n\nQuestion: Motion pictures, petroleum and aircraft manufacturing have been major industries since which decade?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

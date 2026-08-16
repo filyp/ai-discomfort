@@ -1,0 +1,32 @@
+{
+  "id": "57114dfb50c2381900b54a54",
+  "title": "Steam_engine",
+  "context": "The working fluid in a Rankine cycle can operate as a closed loop system, where the working fluid is recycled continuously, or may be an \"open loop\" system, where the exhaust steam is directly released to the atmosphere, and a separate source of water feeding the boiler is supplied. Normally water is the fluid of choice due to its favourable properties, such as non-toxic and unreactive chemistry, abundance, low cost, and its thermodynamic properties. Mercury is the working fluid in the mercury vapor turbine. Low boiling hydrocarbons can be used in a binary cycle.",
+  "question": "What sort of system releases the exhaust steam into the atmosphere?",
+  "answers": "{'text': array(['open loop', 'open loop', 'open loop'], dtype=object), 'answer_start': array([138, 138, 138], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1001,
+  "prompt": "Context: The working fluid in a Rankine cycle can operate as a closed loop system, where the working fluid is recycled continuously, or may be an \"open loop\" system, where the exhaust steam is directly released to the atmosphere, and a separate source of water feeding the boiler is supplied. Normally water is the fluid of choice due to its favourable properties, such as non-toxic and unreactive chemistry, abundance, low cost, and its thermodynamic properties. Mercury is the working fluid in the mercury vapor turbine. Low boiling hydrocarbons can be used in a binary cycle.\n\nQuestion: What sort of system releases the exhaust steam into the atmosphere?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that an **open loop** system releases the exhaust",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.666759490966797,
+          "prob": 4.803917884642847e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.803917884642617e-14,
+      "prompt": "You're given the following task:\nContext: The working fluid in a Rankine cycle can operate as a closed loop system, where the working fluid is recycled continuously, or may be an \"open loop\" system, where the exhaust steam is directly released to the atmosphere, and a separate source of water feeding the boiler is supplied. Normally water is the fluid of choice due to its favourable properties, such as non-toxic and unreactive chemistry, abundance, low cost, and its thermodynamic properties. Mercury is the working fluid in the mercury vapor turbine. Low boiling hydrocarbons can be used in a binary cycle.\n\nQuestion: What sort of system releases the exhaust steam into the atmosphere?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

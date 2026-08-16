@@ -1,0 +1,31 @@
+{
+  "id": 5263116168153377608,
+  "question": "Where did the brown v board of education take place?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['In what court did Brown v Board of Education take place?',\n              'Where did Brown v Board of Education originate?'], dtype=object), 'answer': array([array(['U.S. Supreme Court'], dtype=object),\n              array(['Topeka, KS'], dtype=object)], dtype=object)}                                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 878,
+  "prompt": "Where did the brown v board of education take place?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you about where *Brown v. Board",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.87228012084961,
+          "prob": 1.7304831086883677e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7304830787426505e-08,
+      "prompt": "You're given the following task:\nWhere did the brown v board of education take place?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

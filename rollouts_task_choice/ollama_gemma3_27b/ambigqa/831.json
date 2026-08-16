@@ -1,0 +1,31 @@
+{
+  "id": 4214526319411191996,
+  "question": "Who played the chicago cubs in the world series last year?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played the Chicago Cubs in the 2016 World Series?',\n              'Who played the Chicago Cubs in the 1908 World Series?',\n              'Who played the Chicago Cubs in the 1907 World Series?'],\n             dtype=object), 'answer': array([array(['Cleveland Indians'], dtype=object),\n              array(['Detroit Tigers'], dtype=object),\n              array(['Detroit Tigers'], dtype=object)], dtype=object)}                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 831,
+  "prompt": "Who played the chicago cubs in the world series last year?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out who played the Chicago Cubs in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.00014783044753130525,
+          "prob": 0.9998521804788508,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.819483757019043,
+          "prob": 0.00014782465397731223,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0001478246532185537,
+      "prompt": "You're given the following task:\nWho played the chicago cubs in the world series last year?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

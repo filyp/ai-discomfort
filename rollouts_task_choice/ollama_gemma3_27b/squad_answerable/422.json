@@ -1,0 +1,32 @@
+{
+  "id": "57060a6e52bb8914006897fa",
+  "title": "Southern_California",
+  "context": "Southern California is home to many major business districts. Central business districts (CBD) include Downtown Los Angeles, Downtown San Diego, Downtown San Bernardino, Downtown Bakersfield, South Coast Metro and Downtown Riverside.",
+  "question": "What is the only district in the CBD to not have \"downtown\" in it's name?",
+  "answers": "{'text': array(['South Coast Metro', 'South Coast Metro', 'South Coast Metro'],\n      dtype=object), 'answer_start': array([192, 192, 192], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 422,
+  "prompt": "Context: Southern California is home to many major business districts. Central business districts (CBD) include Downtown Los Angeles, Downtown San Diego, Downtown San Bernardino, Downtown Bakersfield, South Coast Metro and Downtown Riverside.\n\nQuestion: What is the only district in the CBD to not have \"downtown\" in it's name?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure this out! Based on the provided",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.873207092285156,
+          "prob": 3.1665537064516843e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.166553705448978e-10,
+      "prompt": "You're given the following task:\nContext: Southern California is home to many major business districts. Central business districts (CBD) include Downtown Los Angeles, Downtown San Diego, Downtown San Bernardino, Downtown Bakersfield, South Coast Metro and Downtown Riverside.\n\nQuestion: What is the only district in the CBD to not have \"downtown\" in it's name?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -4545751866696079002,
+  "question": "Who set the fire in one tree hill?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Which character set the fire in one tree hill?',\n              'Which actress set the fire in one tree hill?'], dtype=object), 'answer': array([array(['Deb', 'Deb Scott'], dtype=object),\n              array(['Barbara Alyn Woods'], dtype=object)], dtype=object)}                                                               ,\n       {'question': array(['Who does Dan think set the fire in one tree hill?',\n              'Who was the character who set the fire in season two one tree hill?',\n              'Who was the actor who played the one who set the fire in season two one tree hill?'],\n             dtype=object), 'answer': array([array(['Keith'], dtype=object),\n              array(['Deb Scott', 'Deb lee'], dtype=object),\n              array(['Barbara Alyn Woods'], dtype=object)], dtype=object)}                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 796,
+  "prompt": "Who set the fire in one tree hill?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To give you the most",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.5033982637978625e-06,
+          "prob": 0.9999974966048697,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.893061637878418,
+          "prob": 2.515442972089606e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.5154429417839475e-06,
+      "prompt": "You're given the following task:\nWho set the fire in one tree hill?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

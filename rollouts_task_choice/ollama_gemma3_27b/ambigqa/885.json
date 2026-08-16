@@ -1,0 +1,31 @@
+{
+  "id": -4217433867539652706,
+  "question": "What state is directly west of north dakota?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What state is the closest state directly west of north dakota?',\n              'What state is the second closest state directly west of north dakota?',\n              'What two coastal states are directly west of north dakota?'],\n             dtype=object), 'answer': array([array(['Montana'], dtype=object), array(['Idaho'], dtype=object),\n              array(['Oregon', 'Washington', 'Washington and Oregon'], dtype=object)],\n             dtype=object)}                                                                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 885,
+  "prompt": "What state is directly west of north dakota?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.945083618164062,
+          "prob": 1.6089746709642617e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6089746450762674e-08,
+      "prompt": "You're given the following task:\nWhat state is directly west of north dakota?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

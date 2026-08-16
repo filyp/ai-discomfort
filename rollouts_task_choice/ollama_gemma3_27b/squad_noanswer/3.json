@@ -1,0 +1,70 @@
+{
+  "id": "5ad39d53604f3c001a3fe8d3",
+  "title": "Normans",
+  "context": "The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse (\"Norman\" comes from \"Norseman\") raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.",
+  "question": "Who did King Charles III swear fealty to?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 3,
+  "prompt": "Context: The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse (\"Norman\" comes from \"Norseman\") raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.\n\nQuestion: Who did King Charles III swear fealty to?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThat's a trick question! The text states Rollo (",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.001044103060849011,
+          "prob": 0.9989564418250964,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -6.86514949798584,
+          "prob": 0.001043526435801594,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.001043526468922187,
+      "prompt": "You're given the following task:\nContext: The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse (\"Norman\" comes from \"Norseman\") raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.\n\nQuestion: Who did King Charles III swear fealty to?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nThat's an interesting question! The text actually states it *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.048952143639326096,
+          "prob": 0.9522266987124495,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -3.041292190551758,
+          "prob": 0.04777311762106034,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.047773126395382795,
+      "prompt": "You're given the following task:\nContext: The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse (\"Norman\" comes from \"Norseman\") raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.\n\nQuestion: Who did King Charles III swear fealty to?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "STOP.\n\nThe question is reversed in the text. The text states Rollo",
+      "first_token": "STOP",
+      "targets": {
+        "continue": {
+          "logprob": -2.408107042312622,
+          "prob": 0.0899854721432066,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -0.09429466724395752,
+          "prob": 0.910014571243487,
+          "matched": "STOP"
+        }
+      },
+      "choice": "stop",
+      "p_opt_out": 0.9100145317609654,
+      "prompt": "You're given the following task:\nContext: The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse (\"Norman\" comes from \"Norseman\") raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.\n\nQuestion: Who did King Charles III swear fealty to?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

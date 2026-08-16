@@ -1,0 +1,31 @@
+{
+  "id": 8433533625736230886,
+  "question": "Who has won the most trophies man utd or liverpool?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who has won the most total competitive honours, Man Utd or Liverpool?|Who has won the most overall trophies between Man U and Liverpool?',\n              'Who has won the most FIFA and UEFA Cups, Man Utd or Liverpool?',\n              'Who has won more Premier League titles between man utd and liverpool?',\n              'Who has won more European titles, man utd or liverpool?'],\n             dtype=object), 'answer': array([array(['Manchester United', 'Man Utd'], dtype=object),\n              array(['Liverpool'], dtype=object), array(['Man U'], dtype=object),\n              array(['Liverpool'], dtype=object)], dtype=object)}                                                                                                     ,\n       {'question': array(['Who has won the most total competitive honours, Man Utd or Liverpool?|Who has won the most overall trophies between Man U and Liverpool?|Who has won more Premier League titles between Manchester United and Liverpool?',\n              'Who has won more European titles between Manchester United and Liverpool?'],\n             dtype=object), 'answer': array([array(['Manchester United'], dtype=object),\n              array(['Liverpool'], dtype=object)], dtype=object)}                                                                                                                                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1162,
+  "prompt": "Who has won the most trophies man utd or liverpool?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely help determine who has won more trophies -",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.747112274169922,
+          "prob": 1.9612234148820644e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9612233764180924e-08,
+      "prompt": "You're given the following task:\nWho has won the most trophies man utd or liverpool?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

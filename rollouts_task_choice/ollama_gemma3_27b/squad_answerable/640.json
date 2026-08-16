@@ -1,0 +1,32 @@
+{
+  "id": "570d3468b3d812140066d546",
+  "title": "Victoria_(Australia)",
+  "context": "Historically, Victoria has been the base for the manufacturing plants of the major car brands Ford, Toyota and Holden; however, closure announcements by all three companies in the 21st century will mean that Australia will no longer be a base for the global car industry, with Toyota's statement in February 2014 outlining a closure year of 2017. Holden's announcement occurred in May 2013, followed by Ford's decision in December of the same year (Ford's Victorian plants—in Broadmeadows and Geelong—will close in October 2016).",
+  "question": "When will Ford's manufacturing plants close?",
+  "answers": "{'text': array(['October 2016', 'in October 2016', '2013'], dtype=object), 'answer_start': array([515, 512, 385], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 640,
+  "prompt": "Context: Historically, Victoria has been the base for the manufacturing plants of the major car brands Ford, Toyota and Holden; however, closure announcements by all three companies in the 21st century will mean that Australia will no longer be a base for the global car industry, with Toyota's statement in February 2014 outlining a closure year of 2017. Holden's announcement occurred in May 2013, followed by Ford's decision in December of the same year (Ford's Victorian plants—in Broadmeadows and Geelong—will close in October 2016).\n\nQuestion: When will Ford's manufacturing plants close?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nFord's Victorian plants—in Broadmeadows and Geelong",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.928157806396484,
+          "prob": 1.005463272063963e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0054632720638619e-13,
+      "prompt": "You're given the following task:\nContext: Historically, Victoria has been the base for the manufacturing plants of the major car brands Ford, Toyota and Holden; however, closure announcements by all three companies in the 21st century will mean that Australia will no longer be a base for the global car industry, with Toyota's statement in February 2014 outlining a closure year of 2017. Holden's announcement occurred in May 2013, followed by Ford's decision in December of the same year (Ford's Victorian plants—in Broadmeadows and Geelong—will close in October 2016).\n\nQuestion: When will Ford's manufacturing plants close?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

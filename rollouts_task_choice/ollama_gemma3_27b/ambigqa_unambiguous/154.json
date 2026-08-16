@@ -1,0 +1,31 @@
+{
+  "id": -493061777935352482,
+  "question": "Who sang killing me softly with his song first?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Lori Lieberman'], dtype=object),\n       array(['Lori Lieberman'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 154,
+  "prompt": "Who sang killing me softly with his song first?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out who *first* sang \"",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.722062269342132e-06,
+          "prob": 0.9999942779541017,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.061155319213867,
+          "prob": 5.7797200008443636e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.779719667504219e-06,
+      "prompt": "You're given the following task:\nWho sang killing me softly with his song first?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

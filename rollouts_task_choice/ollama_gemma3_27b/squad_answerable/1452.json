@@ -1,0 +1,32 @@
+{
+  "id": "57265360dd62a815002e819b",
+  "title": "1973_oil_crisis",
+  "context": "Although lacking historical connections to the Middle East, Japan was the country most dependent on Arab oil. 71% of its imported oil came from the Middle East in 1970. On November 7, 1973, the Saudi and Kuwaiti governments declared Japan a \"nonfriendly\" country to encourage it to change its noninvolvement policy. It received a 5% production cut in December, causing a panic. On November 22, Japan issued a statement \"asserting that Israel should withdraw from all of the 1967 territories, advocating Palestinian self-determination, and threatening to reconsider its policy toward Israel if Israel refused to accept these preconditions\". By December 25, Japan was considered an Arab-friendly state.",
+  "question": "How much imported oil came from the Middle East?",
+  "answers": "{'text': array(['71%', '71%', '71', '71%', '71%'], dtype=object), 'answer_start': array([110, 110, 110, 110, 110], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1452,
+  "prompt": "Context: Although lacking historical connections to the Middle East, Japan was the country most dependent on Arab oil. 71% of its imported oil came from the Middle East in 1970. On November 7, 1973, the Saudi and Kuwaiti governments declared Japan a \"nonfriendly\" country to encourage it to change its noninvolvement policy. It received a 5% production cut in December, causing a panic. On November 22, Japan issued a statement \"asserting that Israel should withdraw from all of the 1967 territories, advocating Palestinian self-determination, and threatening to reconsider its policy toward Israel if Israel refused to accept these preconditions\". By December 25, Japan was considered an Arab-friendly state.\n\nQuestion: How much imported oil came from the Middle East?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that **71%** of Japan's",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.120018005371094,
+          "prob": 3.0531483268694716e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.053148326869378e-14,
+      "prompt": "You're given the following task:\nContext: Although lacking historical connections to the Middle East, Japan was the country most dependent on Arab oil. 71% of its imported oil came from the Middle East in 1970. On November 7, 1973, the Saudi and Kuwaiti governments declared Japan a \"nonfriendly\" country to encourage it to change its noninvolvement policy. It received a 5% production cut in December, causing a panic. On November 22, Japan issued a statement \"asserting that Israel should withdraw from all of the 1967 territories, advocating Palestinian self-determination, and threatening to reconsider its policy toward Israel if Israel refused to accept these preconditions\". By December 25, Japan was considered an Arab-friendly state.\n\nQuestion: How much imported oil came from the Middle East?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1616810287777418755,
+  "question": "Who won the first super bowl in 1967?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Green Bay Packers'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['What team won the 1967 Superbowl?',\n              'What head coach won the 1967 Superbowl?',\n              'What league won the 1967 Superbowl?'], dtype=object), 'answer': array([array(['Green Bay Packers'], dtype=object),\n              array(['Vince Lombardi'], dtype=object),\n              array(['National Football League', 'National', 'NFL', 'National League'],\n                    dtype=object)                                                      ],\n             dtype=object)}                                                                                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 122,
+  "prompt": "Who won the first super bowl in 1967?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.79174041748047,
+          "prob": 6.900027654308246e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.9000276066978645e-09,
+      "prompt": "You're given the following task:\nWho won the first super bowl in 1967?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

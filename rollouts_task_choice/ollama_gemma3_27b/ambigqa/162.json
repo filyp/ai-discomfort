@@ -1,0 +1,31 @@
+{
+  "id": 3872128733372987564,
+  "question": "What was the name of the frat in animal house?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the name of the prestigious frat in Animal House?',\n              'What is the name of the frat that organizes a toga party in Animal House?',\n              'What were the names of the fraternities that the Animal House fraternity is based on?'],\n             dtype=object), 'answer': array([array(['Omega Theta Pi'], dtype=object),\n              array(['Delta Tau Chi'], dtype=object),\n              array(['Zeta Beta Tau and Alpha Delta Phi'], dtype=object)],\n             dtype=object)}                                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 162,
+  "prompt": "What was the name of the frat in animal house?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The fraternity in *Animal House* was called **Delta",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.563671112060547,
+          "prob": 1.1730353725999703e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1730353712239582e-09,
+      "prompt": "You're given the following task:\nWhat was the name of the frat in animal house?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

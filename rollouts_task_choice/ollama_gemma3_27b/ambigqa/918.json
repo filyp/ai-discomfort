@@ -1,0 +1,31 @@
+{
+  "id": 5573505939742304283,
+  "question": "Who was the ruler of france in 1830?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who was the ruler of France until 2 August 1830?',\n              'Who was the ruler of France after 9 August 1830?'], dtype=object), 'answer': array([array(['Charles Philippe', 'Charles X'], dtype=object),\n              array(['Louis-Philippe I'], dtype=object)], dtype=object)}                                                                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 918,
+  "prompt": "Who was the ruler of france in 1830?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.074623107910156,
+          "prob": 2.5888864004367913e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.588886399766558e-10,
+      "prompt": "You're given the following task:\nWho was the ruler of france in 1830?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -5100712681859370072,
+  "question": "Who sang for your love i would do anything?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sang for your love, released in 1958?',\n              'Which band sang for your love, released in 1965?',\n              'Which singers sang for your love, released in 1965?',\n              'Which group sang for your love, released in 1967?',\n              'Which singers sang for your love, released in 1967?',\n              'Who sang for your love, released in 1970?',\n              'Who sang for your love, released in 1973?',\n              'Who sang for your love, released in 1976?'], dtype=object), 'answer': array([array([\"Edward Benjamin 'Ed' Townsend\", 'Ed Townsend', 'Townsend'],\n                    dtype=object)                                                ,\n              array(['The Righteous Brothers'], dtype=object),\n              array(['Bill Medley', 'Bill Medley and Bobby Hatfield', 'Hatfield'],\n                    dtype=object)                                                 ,\n              array(['Peaches & Herb'], dtype=object),\n              array(['Herb Fame', 'Francine \"Peaches\" Hurd Barker'], dtype=object),\n              array(['Bobby Austin', 'Austin'], dtype=object),\n              array(['Gwen McCrae', 'McCrae', 'Gwen Mosley'], dtype=object),\n              array(['Bobby Lewis', 'Lewis'], dtype=object)], dtype=object)}                                                                                   ,\n       {'question': array(['Who sang \"For Your Love\" originally?',\n              'Who sang a charting cover of \"For Your Love\"(1965)?',\n              'Who sang a charting cover of \"For Your Love\"(1967)?',\n              'Who sang a charting cover of \"For Your Love\"(1970)?',\n              'Who sang a charting cover of \"For Your Love\"(1973)?',\n              'Who sang a charting cover of \"For Your Love\"(1976)?'],\n             dtype=object), 'answer': array([array(['Ed Townsend'], dtype=object),\n              array(['The Righteous Brothers'], dtype=object),\n              array(['Peaches & Herb'], dtype=object),\n              array(['Bobby Austin'], dtype=object),\n              array(['Gwen McCrae'], dtype=object),\n              array(['Bobby Lewis'], dtype=object)], dtype=object)}               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 682,
+  "prompt": "Who sang for your love i would do anything?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! That song is \"For Your Love\" and it was",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.908241271972656,
+          "prob": 1.2334984235860205e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.2334984184786464e-07,
+      "prompt": "You're given the following task:\nWho sang for your love i would do anything?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

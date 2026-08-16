@@ -1,0 +1,31 @@
+{
+  "id": 8959142203012458666,
+  "question": "Who sponsored the first season of the tv cartoon show the flintstones?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who was the primary sponsor of the first season of the tv cartoon show the flintstones?',\n              'Who was the alternate sponsor of the first season of the tv cartoon show the flintstones?'],\n             dtype=object), 'answer': array([array(['Winston cigarettes', 'Winston'], dtype=object),\n              array(['Miles Laboratories',\n                     'Miles Laboratories and their One-A-Day vitamin brand'],\n                    dtype=object)                                            ],\n             dtype=object)}                                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 849,
+  "prompt": "Who sponsored the first season of the tv cartoon show the flintstones?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.94518280029297,
+          "prob": 4.373212844462384e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.373212653212487e-08,
+      "prompt": "You're given the following task:\nWho sponsored the first season of the tv cartoon show the flintstones?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

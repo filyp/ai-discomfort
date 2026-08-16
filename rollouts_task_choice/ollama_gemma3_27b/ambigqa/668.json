@@ -1,0 +1,31 @@
+{
+  "id": -6009084797339061172,
+  "question": "Name the current speaker of the united states house of representatives?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Name the 115th speaker of the united states house of representatives?',\n              'Name the 114th speaker of the united states house of representatives, before the intra-term special election?',\n              'Name the 114th speaker of the united states house of representatives, after the intra-term special election?'],\n             dtype=object), 'answer': array([array(['Paul Davis Ryan', 'Paul Ryan'], dtype=object),\n              array(['John Andrew Boehner', 'John Boehner'], dtype=object),\n              array(['Paul Davis Ryan', 'Paul Ryan'], dtype=object)],\n             dtype=object)}                                                                                                   ,\n       {'question': array(['Who was the US Speaker for the House of Representatives from January 3, 2017 to January 3, 2019?',\n              'Who was the US Speaker for the House of Representatives from October 29, 2015 to January 3, 2017?',\n              'Who was the US Speaker for the House of Representatives from January 6, 2015 to October 29, 2015?'],\n             dtype=object), 'answer': array([array(['Paul Ryan'], dtype=object),\n              array(['Paul Ryan'], dtype=object),\n              array(['John Boehner'], dtype=object)], dtype=object)}                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 668,
+  "prompt": "Name the current speaker of the united states house of representatives?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.94886016845703,
+          "prob": 2.935831627374745e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.9358316265128343e-10,
+      "prompt": "You're given the following task:\nName the current speaker of the united states house of representatives?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

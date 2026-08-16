@@ -1,0 +1,32 @@
+{
+  "id": "5ad3e83e604f3c001a3ff63b",
+  "title": "Steam_engine",
+  "context": "The Rankine cycle and most practical steam engines have a water pump to recycle or top up the boiler water, so that they may be run continuously. Utility and industrial boilers commonly use multi-stage centrifugal pumps; however, other types are used. Another means of supplying lower-pressure boiler feed water is an injector, which uses a steam jet usually supplied from the boiler. Injectors became popular in the 1850s but are no longer widely used, except in applications such as steam locomotives.",
+  "question": "What device is used to recycle the boiler water in most jet engines?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 925,
+  "prompt": "Context: The Rankine cycle and most practical steam engines have a water pump to recycle or top up the boiler water, so that they may be run continuously. Utility and industrial boilers commonly use multi-stage centrifugal pumps; however, other types are used. Another means of supplying lower-pressure boiler feed water is an injector, which uses a steam jet usually supplied from the boiler. Injectors became popular in the 1850s but are no longer widely used, except in applications such as steam locomotives.\n\nQuestion: What device is used to recycle the boiler water in most jet engines?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text discusses the Rankine cycle and *steam* engines",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -10.142281532287598,
+          "prob": 3.937885612471261e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -3.933984044124372e-05,
+          "prob": 0.9999606609333601,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999606211454422,
+      "prompt": "You're given the following task:\nContext: The Rankine cycle and most practical steam engines have a water pump to recycle or top up the boiler water, so that they may be run continuously. Utility and industrial boilers commonly use multi-stage centrifugal pumps; however, other types are used. Another means of supplying lower-pressure boiler feed water is an injector, which uses a steam jet usually supplied from the boiler. Injectors became popular in the 1850s but are no longer widely used, except in applications such as steam locomotives.\n\nQuestion: What device is used to recycle the boiler water in most jet engines?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 473,
+  "prompt": "Link richness is the quality, possessed by some websites, of having many hyperlinks, classified advertising sites like Craigslist, of which nationality?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I understand the task. You're asking about the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.861027041944908e-06,
+          "prob": 0.9999971389770508,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.74438762664795,
+          "prob": 2.9186551097146648e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.9186549415062746e-06,
+      "prompt": "You're given the following task:\nLink richness is the quality, possessed by some websites, of having many hyperlinks, classified advertising sites like Craigslist, of which nationality?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

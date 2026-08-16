@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 258,
+  "prompt": "This is a list of NFL Draft selections by the Indianapolis Colts, the first draft that the current incarnation of the Colts franchise participated in was 1953, in which they made which gridiron football player, of Oklahoma their first ever selection?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.74942398071289,
+          "prob": 1.9566948782222746e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.956694839935727e-08,
+      "prompt": "You're given the following task:\nThis is a list of NFL Draft selections by the Indianapolis Colts, the first draft that the current incarnation of the Colts franchise participated in was 1953, in which they made which gridiron football player, of Oklahoma their first ever selection?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

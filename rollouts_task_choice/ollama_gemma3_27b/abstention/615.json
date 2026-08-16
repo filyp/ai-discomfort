@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 615,
+  "prompt": "How was the universe exactly created?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.01694404147565365,
+          "prob": 0.9831987014440376,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.086417198181152,
+          "prob": 0.01679931447976839,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.01679934781095446,
+      "prompt": "You're given the following task:\nHow was the universe exactly created?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5729f3831d0469140077967e",
+  "title": "Amazon_rainforest",
+  "context": "The rainforest contains several species that can pose a hazard. Among the largest predatory creatures are the black caiman, jaguar, cougar, and anaconda. In the river, electric eels can produce an electric shock that can stun or kill, while piranha are known to bite and injure humans. Various species of poison dart frogs secrete lipophilic alkaloid toxins through their flesh. There are also numerous parasites and disease vectors. Vampire bats dwell in the rainforest and can spread the rabies virus. Malaria, yellow fever and Dengue fever can also be contracted in the Amazon region.",
+  "question": "What are dart frogs are known to secrete?",
+  "answers": "{'text': array(['lipophilic alkaloid toxins', 'lipophilic alkaloid toxins',\n       'lipophilic alkaloid toxins'], dtype=object), 'answer_start': array([331, 331, 331], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1847,
+  "prompt": "Context: The rainforest contains several species that can pose a hazard. Among the largest predatory creatures are the black caiman, jaguar, cougar, and anaconda. In the river, electric eels can produce an electric shock that can stun or kill, while piranha are known to bite and injure humans. Various species of poison dart frogs secrete lipophilic alkaloid toxins through their flesh. There are also numerous parasites and disease vectors. Vampire bats dwell in the rainforest and can spread the rabies virus. Malaria, yellow fever and Dengue fever can also be contracted in the Amazon region.\n\nQuestion: What are dart frogs are known to secrete?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nDart frogs are known to secrete lipophilic alkaloid toxins through their",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.829994201660156,
+          "prob": 1.1091700215053977e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1091700215052745e-13,
+      "prompt": "You're given the following task:\nContext: The rainforest contains several species that can pose a hazard. Among the largest predatory creatures are the black caiman, jaguar, cougar, and anaconda. In the river, electric eels can produce an electric shock that can stun or kill, while piranha are known to bite and injure humans. Various species of poison dart frogs secrete lipophilic alkaloid toxins through their flesh. There are also numerous parasites and disease vectors. Vampire bats dwell in the rainforest and can spread the rabies virus. Malaria, yellow fever and Dengue fever can also be contracted in the Amazon region.\n\nQuestion: What are dart frogs are known to secrete?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

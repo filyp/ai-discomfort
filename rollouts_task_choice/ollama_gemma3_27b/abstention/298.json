@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 298,
+  "prompt": "Which world's largest river would be biggest in the world if Volga wasn't the largest?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I understand the task. It's a bit of",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.609207153320312,
+          "prob": 6.119458367909017e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.119458722927571e-08,
+      "prompt": "You're given the following task:\nWhich world's largest river would be biggest in the world if Volga wasn't the largest?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

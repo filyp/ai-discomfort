@@ -1,0 +1,31 @@
+{
+  "id": -7080280877480411379,
+  "question": "Who is the speaker of the house in california?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the speaker of the house in california 2017?',\n              'Who is the speaker of the house in california 2016?',\n              'Who is the speaker of the house in california 2014?'],\n             dtype=object), 'answer': array([array(['Anthony Rendon'], dtype=object),\n              array(['Toni Atkins', 'Toni G. Atkins'], dtype=object),\n              array(['John Pérez', 'John A. Pérez'], dtype=object)], dtype=object)}  ,\n       {'question': array(['Who was the 70th Speaker of the California State Assembly?',\n              'Who was the 69th Speaker of the California State Assembly?',\n              'Who was the 68th Speaker of the California State Assembly?'],\n             dtype=object), 'answer': array([array(['Anthony Rendon'], dtype=object),\n              array(['Toni Atkins'], dtype=object),\n              array(['John Pérez'], dtype=object)], dtype=object)}                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 207,
+  "prompt": "Who is the speaker of the house in california?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! Currently (as of November",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.4305124977909145e-06,
+          "prob": 0.9999985694885254,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.440316200256348,
+          "prob": 1.4552742308974708e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.4552741948608706e-06,
+      "prompt": "You're given the following task:\nWho is the speaker of the house in california?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

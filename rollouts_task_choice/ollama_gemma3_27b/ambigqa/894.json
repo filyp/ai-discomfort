@@ -1,0 +1,31 @@
+{
+  "id": -8056895208806271453,
+  "question": "What season of greys anatomy was the plane crash?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"What season of Grey's Anatomy was the plane crash involving six doctors?\",\n              \"What season of Grey's Anatomy was the plane crash in Seattle that brought memories of a previous plane crash?\"],\n             dtype=object), 'answer': array([array(['season 8'], dtype=object),\n              array(['season 11'], dtype=object)], dtype=object)}                                                              ,\n       {'question': array([\"What season of Grey's Anatomy was the plane crash that claimed the life of Lexie Grey?\",\n              \"What season of Grey's Anatomy was the plane crash in downtown Seattle?\"],\n             dtype=object), 'answer': array([array(['8'], dtype=object), array(['11'], dtype=object)],\n             dtype=object)}                                                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 894,
+  "prompt": "What season of greys anatomy was the plane crash?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.663909912109375,
+          "prob": 3.9037632267703465e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.9037632252464094e-10,
+      "prompt": "You're given the following task:\nWhat season of greys anatomy was the plane crash?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

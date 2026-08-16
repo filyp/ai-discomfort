@@ -1,0 +1,32 @@
+{
+  "id": "5a638ffe68151a001a922386",
+  "title": "Victoria_(Australia)",
+  "context": "Historically, Victoria has been the base for the manufacturing plants of the major car brands Ford, Toyota and Holden; however, closure announcements by all three companies in the 21st century will mean that Australia will no longer be a base for the global car industry, with Toyota's statement in February 2014 outlining a closure year of 2017. Holden's announcement occurred in May 2013, followed by Ford's decision in December of the same year (Ford's Victorian plants—in Broadmeadows and Geelong—will close in October 2016).",
+  "question": "What brand of tractor is manufactured in Broadmeadows?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 638,
+  "prompt": "Context: Historically, Victoria has been the base for the manufacturing plants of the major car brands Ford, Toyota and Holden; however, closure announcements by all three companies in the 21st century will mean that Australia will no longer be a base for the global car industry, with Toyota's statement in February 2014 outlining a closure year of 2017. Holden's announcement occurred in May 2013, followed by Ford's decision in December of the same year (Ford's Victorian plants—in Broadmeadows and Geelong—will close in October 2016).\n\nQuestion: What brand of tractor is manufactured in Broadmeadows?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis question is a trick! The provided text discusses *car*",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -9.682915687561035,
+          "prob": 6.233947610083416e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -6.234840111574158e-05,
+          "prob": 0.9999376535425054,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.999937660523464,
+      "prompt": "You're given the following task:\nContext: Historically, Victoria has been the base for the manufacturing plants of the major car brands Ford, Toyota and Holden; however, closure announcements by all three companies in the 21st century will mean that Australia will no longer be a base for the global car industry, with Toyota's statement in February 2014 outlining a closure year of 2017. Holden's announcement occurred in May 2013, followed by Ford's decision in December of the same year (Ford's Victorian plants—in Broadmeadows and Geelong—will close in October 2016).\n\nQuestion: What brand of tractor is manufactured in Broadmeadows?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

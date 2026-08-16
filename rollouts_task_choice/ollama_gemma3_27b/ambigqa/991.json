@@ -1,0 +1,31 @@
+{
+  "id": 2771414991157063420,
+  "question": "When did construction start on the sydney harbour bridge?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object), array(['28 July 1923'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['When did construction officially start on the sydney harbour bridge?',\n              'When did construction of the Arch start on the sydney harbour bridge?'],\n             dtype=object), 'answer': array([array(['28 July 1923'], dtype=object),\n              array(['26 October 1928'], dtype=object)], dtype=object)}                           ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 991,
+  "prompt": "When did construction start on the sydney harbour bridge?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.6458740234375,
+          "prob": 2.1701726367954123e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.1701725896989207e-08,
+      "prompt": "You're given the following task:\nWhen did construction start on the sydney harbour bridge?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

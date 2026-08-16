@@ -1,0 +1,31 @@
+{
+  "id": -4879828696940526525,
+  "question": "Who said it is a tale told by an idiot full of sound and fury?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What play has the line it is a tale told by an idiot full of sound and fury?',\n              'What character said it is a tale told by an idiot full of sound and fury?'],\n             dtype=object), 'answer': array([array(['Macbeth'], dtype=object), array(['Macbeth'], dtype=object)],\n             dtype=object)}                                                                                      ,\n       {'question': array(['What play has the line \"it is a tale told by an idiot full of sound and fury\"?',\n              'What character said \"it is a tale told by an idiot full of sound and fury\"?'],\n             dtype=object), 'answer': array([array(['Macbeth'], dtype=object), array(['Macbeth'], dtype=object)],\n             dtype=object)}                                                                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1061,
+  "prompt": "Who said it is a tale told by an idiot full of sound and fury?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.07452392578125,
+          "prob": 7.038020869529509e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.038020864576135e-10,
+      "prompt": "You're given the following task:\nWho said it is a tale told by an idiot full of sound and fury?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

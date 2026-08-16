@@ -1,0 +1,32 @@
+{
+  "id": "571144d1a58dae1900cd6d70",
+  "title": "Steam_engine",
+  "context": "The heat required for boiling the water and supplying the steam can be derived from various sources, most commonly from burning combustible materials with an appropriate supply of air in a closed space (called variously combustion chamber, firebox). In some cases the heat source is a nuclear reactor, geothermal energy, solar energy or waste heat from an internal combustion engine or industrial process. In the case of model or toy steam engines, the heat source can be an electric heating element.",
+  "question": "Along with nuclear, geothermal and internal combustion engine waste heat, what sort of energy might supply the heat for a steam engine?",
+  "answers": "{'text': array(['solar', 'solar', 'solar'], dtype=object), 'answer_start': array([321, 321, 321], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 978,
+  "prompt": "Context: The heat required for boiling the water and supplying the steam can be derived from various sources, most commonly from burning combustible materials with an appropriate supply of air in a closed space (called variously combustion chamber, firebox). In some cases the heat source is a nuclear reactor, geothermal energy, solar energy or waste heat from an internal combustion engine or industrial process. In the case of model or toy steam engines, the heat source can be an electric heating element.\n\nQuestion: Along with nuclear, geothermal and internal combustion engine waste heat, what sort of energy might supply the heat for a steam engine?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that **solar energy** might supply the heat for",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.013290405273438,
+          "prob": 1.854714379066338e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.854714379062898e-12,
+      "prompt": "You're given the following task:\nContext: The heat required for boiling the water and supplying the steam can be derived from various sources, most commonly from burning combustible materials with an appropriate supply of air in a closed space (called variously combustion chamber, firebox). In some cases the heat source is a nuclear reactor, geothermal energy, solar energy or waste heat from an internal combustion engine or industrial process. In the case of model or toy steam engines, the heat source can be an electric heating element.\n\nQuestion: Along with nuclear, geothermal and internal combustion engine waste heat, what sort of energy might supply the heat for a steam engine?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

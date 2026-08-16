@@ -1,0 +1,32 @@
+{
+  "id": "57060a1175f01819005e78d5",
+  "title": "Southern_California",
+  "context": "Since the 1920s, motion pictures, petroleum and aircraft manufacturing have been major industries. In one of the richest agricultural regions in the U.S., cattle and citrus were major industries until farmlands were turned into suburbs. Although military spending cutbacks have had an impact, aerospace continues to be a major factor.",
+  "question": "Outside of livestock, what else was considered a major industry in the agriculture regions?",
+  "answers": "{'text': array(['citrus', 'citrus', 'citrus'], dtype=object), 'answer_start': array([166, 166, 166], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 418,
+  "prompt": "Context: Since the 1920s, motion pictures, petroleum and aircraft manufacturing have been major industries. In one of the richest agricultural regions in the U.S., cattle and citrus were major industries until farmlands were turned into suburbs. Although military spending cutbacks have had an impact, aerospace continues to be a major factor.\n\nQuestion: Outside of livestock, what else was considered a major industry in the agriculture regions?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can answer that! According to the text provided,",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.357337951660156,
+          "prob": 1.779385815451832e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7793858154515155e-13,
+      "prompt": "You're given the following task:\nContext: Since the 1920s, motion pictures, petroleum and aircraft manufacturing have been major industries. In one of the richest agricultural regions in the U.S., cattle and citrus were major industries until farmlands were turned into suburbs. Although military spending cutbacks have had an impact, aerospace continues to be a major factor.\n\nQuestion: Outside of livestock, what else was considered a major industry in the agriculture regions?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

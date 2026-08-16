@@ -1,0 +1,31 @@
+{
+  "id": -3232117435905862717,
+  "question": "Who wrote you dont have to say you love me?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who wrote the memoir You Don't Have to Say You Love Me?\",\n              'Who wrote the original Italian version of \"You Don\\'t Have to Say You Love Me\"?',\n              'Who wrote Dusty Springfield\\'s version of \"You Don\\'t Have to Say You Love Me\"?',\n              'Who wrote dont say you love me in 1999?'], dtype=object), 'answer': array([array(['Sherman Alexie', 'Sherman Joseph Alexie Jr.'], dtype=object),\n              array(['Pino Donaggio', 'Vito Pallavicini'], dtype=object),\n              array(['Vicki Wickham', 'Simon Napier-Bell', 'Pino Donaggio',\n                     'Vito Pallavicini'], dtype=object)                    ,\n              array(['Marion Raven, Marit Larsen, Peter Zizzo, Jimmy Bralower'],\n                    dtype=object)                                               ],\n             dtype=object)}                                                                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 654,
+  "prompt": "Who wrote you dont have to say you love me?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.960466182841628e-07,
+          "prob": 0.9999994039535594,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.274888038635254,
+          "prob": 6.316767541245097e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.316767316176698e-07,
+      "prompt": "You're given the following task:\nWho wrote you dont have to say you love me?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

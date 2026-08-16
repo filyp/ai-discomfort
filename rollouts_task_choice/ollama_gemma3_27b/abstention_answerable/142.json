@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 142,
+  "prompt": "Steven Levert \"Steve\" Clarkson (born October 31, 1961) is an American football coach, Clarkson has tutored Matthew Montgomery Barkley, an American football quarterback who is currently a free agent, born on which date?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that. The text doesn't",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0031192621681839228,
+          "prob": 0.9968855976756974,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -5.771727561950684,
+          "prob": 0.0031143725925202948,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0031143726851161455,
+      "prompt": "You're given the following task:\nSteven Levert \"Steve\" Clarkson (born October 31, 1961) is an American football coach, Clarkson has tutored Matthew Montgomery Barkley, an American football quarterback who is currently a free agent, born on which date?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

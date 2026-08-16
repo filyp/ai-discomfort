@@ -1,0 +1,31 @@
+{
+  "id": -8262756650648263227,
+  "question": "Who was involved in the battle of goliad?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who were the attackers involved in the battle of goliad?',\n              'Who was involved in the battle of goliad, being attacked?',\n              'Who were the Texian leaders involved in the battle of goliad?',\n              'Who were the Mexican leaders involved in the battle of goliad?'],\n             dtype=object), 'answer': array([array(['Texas settlers', 'Texian Rebels', 'Texians'], dtype=object),\n              array(['Mexican Army soldiers garrisoned at Presidio La Bahía', 'Mexico',\n                     'the mexican army'], dtype=object)                                ,\n              array(['Benjamin Milam', 'John Lin', 'Philip Dimmitt',\n                     'George Collinsworth', 'James Fannin',\n                     'James Fannin, Philip Dimmitt, John Lin, George Collinsworth, and Benjamin Milam'],\n                    dtype=object)                                                                       ,\n              array(['Martín Perfecto de Cos',\n                     'Martín Perfecto de Cos and Juan López Sandoval',\n                     'Juan López Sandoval'], dtype=object)            ],\n             dtype=object)}                                                                                      ,\n       {'question': array(['Who opposing forces fought each other at the Battle of Goliad?',\n              'What commanders were involved for the Texan side at the Battle of Goliad?',\n              'What commanders were involved for the Mexican side at the Battle of Goliad?'],\n             dtype=object), 'answer': array([array(['Texian Rebels and Mexico'], dtype=object),\n              array(['James Fannin Philip Dimmitt John Lin George Collinsworth Benjamin Milam'],\n                    dtype=object)                                                               ,\n              array(['Juan López Sandoval Martín Perfecto de Cos'], dtype=object)],\n             dtype=object)}                                                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 614,
+  "prompt": "Who was involved in the battle of goliad?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.866104125976562,
+          "prob": 5.841087469009682e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.841087468975563e-12,
+      "prompt": "You're given the following task:\nWho was involved in the battle of goliad?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

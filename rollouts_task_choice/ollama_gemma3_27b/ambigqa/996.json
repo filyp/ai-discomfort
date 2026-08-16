@@ -1,0 +1,31 @@
+{
+  "id": -2893689352564119139,
+  "question": "Who sings when i kissed the teacher in mamma mia?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who are the characters that sings when i kissed the teacher in mamma mia?',\n              'Who is the actresses that sing when i kissed the teacher in mamma mia?',\n              'Who is the band that sings the original version of when i kissed the teacher, that is covered in mamma mia?',\n              'Who is the singer that sings lead vocals for the original version of when i kissed the teacher, that is covered in mamma mia?'],\n             dtype=object), 'answer': array([array(['Young Donna, Young Tanya, Young Rosie, and the Vice-Chancellor'],\n                    dtype=object)                                                      ,\n              array(['Lily James',\n                     'Lily James, Jessica Keenan Wynn, Alexa Davies and Celia Imrie',\n                     'Jessica Keenan Wynn', 'Alexa Davies', 'Celia Imrie'], dtype=object),\n              array(['ABBA'], dtype=object),\n              array(['Fältskog', 'Agnetha Fältskog'], dtype=object)],\n             dtype=object)}                                                                                                                    ,\n       {'question': array(['Who sang \"I Kissed the Teacher\" in Mamma Mia! Here We Go Again: The Movie Soundtrack?',\n              'Who sang \"I Kissed the Teacher\" in Mamma Mia! Here We Go Again?'],\n             dtype=object), 'answer': array([array(['Lily James, Jessica Keenan Wynn, Alexa Davies and Celia Imrie'],\n                    dtype=object)                                                     ,\n              array(['Young Donna and the Dynamos, Vice-Chancellor'], dtype=object)],\n             dtype=object)}                                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 996,
+  "prompt": "Who sings when i kissed the teacher in mamma mia?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out who sings \"When I Kiss",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.672496795654297,
+          "prob": 2.8598496150305315e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.8598496068517915e-09,
+      "prompt": "You're given the following task:\nWho sings when i kissed the teacher in mamma mia?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

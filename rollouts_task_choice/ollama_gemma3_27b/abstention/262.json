@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 262,
+  "prompt": "When will be the next Tsunami attack in Indonesia?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nPredicting *when* the next tsunami will",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -10.912517547607422,
+          "prob": 1.8228622259040633e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -1.9431303371675313e-05,
+          "prob": 0.9999805688854149,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999817713558211,
+      "prompt": "You're given the following task:\nWhen will be the next Tsunami attack in Indonesia?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

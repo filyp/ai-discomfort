@@ -1,0 +1,31 @@
+{
+  "id": 2500192699772817249,
+  "question": "Who does jane eyre fall in love with?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object),\n       array(['Mr. Rochester', 'Edward Rochester'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['Who does jane eyre fall in love with in the novel?',\n              'Who does jane eyre fall in love with the 1970 Jane Eyre film?',\n              'Who does jane eyre fall in love with the 1996 Jane Eyre film?',\n              'Who does jane eyre fall in love with the 2011 Jane Eyre film?',\n              'Who does jane eyre fall in love with the 1943 Jane Eyre film?'],\n             dtype=object), 'answer': array([array(['Edward Fairfax Rochester', 'Rochester'], dtype=object),\n              array(['Edward Rochester', 'Rochester'], dtype=object),\n              array(['Edward Fairfax Rochester', 'Rochester'], dtype=object),\n              array(['Edward Fairfax Rochester', 'Rochester'], dtype=object),\n              array(['Edward Rochester', 'Rochester'], dtype=object)],\n             dtype=object)}                                                                                 ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 91,
+  "prompt": "Who does jane eyre fall in love with?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.24163818359375,
+          "prob": 2.9647652017293294e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.964765201641431e-11,
+      "prompt": "You're given the following task:\nWho does jane eyre fall in love with?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

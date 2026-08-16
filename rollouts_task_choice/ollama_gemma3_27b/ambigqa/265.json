@@ -1,0 +1,31 @@
+{
+  "id": -6617858863213285972,
+  "question": "When did the rams go to st louis?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['In what year did the rams go to St. Louis?',\n              'What was the first game the Rams played in St. Louis?'],\n             dtype=object), 'answer': array([array(['1995'], dtype=object),\n              array(['September 10, 1995'], dtype=object)], dtype=object)} ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 265,
+  "prompt": "When did the rams go to st louis?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you about when the Rams went to St",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.6689314179529902e-06,
+          "prob": 0.9999983310699747,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.318605422973633,
+          "prob": 1.6436265886723088e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.643626630261711e-06,
+      "prompt": "You're given the following task:\nWhen did the rams go to st louis?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

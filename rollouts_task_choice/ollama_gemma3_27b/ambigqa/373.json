@@ -1,0 +1,31 @@
+{
+  "id": -4437027893102241113,
+  "question": "Who is the current agriculture minister of india?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the current agriculture minister of india in 2017?',\n              'Who is the current agriculture minister of india in 2016?',\n              'Who is the current agriculture minister of india in 2015?'],\n             dtype=object), 'answer': array([array(['Singh', 'Radha Mohan Singh'], dtype=object),\n              array(['Singh', 'Radha Mohan Singh'], dtype=object),\n              array(['Singh', 'Radha Mohan Singh'], dtype=object)], dtype=object)}               ,\n       {'question': array(['Who is the current agriculture minister of india in 2019?',\n              'Who is the current agriculture minister of india in 2014?',\n              'Who is the current agriculture minister of india in 2004?'],\n             dtype=object), 'answer': array([array(['Narendra Singh Tomar'], dtype=object),\n              array(['Radha Mohan Singh'], dtype=object),\n              array(['Sharad Pawar'], dtype=object)], dtype=object)}                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 373,
+  "prompt": "Who is the current agriculture minister of india?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.86739730834961,
+          "prob": 1.7389533958255244e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7389533655859357e-08,
+      "prompt": "You're given the following task:\nWho is the current agriculture minister of india?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

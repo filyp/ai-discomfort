@@ -1,0 +1,31 @@
+{
+  "id": 2106848518123375268,
+  "question": "When did the forest fire start in california?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the forest fire start in California in 2017 named Liberty?',\n              'When did the first forest fire over 1000 acres start in California in 2017?',\n              'When did the first forest fire over 1000 acres start in California in 2016?',\n              'When did the first forest fire in California start in 2015 that exceeded over 1000 acres?',\n              'When did the last forest fire start in California that exceeded 1000 acres in 2015?'],\n             dtype=object), 'answer': array([array(['December 7, 2017', 'December 2017'], dtype=object),\n              array(['April 20, 2017'], dtype=object),\n              array(['May 18, 2016'], dtype=object),\n              array(['February 6, 2015'], dtype=object),\n              array(['December 25, 2015'], dtype=object)], dtype=object)}                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1098,
+  "prompt": "When did the forest fire start in california?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To give you the *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.735050201416016,
+          "prob": 3.987025441698658e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.9870252779328606e-07,
+      "prompt": "You're given the following task:\nWhen did the forest fire start in california?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

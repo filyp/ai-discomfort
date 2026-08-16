@@ -1,0 +1,31 @@
+{
+  "id": -6301438413612247126,
+  "question": "Where does the flat iron cut of meat come from?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What general body part does the flat iron cut of meat come from?',\n              'What part of the the shoulder does flat iron cut of meat come from?',\n              'Where does the flat iron cut of meat encompass?'], dtype=object), 'answer': array([array(['shoulder of a beef animal', 'shoulder of the animal', 'shoulder'],\n                    dtype=object)                                                       ,\n              array(['adjacent to the heart of the shoulder clod, under the seven or paddle bone'],\n                    dtype=object)                                                                  ,\n              array(['infraspinatus muscles', 'infraspinatus muscles of beef'],\n                    dtype=object)                                              ],\n             dtype=object)}                                                                                                                                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 745,
+  "prompt": "Where does the flat iron cut of meat come from?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you where the flat iron cut of meat",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.36767578125,
+          "prob": 1.9312648456270615e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9312648452540832e-10,
+      "prompt": "You're given the following task:\nWhere does the flat iron cut of meat come from?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

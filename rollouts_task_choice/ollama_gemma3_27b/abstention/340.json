@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 340,
+  "prompt": "Why doesn't Canada participate in international trade?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe premise of the question – \"Why doesn't Canada participate",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -8.307392120361328,
+          "prob": 0.0002466865340180155,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.0002481649280525744,
+          "prob": 0.9997518658623161,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.999753313108877,
+      "prompt": "You're given the following task:\nWhy doesn't Canada participate in international trade?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

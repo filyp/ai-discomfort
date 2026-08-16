@@ -1,0 +1,32 @@
+{
+  "id": "5729f3831d0469140077967c",
+  "title": "Amazon_rainforest",
+  "context": "The rainforest contains several species that can pose a hazard. Among the largest predatory creatures are the black caiman, jaguar, cougar, and anaconda. In the river, electric eels can produce an electric shock that can stun or kill, while piranha are known to bite and injure humans. Various species of poison dart frogs secrete lipophilic alkaloid toxins through their flesh. There are also numerous parasites and disease vectors. Vampire bats dwell in the rainforest and can spread the rabies virus. Malaria, yellow fever and Dengue fever can also be contracted in the Amazon region.",
+  "question": "Large predators of the Amazon rainforest include the jaguar, cougar, and anaconda, what is one other example?",
+  "answers": "{'text': array(['black caiman', 'black caiman', 'black caiman'], dtype=object), 'answer_start': array([110, 110, 110], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1845,
+  "prompt": "Context: The rainforest contains several species that can pose a hazard. Among the largest predatory creatures are the black caiman, jaguar, cougar, and anaconda. In the river, electric eels can produce an electric shock that can stun or kill, while piranha are known to bite and injure humans. Various species of poison dart frogs secrete lipophilic alkaloid toxins through their flesh. There are also numerous parasites and disease vectors. Vampire bats dwell in the rainforest and can spread the rabies virus. Malaria, yellow fever and Dengue fever can also be contracted in the Amazon region.\n\nQuestion: Large predators of the Amazon rainforest include the jaguar, cougar, and anaconda, what is one other example?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe black caiman is another large predator of the Amazon rainforest.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.788829803466797,
+          "prob": 1.5641796456115155e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5641796456114912e-14,
+      "prompt": "You're given the following task:\nContext: The rainforest contains several species that can pose a hazard. Among the largest predatory creatures are the black caiman, jaguar, cougar, and anaconda. In the river, electric eels can produce an electric shock that can stun or kill, while piranha are known to bite and injure humans. Various species of poison dart frogs secrete lipophilic alkaloid toxins through their flesh. There are also numerous parasites and disease vectors. Vampire bats dwell in the rainforest and can spread the rabies virus. Malaria, yellow fever and Dengue fever can also be contracted in the Amazon region.\n\nQuestion: Large predators of the Amazon rainforest include the jaguar, cougar, and anaconda, what is one other example?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

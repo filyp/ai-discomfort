@@ -1,0 +1,31 @@
+{
+  "id": 312846587286296712,
+  "question": "Who founded jamestown in what is now virginia?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who founded jamestown in what is now virginia? (captain)?',\n              'What company founded jamestwon in what is now virginia?',\n              'Who founded jamestown in what is now virginia (country)?',\n              'Who founded and became first president of jamestown in what is now virginia?'],\n             dtype=object), 'answer': array([array(['Captain John Smith', 'John Smith'], dtype=object),\n              array(['The Virginia Company of London', 'London Company',\n                     'Virginia Company of London'], dtype=object)       ,\n              array(['English settlement'], dtype=object),\n              array(['Edward Maria Wingfield'], dtype=object)], dtype=object)}                         ,\n       {'question': array(['Who played an important role in the founding of Jamestown in what is now Virginia?',\n              'What company had the goal of establishing Jamestown?',\n              'Who founded and became first president of Jamestown in what is now Virginia?'],\n             dtype=object), 'answer': array([array(['Captain John Smith', 'John Smith'], dtype=object),\n              array(['London Company', 'Virginia Company of london',\n                     'the Virginia Company of London', 'Virginia Company of London'],\n                    dtype=object)                                                    ,\n              array(['Edward Maria Wingfield'], dtype=object)], dtype=object)}                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1112,
+  "prompt": "Who founded jamestown in what is now virginia?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.41608428955078,
+          "prob": 1.8400019665356085e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.840001966197048e-10,
+      "prompt": "You're given the following task:\nWho founded jamestown in what is now virginia?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

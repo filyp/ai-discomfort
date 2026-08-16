@@ -1,0 +1,31 @@
+{
+  "id": -6631842452804060768,
+  "question": "When was the city of new york founded?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the city of new york founded by the Dutch and initially called New Amsterdam?',\n              'When was the city of new york under English control and renamed to New York?'],\n             dtype=object), 'answer': array([array(['1624'], dtype=object), array(['1664'], dtype=object)],\n             dtype=object)}                                                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 512,
+  "prompt": "When was the city of new york founded?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.1943359375,
+          "prob": 3.408747106908876e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.408746990713312e-08,
+      "prompt": "You're given the following task:\nWhen was the city of new york founded?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 542,
+  "prompt": "Who is named after the casino that Mary Ann Pascal is currently Vice President of Player Development?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -9.059946933120955e-06,
+          "prob": 0.999990940094108,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -11.61229133605957,
+          "prob": 9.054113835670164e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.054113888112101e-06,
+      "prompt": "You're given the following task:\nWho is named after the casino that Mary Ann Pascal is currently Vice President of Player Development?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

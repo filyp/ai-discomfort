@@ -1,0 +1,32 @@
+{
+  "id": "5729eb34af94a219006aa6cc",
+  "title": "Amazon_rainforest",
+  "context": "For a long time, it was thought that the Amazon rainforest was only ever sparsely populated, as it was impossible to sustain a large population through agriculture given the poor soil. Archeologist Betty Meggers was a prominent proponent of this idea, as described in her book Amazonia: Man and Culture in a Counterfeit Paradise. She claimed that a population density of 0.2 inhabitants per square kilometre (0.52/sq mi) is the maximum that can be sustained in the rainforest through hunting, with agriculture needed to host a larger population. However, recent anthropological findings have suggested that the region was actually densely populated. Some 5 million people may have lived in the Amazon region in AD 1500, divided between dense coastal settlements, such as that at Marajó, and inland dwellers. By 1900 the population had fallen to 1 million and by the early 1980s it was less than 200,000.",
+  "question": "In 1500 AD how many people were believed to have lived in the Amazon region?",
+  "answers": "{'text': array(['5 million people', '5 million', 'Some 5 million'], dtype=object), 'answer_start': array([655, 655, 650], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1802,
+  "prompt": "Context: For a long time, it was thought that the Amazon rainforest was only ever sparsely populated, as it was impossible to sustain a large population through agriculture given the poor soil. Archeologist Betty Meggers was a prominent proponent of this idea, as described in her book Amazonia: Man and Culture in a Counterfeit Paradise. She claimed that a population density of 0.2 inhabitants per square kilometre (0.52/sq mi) is the maximum that can be sustained in the rainforest through hunting, with agriculture needed to host a larger population. However, recent anthropological findings have suggested that the region was actually densely populated. Some 5 million people may have lived in the Amazon region in AD 1500, divided between dense coastal settlements, such as that at Marajó, and inland dwellers. By 1900 the population had fallen to 1 million and by the early 1980s it was less than 200,000.\n\nQuestion: In 1500 AD how many people were believed to have lived in the Amazon region?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nAccording to the text, approximately 5 million people were believed to",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.292640686035156,
+          "prob": 6.983502738355153e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.983502738354665e-14,
+      "prompt": "You're given the following task:\nContext: For a long time, it was thought that the Amazon rainforest was only ever sparsely populated, as it was impossible to sustain a large population through agriculture given the poor soil. Archeologist Betty Meggers was a prominent proponent of this idea, as described in her book Amazonia: Man and Culture in a Counterfeit Paradise. She claimed that a population density of 0.2 inhabitants per square kilometre (0.52/sq mi) is the maximum that can be sustained in the rainforest through hunting, with agriculture needed to host a larger population. However, recent anthropological findings have suggested that the region was actually densely populated. Some 5 million people may have lived in the Amazon region in AD 1500, divided between dense coastal settlements, such as that at Marajó, and inland dwellers. By 1900 the population had fallen to 1 million and by the early 1980s it was less than 200,000.\n\nQuestion: In 1500 AD how many people were believed to have lived in the Amazon region?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

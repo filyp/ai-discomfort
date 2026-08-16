@@ -1,0 +1,31 @@
+{
+  "id": 5228782788106893998,
+  "question": "Who opened the first indian restaurant in uk?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Sake Dean Mahomed'], dtype=object),\n       array(['Sake Dean Mahomed'], dtype=object),\n       array(['Sake Dean Mahomed'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 807,
+  "prompt": "Who opened the first indian restaurant in uk?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help you find out who opened the first Indian",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.576156616210938,
+          "prob": 2.3268702580583198e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3268702039150692e-08,
+      "prompt": "You're given the following task:\nWho opened the first indian restaurant in uk?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

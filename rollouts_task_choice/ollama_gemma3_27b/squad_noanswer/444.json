@@ -1,0 +1,32 @@
+{
+  "id": "5ad0483977cf76001a686f8c",
+  "title": "Southern_California",
+  "context": "Orange County is a rapidly developing business center that includes Downtown Santa Ana, the South Coast Metro and Newport Center districts; as well as the Irvine business centers of The Irvine Spectrum, West Irvine, and international corporations headquartered at the University of California, Irvine. West Irvine includes the Irvine Tech Center and Jamboree Business Parks.",
+  "question": "What locations are headquartered at the California University at Irvine?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 444,
+  "prompt": "Context: Orange County is a rapidly developing business center that includes Downtown Santa Ana, the South Coast Metro and Newport Center districts; as well as the Irvine business centers of The Irvine Spectrum, West Irvine, and international corporations headquartered at the University of California, Irvine. West Irvine includes the Irvine Tech Center and Jamboree Business Parks.\n\nQuestion: What locations are headquartered at the California University at Irvine?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, based on the provided text, international corporations are headquartered at",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.550277709960938,
+          "prob": 2.177458373629126e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.1774583735817127e-11,
+      "prompt": "You're given the following task:\nContext: Orange County is a rapidly developing business center that includes Downtown Santa Ana, the South Coast Metro and Newport Center districts; as well as the Irvine business centers of The Irvine Spectrum, West Irvine, and international corporations headquartered at the University of California, Irvine. West Irvine includes the Irvine Tech Center and Jamboree Business Parks.\n\nQuestion: What locations are headquartered at the California University at Irvine?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "571cebc05efbb31900334e4c",
+  "title": "Oxygen",
+  "context": "Highly concentrated sources of oxygen promote rapid combustion. Fire and explosion hazards exist when concentrated oxidants and fuels are brought into close proximity; an ignition event, such as heat or a spark, is needed to trigger combustion. Oxygen is the oxidant, not the fuel, but nevertheless the source of most of the chemical energy released in combustion. Combustion hazards also apply to compounds of oxygen with a high oxidative potential, such as peroxides, chlorates, nitrates, perchlorates, and dichromates because they can donate oxygen to a fire.",
+  "question": "What other sources of high oxidative potential can add to a fire?",
+  "answers": "{'text': array(['compounds of oxygen',\n       'peroxides, chlorates, nitrates, perchlorates, and dichromates',\n       'peroxides, chlorates, nitrates, perchlorates, and dichromates',\n       'peroxides, chlorates, nitrates, perchlorates, and dichromates',\n       'peroxides, chlorates, nitrates, perchlorates, and dichromates'],\n      dtype=object), 'answer_start': array([398, 459, 459, 459, 459], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1191,
+  "prompt": "Context: Highly concentrated sources of oxygen promote rapid combustion. Fire and explosion hazards exist when concentrated oxidants and fuels are brought into close proximity; an ignition event, such as heat or a spark, is needed to trigger combustion. Oxygen is the oxidant, not the fuel, but nevertheless the source of most of the chemical energy released in combustion. Combustion hazards also apply to compounds of oxygen with a high oxidative potential, such as peroxides, chlorates, nitrates, perchlorates, and dichromates because they can donate oxygen to a fire.\n\nQuestion: What other sources of high oxidative potential can add to a fire?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBased on the provided text, compounds of oxygen with high oxidative potential",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.646812438964844,
+          "prob": 2.675693708381321e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.675693708374162e-12,
+      "prompt": "You're given the following task:\nContext: Highly concentrated sources of oxygen promote rapid combustion. Fire and explosion hazards exist when concentrated oxidants and fuels are brought into close proximity; an ignition event, such as heat or a spark, is needed to trigger combustion. Oxygen is the oxidant, not the fuel, but nevertheless the source of most of the chemical energy released in combustion. Combustion hazards also apply to compounds of oxygen with a high oxidative potential, such as peroxides, chlorates, nitrates, perchlorates, and dichromates because they can donate oxygen to a fire.\n\nQuestion: What other sources of high oxidative potential can add to a fire?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

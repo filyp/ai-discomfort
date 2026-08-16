@@ -1,0 +1,31 @@
+{
+  "id": -5587031382481757584,
+  "question": "When did how to train a dragon come out?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did how to train a dragon film come out at Gibson amphitheater?',\n              'When did how to train a dragon film come out in the United States?',\n              'When did how to train a dragon video game come out?',\n              'When did how to train a dragon arena spectacular come out?'],\n             dtype=object), 'answer': array([array(['March 21, 2010'], dtype=object),\n              array(['March 26, 2010'], dtype=object),\n              array(['March 23, 2010'], dtype=object),\n              array(['March 2, 2012'], dtype=object)], dtype=object)}                             ,\n       {'question': array(['When did the 2010 film how to train a dragon come out in Universal City?',\n              'When did how to train a dragon 2 come out at the Cannes Film Festival?',\n              'When did the book how to train a dragon come out?',\n              'When did the 2010 film how to train a dragon come out in all of the United States?',\n              'When did how to train a dragon 2 come out in Los Angeles?',\n              'When was how to train a dragon 2 theatrically released?',\n              'When did how to train a dragon: The Hidden World come out in Australia?',\n              'When did how to train a dragon: The Hidden World come out in the United States?'],\n             dtype=object), 'answer': array([array(['March 21, 2010'], dtype=object),\n              array(['May 16, 2014'], dtype=object),\n              array(['2003'], dtype=object),\n              array(['March 26, 2010'], dtype=object),\n              array(['June 8, 2014'], dtype=object),\n              array(['June 13, 2014'], dtype=object),\n              array(['January 3, 2019'], dtype=object),\n              array(['February 22, 2019'], dtype=object)], dtype=object)}                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 303,
+  "prompt": "When did how to train a dragon come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! \"How to Train Your Dragon\" came out in theaters",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.662933349609375,
+          "prob": 7.84857892965268e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.848578868052491e-09,
+      "prompt": "You're given the following task:\nWhen did how to train a dragon come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

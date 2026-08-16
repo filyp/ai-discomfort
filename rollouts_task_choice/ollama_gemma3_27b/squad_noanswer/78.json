@@ -1,0 +1,32 @@
+{
+  "id": "5ad4017a604f3c001a3ffd1f",
+  "title": "Normans",
+  "context": "In 1096, Crusaders passing by the siege of Amalfi were joined by Bohemond of Taranto and his nephew Tancred with an army of Italo-Normans. Bohemond was the de facto leader of the Crusade during its passage through Asia Minor. After the successful Siege of Antioch in 1097, Bohemond began carving out an independent principality around that city. Tancred was instrumental in the conquest of Jerusalem and he worked for the expansion of the Crusader kingdom in Transjordan and the region of Galilee.[citation needed]",
+  "question": "When did Tancred lay siege to Antioch?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 78,
+  "prompt": "Context: In 1096, Crusaders passing by the siege of Amalfi were joined by Bohemond of Taranto and his nephew Tancred with an army of Italo-Normans. Bohemond was the de facto leader of the Crusade during its passage through Asia Minor. After the successful Siege of Antioch in 1097, Bohemond began carving out an independent principality around that city. Tancred was instrumental in the conquest of Jerusalem and he worked for the expansion of the Crusader kingdom in Transjordan and the region of Galilee.[citation needed]\n\nQuestion: When did Tancred lay siege to Antioch?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe provided text states Bohemond (not Tancred) led",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.1293865442276001,
+          "prob": 0.878634268891111,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -2.108947277069092,
+          "prob": 0.12136566362382996,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.1213656718141995,
+      "prompt": "You're given the following task:\nContext: In 1096, Crusaders passing by the siege of Amalfi were joined by Bohemond of Taranto and his nephew Tancred with an army of Italo-Normans. Bohemond was the de facto leader of the Crusade during its passage through Asia Minor. After the successful Siege of Antioch in 1097, Bohemond began carving out an independent principality around that city. Tancred was instrumental in the conquest of Jerusalem and he worked for the expansion of the Crusader kingdom in Transjordan and the region of Galilee.[citation needed]\n\nQuestion: When did Tancred lay siege to Antioch?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 2905267349903052866,
+  "question": "Whats the dogs name in the movie up?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the name of the golden retriever fog in the movie Up?',\n              'What is the name of the actor who voices the golden retriever dog in the movie Up?',\n              'What is the name of the doberman pinscher dog in the movie Up?',\n              'What is the name of the actor who voices the doberman pinscher dog in the movie Up?',\n              'What is the name of the Rottweiler dog in the movie Up?',\n              'What is the name of the actor who voices the Rottweiler dog in the movie Up?',\n              'What is the name of the Bulldog character in the movie Up?',\n              'What is the name of the actor who voices the Bulldog character in the movie Up?'],\n             dtype=object), 'answer': array([array(['Dug'], dtype=object),\n              array(['Bob Peterson'], dtype=object),\n              array(['Alpha'], dtype=object),\n              array(['Bob Peterson'], dtype=object),\n              array(['Beta'], dtype=object),\n              array(['Delroy Lindo'], dtype=object),\n              array(['Gamma'], dtype=object),\n              array(['Jerome Ranft'], dtype=object)], dtype=object)}                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 220,
+  "prompt": "Whats the dogs name in the movie up?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.143688201904297,
+          "prob": 1.3191565327922609e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3191565153905213e-08,
+      "prompt": "You're given the following task:\nWhats the dogs name in the movie up?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

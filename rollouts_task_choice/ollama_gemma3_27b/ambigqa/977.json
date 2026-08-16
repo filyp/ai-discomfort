@@ -1,0 +1,31 @@
+{
+  "id": -5420316056765632266,
+  "question": "Who is in charge of the hollywood walk of fame?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who administers the hollywood walk of fame?',\n              'Who maintains the hollywood walk of fame?',\n              'Who is in charge of choosing celebrities for the hollywood walk of fame?'],\n             dtype=object), 'answer': array([array(['Hollywood Chamber of Commerce'], dtype=object),\n              array(['Hollywood Historic Trust'], dtype=object),\n              array(['selection committee',\n                     'Hollywood Chamber of Commerce Walk of Fame selection committee'],\n                    dtype=object)                                                      ],\n             dtype=object)}                                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 977,
+  "prompt": "Who is in charge of the hollywood walk of fame?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who is in charge of the Hollywood",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.63155746459961,
+          "prob": 4.032124730122643e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.03212472849684e-10,
+      "prompt": "You're given the following task:\nWho is in charge of the hollywood walk of fame?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

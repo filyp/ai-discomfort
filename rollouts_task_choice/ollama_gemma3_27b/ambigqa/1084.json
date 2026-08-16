@@ -1,0 +1,31 @@
+{
+  "id": -8286966211355378010,
+  "question": "What is the objective of tour de france?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the current objective of tour de france?',\n              'What was the original objective of tour de france?|What was the objective of tour de france in 1903?'],\n             dtype=object), 'answer': array([array(['to win the world’s most prestigious and most difficult bicycle race',\n                     'multiple stage bicycle race', 'bicycle race'], dtype=object)         ,\n              array([\"to increase sales for the newspaper L'Auto\",\n                     \"increase sales for the newspaper L'Auto\"], dtype=object)],\n             dtype=object)}                                                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1084,
+  "prompt": "What is the objective of tour de france?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The main objective of the Tour de France is for cyclists",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.30664825439453,
+          "prob": 3.7598266835317414e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.759826683517605e-12,
+      "prompt": "You're given the following task:\nWhat is the objective of tour de france?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

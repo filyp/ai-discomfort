@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 54,
+  "prompt": "Michael Helliet Management represents the British heavyweight title holder who held the title how many times between 2000 and 2010?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help determine how many times the British heavyweight title",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.3113030945532955e-06,
+          "prob": 0.9999986886977652,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.509129524230957,
+          "prob": 1.358499842208946e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3584997780910067e-06,
+      "prompt": "You're given the following task:\nMichael Helliet Management represents the British heavyweight title holder who held the title how many times between 2000 and 2010?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

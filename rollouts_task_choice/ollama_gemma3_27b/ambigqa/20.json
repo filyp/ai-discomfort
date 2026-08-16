@@ -1,0 +1,69 @@
+{
+  "id": 506946202885615220,
+  "question": "Voice of alvin in alvin and the chipmunks?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played Alvin in the 2007 film Alvin and the Chipmunks?',\n              'Who played singing alvin in the 2007 film Alvin and the Chipmunks?',\n              'Who played alvin in the 1983 TV series Alvin and the Chipmunks?',\n              'Who played Alvin in the 2015 TV series Alvin and the Chipmunks?',\n              'Who played Alvin in the 2015 film Alvin and the Chipmunks: The Road Chip?',\n              'Who played singing Alvin in the 2015 film Alvin and the Chipmunks: The Road Chip?',\n              'Who played Alvin in the original band, Alvin and the Chipmunks?'],\n             dtype=object), 'answer': array([array(['Justin Long'], dtype=object),\n              array(['Ross Bagdasarian Jr.'], dtype=object),\n              array(['Ross Bagdasarian, Jr.'], dtype=object),\n              array(['Ross Bagdasarian Jr.'], dtype=object),\n              array(['Justin Long'], dtype=object),\n              array(['Ross Bagdasarian, Jr.'], dtype=object),\n              array(['Ross Bagdasarian Sr.'], dtype=object)], dtype=object)}                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 20,
+  "prompt": "Voice of alvin in alvin and the chipmunks?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can definitely tell you about the voice of Alvin in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.827106475830078,
+          "prob": 1.8104478907555583e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.8104478579783436e-08,
+      "prompt": "You're given the following task:\nVoice of alvin in alvin and the chipmunks?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay! So you're asking who voices Alvin Seville in *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.768372718899627e-07,
+          "prob": 0.9999995231628418,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.57845401763916,
+          "prob": 4.6629189367483704e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.6629189859200846e-07,
+      "prompt": "You're given the following task:\nVoice of alvin in alvin and the chipmunks?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -20.603763580322266,
+          "prob": 1.1269357871348442e-09,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1269357858648597e-09,
+      "prompt": "You're given the following task:\nVoice of alvin in alvin and the chipmunks?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

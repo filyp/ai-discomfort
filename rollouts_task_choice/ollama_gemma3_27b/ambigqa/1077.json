@@ -1,0 +1,31 @@
+{
+  "id": -786340730478027006,
+  "question": "Who played frodo in the hunchback of notre dame?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who does the voice of Frollo in the 1996 Disney movie The Hunchback of Notre Dame?|Who played Frollo in the 1996 movie The Hunchback of Notre Dame?',\n              'Who plays Jehan Frollo in the 1939 movie The Hunchback of Notre Dame?',\n              'Who plays Claude Frollo in the 1939 movie The Hunchback of Notre Dame?',\n              'Who played Frollo in the original Berlin Cast of The Hunchback of Notre Dame musical?',\n              'Who played Frollo in the original La Jolla Playhouse and Paper Mill Playhouse casts of the Hunchback of Notre Dame musical?'],\n             dtype=object), 'answer': array([array(['Tony Jay'], dtype=object),\n              array(['Sir Cedric Hardwicke'], dtype=object),\n              array(['Walter Hampden'], dtype=object),\n              array(['Norbert Lamla'], dtype=object),\n              array(['Patrick Page'], dtype=object)], dtype=object)}                                                                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1077,
+  "prompt": "Who played frodo in the hunchback of notre dame?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThis is a trick question! Frodo Baggins is from *The",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -14.014973640441895,
+          "prob": 8.191704619985693e-07,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.344653679159819e-07,
+          "prob": 0.9999991655349802,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999991808295254,
+      "prompt": "You're given the following task:\nWho played frodo in the hunchback of notre dame?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

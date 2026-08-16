@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 920,
+  "prompt": "What is commonly said in Germany to a person who has just sneezed?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can definitely tell you what Germans commonly say to someone",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.732460021972656,
+          "prob": 4.933141474106277e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.933141473862918e-11,
+      "prompt": "You're given the following task:\nWhat is commonly said in Germany to a person who has just sneezed?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

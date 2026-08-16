@@ -1,0 +1,32 @@
+{
+  "id": "5729f2646aef051400155134",
+  "title": "Amazon_rainforest",
+  "context": "The biodiversity of plant species is the highest on Earth with one 2001 study finding a quarter square kilometer (62 acres) of Ecuadorian rainforest supports more than 1,100 tree species. A study in 1999 found one square kilometer (247 acres) of Amazon rainforest can contain about 90,790 tonnes of living plants. The average plant biomass is estimated at 356 ± 47 tonnes per hectare. To date, an estimated 438,000 species of plants of economic and social interest have been registered in the region with many more remaining to be discovered or catalogued. The total number of tree species in the region is estimated at 16,000.",
+  "question": "How many plant species are of interest to society and manufacturers exist in the amazon rainforest?",
+  "answers": "{'text': array(['438,000', '438,000', '438,000', '438,000'], dtype=object), 'answer_start': array([407, 407, 407, 407], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1843,
+  "prompt": "Context: The biodiversity of plant species is the highest on Earth with one 2001 study finding a quarter square kilometer (62 acres) of Ecuadorian rainforest supports more than 1,100 tree species. A study in 1999 found one square kilometer (247 acres) of Amazon rainforest can contain about 90,790 tonnes of living plants. The average plant biomass is estimated at 356 ± 47 tonnes per hectare. To date, an estimated 438,000 species of plants of economic and social interest have been registered in the region with many more remaining to be discovered or catalogued. The total number of tree species in the region is estimated at 16,000.\n\nQuestion: How many plant species are of interest to society and manufacturers exist in the amazon rainforest?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, based on the provided text, the number of plant species",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.22954559326172,
+          "prob": 1.1039453332804493e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1039453332682624e-11,
+      "prompt": "You're given the following task:\nContext: The biodiversity of plant species is the highest on Earth with one 2001 study finding a quarter square kilometer (62 acres) of Ecuadorian rainforest supports more than 1,100 tree species. A study in 1999 found one square kilometer (247 acres) of Amazon rainforest can contain about 90,790 tonnes of living plants. The average plant biomass is estimated at 356 ± 47 tonnes per hectare. To date, an estimated 438,000 species of plants of economic and social interest have been registered in the region with many more remaining to be discovered or catalogued. The total number of tree species in the region is estimated at 16,000.\n\nQuestion: How many plant species are of interest to society and manufacturers exist in the amazon rainforest?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

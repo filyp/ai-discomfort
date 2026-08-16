@@ -1,0 +1,31 @@
+{
+  "id": 5428573134960989135,
+  "question": "Who developed a useful staining method to identify bacteria?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How could the person be described who developed a staining method that could be used to identify bacteria?',\n              'Which Danish bacteriologist developed a useful staining method to identify bacteria?|What is the name of the person who developed a staining method to identify bacteria?|Which Danish bacteriologist developed a useful staining method to identify bacteria in two large groups?',\n              'Who developed a useful staining method to identify acid-fast organisms?'],\n             dtype=object), 'answer': array([array(['Danish bacteriologist'], dtype=object),\n              array(['Hans Christian Joachim Gram', 'Hans Christian Gram'], dtype=object),\n              array(['Paul Ehrlich'], dtype=object)], dtype=object)}                                                                                                                                                                                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1131,
+  "prompt": "Who developed a useful staining method to identify bacteria?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely help with that! Several people developed useful",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.869857788085938,
+          "prob": 3.1771772388675326e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.1771772378580873e-10,
+      "prompt": "You're given the following task:\nWho developed a useful staining method to identify bacteria?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

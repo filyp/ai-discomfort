@@ -1,0 +1,31 @@
+{
+  "id": -2027190337225762939,
+  "question": "When was the last time england win the world cup?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When is the last time England won the FIFA World Cup?',\n              \"When is the last time England won the women's rugby world cup?\",\n              'When is the last time England won the rugby world cup?'],\n             dtype=object), 'answer': array([array(['1966'], dtype=object), array(['2014'], dtype=object),\n              array(['2003'], dtype=object)], dtype=object)}                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 71,
+  "prompt": "When was the last time england win the world cup?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely tell you when England last won the World",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.387496948242188,
+          "prob": 2.0763233360454354e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0763233999676373e-07,
+      "prompt": "You're given the following task:\nWhen was the last time england win the world cup?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

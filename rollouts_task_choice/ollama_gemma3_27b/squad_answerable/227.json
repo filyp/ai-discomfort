@@ -1,0 +1,32 @@
+{
+  "id": "56e1ce08e3433e14004231a5",
+  "title": "Computational_complexity_theory",
+  "context": "This motivates the concept of a problem being hard for a complexity class. A problem X is hard for a class of problems C if every problem in C can be reduced to X. Thus no problem in C is harder than X, since an algorithm for X allows us to solve any problem in C. Of course, the notion of hard problems depends on the type of reduction being used. For complexity classes larger than P, polynomial-time reductions are commonly used. In particular, the set of problems that are hard for NP is the set of NP-hard problems.",
+  "question": "What would create a conflict between a problem X and problem C within the context of reduction? ",
+  "answers": "{'text': array(['if every problem in C can be reduced to X',\n       'problem in C is harder than X'], dtype=object), 'answer_start': array([121, 172], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 227,
+  "prompt": "Context: This motivates the concept of a problem being hard for a complexity class. A problem X is hard for a class of problems C if every problem in C can be reduced to X. Thus no problem in C is harder than X, since an algorithm for X allows us to solve any problem in C. Of course, the notion of hard problems depends on the type of reduction being used. For complexity classes larger than P, polynomial-time reductions are commonly used. In particular, the set of problems that are hard for NP is the set of NP-hard problems.\n\nQuestion: What would create a conflict between a problem X and problem C within the context of reduction? ",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nA conflict between a problem X and a class of problems C,",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.20423126220703,
+          "prob": 4.165306464072175e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.1653064640548254e-12,
+      "prompt": "You're given the following task:\nContext: This motivates the concept of a problem being hard for a complexity class. A problem X is hard for a class of problems C if every problem in C can be reduced to X. Thus no problem in C is harder than X, since an algorithm for X allows us to solve any problem in C. Of course, the notion of hard problems depends on the type of reduction being used. For complexity classes larger than P, polynomial-time reductions are commonly used. In particular, the set of problems that are hard for NP is the set of NP-hard problems.\n\nQuestion: What would create a conflict between a problem X and problem C within the context of reduction? \nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -2460031680453256643,
+  "question": "Who did kobe bryant beat in the finals?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who did kobe bryant beat in the 2002 finals?|Who did Kobe Bryant beat in the 2002 NBA Finals?',\n              'Who did kobe bryant beat in the 2001 finals?|Who did Kobe Bryant beat in the 2001 NBA Finals?',\n              'Who did kobe bryant beat in the 2000 finals?|Who did Kobe Bryant beat in the 2000 NBA Finals?',\n              'Who did kobe bryant beat in the 2009 finals?|Who did Kobe Bryant beat in the 2009 NBA Finals?',\n              'Who did Kobe Bryant beat in the 2010 NBA Finals?',\n              'Who did Kobe Bryant beat in the Olympic finals in 2012?|Who did Kobe Bryant beat in the Olympic finals in 2008?'],\n             dtype=object), 'answer': array([array(['New Jersey Nets', 'the Nets'], dtype=object),\n              array(['Philadelphia', 'Philadelphia 76ers'], dtype=object),\n              array(['Indiana', 'Indiana Pacers'], dtype=object),\n              array(['Orlando Magic'], dtype=object),\n              array(['Boston Celtics'], dtype=object),\n              array(['Spain'], dtype=object)], dtype=object)}                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1044,
+  "prompt": "Who did kobe bryant beat in the finals?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.996505737304688,
+          "prob": 2.068368432530642e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.068368428252494e-09,
+      "prompt": "You're given the following task:\nWho did kobe bryant beat in the finals?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

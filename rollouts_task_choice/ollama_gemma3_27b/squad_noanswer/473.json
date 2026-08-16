@@ -1,0 +1,32 @@
+{
+  "id": "5ad050c877cf76001a686fc5",
+  "title": "Southern_California",
+  "context": "From 2005 to 2014, there were two Major League Soccer teams in Los Angeles — the LA Galaxy and Chivas USA — that both played at the StubHub Center and were local rivals. However, Chivas were suspended following the 2014 MLS season, with a second MLS team scheduled to return in 2018.",
+  "question": "When is a second MSL team scheduled to return?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 473,
+  "prompt": "Context: From 2005 to 2014, there were two Major League Soccer teams in Los Angeles — the LA Galaxy and Chivas USA — that both played at the StubHub Center and were local rivals. However, Chivas were suspended following the 2014 MLS season, with a second MLS team scheduled to return in 2018.\n\nQuestion: When is a second MSL team scheduled to return?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can answer that! According to the provided text,",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.30394744873047,
+          "prob": 5.102133370433899e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.102133370431295e-13,
+      "prompt": "You're given the following task:\nContext: From 2005 to 2014, there were two Major League Soccer teams in Los Angeles — the LA Galaxy and Chivas USA — that both played at the StubHub Center and were local rivals. However, Chivas were suspended following the 2014 MLS season, with a second MLS team scheduled to return in 2018.\n\nQuestion: When is a second MSL team scheduled to return?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -8427881359135461020,
+  "question": "Who does christine end up with in the phantom of the opera?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who does christine end up with in the phantom of the opera musical?',\n              'Who does christine end up with in the phantom of the opera film in 2004?',\n              'Who does christine end up with in the phantom of the opera film in 1943 film?',\n              'Who does christine end up with in the phantom of the opera film in 1925 film?'],\n             dtype=object), 'answer': array([array(['Viscount Raoul de Chagny', 'Raul'], dtype=object),\n              array(['Raoul', 'Raoul de Chagny'], dtype=object),\n              array(['Raoul', 'Vicomte Raoul de Chagny'], dtype=object),\n              array(['neither one of them'], dtype=object)], dtype=object)}                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 696,
+  "prompt": "Who does christine end up with in the phantom of the opera?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.583648681640625,
+          "prob": 8.496184287088162e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.496184214903017e-09,
+      "prompt": "You're given the following task:\nWho does christine end up with in the phantom of the opera?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

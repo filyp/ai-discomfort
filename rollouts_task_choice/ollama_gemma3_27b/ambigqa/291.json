@@ -1,0 +1,31 @@
+{
+  "id": -1397410067722623662,
+  "question": "Who won pairs figure skating in olympics 2018?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who are the skaters that won pairs figure skating in olympics 2018?',\n              'Who is the country that won pairs figure skating in olympics 2018?'],\n             dtype=object), 'answer': array([array(['Aliona Savchenko,Bruno Massot'], dtype=object),\n              array(['Germany', 'Federal Republic of Germany'], dtype=object)],\n             dtype=object)}                                                                         ,\n       {'question': array(['Which country won pairs figure skating in olympics 2018?',\n              'Which people won pairs figure skating in olympics 2018?'],\n             dtype=object), 'answer': array([array(['Germany'], dtype=object),\n              array(['Aliona Savchenko', 'Bruno Massot'], dtype=object)],\n             dtype=object)}                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 291,
+  "prompt": "Who won pairs figure skating in olympics 2018?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.240535736083984,
+          "prob": 8.067956971522745e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.067956970871826e-11,
+      "prompt": "You're given the following task:\nWho won pairs figure skating in olympics 2018?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

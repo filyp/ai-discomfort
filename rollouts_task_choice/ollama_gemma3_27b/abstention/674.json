@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 674,
+  "prompt": "If all cars had turbochargers from inception, then?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, that's a fascinating \"what if\" scenario!",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.20787811279297,
+          "prob": 3.066564593613029e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.066564593518991e-11,
+      "prompt": "You're given the following task:\nIf all cars had turbochargers from inception, then?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

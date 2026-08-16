@@ -1,0 +1,31 @@
+{
+  "id": -272335692408986982,
+  "question": "Who won the last olympic men's hockey?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who won Olympic men's ice hockey in 2014?\",\n              \"Who won Olympic men's ice hockey in 2010?\",\n              \"Who won Olympic men's ice hockey in 2006?\",\n              \"Who won the 2016 olympic men's field hockey?\",\n              \"Who won the 2012 olympic men's field hockey?\",\n              \"Who won the 2008 olympic men's field hockey?\"], dtype=object), 'answer': array([array(['Canada'], dtype=object), array(['Canada'], dtype=object),\n              array(['Sweden'], dtype=object),\n              array(['Argentina'], dtype=object),\n              array(['Germany'], dtype=object), array(['Germany'], dtype=object)],\n             dtype=object)}                                                                                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 746,
+  "prompt": "Who won the last olympic men's hockey?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.564071655273438,
+          "prob": 8.664153111338083e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.664153036270535e-09,
+      "prompt": "You're given the following task:\nWho won the last olympic men's hockey?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

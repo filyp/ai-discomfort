@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 783,
+  "prompt": "In humans, what is the medical term for night blindness, the inability to see in dim light or at night?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe medical term for night blindness (the inability to see well in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.22069549560547,
+          "prob": 1.1137587179413715e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.113758717928967e-11,
+      "prompt": "You're given the following task:\nIn humans, what is the medical term for night blindness, the inability to see in dim light or at night?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

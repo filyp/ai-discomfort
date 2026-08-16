@@ -1,0 +1,32 @@
+{
+  "id": "5ad04f7977cf76001a686fbb",
+  "title": "Southern_California",
+  "context": "Professional sports teams in Southern California include teams from the NFL (Los Angeles Rams, San Diego Chargers); NBA (Los Angeles Lakers, Los Angeles Clippers); MLB (Los Angeles Dodgers, Los Angeles Angels of Anaheim, San Diego Padres); NHL (Los Angeles Kings, Anaheim Ducks); and MLS (LA Galaxy).",
+  "question": "What NLH teams are from Southern California?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 468,
+  "prompt": "Context: Professional sports teams in Southern California include teams from the NFL (Los Angeles Rams, San Diego Chargers); NBA (Los Angeles Lakers, Los Angeles Clippers); MLB (Los Angeles Dodgers, Los Angeles Angels of Anaheim, San Diego Padres); NHL (Los Angeles Kings, Anaheim Ducks); and MLS (LA Galaxy).\n\nQuestion: What NLH teams are from Southern California?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, based on the provided context, the NHL (National Hockey",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.607036590576172,
+          "prob": 2.0573102636078614e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0573102635655363e-11,
+      "prompt": "You're given the following task:\nContext: Professional sports teams in Southern California include teams from the NFL (Los Angeles Rams, San Diego Chargers); NBA (Los Angeles Lakers, Los Angeles Clippers); MLB (Los Angeles Dodgers, Los Angeles Angels of Anaheim, San Diego Padres); NHL (Los Angeles Kings, Anaheim Ducks); and MLS (LA Galaxy).\n\nQuestion: What NLH teams are from Southern California?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

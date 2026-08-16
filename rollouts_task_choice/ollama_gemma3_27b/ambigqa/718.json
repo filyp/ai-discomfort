@@ -1,0 +1,31 @@
+{
+  "id": 1562107426015252284,
+  "question": "When did morning tv start in the uk?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['At what time does morning tv (or \"breakfast tv\") usually start in the UK?',\n              'In what year did a nine-week trial-run of morning tv (or \"breakfast tv\") happen in the UK?',\n              'When did morning tv (or \"breakfast tv\") start on the BBC in the UK?',\n              'When did morning tv on TV-am start in the uk?',\n              'When did the morning tv show, Good Morning Britain, start in the uk?'],\n             dtype=object), 'answer': array([array(['6 am'], dtype=object), array(['1977'], dtype=object),\n              array(['17 January 1983'], dtype=object),\n              array(['1 February 1983'], dtype=object),\n              array(['28 April 2014'], dtype=object)], dtype=object)}                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 718,
+  "prompt": "When did morning tv start in the uk?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out when morning TV started in the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.944473266601562,
+          "prob": 1.1896062670588402e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1896062673546426e-07,
+      "prompt": "You're given the following task:\nWhen did morning tv start in the uk?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

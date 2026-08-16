@@ -1,0 +1,31 @@
+{
+  "id": 4148236532030857220,
+  "question": "When does callie come in grey's anatomy?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"What date does Callie Torres first appear in Grey's Anatomy?\",\n              \"Which episode does Callie Torres first appear in Grey's Anatomy?\",\n              \"What date does Callie Torres start to appear in Grey's Anatomy as a series regular?\",\n              \"What episode Callie Torres start to appear in Grey's Anatomy as a series regular?\"],\n             dtype=object), 'answer': array([array(['February 26, 2006'], dtype=object),\n              array(['\"What Have I Done to Deserve This?\" (2.19)'], dtype=object),\n              array(['September 21, 2006'], dtype=object),\n              array(['\"Time Has Come Today\" (3.01)'], dtype=object)],\n             dtype=object)}                                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 959,
+  "prompt": "When does callie come in grey's anatomy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out when Callie Torres joins Grey'",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.21976089477539,
+          "prob": 1.6545100822087408e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6545100794713371e-09,
+      "prompt": "You're given the following task:\nWhen does callie come in grey's anatomy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

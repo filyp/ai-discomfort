@@ -1,0 +1,32 @@
+{
+  "id": "5a638e4468151a001a92237b",
+  "title": "Victoria_(Australia)",
+  "context": "Victoria is the centre of dairy farming in Australia. It is home to 60% of Australia's 3 million dairy cattle and produces nearly two-thirds of the nation's milk, almost 6.4 billion litres. The state also has 2.4 million beef cattle, with more than 2.2 million cattle and calves slaughtered each year. In 2003–04, Victorian commercial fishing crews and aquaculture industry produced 11,634 tonnes of seafood valued at nearly A$109 million. Blacklipped abalone is the mainstay of the catch, bringing in A$46 million, followed by southern rock lobster worth A$13.7 million. Most abalone and rock lobster is exported to Asia.",
+  "question": "What percentage of Australia's veal is comes from Victoria?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 672,
+  "prompt": "Context: Victoria is the centre of dairy farming in Australia. It is home to 60% of Australia's 3 million dairy cattle and produces nearly two-thirds of the nation's milk, almost 6.4 billion litres. The state also has 2.4 million beef cattle, with more than 2.2 million cattle and calves slaughtered each year. In 2003–04, Victorian commercial fishing crews and aquaculture industry produced 11,634 tonnes of seafood valued at nearly A$109 million. Blacklipped abalone is the mainstay of the catch, bringing in A$46 million, followed by southern rock lobster worth A$13.7 million. Most abalone and rock lobster is exported to Asia.\n\nQuestion: What percentage of Australia's veal is comes from Victoria?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text focuses on dairy and beef cattle *and* seafood",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -8.43799114227295,
+          "prob": 0.0002164846005235633,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.00021644789376296103,
+          "prob": 0.9997835755293925,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9997835154124938,
+      "prompt": "You're given the following task:\nContext: Victoria is the centre of dairy farming in Australia. It is home to 60% of Australia's 3 million dairy cattle and produces nearly two-thirds of the nation's milk, almost 6.4 billion litres. The state also has 2.4 million beef cattle, with more than 2.2 million cattle and calves slaughtered each year. In 2003–04, Victorian commercial fishing crews and aquaculture industry produced 11,634 tonnes of seafood valued at nearly A$109 million. Blacklipped abalone is the mainstay of the catch, bringing in A$46 million, followed by southern rock lobster worth A$13.7 million. Most abalone and rock lobster is exported to Asia.\n\nQuestion: What percentage of Australia's veal is comes from Victoria?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

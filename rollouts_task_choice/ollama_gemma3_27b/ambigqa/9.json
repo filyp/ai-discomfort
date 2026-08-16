@@ -1,0 +1,69 @@
+{
+  "id": -8051512657544725299,
+  "question": "Who defeated the new york jets on the first televised monday night football game?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Cleveland Browns'], dtype=object), array([], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Who was the team who defeated the new york jets on the first televised monday night football game?',\n              'Who was the coach defeated the new york jets on the first televised monday night football game?'],\n             dtype=object), 'answer': array([array(['Cleveland Browns'], dtype=object),\n              array(['Blanton Collier'], dtype=object)], dtype=object)}                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 9,
+  "prompt": "Who defeated the new york jets on the first televised monday night football game?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.494216918945312,
+          "prob": 9.291025349059389e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.291025262736238e-09,
+      "prompt": "You're given the following task:\nWho defeated the new york jets on the first televised monday night football game?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay! I can definitely tell you who defeated the New York Jets",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.960466182841628e-07,
+          "prob": 0.9999994039535594,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.250725746154785,
+          "prob": 6.471253983505745e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.471253652960853e-07,
+      "prompt": "You're given the following task:\nWho defeated the new york jets on the first televised monday night football game?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -25.764659881591797,
+          "prob": 6.464729911601996e-12,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.4647299115602025e-12,
+      "prompt": "You're given the following task:\nWho defeated the new york jets on the first televised monday night football game?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

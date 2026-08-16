@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 766,
+  "prompt": "What is the name of the Japanese form of therapy that uses simple hands-on, no touch, and visualisation techniques, with the goal of improving the flow of life energy in a person?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThat sounds like **Reiki**. Is that what you were looking",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.247421264648438,
+          "prob": 5.920551866786059e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.920552569065589e-10,
+      "prompt": "You're given the following task:\nWhat is the name of the Japanese form of therapy that uses simple hands-on, no touch, and visualisation techniques, with the goal of improving the flow of life energy in a person?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

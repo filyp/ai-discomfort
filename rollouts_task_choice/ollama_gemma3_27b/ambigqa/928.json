@@ -1,0 +1,31 @@
+{
+  "id": 8895890940405150142,
+  "question": "Who's won the most national championships in college football?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What team has the most Coalition Bowl championship wins in college football?',\n              'What team has won the most at the College Football Playoff National Championship?',\n              'What team has the most wins at the Bowl Alliance championship in college football?',\n              'What team has the most BCS Nation Championship game wins in college football?',\n              'What team claims to have won the most national championships in college football?',\n              'What team has won the most AP Poll Era national championships in college football'],\n             dtype=object), 'answer': array([array(['Florida St.', 'Florida State'], dtype=object),\n              array(['Alabama Crimson Tide and Clemson Tigers'], dtype=object),\n              array(['Nebraska'], dtype=object),\n              array(['Alabama'], dtype=object),\n              array(['Princeton'], dtype=object),\n              array(['Alabama'], dtype=object)], dtype=object)}                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 928,
+  "prompt": "Who's won the most national championships in college football?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.165908813476562,
+          "prob": 1.746051623090699e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7460516200420027e-09,
+      "prompt": "You're given the following task:\nWho's won the most national championships in college football?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

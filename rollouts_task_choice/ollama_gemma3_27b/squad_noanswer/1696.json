@@ -1,0 +1,32 @@
+{
+  "id": "5a0c7edcf5590b0018dab43b",
+  "title": "Amazon_rainforest",
+  "context": "The biodiversity of plant species is the highest on Earth with one 2001 study finding a quarter square kilometer (62 acres) of Ecuadorian rainforest supports more than 1,100 tree species. A study in 1999 found one square kilometer (247 acres) of Amazon rainforest can contain about 90,790 tonnes of living plants. The average plant biomass is estimated at 356 ± 47 tonnes per hectare. To date, an estimated 438,000 species of plants of economic and social interest have been registered in the region with many more remaining to be discovered or catalogued. The total number of tree species in the region is estimated at 16,000.",
+  "question": "What rain forced supports more than 11,003 species",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1696,
+  "prompt": "Context: The biodiversity of plant species is the highest on Earth with one 2001 study finding a quarter square kilometer (62 acres) of Ecuadorian rainforest supports more than 1,100 tree species. A study in 1999 found one square kilometer (247 acres) of Amazon rainforest can contain about 90,790 tonnes of living plants. The average plant biomass is estimated at 356 ± 47 tonnes per hectare. To date, an estimated 438,000 species of plants of economic and social interest have been registered in the region with many more remaining to be discovered or catalogued. The total number of tree species in the region is estimated at 16,000.\n\nQuestion: What rain forced supports more than 11,003 species",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe question contains a typo (\"rain forced\" should likely be \"",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.314073182991706e-05,
+          "prob": 0.999966859817318,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -10.319514274597168,
+          "prob": 3.2983132135173035e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.2983137315192785e-05,
+      "prompt": "You're given the following task:\nContext: The biodiversity of plant species is the highest on Earth with one 2001 study finding a quarter square kilometer (62 acres) of Ecuadorian rainforest supports more than 1,100 tree species. A study in 1999 found one square kilometer (247 acres) of Amazon rainforest can contain about 90,790 tonnes of living plants. The average plant biomass is estimated at 356 ± 47 tonnes per hectare. To date, an estimated 438,000 species of plants of economic and social interest have been registered in the region with many more remaining to be discovered or catalogued. The total number of tree species in the region is estimated at 16,000.\n\nQuestion: What rain forced supports more than 11,003 species\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

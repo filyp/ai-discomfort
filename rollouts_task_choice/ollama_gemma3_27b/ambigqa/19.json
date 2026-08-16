@@ -1,0 +1,69 @@
+{
+  "id": -458049314494088060,
+  "question": "Who sang the original do you love me?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the band that sang the original do you love me in 1962?',\n              'Who is the singer that sang the original do you love me in for the Contours in 1962?',\n              'Who are the characters that sang the original do you love me in the Fiddler on the Roof?',\n              'Who are the singers that sang the original do you love me in the 1971 Fiddler on the Roof film?'],\n             dtype=object), 'answer': array([array(['The Contours'], dtype=object),\n              array(['Gordy', 'Billy Gordon', 'Gordon'], dtype=object),\n              array(['Tevye', 'Golde', 'Tevye and his wife Golde'], dtype=object),\n              array(['Haym Topol', 'Norma Crane', 'Topol', 'Crane',\n                     'Chaim Topol and Norma Crane'], dtype=object) ],\n             dtype=object)}                                                                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 19,
+  "prompt": "Who sang the original do you love me?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.141876220703125,
+          "prob": 3.5923425954678463e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.5923424664185976e-08,
+      "prompt": "You're given the following task:\nWho sang the original do you love me?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! \"Do You Love Me",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.814704541582614e-06,
+          "prob": 0.9999961853027344,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.471927642822266,
+          "prob": 3.832751356539176e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.832751287342336e-06,
+      "prompt": "You're given the following task:\nWho sang the original do you love me?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -21.149784088134766,
+          "prob": 6.527779514934841e-10,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.52777951067365e-10,
+      "prompt": "You're given the following task:\nWho sang the original do you love me?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

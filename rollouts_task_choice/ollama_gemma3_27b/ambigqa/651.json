@@ -1,0 +1,31 @@
+{
+  "id": -8069899625747978823,
+  "question": "When did they start production on the post?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did they start production on the post after screenplay rights were decided?',\n              'When did they start production on the post with principal photography?'],\n             dtype=object), 'answer': array([array(['October 2016'], dtype=object),\n              array(['May 30, 2017'], dtype=object)], dtype=object)}                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 651,
+  "prompt": "When did they start production on the post?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help determine when production started on \"the post",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -7.748904317850247e-05,
+          "prob": 0.9999225139590199,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -9.465958595275879,
+          "prob": 7.744375745827718e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.744376073287213e-05,
+      "prompt": "You're given the following task:\nWhen did they start production on the post?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

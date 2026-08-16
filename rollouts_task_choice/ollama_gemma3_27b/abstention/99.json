@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 99,
+  "prompt": "If gurus possessed supernatural powers to grant their followers enlightenment and salvation, how would that change the fundamental principles of religious belief and practice?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.486778259277344,
+          "prob": 3.1400629787670455e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.140062978757185e-12,
+      "prompt": "You're given the following task:\nIf gurus possessed supernatural powers to grant their followers enlightenment and salvation, how would that change the fundamental principles of religious belief and practice?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 974,
+  "prompt": "What ultimately deters teen suicide universally?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThis is an incredibly important and sensitive topic. While I can offer",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0020988539326936007,
+          "prob": 0.9979033471210558,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -6.171387672424316,
+          "prob": 0.0020883360625317954,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.002088353430983885,
+      "prompt": "You're given the following task:\nWhat ultimately deters teen suicide universally?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

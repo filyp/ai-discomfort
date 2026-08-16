@@ -1,0 +1,31 @@
+{
+  "id": 1518043691156167742,
+  "question": "Where is the world cup going to be in 2019?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where is the cricket world cup going to be in 2019?',\n              \"Where is the FIFA women's world cup going to be in 2019?\",\n              'Where is the  rugby world cup going to be in 2019?',\n              'Where is the fifa u-17 world cup going to be in 2019?',\n              \"Where is the ittf women's world cup going to be in 2019?\",\n              'Where is the chess world cup going to be in 2019?'], dtype=object), 'answer': array([array(['England', 'Wales', 'England and Wales'], dtype=object),\n              array(['France', 'nine cities in France'], dtype=object),\n              array(['12 venues', 'Japan'], dtype=object),\n              array(['Brazil', '3 host cities'], dtype=object),\n              array(['Chengdu, China'], dtype=object),\n              array(['Khanty-Mansiysk, Russia'], dtype=object)], dtype=object)}                                                                                    ,\n       {'question': array(['Where is the FIBA 3x3 world cup going to be in 2019?',\n              'Where is the FIBA Basketball world cup going to be in 2019?',\n              'Where is the FIBA Under-19 Basketball world cup going to be in 2019?',\n              \"Where is the FIBA Under-19 Women's Basketball world cup going to be in 2019?\",\n              'Where is the Chess world cup going to be in 2019?',\n              'Where is the Cricket world cup going to be in 2019?',\n              'Where is the Overwatch world cup going to be in 2019?',\n              'Where is the Netball world cup going to be in 2019?',\n              'Where is the Rugby world cup going to be in 2019?',\n              'Where is the FIFA U-17 world cup going to be in 2019?',\n              'Where is the FIFA U-20 world cup going to be in 2019?',\n              \"Where is the FIFA Women's world cup going to be in 2019?\"],\n             dtype=object), 'answer': array([array(['Amsterdam, North Holland'], dtype=object),\n              array(['China'], dtype=object),\n              array(['Heraklion, Greece'], dtype=object),\n              array(['Bangkok, Thailand'], dtype=object),\n              array(['Khanty-Mansiysk, Russia'], dtype=object),\n              array(['England and Wales'], dtype=object),\n              array(['Anaheim, California'], dtype=object),\n              array(['Liverpool Arena in Liverpool, England'], dtype=object),\n              array(['Japan'], dtype=object), array(['Brazil'], dtype=object),\n              array(['Poland'], dtype=object), array(['France'], dtype=object)],\n             dtype=object)}                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 507,
+  "prompt": "Where is the world cup going to be in 2019?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.018238091841340065,
+          "prob": 0.981927215665642,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.013355255126953,
+          "prob": 0.01807265502589885,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.018072657362846325,
+      "prompt": "You're given the following task:\nWhere is the world cup going to be in 2019?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

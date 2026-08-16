@@ -1,0 +1,31 @@
+{
+  "id": -9218899977338994404,
+  "question": "When is the last time the rangers won the stanley cup?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When is the last time the rangers won the stanley cup in 1994?',\n              'When is the last time the rangers won the stanley cup in 1940?',\n              'When is the last time the rangers won the stanley cup in 1933?'],\n             dtype=object), 'answer': array([array(['June 14,1994'], dtype=object),\n              array(['April 13, 1940'], dtype=object),\n              array(['April 13,1933'], dtype=object)], dtype=object)}                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 515,
+  "prompt": "When is the last time the rangers won the stanley cup?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely tell you when the Rangers last won the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.483642325998517e-06,
+          "prob": 0.9999945163727091,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.123815536499023,
+          "prob": 5.428674631006516e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.428674929326642e-06,
+      "prompt": "You're given the following task:\nWhen is the last time the rangers won the stanley cup?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

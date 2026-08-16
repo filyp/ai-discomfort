@@ -1,0 +1,31 @@
+{
+  "id": 1055955519640705637,
+  "question": "When is the next governor election in mississippi?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When is the 2015 governor election in mississippi?',\n              'When is the 2011 governor election in mississippi?',\n              'When is the 2007 governor election in mississippi?'], dtype=object), 'answer': array([array(['November 3, 2015'], dtype=object),\n              array(['November 8, 2011'], dtype=object),\n              array(['November 6, 2007'], dtype=object)], dtype=object)}                                                                       ,\n       {'question': array(['When is the next governor election in Mississippi in 2015?',\n              'When is the next governor election in Mississippi in 2011?',\n              'When is the next governor election in Mississippi in 2007?'],\n             dtype=object), 'answer': array([array(['November 3, 2015'], dtype=object),\n              array(['November 8, 2011'], dtype=object),\n              array(['November 6, 2007'], dtype=object)], dtype=object)}                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 203,
+  "prompt": "When is the next governor election in mississippi?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.914424896240234,
+          "prob": 8.260011945350831e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.260011938528051e-10,
+      "prompt": "You're given the following task:\nWhen is the next governor election in mississippi?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

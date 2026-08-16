@@ -1,0 +1,32 @@
+{
+  "id": "5ad044f077cf76001a686f5b",
+  "title": "Southern_California",
+  "context": "Southern California's economy is diverse and one of the largest in the United States. It is dominated and heavily dependent upon abundance of petroleum, as opposed to other regions where automobiles not nearly as dominant, the vast majority of transport runs on this fuel. Southern California is famous for tourism and Hollywood (film, television, and music). Other industries include software, automotive, ports, finance, tourism, biomedical, and regional logistics. The region was a leader in the housing bubble 2001–2007, and has been heavily impacted by the housing crash.",
+  "question": "Where is southern Hollywood located?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 429,
+  "prompt": "Context: Southern California's economy is diverse and one of the largest in the United States. It is dominated and heavily dependent upon abundance of petroleum, as opposed to other regions where automobiles not nearly as dominant, the vast majority of transport runs on this fuel. Southern California is famous for tourism and Hollywood (film, television, and music). Other industries include software, automotive, ports, finance, tourism, biomedical, and regional logistics. The region was a leader in the housing bubble 2001–2007, and has been heavily impacted by the housing crash.\n\nQuestion: Where is southern Hollywood located?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states Southern California is famous for \"Hollywood (film,",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.0490472959645558e-05,
+          "prob": 0.9999895095820652,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -11.462519645690918,
+          "prob": 1.0516978090329705e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0516977810997138e-05,
+      "prompt": "You're given the following task:\nContext: Southern California's economy is diverse and one of the largest in the United States. It is dominated and heavily dependent upon abundance of petroleum, as opposed to other regions where automobiles not nearly as dominant, the vast majority of transport runs on this fuel. Southern California is famous for tourism and Hollywood (film, television, and music). Other industries include software, automotive, ports, finance, tourism, biomedical, and regional logistics. The region was a leader in the housing bubble 2001–2007, and has been heavily impacted by the housing crash.\n\nQuestion: Where is southern Hollywood located?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

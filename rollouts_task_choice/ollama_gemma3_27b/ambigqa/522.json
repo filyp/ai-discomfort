@@ -1,0 +1,31 @@
+{
+  "id": 6938879918012777101,
+  "question": "Where is american airlines hub in the us?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the main hub in the US for American Airlines?',\n              'What are all of the regular hubs for American Airlines in the US?'],\n             dtype=object), 'answer': array([array(['Dallas/Fort Worth'], dtype=object),\n              array([\"Charlotte, Chicago-O'Hare, Los Angeles, Miami, New York-JFK, New York-LaGuardia, Philadelphia, Phoenix-Sky Harbor, Washington-National\"],\n                    dtype=object)                                                                                                                              ],\n             dtype=object)}                                                                                                                                      ,\n       {'question': array(['Where is american airlines hub in the us in North Carolina?',\n              'Where is american airlines hub in the us in Chicago, Illinois?',\n              'Where is american airlines hub in the us in Texas?',\n              'Where is american airlines hub in the us in California?',\n              'Where is american airlines hub in the us in Florida?',\n              'Where is american airlines hub in the us in New York?',\n              'Where is the second american airlines hub in the us in New York?',\n              'KPHX Philadelphia?',\n              'Where is american airlines hub in the us in Arizona?',\n              'Where is american airlines hub in the us in Virginia?'],\n             dtype=object), 'answer': array([array(['Charlotte Douglas International Airport',\n                     'Charlotte Municipal Airport', 'CLT', 'KCLT'], dtype=object),\n              array(['KORD', \"O'Hare Airport, Chicago O'Hare\",\n                     \"O'Hare International Airport\", \"O'Hare\", 'ORD'], dtype=object),\n              array(['DFW', 'Dallas/Fort Worth International Airport', 'KDFW'],\n                    dtype=object)                                              ,\n              array(['LAX', 'KLAX', 'Los Angeles International Airport'], dtype=object),\n              array(['Miami International Airport', 'Wilcox Field', 'KMIA', 'MIA'],\n                    dtype=object)                                                  ,\n              array(['JFK', 'John F. Kennedy International Airport', 'KJFK',\n                     'JFK Airport', 'Kennedy'], dtype=object)               ,\n              array(['KLGA', 'LaGuardia Airport', 'LGA'], dtype=object),\n              array(['PHL', 'Philadelphia International Airport', 'KPHL'], dtype=object),\n              array(['KPHX', 'PHX', 'Phoenix Sky Harbor International Airport'],\n                    dtype=object)                                               ,\n              array(['National Airport', 'Ronald Reagan Washington National Airport',\n                     'DCA', 'Washington National Airport',\n                     'Washington National, Reagan Airport', 'KDCA',\n                     'Reagan National Airport'], dtype=object)                       ],\n             dtype=object)}                                                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 522,
+  "prompt": "Where is american airlines hub in the us?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! American Airlines has multiple hubs in the US. To give",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.793472290039062,
+          "prob": 2.533985974370105e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.5339859679490204e-09,
+      "prompt": "You're given the following task:\nWhere is american airlines hub in the us?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

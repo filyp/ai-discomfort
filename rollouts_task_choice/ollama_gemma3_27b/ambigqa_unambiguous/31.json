@@ -1,0 +1,31 @@
+{
+  "id": -5932865185994291764,
+  "question": "What was the first cartoon show on tv?",
+  "annotations": "{'type': array(['singleAnswer'], dtype=object), 'answer': array([array(['Crusader Rabbit'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 31,
+  "prompt": "What was the first cartoon show on tv?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! So you'd like to know what the first cartoon",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.19414520263672,
+          "prob": 9.267702823985989e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.267703069879042e-08,
+      "prompt": "You're given the following task:\nWhat was the first cartoon show on tv?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

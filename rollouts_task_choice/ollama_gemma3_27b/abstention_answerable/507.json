@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 507,
+  "prompt": "Glenn L. McCullough Jr. was the executive director of what federal-state partnership that works with the people of Appalachia to create opportunities for self-sustaining economic development and improved quality of life?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.809303283691406,
+          "prob": 1.8429682667127416e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.8429682327474218e-08,
+      "prompt": "You're given the following task:\nGlenn L. McCullough Jr. was the executive director of what federal-state partnership that works with the people of Appalachia to create opportunities for self-sustaining economic development and improved quality of life?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 5347242526315149222,
+  "question": "Who has the most nascar wins in history?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who has the most nascar super series wins in all-time history?',\n              'Who has the most nascar cup series wins in modern era history?',\n              'Who has the most nascar caup series championships in history?',\n              'What manufacturer has the most nascar championship wins in history?',\n              'What racing team has the most nascar wins in history?'],\n             dtype=object), 'answer': array([array(['Richard Petty', 'Petty'], dtype=object),\n              array(['Jeff Gordon', 'Gordon'], dtype=object),\n              array(['Richard Petty, Dale Earnhardt, and Jimmie Johnson',\n                     'Richard Petty', 'Dale Earnhardt', 'Jimmie Johnson'], dtype=object),\n              array(['Chevrolet'], dtype=object),\n              array(['Joe Gibbs Racing'], dtype=object)], dtype=object)}                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 31,
+  "prompt": "Who has the most nascar wins in history?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.592117309570312,
+          "prob": 1.1401371103100702e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1401371090101575e-09,
+      "prompt": "You're given the following task:\nWho has the most nascar wins in history?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

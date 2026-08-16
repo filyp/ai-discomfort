@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 60,
+  "prompt": "How long time do we need to get from South Pole to North Pole?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, that's an interesting question! It's not",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.425559997558594,
+          "prob": 1.3467655642228763e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3467655624090988e-09,
+      "prompt": "You're given the following task:\nHow long time do we need to get from South Pole to North Pole?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5711651050c2381900b54acf",
+  "title": "Steam_engine",
+  "context": "Other components are often present; pumps (such as an injector) to supply water to the boiler during operation, condensers to recirculate the water and recover the latent heat of vaporisation, and superheaters to raise the temperature of the steam above its saturated vapour point, and various mechanisms to increase the draft for fireboxes. When coal is used, a chain or screw stoking mechanism and its drive engine or motor may be included to move the fuel from a supply bin (bunker) to the firebox. See: Mechanical stoker",
+  "question": "What mechanism moves coal from a bunker to the firebox?",
+  "answers": "{'text': array(['stoking', 'Mechanical stoker',\n       'a chain or screw stoking mechanism'], dtype=object), 'answer_start': array([378, 507, 361], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1122,
+  "prompt": "Context: Other components are often present; pumps (such as an injector) to supply water to the boiler during operation, condensers to recirculate the water and recover the latent heat of vaporisation, and superheaters to raise the temperature of the steam above its saturated vapour point, and various mechanisms to increase the draft for fireboxes. When coal is used, a chain or screw stoking mechanism and its drive engine or motor may be included to move the fuel from a supply bin (bunker) to the firebox. See: Mechanical stoker\n\nQuestion: What mechanism moves coal from a bunker to the firebox?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that a **chain or screw stoking mechanism**",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.926673889160156,
+          "prob": 2.022526003081325e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0225260030772342e-12,
+      "prompt": "You're given the following task:\nContext: Other components are often present; pumps (such as an injector) to supply water to the boiler during operation, condensers to recirculate the water and recover the latent heat of vaporisation, and superheaters to raise the temperature of the steam above its saturated vapour point, and various mechanisms to increase the draft for fireboxes. When coal is used, a chain or screw stoking mechanism and its drive engine or motor may be included to move the fuel from a supply bin (bunker) to the firebox. See: Mechanical stoker\n\nQuestion: What mechanism moves coal from a bunker to the firebox?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

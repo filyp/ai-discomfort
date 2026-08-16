@@ -1,0 +1,32 @@
+{
+  "id": "571cc3dedd7acb1400e4c147",
+  "title": "Oxygen",
+  "context": "In the triplet form, O\n2 molecules are paramagnetic. That is, they impart magnetic character to oxygen when it is in the presence of a magnetic field, because of the spin magnetic moments of the unpaired electrons in the molecule, and the negative exchange energy between neighboring O\n2 molecules. Liquid oxygen is attracted to a magnet to a sufficient extent that, in laboratory demonstrations, a bridge of liquid oxygen may be supported against its own weight between the poles of a powerful magnet.[c]",
+  "question": "In experiments, a bridge of what element can be built between poles of a magnet?",
+  "answers": "{'text': array(['Liquid oxygen', 'liquid oxygen', 'liquid oxygen', 'oxygen',\n       'liquid oxygen'], dtype=object), 'answer_start': array([299, 409, 409, 416, 409], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1287,
+  "prompt": "Context: In the triplet form, O\n2 molecules are paramagnetic. That is, they impart magnetic character to oxygen when it is in the presence of a magnetic field, because of the spin magnetic moments of the unpaired electrons in the molecule, and the negative exchange energy between neighboring O\n2 molecules. Liquid oxygen is attracted to a magnet to a sufficient extent that, in laboratory demonstrations, a bridge of liquid oxygen may be supported against its own weight between the poles of a powerful magnet.[c]\n\nQuestion: In experiments, a bridge of what element can be built between poles of a magnet?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that a bridge of **liquid oxygen** can be",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.826736450195312,
+          "prob": 3.0248749709984563e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.0248749709975415e-13,
+      "prompt": "You're given the following task:\nContext: In the triplet form, O\n2 molecules are paramagnetic. That is, they impart magnetic character to oxygen when it is in the presence of a magnetic field, because of the spin magnetic moments of the unpaired electrons in the molecule, and the negative exchange energy between neighboring O\n2 molecules. Liquid oxygen is attracted to a magnet to a sufficient extent that, in laboratory demonstrations, a bridge of liquid oxygen may be supported against its own weight between the poles of a powerful magnet.[c]\n\nQuestion: In experiments, a bridge of what element can be built between poles of a magnet?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

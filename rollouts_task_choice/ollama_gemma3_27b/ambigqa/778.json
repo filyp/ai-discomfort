@@ -1,0 +1,31 @@
+{
+  "id": 5037246049190270444,
+  "question": "Who is the next king or queen of england?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Charles, Prince of Wales'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Who is the next king of England?',\n              'Who is the next queen of England?'], dtype=object), 'answer': array([array(['Charles Philip Arthur George', 'Prince of Wales', 'Charles',\n                     'Charles, Prince of Wales'], dtype=object)                   ,\n              array(['Parker Bowles', 'Camilla Rosemary Shand',\n                     'Camilla, Duchess of Cornwall', 'Duchess of Cornwall'],\n                    dtype=object)                                           ],\n             dtype=object)}                                                                                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 778,
+  "prompt": "Who is the next king or queen of england?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! Currently, the next in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.228164672851562,
+          "prob": 1.6406642069713544e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6406642042795753e-09,
+      "prompt": "You're given the following task:\nWho is the next king or queen of england?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

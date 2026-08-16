@@ -1,0 +1,32 @@
+{
+  "id": "5726487b5951b619008f6edd",
+  "title": "1973_oil_crisis",
+  "context": "The embargo was not uniform across Europe. Of the nine members of the European Economic Community (EEC), the Netherlands faced a complete embargo, the UK and France received almost uninterrupted supplies (having refused to allow America to use their airfields and embargoed arms and supplies to both the Arabs and the Israelis), while the other six faced partial cutbacks. The UK had traditionally been an ally of Israel, and Harold Wilson's government supported the Israelis during the Six-Day War. His successor, Ted Heath, reversed this policy in 1970, calling for Israel to withdraw to its pre-1967 borders.",
+  "question": "Which country faced a complete embargo in the EEC?",
+  "answers": "{'text': array(['Netherlands', 'Netherlands', 'the Netherlands', 'the Netherlands'],\n      dtype=object), 'answer_start': array([109, 109, 105, 105], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1421,
+  "prompt": "Context: The embargo was not uniform across Europe. Of the nine members of the European Economic Community (EEC), the Netherlands faced a complete embargo, the UK and France received almost uninterrupted supplies (having refused to allow America to use their airfields and embargoed arms and supplies to both the Arabs and the Israelis), while the other six faced partial cutbacks. The UK had traditionally been an ally of Israel, and Harold Wilson's government supported the Israelis during the Six-Day War. His successor, Ted Heath, reversed this policy in 1970, calling for Israel to withdraw to its pre-1967 borders.\n\nQuestion: Which country faced a complete embargo in the EEC?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe Netherlands faced a complete embargo in the EEC. \n\nDo",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.939353942871094,
+          "prob": 1.3455964325621184e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3455964325621001e-14,
+      "prompt": "You're given the following task:\nContext: The embargo was not uniform across Europe. Of the nine members of the European Economic Community (EEC), the Netherlands faced a complete embargo, the UK and France received almost uninterrupted supplies (having refused to allow America to use their airfields and embargoed arms and supplies to both the Arabs and the Israelis), while the other six faced partial cutbacks. The UK had traditionally been an ally of Israel, and Harold Wilson's government supported the Israelis during the Six-Day War. His successor, Ted Heath, reversed this policy in 1970, calling for Israel to withdraw to its pre-1967 borders.\n\nQuestion: Which country faced a complete embargo in the EEC?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

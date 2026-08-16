@@ -1,0 +1,32 @@
+{
+  "id": "5711488ab654c5140001fc3d",
+  "title": "Steam_engine",
+  "context": "In most reciprocating piston engines, the steam reverses its direction of flow at each stroke (counterflow), entering and exhausting from the cylinder by the same port. The complete engine cycle occupies one rotation of the crank and two piston strokes; the cycle also comprises four events – admission, expansion, exhaust, compression. These events are controlled by valves often working inside a steam chest adjacent to the cylinder; the valves distribute the steam by opening and closing steam ports communicating with the cylinder end(s) and are driven by valve gear, of which there are many types.[citation needed]",
+  "question": "What is a term for the reversing of steam flow in a piston engine after each stroke?",
+  "answers": "{'text': array(['counterflow', 'counterflow', 'counterflow'], dtype=object), 'answer_start': array([95, 95, 95], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 988,
+  "prompt": "Context: In most reciprocating piston engines, the steam reverses its direction of flow at each stroke (counterflow), entering and exhausting from the cylinder by the same port. The complete engine cycle occupies one rotation of the crank and two piston strokes; the cycle also comprises four events – admission, expansion, exhaust, compression. These events are controlled by valves often working inside a steam chest adjacent to the cylinder; the valves distribute the steam by opening and closing steam ports communicating with the cylinder end(s) and are driven by valve gear, of which there are many types.[citation needed]\n\nQuestion: What is a term for the reversing of steam flow in a piston engine after each stroke?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that the reversing of steam flow in a piston engine",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.271976470947266,
+          "prob": 2.6227275633612338e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.622727563361165e-14,
+      "prompt": "You're given the following task:\nContext: In most reciprocating piston engines, the steam reverses its direction of flow at each stroke (counterflow), entering and exhausting from the cylinder by the same port. The complete engine cycle occupies one rotation of the crank and two piston strokes; the cycle also comprises four events – admission, expansion, exhaust, compression. These events are controlled by valves often working inside a steam chest adjacent to the cylinder; the valves distribute the steam by opening and closing steam ports communicating with the cylinder end(s) and are driven by valve gear, of which there are many types.[citation needed]\n\nQuestion: What is a term for the reversing of steam flow in a piston engine after each stroke?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

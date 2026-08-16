@@ -1,0 +1,31 @@
+{
+  "id": 5326119942658671302,
+  "question": "Who is the current sheriff of maricopa county arizona?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the sheriff of Maricopa County, Arizona from 1989-93?',\n              'Who is the sheriff of Maricopa County, Arizona from 1993-2017?',\n              'Who is the sheriff of Maricopa County, Arizona from 2017-present?'],\n             dtype=object), 'answer': array([array(['Thomas J. Agnos'], dtype=object),\n              array(['Joe Arpaio'], dtype=object),\n              array(['Paul Penzone'], dtype=object)], dtype=object)}                      ,\n       {'question': array(['Who is the current sheriff of maricopa county arizona since 2017?',\n              'Who is the sheriff of maricopa county arizona, from 1993-2017?',\n              'Who is the sheriff of maricopa county arizona, from 1989-1993?'],\n             dtype=object), 'answer': array([array(['Paul Penzone'], dtype=object),\n              array(['Joe Arpaio'], dtype=object),\n              array(['Thomas J. Agnos'], dtype=object)], dtype=object)}                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 168,
+  "prompt": "Who is the current sheriff of maricopa county arizona?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! The current sheriff of Mar",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.802597045898438,
+          "prob": 9.237339248277845e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.237339239745001e-10,
+      "prompt": "You're given the following task:\nWho is the current sheriff of maricopa county arizona?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

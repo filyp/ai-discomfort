@@ -1,0 +1,31 @@
+{
+  "id": 8092204619038306144,
+  "question": "Who has the most wins in a major league baseball season?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Which National League team has the most wins in a single MLB season?|Who has the highest win percentage in a Major League Baseball season?',\n              'Who has the highest number of wins in a Major League Baseball season?',\n              'Which American League team has the most wins in a single MLB season?'],\n             dtype=object), 'answer': array([array(['Chicago Cubs', 'Chicago', 'Cubs'], dtype=object),\n              array(['Cubs and Mariners', 'Chicago Cubs and Seattle Mariners',\n                     'Chicago and Seattle'], dtype=object)                    ,\n              array(['Seattle Mariners'], dtype=object)], dtype=object)}                                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1158,
+  "prompt": "Who has the most wins in a major league baseball season?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.552982330322266,
+          "prob": 8.760767424293742e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.760767347542697e-09,
+      "prompt": "You're given the following task:\nWho has the most wins in a major league baseball season?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

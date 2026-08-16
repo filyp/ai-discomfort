@@ -1,0 +1,32 @@
+{
+  "id": "5ad400b0604f3c001a3ffce1",
+  "title": "Normans",
+  "context": "In England, the period of Norman architecture immediately succeeds that of the Anglo-Saxon and precedes the Early Gothic. In southern Italy, the Normans incorporated elements of Islamic, Lombard, and Byzantine building techniques into their own, initiating a unique style known as Norman-Arab architecture within the Kingdom of Sicily.",
+  "question": "Who incorperated Islamic, LOmbard, and Byzantine building techniques in England?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 98,
+  "prompt": "Context: In England, the period of Norman architecture immediately succeeds that of the Anglo-Saxon and precedes the Early Gothic. In southern Italy, the Normans incorporated elements of Islamic, Lombard, and Byzantine building techniques into their own, initiating a unique style known as Norman-Arab architecture within the Kingdom of Sicily.\n\nQuestion: Who incorperated Islamic, LOmbard, and Byzantine building techniques in England?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThe provided text states that Islamic, Lombard, and Byzantine techniques were incorporated",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -2.3809001445770264,
+          "prob": 0.09246730609367637,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.09702569246292114,
+          "prob": 0.9075326890837737,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9075326934603954,
+      "prompt": "You're given the following task:\nContext: In England, the period of Norman architecture immediately succeeds that of the Anglo-Saxon and precedes the Early Gothic. In southern Italy, the Normans incorporated elements of Islamic, Lombard, and Byzantine building techniques into their own, initiating a unique style known as Norman-Arab architecture within the Kingdom of Sicily.\n\nQuestion: Who incorperated Islamic, LOmbard, and Byzantine building techniques in England?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

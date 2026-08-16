@@ -1,0 +1,31 @@
+{
+  "id": 3781826798040630083,
+  "question": "Who played mark on the tv show roseanne?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who plays Mark Healy on the TV show Roseanne?',\n              'Who played Mark Conner-Healy on the TV show Roseanne?'],\n             dtype=object), 'answer': array([array(['Glenn Quinn'], dtype=object),\n              array(['Ames McNamara'], dtype=object)], dtype=object)}             ,\n       {'question': array(['Who played Mark Healy on Roseanne?',\n              'Who played Mark Conner-Healy on Roseanne?'], dtype=object), 'answer': array([array(['Glenn Quinn'], dtype=object),\n              array(['Ames McNamara'], dtype=object)], dtype=object)}                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 121,
+  "prompt": "Who played mark on the tv show roseanne?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.032512664794922,
+          "prob": 5.423564044609606e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.423564015194559e-09,
+      "prompt": "You're given the following task:\nWho played mark on the tv show roseanne?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

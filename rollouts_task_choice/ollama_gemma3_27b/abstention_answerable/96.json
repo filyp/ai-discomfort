@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 96,
+  "prompt": "What type of art started as a flip book in early times but has been used to make films such as \"Life is Cool\" in 2008?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! That's a fun question. It sounds like you",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.525665283203125,
+          "prob": 6.066432706032996e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.06643270566498e-11,
+      "prompt": "You're given the following task:\nWhat type of art started as a flip book in early times but has been used to make films such as \"Life is Cool\" in 2008?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

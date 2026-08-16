@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 425,
+  "prompt": "Are people who learn forensic linguistics superior to people who learn forensic discourse analysis in solving crimes?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThis is a fascinating and complex question! It's not something",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.173817044124007e-05,
+          "prob": 0.9999482631679548,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -9.869596481323242,
+          "prob": 5.172359584097195e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.172359652559604e-05,
+      "prompt": "You're given the following task:\nAre people who learn forensic linguistics superior to people who learn forensic discourse analysis in solving crimes?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

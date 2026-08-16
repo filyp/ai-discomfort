@@ -1,0 +1,31 @@
+{
+  "id": 582604295108025620,
+  "question": "Who died in the movie fast and furious 7?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Which actor died while the movie fast and furious 7 was being filmed?',\n              'Which character was killed by Shaw in the movie fast and furious 7?',\n              'Which character was killed by Hobbs in the movie fast and furious 7?',\n              'Which actor was killed by Shaw in the movie fast and furious 7?',\n              'Which actor was killed by Hobbs in the movie fast and furious 7?'],\n             dtype=object), 'answer': array([array(['Paul Walker'], dtype=object), array(['Han'], dtype=object),\n              array(['Jakande', 'Mose Jakande'], dtype=object),\n              array(['Sung Kang'], dtype=object),\n              array(['Djimon Gaston Hounsou', 'Djimon Hounsou'], dtype=object)],\n             dtype=object)}                                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 804,
+  "prompt": "Who died in the movie fast and furious 7?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.18297576904297,
+          "prob": 4.665943515165311e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.665943493394283e-09,
+      "prompt": "You're given the following task:\nWho died in the movie fast and furious 7?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

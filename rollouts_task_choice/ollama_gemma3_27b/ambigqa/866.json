@@ -1,0 +1,31 @@
+{
+  "id": -8746222269912149057,
+  "question": "What does the d stand for in tv ratings?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What does the d stand for in tv ratings in El Salvador?',\n              'What does the d stand for in tv ratings in Mexico?',\n              'What does the d stand for in tv ratings in Australia?',\n              'What does the d stand for in tv ratings in South Africa?',\n              'What does the d stand for in tv ratings in the United States?'],\n             dtype=object), 'answer': array([array(['Apto para mayores de 18 años', 'Suitable for over 18 years'],\n                    dtype=object)                                                  ,\n              array(['adults aged 18 or older'], dtype=object),\n              array(['drug references and/or use'], dtype=object),\n              array(['Drugs'], dtype=object),\n              array(['Suggestive dialogue', 'Sexual or suggestive dialogue'],\n                    dtype=object)                                            ],\n             dtype=object)}                                                                                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 866,
+  "prompt": "What does the d stand for in tv ratings?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about TV ratings! The \"d",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.44476318359375,
+          "prob": 9.762052284315794e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.76205218901813e-09,
+      "prompt": "You're given the following task:\nWhat does the d stand for in tv ratings?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

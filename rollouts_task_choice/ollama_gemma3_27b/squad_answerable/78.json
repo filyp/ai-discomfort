@@ -1,0 +1,32 @@
+{
+  "id": "56de4a474396321400ee2787",
+  "title": "Normans",
+  "context": "The customary law of Normandy was developed between the 10th and 13th centuries and survives today through the legal systems of Jersey and Guernsey in the Channel Islands. Norman customary law was transcribed in two customaries in Latin by two judges for use by them and their colleagues: These are the Très ancien coutumier (Very ancient customary), authored between 1200 and 1245; and the Grand coutumier de Normandie (Great customary of Normandy, originally Summa de legibus Normanniae in curia laïcali), authored between 1235 and 1245.",
+  "question": "How many customaries does Norman customary law have?",
+  "answers": "{'text': array(['two', 'two', 'two'], dtype=object), 'answer_start': array([212, 212, 212], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 78,
+  "prompt": "Context: The customary law of Normandy was developed between the 10th and 13th centuries and survives today through the legal systems of Jersey and Guernsey in the Channel Islands. Norman customary law was transcribed in two customaries in Latin by two judges for use by them and their colleagues: These are the Très ancien coutumier (Very ancient customary), authored between 1200 and 1245; and the Grand coutumier de Normandie (Great customary of Normandy, originally Summa de legibus Normanniae in curia laïcali), authored between 1235 and 1245.\n\nQuestion: How many customaries does Norman customary law have?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that Norman customary law has **two** customaries",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.25579071044922,
+          "prob": 1.969570499602005e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.969570499601617e-13,
+      "prompt": "You're given the following task:\nContext: The customary law of Normandy was developed between the 10th and 13th centuries and survives today through the legal systems of Jersey and Guernsey in the Channel Islands. Norman customary law was transcribed in two customaries in Latin by two judges for use by them and their colleagues: These are the Très ancien coutumier (Very ancient customary), authored between 1200 and 1245; and the Grand coutumier de Normandie (Great customary of Normandy, originally Summa de legibus Normanniae in curia laïcali), authored between 1235 and 1245.\n\nQuestion: How many customaries does Norman customary law have?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

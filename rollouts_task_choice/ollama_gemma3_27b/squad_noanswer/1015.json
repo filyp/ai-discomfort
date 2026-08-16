@@ -1,0 +1,32 @@
+{
+  "id": "5ad3eb61604f3c001a3ff71c",
+  "title": "Steam_engine",
+  "context": "A method to lessen the magnitude of this heating and cooling was invented in 1804 by British engineer Arthur Woolf, who patented his Woolf high-pressure compound engine in 1805. In the compound engine, high-pressure steam from the boiler expands in a high-pressure (HP) cylinder and then enters one or more subsequent lower-pressure (LP) cylinders. The complete expansion of the steam now occurs across multiple cylinders and as less expansion now occurs in each cylinder less heat is lost by the steam in each. This reduces the magnitude of cylinder heating and cooling, increasing the efficiency of the engine. By staging the expansion in multiple cylinders, torque variability can be reduced. To derive equal work from lower-pressure steam requires a larger cylinder volume as this steam occupies a greater volume. Therefore, the bore, and often the stroke, are increased in low-pressure cylinders resulting in larger cylinders.",
+  "question": "What nationality was Arthur Smith?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1015,
+  "prompt": "Context: A method to lessen the magnitude of this heating and cooling was invented in 1804 by British engineer Arthur Woolf, who patented his Woolf high-pressure compound engine in 1805. In the compound engine, high-pressure steam from the boiler expands in a high-pressure (HP) cylinder and then enters one or more subsequent lower-pressure (LP) cylinders. The complete expansion of the steam now occurs across multiple cylinders and as less expansion now occurs in each cylinder less heat is lost by the steam in each. This reduces the magnitude of cylinder heating and cooling, increasing the efficiency of the engine. By staging the expansion in multiple cylinders, torque variability can be reduced. To derive equal work from lower-pressure steam requires a larger cylinder volume as this steam occupies a greater volume. Therefore, the bore, and often the stroke, are increased in low-pressure cylinders resulting in larger cylinders.\n\nQuestion: What nationality was Arthur Smith?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe text refers to **Arthur Woolf**, not Arthur Smith. Therefore",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -4.1656060218811035,
+          "prob": 0.015520306404233871,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.01564246043562889,
+          "prob": 0.9844792474188124,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.98447968667096,
+      "prompt": "You're given the following task:\nContext: A method to lessen the magnitude of this heating and cooling was invented in 1804 by British engineer Arthur Woolf, who patented his Woolf high-pressure compound engine in 1805. In the compound engine, high-pressure steam from the boiler expands in a high-pressure (HP) cylinder and then enters one or more subsequent lower-pressure (LP) cylinders. The complete expansion of the steam now occurs across multiple cylinders and as less expansion now occurs in each cylinder less heat is lost by the steam in each. This reduces the magnitude of cylinder heating and cooling, increasing the efficiency of the engine. By staging the expansion in multiple cylinders, torque variability can be reduced. To derive equal work from lower-pressure steam requires a larger cylinder volume as this steam occupies a greater volume. Therefore, the bore, and often the stroke, are increased in low-pressure cylinders resulting in larger cylinders.\n\nQuestion: What nationality was Arthur Smith?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

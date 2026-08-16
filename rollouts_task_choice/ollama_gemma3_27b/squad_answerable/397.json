@@ -1,0 +1,32 @@
+{
+  "id": "570603c475f01819005e7884",
+  "title": "Southern_California",
+  "context": "As of the 2010 United States Census, southern California has a population of 22,680,010. Despite a reputation for high growth rates, southern California's rate grew less than the state average of 10.0% in the 2000s as California's growth became concentrated in the northern part of the state due to a stronger, tech-oriented economy in the Bay Area and an emerging Greater Sacramento region.",
+  "question": "What is the state average growth rate?",
+  "answers": "{'text': array(['10.0%', '10.0%', '10.0%'], dtype=object), 'answer_start': array([196, 196, 196], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 397,
+  "prompt": "Context: As of the 2010 United States Census, southern California has a population of 22,680,010. Despite a reputation for high growth rates, southern California's rate grew less than the state average of 10.0% in the 2000s as California's growth became concentrated in the northern part of the state due to a stronger, tech-oriented economy in the Bay Area and an emerging Greater Sacramento region.\n\nQuestion: What is the state average growth rate?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe state average growth rate is 10.0%. Is",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.768951416015625,
+          "prob": 2.3680567921672936e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.368056792161686e-12,
+      "prompt": "You're given the following task:\nContext: As of the 2010 United States Census, southern California has a population of 22,680,010. Despite a reputation for high growth rates, southern California's rate grew less than the state average of 10.0% in the 2000s as California's growth became concentrated in the northern part of the state due to a stronger, tech-oriented economy in the Bay Area and an emerging Greater Sacramento region.\n\nQuestion: What is the state average growth rate?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

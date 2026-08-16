@@ -1,0 +1,31 @@
+{
+  "id": -5860652896426394557,
+  "question": "Where does walmart get its great value products?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['From what companies does walmart get its great value products?',\n              'From what country does walmart contend it gets its great value products?'],\n             dtype=object), 'answer': array([array(['a number of agricultural and food corporations, such as ConAgra, and Sara Lee'],\n                    dtype=object)                                                                     ,\n              array(['United States'], dtype=object)], dtype=object)}                                                                ,\n       {'question': array(['Where are Great Value products manufactured?',\n              'Where source does Walmart get its Great Value products from?'],\n             dtype=object), 'answer': array([array(['United States'], dtype=object),\n              array(['ConAgra', 'Sara Lee',\n                     'a number of agricultural and food corporations'], dtype=object)],\n             dtype=object)}                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 55,
+  "prompt": "Where does walmart get its great value products?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.1839599609375,
+          "prob": 1.7148161539503266e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7148161510097324e-09,
+      "prompt": "You're given the following task:\nWhere does walmart get its great value products?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

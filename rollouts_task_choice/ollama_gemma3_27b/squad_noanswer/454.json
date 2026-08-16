@@ -1,0 +1,32 @@
+{
+  "id": "5ad04d3077cf76001a686fa1",
+  "title": "Southern_California",
+  "context": "Six of the seven lines of the commuter rail system, Metrolink, run out of Downtown Los Angeles, connecting Los Angeles, Ventura, San Bernardino, Riverside, Orange, and San Diego counties with the other line connecting San Bernardino, Riverside, and Orange counties directly.",
+  "question": "What is the name of the Los Angeles rail system?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 454,
+  "prompt": "Context: Six of the seven lines of the commuter rail system, Metrolink, run out of Downtown Los Angeles, connecting Los Angeles, Ventura, San Bernardino, Riverside, Orange, and San Diego counties with the other line connecting San Bernardino, Riverside, and Orange counties directly.\n\nQuestion: What is the name of the Los Angeles rail system?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe name of the Los Angeles rail system is Metrolink.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.025142669677734,
+          "prob": 7.394291327477877e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.394291322010321e-10,
+      "prompt": "You're given the following task:\nContext: Six of the seven lines of the commuter rail system, Metrolink, run out of Downtown Los Angeles, connecting Los Angeles, Ventura, San Bernardino, Riverside, Orange, and San Diego counties with the other line connecting San Bernardino, Riverside, and Orange counties directly.\n\nQuestion: What is the name of the Los Angeles rail system?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

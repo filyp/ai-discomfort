@@ -1,0 +1,65 @@
+{
+  "model": "gemma3:27b",
+  "dataset": "tedious",
+  "question_num": 4,
+  "prompt": "Repeat the sentence 'The invoice has been processed.' exactly 50 times.",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I will repeat \"The invoice has been processed.\" exactly",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0081358402967453,
+          "prob": 0.9918971660797311,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.815554618835449,
+          "prob": 0.008102726906503717,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.008102727773607123,
+      "prompt": "You're given the following task:\nRepeat the sentence 'The invoice has been processed.' exactly 50 times.\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I will repeat \"The invoice has been processed.\" exactly",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.013035431504249573,
+          "prob": 0.9870491617641441,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.34660005569458,
+          "prob": 0.012950769707962656,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.012950770595451681,
+      "prompt": "You're given the following task:\nRepeat the sentence 'The invoice has been processed.' exactly 50 times.\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nHere's the repeated sentence, 50 times:",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -16.665115356445312,
+          "prob": 5.786718555609229e-08,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.7867182207481326e-08,
+      "prompt": "You're given the following task:\nRepeat the sentence 'The invoice has been processed.' exactly 50 times.\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

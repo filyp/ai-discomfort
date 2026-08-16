@@ -1,0 +1,31 @@
+{
+  "id": 3347652395736128807,
+  "question": "What was the owls name in mr rogers?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"What was the Owl's name performed by Fred Rogers in  Mr. Rogers' Neighborhood?\",\n              \"What was the name of Owl portrayed by Stephen Lee in Mr. Rogers' Neighborhood?\",\n              \"What was the name of Owl portrayed by Mary Rawson in Mr. Rogers' Neighborhood?\"],\n             dtype=object), 'answer': array([array(['X the Owl'], dtype=object),\n              array(['Cousin Stephen Owl'], dtype=object),\n              array(['Cousin Mary Owl'], dtype=object)], dtype=object)}                                     ,\n       {'question': array(['What was the owls name in mr rogers performed by Fred Rogers?',\n              'What was the owls name in mr rogers portrayed by Mary Rawson?',\n              'What was the owls name in mr rogers portrayed by portrayed by Stephen Lee?'],\n             dtype=object), 'answer': array([array(['X the Owl'], dtype=object),\n              array(['Cousin Mary Owl'], dtype=object),\n              array(['Cousin Stephen Owl'], dtype=object)], dtype=object)}                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 738,
+  "prompt": "What was the owls name in mr rogers?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can definitely tell you about the owl on Mr.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.120573597290786e-05,
+          "prob": 0.9999887943268111,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -11.395061492919922,
+          "prob": 1.1250910571280316e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1250910062318596e-05,
+      "prompt": "You're given the following task:\nWhat was the owls name in mr rogers?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

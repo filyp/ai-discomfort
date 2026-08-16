@@ -1,0 +1,31 @@
+{
+  "id": -3935048956838900328,
+  "question": "How many court of appeals are there in georgia?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How many different court of appeals are there in georgia?',\n              'How many court of appeals divisions are there in georgia?'],\n             dtype=object), 'answer': array([array(['one'], dtype=object), array(['five'], dtype=object)],\n             dtype=object)}                                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 433,
+  "prompt": "How many court of appeals are there in georgia?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! There is one Court of",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.18865966796875,
+          "prob": 6.278877748053829e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.278877744111398e-10,
+      "prompt": "You're given the following task:\nHow many court of appeals are there in georgia?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -6253059790504461986,
+  "question": "What do you use to test for lipids?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What do you use to test lipids for abnormalities?',\n              'What method do you use to test for the presence of lipids?'],\n             dtype=object), 'answer': array([array(['lipid panel', 'Lipid profile'], dtype=object),\n              array(['Emulsion test'], dtype=object)], dtype=object)}                              ,\n       {'question': array(['What do you use to test for lipids in food?',\n              'What do you use to test for lipids in the body?'], dtype=object), 'answer': array([array(['Emulsion test'], dtype=object),\n              array(['Lipid panel test'], dtype=object)], dtype=object)}                                                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 986,
+  "prompt": "What do you use to test for lipids?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! To test for lipids (fats), we typically use",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.149948120117188,
+          "prob": 2.4010420000618956e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.401041999485395e-10,
+      "prompt": "You're given the following task:\nWhat do you use to test for lipids?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

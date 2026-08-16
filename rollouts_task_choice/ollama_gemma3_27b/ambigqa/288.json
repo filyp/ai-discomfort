@@ -1,0 +1,31 @@
+{
+  "id": 5278020544239312824,
+  "question": "Who said the power of the pen is mightier than the sword?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who first said the exact phrase the power of the pen is mightier than the sword?',\n              'Who first said a phrase similar the power of the pen is mightier than the sword?'],\n             dtype=object), 'answer': array([array(['Edward George Earle Lytton Bulwer-Lytton', 'Edward Bulwer-Lytton',\n                     'Edward George Earle Lytton Bulwer-Lytton, 1st Baron Lytton, PC'],\n                    dtype=object)                                                       ,\n              array(['Ahiqar'], dtype=object)], dtype=object)}                                                         ,\n       {'question': array(['Who said the first known version of the phrase the power of the pen is mightier than the sword?',\n              'Who first said \"the pen is mightier than the sword\"?'],\n             dtype=object), 'answer': array([array(['Ahiqar'], dtype=object),\n              array(['Edward Bulwer-Lytton'], dtype=object)], dtype=object)}                                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 288,
+  "prompt": "Who said the power of the pen is mightier than the sword?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.387317657470703,
+          "prob": 3.8036007333058365e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.8036007188384576e-09,
+      "prompt": "You're given the following task:\nWho said the power of the pen is mightier than the sword?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

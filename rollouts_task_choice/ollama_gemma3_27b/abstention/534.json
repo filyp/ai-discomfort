@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 534,
+  "prompt": "How do you measure the taxation of excise taxes on short women compared to tall men?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis task is inherently problematic and likely based on a flawed premise seeking",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -4.338129997253418,
+          "prob": 0.013060929354983543,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.013148481026291847,
+          "prob": 0.9869375826352769,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9869390512101974,
+      "prompt": "You're given the following task:\nHow do you measure the taxation of excise taxes on short women compared to tall men?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

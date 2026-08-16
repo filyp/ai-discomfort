@@ -1,0 +1,31 @@
+{
+  "id": -7035938730030199426,
+  "question": "Who used to be on the five on fox?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who are the former hosts of \"The Five\" on Fox News?',\n              'What host of The Five went off air indefinitely on April 25, 2016?|Who left \"The Five\" on Fox News in 2016?',\n              'Who left \"The Five\" on Fox News in 2015?|Who used to be on \"The Five\" on Fox until May 2017?',\n              'Who used to be on The Five but left on July 20, 2018?|Who used to be on \"The Five\" on Fox until 2018?|Who left \"The Five\" on Fox News in 2018?',\n              'Who used to be on The Five but left on April 19, 2017?|Who used to be on \"The Five\" on Fox until April 2017?'],\n             dtype=object), 'answer': array([array(['Bob Beckel, Andrea Tantaros, Eric Bolling, Kimberly Guilfoyle',\n                     'Bob Beckel, Andrea Tantaros, Eric Bolling, and Kimberly Guilfoyle',\n                     'Beckel, Tantaros, Bolling, Guilfoyle'], dtype=object)              ,\n              array(['Tantaros', 'Andreana Tantaros', 'Andreana Kostantina Tantaros',\n                     'Andrea Tantaros'], dtype=object)                               ,\n              array(['Robert Beckel', 'Robert Gilliland Beckel', 'Bob Beckel', 'Beckel'],\n                    dtype=object)                                                        ,\n              array(['Kimberly Guilfoyle', 'Guilfoyle', 'Kimberly Ann Guilfoyle'],\n                    dtype=object)                                                 ,\n              array(['Bolling', 'Eric Bolling', 'Eric Thomas Bolling'], dtype=object)],\n             dtype=object)}                                                                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1073,
+  "prompt": "Who used to be on the five on fox?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! \"The Five\" on",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.763057708740234,
+          "prob": 3.876908052333412e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.8769079357821467e-07,
+      "prompt": "You're given the following task:\nWho used to be on the five on fox?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

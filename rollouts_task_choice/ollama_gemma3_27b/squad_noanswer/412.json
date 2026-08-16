@@ -1,0 +1,32 @@
+{
+  "id": "5ad0421177cf76001a686f14",
+  "title": "Southern_California",
+  "context": "As of the 2010 United States Census, southern California has a population of 22,680,010. Despite a reputation for high growth rates, southern California's rate grew less than the state average of 10.0% in the 2000s as California's growth became concentrated in the northern part of the state due to a stronger, tech-oriented economy in the Bay Area and an emerging Greater Sacramento region.",
+  "question": "What census showed southern California as having a population of 26,860, 010?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 412,
+  "prompt": "Context: As of the 2010 United States Census, southern California has a population of 22,680,010. Despite a reputation for high growth rates, southern California's rate grew less than the state average of 10.0% in the 2000s as California's growth became concentrated in the northern part of the state due to a stronger, tech-oriented economy in the Bay Area and an emerging Greater Sacramento region.\n\nQuestion: What census showed southern California as having a population of 26,860, 010?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThe provided text states the population of Southern California *as of the",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -5.544983863830566,
+          "prob": 0.003907006247605231,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.003914796747267246,
+          "prob": 0.996092856079841,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9960929932145072,
+      "prompt": "You're given the following task:\nContext: As of the 2010 United States Census, southern California has a population of 22,680,010. Despite a reputation for high growth rates, southern California's rate grew less than the state average of 10.0% in the 2000s as California's growth became concentrated in the northern part of the state due to a stronger, tech-oriented economy in the Bay Area and an emerging Greater Sacramento region.\n\nQuestion: What census showed southern California as having a population of 26,860, 010?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 3071684398533564818,
+  "question": "When was the clock tower in london built?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the clock tower in london, Ontario built?',\n              'When was the clock tower in Surbiton, london built?',\n              'When was the clock tower in Palace of Westminster, london built?',\n              \"When was the clock tower in King's Cross station, london built?\",\n              'When was the Little Ben clock tower in london built?',\n              'When was the clock tower in St. Pancras railway station, london built?'],\n             dtype=object), 'answer': array([array(['1846'], dtype=object), array(['1902'], dtype=object),\n              array(['31 May 1859'], dtype=object),\n              array(['1851'], dtype=object), array(['1892'], dtype=object),\n              array(['1868'], dtype=object)], dtype=object)}                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 700,
+  "prompt": "When was the clock tower in london built?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.065540313720703,
+          "prob": 3.877305409300331e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.8773052589653644e-08,
+      "prompt": "You're given the following task:\nWhen was the clock tower in london built?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

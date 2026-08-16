@@ -1,0 +1,31 @@
+{
+  "id": -7353922575500394783,
+  "question": "A systolic bp value is the pressure when?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['A systolic bp value is the pressure when the blood pressur is at?',\n              'A systolic bp value is the pressure when during the cardiac cycle?'],\n             dtype=object), 'answer': array([array(['maximum during one heartbeat'], dtype=object),\n              array(['end of the cardiac cycle when the ventricles are contracting',\n                     'eak pressure in the arteries'], dtype=object)                 ],\n             dtype=object)}                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 236,
+  "prompt": "A systolic bp value is the pressure when?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! A systolic blood pressure value",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.232711791992188,
+          "prob": 6.008283725405704e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.008283721795758e-10,
+      "prompt": "You're given the following task:\nA systolic bp value is the pressure when?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

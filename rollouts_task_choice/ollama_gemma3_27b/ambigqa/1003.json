@@ -1,0 +1,31 @@
+{
+  "id": -7709444270791071714,
+  "question": "Who sings the song i'm just a love machine?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sings the song \"Love Machine\" from 1975?',\n              'Who sings the lead vocals on the 1975 song \"Love Machine\"?',\n              'Who sings the background vocals on the 1975 song \"Love Machine\"?',\n              'Who sings the \"Yeah, baby\" vocals on the 1975 song \"Love Machine\"?',\n              'Who sings the 2004 song \"Love Machine\"?'], dtype=object), 'answer': array([array(['The Miracles'], dtype=object),\n              array(['Billy Griffin'], dtype=object),\n              array(['Bobby Rogers, Ronnie White and Pete Moore'], dtype=object),\n              array(['Ronnie White'], dtype=object),\n              array(['Girls Aloud'], dtype=object)], dtype=object)}                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1003,
+  "prompt": "Who sings the song i'm just a love machine?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.87236785888672,
+          "prob": 1.7303312861575632e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7303312562171002e-08,
+      "prompt": "You're given the following task:\nWho sings the song i'm just a love machine?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

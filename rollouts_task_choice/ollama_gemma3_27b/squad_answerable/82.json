@@ -1,0 +1,32 @@
+{
+  "id": "56de4b074396321400ee2794",
+  "title": "Normans",
+  "context": "In England, the period of Norman architecture immediately succeeds that of the Anglo-Saxon and precedes the Early Gothic. In southern Italy, the Normans incorporated elements of Islamic, Lombard, and Byzantine building techniques into their own, initiating a unique style known as Norman-Arab architecture within the Kingdom of Sicily.",
+  "question": "What architecture type came before Norman in England?",
+  "answers": "{'text': array(['Anglo-Saxon', 'Anglo-Saxon', 'Anglo-Saxon'], dtype=object), 'answer_start': array([79, 79, 79], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 82,
+  "prompt": "Context: In England, the period of Norman architecture immediately succeeds that of the Anglo-Saxon and precedes the Early Gothic. In southern Italy, the Normans incorporated elements of Islamic, Lombard, and Byzantine building techniques into their own, initiating a unique style known as Norman-Arab architecture within the Kingdom of Sicily.\n\nQuestion: What architecture type came before Norman in England?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that Anglo-Saxon architecture came before Norman architecture in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.559185028076172,
+          "prob": 5.3495169859944434e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.349516985994157e-14,
+      "prompt": "You're given the following task:\nContext: In England, the period of Norman architecture immediately succeeds that of the Anglo-Saxon and precedes the Early Gothic. In southern Italy, the Normans incorporated elements of Islamic, Lombard, and Byzantine building techniques into their own, initiating a unique style known as Norman-Arab architecture within the Kingdom of Sicily.\n\nQuestion: What architecture type came before Norman in England?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

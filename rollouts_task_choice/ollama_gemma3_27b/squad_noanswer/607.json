@@ -1,0 +1,32 @@
+{
+  "id": "5a636c5a68151a001a9222cb",
+  "title": "Victoria_(Australia)",
+  "context": "Victoria (abbreviated as Vic) is a state in the south-east of Australia. Victoria is Australia's most densely populated state and its second-most populous state overall. Most of its population is concentrated in the area surrounding Port Phillip Bay, which includes the metropolitan area of its capital and largest city, Melbourne, which is Australia's second-largest city. Geographically the smallest state on the Australian mainland, Victoria is bordered by Bass Strait and Tasmania to the south,[note 1] New South Wales to the north, the Tasman Sea to the east, and South Australia to the west.",
+  "question": "What city is the capital of Australia?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 607,
+  "prompt": "Context: Victoria (abbreviated as Vic) is a state in the south-east of Australia. Victoria is Australia's most densely populated state and its second-most populous state overall. Most of its population is concentrated in the area surrounding Port Phillip Bay, which includes the metropolitan area of its capital and largest city, Melbourne, which is Australia's second-largest city. Geographically the smallest state on the Australian mainland, Victoria is bordered by Bass Strait and Tasmania to the south,[note 1] New South Wales to the north, the Tasman Sea to the east, and South Australia to the west.\n\nQuestion: What city is the capital of Australia?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text is about Victoria, a state *within* Australia",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -11.949713706970215,
+          "prob": 6.461082355131763e-06,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -6.437322554120328e-06,
+          "prob": 0.9999935626981654,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999935389177986,
+      "prompt": "You're given the following task:\nContext: Victoria (abbreviated as Vic) is a state in the south-east of Australia. Victoria is Australia's most densely populated state and its second-most populous state overall. Most of its population is concentrated in the area surrounding Port Phillip Bay, which includes the metropolitan area of its capital and largest city, Melbourne, which is Australia's second-largest city. Geographically the smallest state on the Australian mainland, Victoria is bordered by Bass Strait and Tasmania to the south,[note 1] New South Wales to the north, the Tasman Sea to the east, and South Australia to the west.\n\nQuestion: What city is the capital of Australia?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -4196197025985715858,
+  "question": "Who wrote your man song by josh turner?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Chris Stapleton, Chris DuBois, Jace Everett'], dtype=object),\n       array(['Chris Stapleton, Chris DuBois, Jace Everett'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 360,
+  "prompt": "Who wrote your man song by josh turner?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! \"Your Man\" by Josh Turner was written by **",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.03757095336914,
+          "prob": 3.9872819793186144e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.987281820334445e-08,
+      "prompt": "You're given the following task:\nWho wrote your man song by josh turner?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

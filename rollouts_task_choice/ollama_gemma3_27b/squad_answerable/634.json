@@ -1,0 +1,32 @@
+{
+  "id": "570d32e4fed7b91900d45d03",
+  "title": "Victoria_(Australia)",
+  "context": "Victorian schools are either publicly or privately funded. Public schools, also known as state or government schools, are funded and run directly by the Victoria Department of Education . Students do not pay tuition fees, but some extra costs are levied. Private fee-paying schools include parish schools run by the Roman Catholic Church and independent schools similar to British public schools. Independent schools are usually affiliated with Protestant churches. Victoria also has several private Jewish and Islamic primary and secondary schools. Private schools also receive some public funding. All schools must comply with government-set curriculum standards. In addition, Victoria has four government selective schools, Melbourne High School for boys, MacRobertson Girls' High School for girls, the coeducational schools John Monash Science School, Nossal High School and Suzanne Cory High School, and The Victorian College of the Arts Secondary School. Students at these schools are exclusively admitted on the basis of an academic selective entry test.",
+  "question": "Since students do not pay tuition, what do they have to pay for schooling in Victoria?",
+  "answers": "{'text': array(['some extra costs', 'some extra costs are levied', 'extra costs'],\n      dtype=object), 'answer_start': array([226, 226, 231], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 634,
+  "prompt": "Context: Victorian schools are either publicly or privately funded. Public schools, also known as state or government schools, are funded and run directly by the Victoria Department of Education . Students do not pay tuition fees, but some extra costs are levied. Private fee-paying schools include parish schools run by the Roman Catholic Church and independent schools similar to British public schools. Independent schools are usually affiliated with Protestant churches. Victoria also has several private Jewish and Islamic primary and secondary schools. Private schools also receive some public funding. All schools must comply with government-set curriculum standards. In addition, Victoria has four government selective schools, Melbourne High School for boys, MacRobertson Girls' High School for girls, the coeducational schools John Monash Science School, Nossal High School and Suzanne Cory High School, and The Victorian College of the Arts Secondary School. Students at these schools are exclusively admitted on the basis of an academic selective entry test.\n\nQuestion: Since students do not pay tuition, what do they have to pay for schooling in Victoria?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, based on the provided text, students attending *public*",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.888690948486328,
+          "prob": 3.8477953712131876e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.84779537121304e-14,
+      "prompt": "You're given the following task:\nContext: Victorian schools are either publicly or privately funded. Public schools, also known as state or government schools, are funded and run directly by the Victoria Department of Education . Students do not pay tuition fees, but some extra costs are levied. Private fee-paying schools include parish schools run by the Roman Catholic Church and independent schools similar to British public schools. Independent schools are usually affiliated with Protestant churches. Victoria also has several private Jewish and Islamic primary and secondary schools. Private schools also receive some public funding. All schools must comply with government-set curriculum standards. In addition, Victoria has four government selective schools, Melbourne High School for boys, MacRobertson Girls' High School for girls, the coeducational schools John Monash Science School, Nossal High School and Suzanne Cory High School, and The Victorian College of the Arts Secondary School. Students at these schools are exclusively admitted on the basis of an academic selective entry test.\n\nQuestion: Since students do not pay tuition, what do they have to pay for schooling in Victoria?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

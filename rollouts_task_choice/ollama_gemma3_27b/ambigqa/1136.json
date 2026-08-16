@@ -1,0 +1,31 @@
+{
+  "id": 5726344363373010009,
+  "question": "How much does a trump golf membership cost?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How much does the annual dues at Trump National Golf Club Westchester cost?|How much are the annual dues for a trump golf membership in Westchester in 2015?',\n              'How much does the Trump Golf at Palm Beach membership cost?|How much is the annual dues at the Trump International Golf Club cost?',\n              'How much does the initiation fee at Trump National Golf Club Westchester cost as of 2015?|How much are the initiation fees for a trump golf membership in Westchester in 2015?',\n              'How much does the initiation fee at the Trump International Golf Club cost?',\n              'How much does a Trump Golf Club (Bedminster) membership cost?|How much does membership at the Trump National Golf Club (Bedminster, New Jersey) cost at the most?'],\n             dtype=object), 'answer': array([array(['$19,400'], dtype=object), array(['$25,000'], dtype=object),\n              array(['$50,000'], dtype=object),\n              array(['$150,000'], dtype=object),\n              array(['at the most $300,000', '$300,000'], dtype=object)],\n             dtype=object)}                                                                                                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1136,
+  "prompt": "How much does a trump golf membership cost?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! Trump Golf memberships vary *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.792449951171875,
+          "prob": 6.8951335886734285e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.895133541130562e-09,
+      "prompt": "You're given the following task:\nHow much does a trump golf membership cost?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

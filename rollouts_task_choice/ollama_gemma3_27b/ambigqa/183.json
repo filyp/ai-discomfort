@@ -1,0 +1,31 @@
+{
+  "id": -7320672675838784916,
+  "question": "What are the 2 parks at euro disney?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Walt Disney Studios Park', 'Parc Walt Disney Studios',\n              'originally Euro Disneyland Park', 'Disneyland Park'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['What park at euro disney opened in 1992?',\n              'What park at euro disney opened in 2002?'], dtype=object), 'answer': array([array(['Disneyland Park'], dtype=object),\n              array(['Walt Disney Studios Park'], dtype=object)], dtype=object)}                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 183,
+  "prompt": "What are the 2 parks at euro disney?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The two parks at Disneyland Paris (formerly Euro Disney)",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.781681060791016,
+          "prob": 2.5640416322546286e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.564041625680319e-09,
+      "prompt": "You're given the following task:\nWhat are the 2 parks at euro disney?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

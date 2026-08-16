@@ -1,0 +1,31 @@
+{
+  "id": -3644267343817498583,
+  "question": "1. what city was built as the new capital for the abbasids?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What city was built as a new capital for the Abbasids in 762?',\n              'What city was built as a new capital for the Abbasids in 836?'],\n             dtype=object), 'answer': array([array(['Baghdad'], dtype=object), array(['Samarra'], dtype=object)],\n             dtype=object)}                                                                                      ,\n       {'question': array(['What city was built as the new capital for the Abbasids and a place for housing for Turkish and other army regiments?',\n              'What city was built as the new capital for the Abbasids and was the main location from which they ruled?'],\n             dtype=object), 'answer': array([array(['سر من رأى', 'سامَرّاء', \"Surra Man Ra'ā\", 'Samarra', 'سامراء',\n                     'سامرا', 'Abbasid Samarra'], dtype=object)                     ,\n              array(['Round City of Baghdad', 'Baghdad', 'Madīnat as-Salām',\n                     'مدينة السلام', 'The City of Peace'], dtype=object)    ],\n             dtype=object)}                                                                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1052,
+  "prompt": "1. what city was built as the new capital for the abbasids?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe city built as the new capital for the Abbasids was **",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.52581787109375,
+          "prob": 1.648775776424822e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6487757761529757e-10,
+      "prompt": "You're given the following task:\n1. what city was built as the new capital for the abbasids?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

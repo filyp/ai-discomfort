@@ -1,0 +1,31 @@
+{
+  "id": 2672878621544629523,
+  "question": "When does season 2 of jessica jones start on netflix?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When does season 2 of jessica jones start airing on netflix?',\n              'When does season 2 of jessica jones on netflix start filming?'],\n             dtype=object), 'answer': array([array(['March 8, 2018'], dtype=object),\n              array(['week of April 3, 2017', 'April 2017'], dtype=object)],\n             dtype=object)}                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 679,
+  "prompt": "When does season 2 of jessica jones start on netflix?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Season 2 of Jessica Jones started on **March",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.7881409348774469e-06,
+          "prob": 0.9999982118606638,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.215654373168945,
+          "prob": 1.8218567708446636e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.821856709416329e-06,
+      "prompt": "You're given the following task:\nWhen does season 2 of jessica jones start on netflix?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

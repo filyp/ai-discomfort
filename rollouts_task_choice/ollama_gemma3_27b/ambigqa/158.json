@@ -1,0 +1,31 @@
+{
+  "id": 8787064710466316665,
+  "question": "How many houses are in the british parliament?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object), array(['two'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['How many parts are in the British parliament?',\n              'How many parts are in the British parliament, not including the monarch?'],\n             dtype=object), 'answer': array([array(['3'], dtype=object), array(['2'], dtype=object)],\n             dtype=object)}                                                                          ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 158,
+  "prompt": "How many houses are in the british parliament?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! The British Parliament is actually",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.874401092529297,
+          "prob": 6.352603598716584e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.352603558361012e-09,
+      "prompt": "You're given the following task:\nHow many houses are in the british parliament?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

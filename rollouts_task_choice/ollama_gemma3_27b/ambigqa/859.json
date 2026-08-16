@@ -1,0 +1,31 @@
+{
+  "id": 7396680700704572945,
+  "question": "What part of cow does ribeye come from?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"What part of cow's body does ribeye come from?\",\n              \"What part of cow's muscles does ribeye come from?\"], dtype=object), 'answer': array([array(['ribs six through twelve'], dtype=object),\n              array(['longissimus dorsi muscle, complexus and spinalis muscles'],\n                    dtype=object)                                                ],\n             dtype=object)}                                                                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 859,
+  "prompt": "What part of cow does ribeye come from?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.90469741821289,
+          "prob": 5.619955230190848e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.619955230159264e-12,
+      "prompt": "You're given the following task:\nWhat part of cow does ribeye come from?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

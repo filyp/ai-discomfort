@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 312,
+  "prompt": "Who will win the India's best singer award in 2030?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nPredicting the winner of an award *ten",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -3.8765387535095215,
+          "prob": 0.020722426621530947,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.02094029262661934,
+          "prob": 0.9792774329072766,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9792775704675647,
+      "prompt": "You're given the following task:\nWho will win the India's best singer award in 2030?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

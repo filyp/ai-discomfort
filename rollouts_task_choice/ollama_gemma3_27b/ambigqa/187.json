@@ -1,0 +1,31 @@
+{
+  "id": 4537952778249650608,
+  "question": "4. which latitudes experience the greatest annual change in daylight hours?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object),\n       array(['within 23.44° latitude of the poles', 'Around the poles'],\n             dtype=object)                                               ],\n      dtype=object), 'qaPairs': array([{'question': array(['4. which northern latitudes experience the greatest annual change in daylight hours?',\n              '4. which southern latitudes experience the greatest annual change in daylight hours?'],\n             dtype=object), 'answer': array([array(['beyond 72° north', 'beyond 72°'], dtype=object),\n              array(['beyond 72°'], dtype=object)], dtype=object)}                                                ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 187,
+  "prompt": "4. which latitudes experience the greatest annual change in daylight hours?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about which latitudes experience the greatest annual",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.710567474365234,
+          "prob": 3.7258069363348415e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.725806934946678e-10,
+      "prompt": "You're given the following task:\n4. which latitudes experience the greatest annual change in daylight hours?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

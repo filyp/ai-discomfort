@@ -1,0 +1,32 @@
+{
+  "id": "5711607f2419e314009555d1",
+  "title": "Steam_engine",
+  "context": "The weight of boilers and condensers generally makes the power-to-weight ratio of a steam plant lower than for internal combustion engines. For mobile applications steam has been largely superseded by internal combustion engines or electric motors. However, most electric power is generated using steam turbine plant, so that indirectly the world's industry is still dependent on steam power. Recent concerns about fuel sources and pollution have incited a renewed interest in steam both as a component of cogeneration processes and as a prime mover. This is becoming known as the Advanced Steam movement.[citation needed]",
+  "question": "Along with fuel sources, what concern has contributed to the development of the Advanced Steam movement?",
+  "answers": "{'text': array(['pollution', 'pollution', 'Advanced Steam movement', 'pollution'],\n      dtype=object), 'answer_start': array([432, 432, 581, 432], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1090,
+  "prompt": "Context: The weight of boilers and condensers generally makes the power-to-weight ratio of a steam plant lower than for internal combustion engines. For mobile applications steam has been largely superseded by internal combustion engines or electric motors. However, most electric power is generated using steam turbine plant, so that indirectly the world's industry is still dependent on steam power. Recent concerns about fuel sources and pollution have incited a renewed interest in steam both as a component of cogeneration processes and as a prime mover. This is becoming known as the Advanced Steam movement.[citation needed]\n\nQuestion: Along with fuel sources, what concern has contributed to the development of the Advanced Steam movement?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that along with fuel sources, **pollution** has",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.13671875,
+          "prob": 1.1045881514961912e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.104588151496179e-14,
+      "prompt": "You're given the following task:\nContext: The weight of boilers and condensers generally makes the power-to-weight ratio of a steam plant lower than for internal combustion engines. For mobile applications steam has been largely superseded by internal combustion engines or electric motors. However, most electric power is generated using steam turbine plant, so that indirectly the world's industry is still dependent on steam power. Recent concerns about fuel sources and pollution have incited a renewed interest in steam both as a component of cogeneration processes and as a prime mover. This is becoming known as the Advanced Steam movement.[citation needed]\n\nQuestion: Along with fuel sources, what concern has contributed to the development of the Advanced Steam movement?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

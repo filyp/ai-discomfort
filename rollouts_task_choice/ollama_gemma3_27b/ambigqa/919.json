@@ -1,0 +1,31 @@
+{
+  "id": 8651936974639934250,
+  "question": "Who sings beautiful girl in singin in the rain?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sings beautiful girl in the 1952 stage musical singin in the rain on broadway?',\n              'Who sings beautiful girl in the musical singin in the rain for the Chichester/London 2012 Revival?',\n              'Who sings beautiful girl in the 1952 film singin in the rain?'],\n             dtype=object), 'answer': array([array(['Don Lockwood and Fans'], dtype=object),\n              array(['Female Chorus (including Kathy Selden)'], dtype=object),\n              array(['Jimmy Thompson'], dtype=object)], dtype=object)}                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 919,
+  "prompt": "Who sings beautiful girl in singin in the rain?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.692153930664062,
+          "prob": 1.0316009400534548e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0316009389892542e-09,
+      "prompt": "You're given the following task:\nWho sings beautiful girl in singin in the rain?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

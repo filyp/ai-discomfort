@@ -1,0 +1,31 @@
+{
+  "id": 2274254713043412591,
+  "question": "Which is the latest version of ubuntu operating system?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Which is the latest version of ubuntu operating system as of 19 October 2017?',\n              'Which is the latest version of ubuntu operating system as of 13 April 2017?',\n              'Which is the latest version of ubuntu operating system as of 13 October 2016?'],\n             dtype=object), 'answer': array([array(['Ubuntu 17.10', '17.10', 'Artful Aardvark'], dtype=object),\n              array(['Zesty Zapus', 'Ubuntu 17.04', '17.04'], dtype=object),\n              array(['Ubuntu 16.10', 'Yakkety Yak', '16.10'], dtype=object)],\n             dtype=object)}                                                                                    ,\n       {'question': array(['What is the Unbutu OS version released on 2017-10-19?',\n              'What is the Unbutu OS version released on 2017-04-13?',\n              'What is the Unbutu OS version released on 2016-10-13?'],\n             dtype=object), 'answer': array([array(['Artful Aardvark', '17.10'], dtype=object),\n              array(['Zesty Zapus', '17.04'], dtype=object),\n              array(['Yakkety Yak', '16.10'], dtype=object)], dtype=object)}                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 937,
+  "prompt": "Which is the latest version of ubuntu operating system?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! As of today, November",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.191566467285156,
+          "prob": 6.260652811457213e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.260652807537636e-10,
+      "prompt": "You're given the following task:\nWhich is the latest version of ubuntu operating system?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

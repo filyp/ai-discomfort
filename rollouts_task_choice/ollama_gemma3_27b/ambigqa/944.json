@@ -1,0 +1,31 @@
+{
+  "id": -5749835086115972830,
+  "question": "When did the california wildfires of 2017 start?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the first large california wildfire of 2017 start?',\n              'When did the October Northern california wildfires of 2017 start?',\n              'When did the December Southern california wildfires of 2017 start?'],\n             dtype=object), 'answer': array([array(['April 20, 2017'], dtype=object),\n              array(['October 8, 2017'], dtype=object),\n              array(['December 4, 2017'], dtype=object)], dtype=object)}                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 944,
+  "prompt": "When did the california wildfires of 2017 start?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! The California wildfires of",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.42461395263672,
+          "prob": 3.6643533640304683e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.664353350602983e-09,
+      "prompt": "You're given the following task:\nWhen did the california wildfires of 2017 start?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

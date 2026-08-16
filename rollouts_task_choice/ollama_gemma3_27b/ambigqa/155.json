@@ -1,0 +1,31 @@
+{
+  "id": 7204208827008494698,
+  "question": "When did spain win their first world cup?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Which world cup did spain win their first men's fifa world cup?\",\n              \"What date did spain win their first men's fifa world cup?\",\n              \"What date did spain win their first men's FIBA world cup?\",\n              \"Which world cup did spain win their first men's FIBA world cup?\"],\n             dtype=object), 'answer': array([array(['19th FIFA World Cup', '2010 FIFA World Cup'], dtype=object),\n              array(['11 July 2010'], dtype=object),\n              array(['September 3, 2006'], dtype=object),\n              array(['15th FIBA World Championship', '2006 FIBA World Championship'],\n                    dtype=object)                                                    ],\n             dtype=object)}                                                                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 155,
+  "prompt": "When did spain win their first world cup?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.832626342773438,
+          "prob": 6.623603082536604e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.623603038664487e-09,
+      "prompt": "You're given the following task:\nWhen did spain win their first world cup?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

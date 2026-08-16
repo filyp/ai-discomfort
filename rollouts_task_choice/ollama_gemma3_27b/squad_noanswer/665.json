@@ -1,0 +1,32 @@
+{
+  "id": "5a638b3668151a001a92235b",
+  "title": "Victoria_(Australia)",
+  "context": "As of August 2010, Victoria had 1,548 public schools, 489 Catholic schools and 214 independent schools. Just under 540,800 students were enrolled in public schools, and just over 311,800 in private schools. Over 61 per cent of private students attend Catholic schools. More than 462,000 students were enrolled in primary schools and more than 390,000 in secondary schools. Retention rates for the final two years of secondary school were 77 per cent for public school students and 90 per cent for private school students. Victoria has about 63,519 full-time teachers.",
+  "question": "How many Catholic schools got government assistance?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 665,
+  "prompt": "Context: As of August 2010, Victoria had 1,548 public schools, 489 Catholic schools and 214 independent schools. Just under 540,800 students were enrolled in public schools, and just over 311,800 in private schools. Over 61 per cent of private students attend Catholic schools. More than 462,000 students were enrolled in primary schools and more than 390,000 in secondary schools. Retention rates for the final two years of secondary school were 77 per cent for public school students and 90 per cent for private school students. Victoria has about 63,519 full-time teachers.\n\nQuestion: How many Catholic schools got government assistance?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text *does not contain information* about which Catholic schools",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -6.319863796234131,
+          "prob": 0.0018001886820110452,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.001801801729016006,
+          "prob": 0.9981998205412366,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9981998113345925,
+      "prompt": "You're given the following task:\nContext: As of August 2010, Victoria had 1,548 public schools, 489 Catholic schools and 214 independent schools. Just under 540,800 students were enrolled in public schools, and just over 311,800 in private schools. Over 61 per cent of private students attend Catholic schools. More than 462,000 students were enrolled in primary schools and more than 390,000 in secondary schools. Retention rates for the final two years of secondary school were 77 per cent for public school students and 90 per cent for private school students. Victoria has about 63,519 full-time teachers.\n\nQuestion: How many Catholic schools got government assistance?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

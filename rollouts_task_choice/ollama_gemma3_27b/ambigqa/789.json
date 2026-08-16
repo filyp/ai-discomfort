@@ -1,0 +1,31 @@
+{
+  "id": -8811943645390715698,
+  "question": "Who is the top goal scorer for brazil?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the top goal scorer for the Brazil national football team all-time?',\n              'Who is the top goal scorer for Brazil in the FIFA World Cup all-time?',\n              'Who is the top goal scorer for Brazil in the FIFA Confederations Cup all-time?',\n              \"Who is the top goal scorer for Brazil in the FIFA Women's World Cup all-time?\",\n              'Who is the top goal scorer for brazil at 2014 fifa?',\n              'Who is the top goal scorer for brazil at 2010 fifa?',\n              'Who is the top goal scorer for brazil at 2006 fifa?'],\n             dtype=object), 'answer': array([array(['Pelé', 'Edson Arantes do Nascimento'], dtype=object),\n              array(['Ronaldo', 'Ronaldo Luís Nazário de Lima'], dtype=object),\n              array(['Ronaldinho', 'Ronaldo de Assis Moreira', 'Ronaldinho Gaúcho'],\n                    dtype=object)                                                   ,\n              array(['Marta', 'Marta Vieira da Silva'], dtype=object),\n              array(['Neymar', 'Neymar da Silva Santos Júnior', 'Neymar Jr.'],\n                    dtype=object)                                             ,\n              array(['Luís Fabiano Clemente', 'Luís Fabiano'], dtype=object),\n              array(['Ronaldo', 'Ronaldo Luís Nazário de Lima'], dtype=object)],\n             dtype=object)}                                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 789,
+  "prompt": "Who is the top goal scorer for brazil?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.616680145263672,
+          "prob": 3.02401582573854e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.024015816593868e-09,
+      "prompt": "You're given the following task:\nWho is the top goal scorer for brazil?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

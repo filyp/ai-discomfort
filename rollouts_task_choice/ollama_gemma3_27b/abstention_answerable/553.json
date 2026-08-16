@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 553,
+  "prompt": "Woody Allen is directing an untitled drama film from a screenplay he wrote, it stars which American stage and film actor, born December 26, 1995?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! The actor born December",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.701278686523438,
+          "prob": 4.1239727745972833e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.123972548729716e-07,
+      "prompt": "You're given the following task:\nWoody Allen is directing an untitled drama film from a screenplay he wrote, it stars which American stage and film actor, born December 26, 1995?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

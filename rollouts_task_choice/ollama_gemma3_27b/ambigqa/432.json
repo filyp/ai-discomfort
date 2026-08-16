@@ -1,0 +1,31 @@
+{
+  "id": 1663634678203437772,
+  "question": "Who plays the voice of the boss baby?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who plays the voice of Boss Baby in the movie The Boss Baby?',\n              'Who plays the voice of Boss Baby in the movie The Boss Baby: Back in Business?'],\n             dtype=object), 'answer': array([array(['Alec Baldwin'], dtype=object),\n              array(['JP Karliak'], dtype=object)], dtype=object)}                              ,\n       {'question': array(['Who plays the voice of the boss baby in the 2017 Boss Baby Film?',\n              'Who plays the voice of the boss baby in the 2018 Netflix Series The Boss Baby: Back in Business?'],\n             dtype=object), 'answer': array([array(['Baldwin', 'Alexander Rae Baldwin III', 'Alec Baldwin'],\n                    dtype=object)                                            ,\n              array(['JP Karliak'], dtype=object)], dtype=object)}                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 432,
+  "prompt": "Who plays the voice of the boss baby?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.117034912109375,
+          "prob": 6.745097993227671e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.745097988678036e-10,
+      "prompt": "You're given the following task:\nWho plays the voice of the boss baby?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

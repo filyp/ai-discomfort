@@ -1,0 +1,31 @@
+{
+  "id": 999145723164872917,
+  "question": "Who came up with positive and negative charges?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who came up with positive and negative charges in ions?',\n              'Who came up with positive and negative charges in electricity?'],\n             dtype=object), 'answer': array([array(['Michael Faraday'], dtype=object),\n              array(['William Watson|Benjamin Franklin'], dtype=object)],\n             dtype=object)}                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 276,
+  "prompt": "Who came up with positive and negative charges?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.009845733642578,
+          "prob": 2.7621384937724705e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.7621384930095293e-10,
+      "prompt": "You're given the following task:\nWho came up with positive and negative charges?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

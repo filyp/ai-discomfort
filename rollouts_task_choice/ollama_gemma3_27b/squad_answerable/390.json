@@ -1,0 +1,32 @@
+{
+  "id": "5705ffde52bb891400689787",
+  "title": "Southern_California",
+  "context": "Many faults are able to produce a magnitude 6.7+ earthquake, such as the San Andreas Fault, which can produce a magnitude 8.0 event. Other faults include the San Jacinto Fault, the Puente Hills Fault, and the Elsinore Fault Zone. The USGS has released a California Earthquake forecast which models Earthquake occurrence in California.",
+  "question": "Which organization released a California Earthquake forecast?",
+  "answers": "{'text': array(['USGS', 'The USGS', 'USGS'], dtype=object), 'answer_start': array([234, 230, 234], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 390,
+  "prompt": "Context: Many faults are able to produce a magnitude 6.7+ earthquake, such as the San Andreas Fault, which can produce a magnitude 8.0 event. Other faults include the San Jacinto Fault, the Puente Hills Fault, and the Elsinore Fault Zone. The USGS has released a California Earthquake forecast which models Earthquake occurrence in California.\n\nQuestion: Which organization released a California Earthquake forecast?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nThe organization that released a California Earthquake forecast is the **US",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.80561065673828,
+          "prob": 1.1365479475300277e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1365479475298984e-13,
+      "prompt": "You're given the following task:\nContext: Many faults are able to produce a magnitude 6.7+ earthquake, such as the San Andreas Fault, which can produce a magnitude 8.0 event. Other faults include the San Jacinto Fault, the Puente Hills Fault, and the Elsinore Fault Zone. The USGS has released a California Earthquake forecast which models Earthquake occurrence in California.\n\nQuestion: Which organization released a California Earthquake forecast?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

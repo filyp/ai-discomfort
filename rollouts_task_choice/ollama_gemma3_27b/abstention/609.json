@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 609,
+  "prompt": "How to achieve absolute zero experimentally?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about achieving absolute zero experimentally. It",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.003116152947768569,
+          "prob": 0.996888697217568,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -5.772777080535889,
+          "prob": 0.003111105715227278,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0031111063283243054,
+      "prompt": "You're given the following task:\nHow to achieve absolute zero experimentally?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

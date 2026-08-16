@@ -1,0 +1,31 @@
+{
+  "id": -6951352961519428012,
+  "question": "Who is the actor that plays anakin skywalker?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the actor that plays Anakin Skywalker in  Star Wars: Episode I?',\n              'Who is the actor that plays Anakin Skywalker in  Star Wars: Episode II-III and the 2004 re-release of Star Wars: Episode VI?',\n              'Who is the actor that plays Anakin Skywalker in the original Star Wars: Episode VI?',\n              'Who is the voice actor that plays Anakin Skywalker in Star Wars: Episode IX?',\n              'Who is the voice actor that plays Anakin Skywalker in Clone Wars?',\n              'Who is the voice actor that plays Anakin Skywalker in the Clone Wars film and TV series, Rebels, Forces of Destiny and Disney Infinity 3.0?',\n              'Who is the voice actor that plays Anakin Skywalker in the radio dramatization of Star Wars?'],\n             dtype=object), 'answer': array([array(['Jake Lloyd'], dtype=object),\n              array(['Hayden Christensen'], dtype=object),\n              array(['Sebastian Shaw'], dtype=object),\n              array(['Hayden Christensen'], dtype=object),\n              array(['Mat Lucas?'], dtype=object),\n              array(['Mat Lanter'], dtype=object),\n              array(['David Birney'], dtype=object)], dtype=object)}                                                                                        ,\n       {'question': array(['Who plays Anakin Skywalker in Star Wars Episode VI?',\n              'Who plays Anakin Skywalker in Star Wars Episode I?',\n              'Who plays Anakin Skywalker in Star Wars Episode II-III and VI(2004 DVD Special Edition)?',\n              'Who plays Anakin Skywalker in Star Wars Episode IX?',\n              'Who plays Anakin Skywalker in the Star Wars radio drama?',\n              'Who plays Anakin Skywalker in Clone Wars (2003 series)?',\n              'Who plays Anakin Skywalker in The Clone Wars film and TV series, Rebels, Forces of Destiny and Disney Infinity 3.0?'],\n             dtype=object), 'answer': array([array(['Sebastian Shaw'], dtype=object),\n              array(['Jake Lloyd'], dtype=object),\n              array(['Hayden Christensen'], dtype=object),\n              array(['Hayden Christensen'], dtype=object),\n              array(['David Birney'], dtype=object),\n              array(['Mat Lucas'], dtype=object),\n              array(['Matt Lanter'], dtype=object)], dtype=object)}                                                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 56,
+  "prompt": "Who is the actor that plays anakin skywalker?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.602245330810547,
+          "prob": 2.0671910232403074e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0671910231975745e-11,
+      "prompt": "You're given the following task:\nWho is the actor that plays anakin skywalker?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

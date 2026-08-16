@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 175,
+  "prompt": "What if there was a mysterious disappearance of cargo ships carrying hazardous materials in transboundary waters, would this lead to stricter regulations and international cooperation on shipping and transboundary water management?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.76871109008789,
+          "prob": 2.368625966003675e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3686265307226364e-12,
+      "prompt": "You're given the following task:\nWhat if there was a mysterious disappearance of cargo ships carrying hazardous materials in transboundary waters, would this lead to stricter regulations and international cooperation on shipping and transboundary water management?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

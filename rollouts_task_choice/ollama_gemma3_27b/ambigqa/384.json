@@ -1,0 +1,31 @@
+{
+  "id": 7376722717277534329,
+  "question": "When does toby come back to the office?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What episode does toby come back to the office?',\n              'Which date did the episode air that toby comes back to the office?'],\n             dtype=object), 'answer': array([array(['Season 5 Episode 9', 'Frame Toby'], dtype=object),\n              array(['November 20, 2008'], dtype=object)], dtype=object)}                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 384,
+  "prompt": "When does toby come back to the office?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nI need more information to answer when Toby comes back to the office",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.8056640625,
+          "prob": 6.804619872041379e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.804619825738527e-09,
+      "prompt": "You're given the following task:\nWhen does toby come back to the office?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

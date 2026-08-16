@@ -1,0 +1,31 @@
+{
+  "id": 1323128166246065774,
+  "question": "When did the song unchained melody come out?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['January 19, 1955'], dtype=object), array([], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['When did the song unchained melody first come out?',\n              'When did the jukebox standard of the song unchained melody come out?'],\n             dtype=object), 'answer': array([array(['1955'], dtype=object), array(['July 1965'], dtype=object)],\n             dtype=object)}                                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 112,
+  "prompt": "When did the song unchained melody come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.314537048339844,
+          "prob": 4.090751886980366e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.090751870246115e-09,
+      "prompt": "You're given the following task:\nWhen did the song unchained melody come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

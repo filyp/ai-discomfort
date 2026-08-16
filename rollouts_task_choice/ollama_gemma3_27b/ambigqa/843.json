@@ -1,0 +1,31 @@
+{
+  "id": -3611913378590168865,
+  "question": "Beatles do you want to know a secret singer?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Beatles do you want to know a secret lead vocals singer?',\n              'Beatles do you want to know a secret backing vocals singer?'],\n             dtype=object), 'answer': array([array(['George Harrison', 'Harrison'], dtype=object),\n              array(['John Lennon', 'John Lennon and Paul McCartney', 'Paul McCartney'],\n                    dtype=object)                                                       ],\n             dtype=object)}                                                                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 843,
+  "prompt": "Beatles do you want to know a secret singer?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.470104217529297,
+          "prob": 1.911697199124859e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.911697289450375e-07,
+      "prompt": "You're given the following task:\nBeatles do you want to know a secret singer?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

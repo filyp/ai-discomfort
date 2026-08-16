@@ -1,0 +1,32 @@
+{
+  "id": "5ad04bfc77cf76001a686f9a",
+  "title": "Southern_California",
+  "context": "Southern California is home to Los Angeles International Airport, the second-busiest airport in the United States by passenger volume (see World's busiest airports by passenger traffic) and the third by international passenger volume (see Busiest airports in the United States by international passenger traffic); San Diego International Airport the busiest single runway airport in the world; Van Nuys Airport, the world's busiest general aviation airport; major commercial airports at Orange County, Bakersfield, Ontario, Burbank and Long Beach; and numerous smaller commercial and general aviation airports.",
+  "question": "What is the second-busiest general aviation airport?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 451,
+  "prompt": "Context: Southern California is home to Los Angeles International Airport, the second-busiest airport in the United States by passenger volume (see World's busiest airports by passenger traffic) and the third by international passenger volume (see Busiest airports in the United States by international passenger traffic); San Diego International Airport the busiest single runway airport in the world; Van Nuys Airport, the world's busiest general aviation airport; major commercial airports at Orange County, Bakersfield, Ontario, Burbank and Long Beach; and numerous smaller commercial and general aviation airports.\n\nQuestion: What is the second-busiest general aviation airport?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text states Van Nuys Airport is *the* world",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -2.0056800842285156,
+          "prob": 0.1345687464863113,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.144527405500412,
+          "prob": 0.8654311945031504,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.865431245572714,
+      "prompt": "You're given the following task:\nContext: Southern California is home to Los Angeles International Airport, the second-busiest airport in the United States by passenger volume (see World's busiest airports by passenger traffic) and the third by international passenger volume (see Busiest airports in the United States by international passenger traffic); San Diego International Airport the busiest single runway airport in the world; Van Nuys Airport, the world's busiest general aviation airport; major commercial airports at Orange County, Bakersfield, Ontario, Burbank and Long Beach; and numerous smaller commercial and general aviation airports.\n\nQuestion: What is the second-busiest general aviation airport?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

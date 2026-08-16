@@ -1,0 +1,31 @@
+{
+  "id": -3969372820653452808,
+  "question": "Who sings i love rock 'n' roll?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sings lead on the original recorded version of \"I Love Rock \\'n\\' Roll, released in 1975?',\n              'What band sings the original version of \"I Love Rock \\'n\\' Roll, released in 1975?',\n              'Who sings the best known 1982 cover version of \"I Love Rock \\'n\\' Roll?',\n              'Who is the band that sang \"I Love Rock \\'n\\' Roll\" released in 1998?',\n              'Who sang vocals in \"I Love Rock \\'n\\' Roll\", released in 1998?'],\n             dtype=object), 'answer': array([array(['Alan Merrill'], dtype=object),\n              array(['Arrows'], dtype=object),\n              array(['Joan Jett & The Blackhearts'], dtype=object),\n              array(['The Jesus and Mary Chain'], dtype=object),\n              array(['Jim Reid'], dtype=object)], dtype=object)}                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 638,
+  "prompt": "Who sings i love rock 'n' roll?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.631221771240234,
+          "prob": 1.0964131352353982e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0964131340332764e-09,
+      "prompt": "You're given the following task:\nWho sings i love rock 'n' roll?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

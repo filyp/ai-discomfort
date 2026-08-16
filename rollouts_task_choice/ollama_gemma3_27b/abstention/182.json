@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 182,
+  "prompt": "What is the company that is at the biggest risk for a cybersecurity breech at the moment?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can attempt to identify the company currently at biggest risk",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -8.309232362080365e-05,
+          "prob": 0.9999169111284507,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -9.401564598083496,
+          "prob": 8.259473684231533e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.259477765526159e-05,
+      "prompt": "You're given the following task:\nWhat is the company that is at the biggest risk for a cybersecurity breech at the moment?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

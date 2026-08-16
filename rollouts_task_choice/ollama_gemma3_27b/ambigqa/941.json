@@ -1,0 +1,31 @@
+{
+  "id": -8096234731970550529,
+  "question": "Who plays lord beric in game of thrones?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who plays lord beric in game of thrones in season 1?',\n              'Who plays lord beric in game of thrones in season 3,6-8?'],\n             dtype=object), 'answer': array([array(['David Scott'], dtype=object),\n              array(['Richard Dormer'], dtype=object)], dtype=object)}            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 941,
+  "prompt": "Who plays lord beric in game of thrones?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.279388427734375,
+          "prob": 4.237092950493531e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.237092932540574e-09,
+      "prompt": "You're given the following task:\nWho plays lord beric in game of thrones?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

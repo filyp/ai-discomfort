@@ -1,0 +1,31 @@
+{
+  "id": 6630776554188306922,
+  "question": "Where does the smell of vanilla come from?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['From what source does vanilla and the smell of vanilla come from?',\n              'What part of the vanilla plant does the smell of vanilla come from?',\n              'What chemicals gives vanilla the smell of vanilla?'], dtype=object), 'answer': array([array(['orchids of the genus Vanilla'], dtype=object),\n              array(['The fruit, a seed capsule, if left on the plant'], dtype=object),\n              array(['phenolic compounds'], dtype=object)], dtype=object)}                                                                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 964,
+  "prompt": "Where does the smell of vanilla come from?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.49365234375,
+          "prob": 6.263779013085124e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.263779012692774e-11,
+      "prompt": "You're given the following task:\nWhere does the smell of vanilla come from?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "56e1cbe2cd28a01900c67bac",
+  "title": "Computational_complexity_theory",
+  "context": "The most commonly used reduction is a polynomial-time reduction. This means that the reduction process takes polynomial time. For example, the problem of squaring an integer can be reduced to the problem of multiplying two integers. This means an algorithm for multiplying two integers can be used to square an integer. Indeed, this can be done by giving the same input to both inputs of the multiplication algorithm. Thus we see that squaring is not more difficult than multiplication, since squaring can be reduced to multiplication.",
+  "question": "What is the most frequently employed type of reduction?",
+  "answers": "{'text': array(['polynomial-time reduction', 'polynomial-time',\n       'polynomial-time reduction'], dtype=object), 'answer_start': array([38, 38, 38], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 221,
+  "prompt": "Context: The most commonly used reduction is a polynomial-time reduction. This means that the reduction process takes polynomial time. For example, the problem of squaring an integer can be reduced to the problem of multiplying two integers. This means an algorithm for multiplying two integers can be used to square an integer. Indeed, this can be done by giving the same input to both inputs of the multiplication algorithm. Thus we see that squaring is not more difficult than multiplication, since squaring can be reduced to multiplication.\n\nQuestion: What is the most frequently employed type of reduction?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe most frequently employed type of reduction is a **polynomial-time",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.225921630859375,
+          "prob": 1.0103225851105936e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0103225851105834e-14,
+      "prompt": "You're given the following task:\nContext: The most commonly used reduction is a polynomial-time reduction. This means that the reduction process takes polynomial time. For example, the problem of squaring an integer can be reduced to the problem of multiplying two integers. This means an algorithm for multiplying two integers can be used to square an integer. Indeed, this can be done by giving the same input to both inputs of the multiplication algorithm. Thus we see that squaring is not more difficult than multiplication, since squaring can be reduced to multiplication.\n\nQuestion: What is the most frequently employed type of reduction?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

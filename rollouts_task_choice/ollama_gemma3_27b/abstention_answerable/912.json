@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 912,
+  "prompt": "Earliest human use of fire for cooking has been dated at how many years ago?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.5497220147153712e-06,
+          "prob": 0.9999984502791861,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.368097305297852,
+          "prob": 1.564260600598527e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5642605778545119e-06,
+      "prompt": "You're given the following task:\nEarliest human use of fire for cooking has been dated at how many years ago?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

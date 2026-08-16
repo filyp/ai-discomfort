@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 564,
+  "prompt": "What team did the play that referred to Kareem Abdul-Jabbar as \"the greatest basketball player of all time\" play for?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To figure out which team",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.374481201171875,
+          "prob": 2.8468113483282467e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.8468112672849006e-08,
+      "prompt": "You're given the following task:\nWhat team did the play that referred to Kareem Abdul-Jabbar as \"the greatest basketball player of all time\" play for?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

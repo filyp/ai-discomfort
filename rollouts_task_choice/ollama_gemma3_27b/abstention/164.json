@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 164,
+  "prompt": "What country produces the best tasting beer?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThis is *highly* subjective! Determining \"best\" tasting beer",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0029445684049278498,
+          "prob": 0.9970597625846099,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -5.8293681144714355,
+          "prob": 0.002939934095229418,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0029399349869709706,
+      "prompt": "You're given the following task:\nWhat country produces the best tasting beer?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

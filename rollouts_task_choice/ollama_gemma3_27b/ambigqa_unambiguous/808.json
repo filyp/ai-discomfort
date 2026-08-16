@@ -1,0 +1,31 @@
+{
+  "id": 5381716473627765589,
+  "question": "Who played the original jason on friday the 13th?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Ari Lehman'], dtype=object),\n       array(['Ari Lehman'], dtype=object),\n       array(['Ari Lehman'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 808,
+  "prompt": "Who played the original jason on friday the 13th?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The actor who played Jason Voorhees in the *original",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.92383575439453,
+          "prob": 6.046200647061971e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.046200610505429e-09,
+      "prompt": "You're given the following task:\nWho played the original jason on friday the 13th?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

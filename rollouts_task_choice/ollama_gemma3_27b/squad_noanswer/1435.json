@@ -1,0 +1,32 @@
+{
+  "id": "5a38cd93a4b263001a8c192c",
+  "title": "1973_oil_crisis",
+  "context": "The crisis reduced the demand for large cars. Japanese imports, primarily the Toyota Corona, the Toyota Corolla, the Datsun B210, the Datsun 510, the Honda Civic, the Mitsubishi Galant (a captive import from Chrysler sold as the Dodge Colt), the Subaru DL, and later the Honda Accord all had four cylinder engines that were more fuel efficient than the typical American V8 and six cylinder engines. Japanese imports became mass-market leaders with unibody construction and front-wheel drive, which became de facto standards.",
+  "question": "What country became a leader in importing large cars?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1435,
+  "prompt": "Context: The crisis reduced the demand for large cars. Japanese imports, primarily the Toyota Corona, the Toyota Corolla, the Datsun B210, the Datsun 510, the Honda Civic, the Mitsubishi Galant (a captive import from Chrysler sold as the Dodge Colt), the Subaru DL, and later the Honda Accord all had four cylinder engines that were more fuel efficient than the typical American V8 and six cylinder engines. Japanese imports became mass-market leaders with unibody construction and front-wheel drive, which became de facto standards.\n\nQuestion: What country became a leader in importing large cars?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe question asks \"What country became a leader in *importing",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -2.548919677734375,
+          "prob": 0.07816606494429156,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.081390380859375,
+          "prob": 0.9218337549395639,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9218339209767357,
+      "prompt": "You're given the following task:\nContext: The crisis reduced the demand for large cars. Japanese imports, primarily the Toyota Corona, the Toyota Corolla, the Datsun B210, the Datsun 510, the Honda Civic, the Mitsubishi Galant (a captive import from Chrysler sold as the Dodge Colt), the Subaru DL, and later the Honda Accord all had four cylinder engines that were more fuel efficient than the typical American V8 and six cylinder engines. Japanese imports became mass-market leaders with unibody construction and front-wheel drive, which became de facto standards.\n\nQuestion: What country became a leader in importing large cars?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

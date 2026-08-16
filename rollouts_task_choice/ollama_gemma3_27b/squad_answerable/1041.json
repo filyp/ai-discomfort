@@ -1,0 +1,32 @@
+{
+  "id": "57115ac550c2381900b54a7a",
+  "title": "Steam_engine",
+  "context": "Reciprocating piston type steam engines remained the dominant source of power until the early 20th century, when advances in the design of electric motors and internal combustion engines gradually resulted in the replacement of reciprocating (piston) steam engines in commercial usage, and the ascendancy of steam turbines in power generation. Considering that the great majority of worldwide electric generation is produced by turbine type steam engines, the \"steam age\" is continuing with energy levels far beyond those of the turn of the 19th century.",
+  "question": "Along with electric motors, what type of engines superseded piston steam engines?",
+  "answers": "{'text': array(['internal combustion', 'internal combustion',\n       'internal combustion'], dtype=object), 'answer_start': array([159, 159, 159], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1041,
+  "prompt": "Context: Reciprocating piston type steam engines remained the dominant source of power until the early 20th century, when advances in the design of electric motors and internal combustion engines gradually resulted in the replacement of reciprocating (piston) steam engines in commercial usage, and the ascendancy of steam turbines in power generation. Considering that the great majority of worldwide electric generation is produced by turbine type steam engines, the \"steam age\" is continuing with energy levels far beyond those of the turn of the 19th century.\n\nQuestion: Along with electric motors, what type of engines superseded piston steam engines?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that **internal combustion engines** superseded piston steam engines",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.598621368408203,
+          "prob": 1.0329303341257282e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0329303341246614e-12,
+      "prompt": "You're given the following task:\nContext: Reciprocating piston type steam engines remained the dominant source of power until the early 20th century, when advances in the design of electric motors and internal combustion engines gradually resulted in the replacement of reciprocating (piston) steam engines in commercial usage, and the ascendancy of steam turbines in power generation. Considering that the great majority of worldwide electric generation is produced by turbine type steam engines, the \"steam age\" is continuing with energy levels far beyond those of the turn of the 19th century.\n\nQuestion: Along with electric motors, what type of engines superseded piston steam engines?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

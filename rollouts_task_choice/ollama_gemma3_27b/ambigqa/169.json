@@ -1,0 +1,31 @@
+{
+  "id": -688714353088277266,
+  "question": "What kind of car was ramone from cars?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Chevrolet Impala Lowrider'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['What brand of car is Ramone from Cars?',\n              'What style of car is Ramone from Cars?'], dtype=object), 'answer': array([array(['Chevrolet Impala'], dtype=object),\n              array(['Lowrider'], dtype=object)], dtype=object)}                                                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 169,
+  "prompt": "What kind of car was ramone from cars?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.965702056884766,
+          "prob": 3.906859936470026e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.9068599363173906e-11,
+      "prompt": "You're given the following task:\nWhat kind of car was ramone from cars?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

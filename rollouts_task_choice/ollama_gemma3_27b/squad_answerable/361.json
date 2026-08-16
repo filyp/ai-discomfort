@@ -1,0 +1,32 @@
+{
+  "id": "5705f36452bb89140068971c",
+  "title": "Southern_California",
+  "context": "The state is most commonly divided and promoted by its regional tourism groups as consisting of northern, central, and southern California regions. The two AAA Auto Clubs of the state, the California State Automobile Association and the Automobile Club of Southern California, choose to simplify matters by dividing the state along the lines where their jurisdictions for membership apply, as either northern or southern California, in contrast to the three-region point of view. Another influence is the geographical phrase South of the Tehachapis, which would split the southern region off at the crest of that transverse range, but in that definition, the desert portions of north Los Angeles County and eastern Kern and San Bernardino Counties would be included in the southern California region due to their remoteness from the central valley and interior desert landscape.",
+  "question": "In the definition based off the mountain range, which region would the desert portions of north Los Angeles County be included in?",
+  "answers": "{'text': array(['southern', 'southern California', 'southern California'],\n      dtype=object), 'answer_start': array([773, 773, 773], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 361,
+  "prompt": "Context: The state is most commonly divided and promoted by its regional tourism groups as consisting of northern, central, and southern California regions. The two AAA Auto Clubs of the state, the California State Automobile Association and the Automobile Club of Southern California, choose to simplify matters by dividing the state along the lines where their jurisdictions for membership apply, as either northern or southern California, in contrast to the three-region point of view. Another influence is the geographical phrase South of the Tehachapis, which would split the southern region off at the crest of that transverse range, but in that definition, the desert portions of north Los Angeles County and eastern Kern and San Bernardino Counties would be included in the southern California region due to their remoteness from the central valley and interior desert landscape.\n\nQuestion: In the definition based off the mountain range, which region would the desert portions of north Los Angeles County be included in?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nAccording to the provided text, in the definition based off the Teh",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.528724670410156,
+          "prob": 7.463703393665215e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.463703393665158e-15,
+      "prompt": "You're given the following task:\nContext: The state is most commonly divided and promoted by its regional tourism groups as consisting of northern, central, and southern California regions. The two AAA Auto Clubs of the state, the California State Automobile Association and the Automobile Club of Southern California, choose to simplify matters by dividing the state along the lines where their jurisdictions for membership apply, as either northern or southern California, in contrast to the three-region point of view. Another influence is the geographical phrase South of the Tehachapis, which would split the southern region off at the crest of that transverse range, but in that definition, the desert portions of north Los Angeles County and eastern Kern and San Bernardino Counties would be included in the southern California region due to their remoteness from the central valley and interior desert landscape.\n\nQuestion: In the definition based off the mountain range, which region would the desert portions of north Los Angeles County be included in?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

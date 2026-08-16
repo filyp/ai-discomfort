@@ -1,0 +1,32 @@
+{
+  "id": "570d47b8b3d812140066d630",
+  "title": "Victoria_(Australia)",
+  "context": "There are also several smaller freight operators and numerous tourist railways operating over lines which were once parts of a state-owned system. Victorian lines mainly use the 1,600 mm (5 ft 3 in) broad gauge. However, the interstate trunk routes, as well as a number of branch lines in the west of the state have been converted to 1,435 mm (4 ft 8 1⁄2 in) standard gauge. Two tourist railways operate over 760 mm (2 ft 6 in) narrow gauge lines, which are the remnants of five formerly government-owned lines which were built in mountainous areas.",
+  "question": "Where were the narrow gauge rail lines built in Victoria?",
+  "answers": "{'text': array(['mountainous areas', 'mountainous areas', 'mountainous areas'],\n      dtype=object), 'answer_start': array([531, 531, 531], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 680,
+  "prompt": "Context: There are also several smaller freight operators and numerous tourist railways operating over lines which were once parts of a state-owned system. Victorian lines mainly use the 1,600 mm (5 ft 3 in) broad gauge. However, the interstate trunk routes, as well as a number of branch lines in the west of the state have been converted to 1,435 mm (4 ft 8 1⁄2 in) standard gauge. Two tourist railways operate over 760 mm (2 ft 6 in) narrow gauge lines, which are the remnants of five formerly government-owned lines which were built in mountainous areas.\n\nQuestion: Where were the narrow gauge rail lines built in Victoria?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states the narrow gauge (760 mm /",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.678165435791016,
+          "prob": 3.5093848760510743e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.509384876049843e-13,
+      "prompt": "You're given the following task:\nContext: There are also several smaller freight operators and numerous tourist railways operating over lines which were once parts of a state-owned system. Victorian lines mainly use the 1,600 mm (5 ft 3 in) broad gauge. However, the interstate trunk routes, as well as a number of branch lines in the west of the state have been converted to 1,435 mm (4 ft 8 1⁄2 in) standard gauge. Two tourist railways operate over 760 mm (2 ft 6 in) narrow gauge lines, which are the remnants of five formerly government-owned lines which were built in mountainous areas.\n\nQuestion: Where were the narrow gauge rail lines built in Victoria?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

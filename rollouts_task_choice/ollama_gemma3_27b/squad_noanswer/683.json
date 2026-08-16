@@ -1,0 +1,32 @@
+{
+  "id": "5a637c6268151a001a92230e",
+  "title": "Victoria_(Australia)",
+  "context": "In 1854 at Ballarat there was an armed rebellion against the government of Victoria by miners protesting against mining taxes (the \"Eureka Stockade\"). This was crushed by British troops, but the discontents prompted colonial authorities to reform the administration (particularly reducing the hated mining licence fees) and extend the franchise. Within a short time, the Imperial Parliament granted Victoria responsible government with the passage of the Colony of Victoria Act 1855. Some of the leaders of the Eureka rebellion went on to become members of the Victorian Parliament.",
+  "question": "When was there a armed protest at Eureka Stockade about mining taxes?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 683,
+  "prompt": "Context: In 1854 at Ballarat there was an armed rebellion against the government of Victoria by miners protesting against mining taxes (the \"Eureka Stockade\"). This was crushed by British troops, but the discontents prompted colonial authorities to reform the administration (particularly reducing the hated mining licence fees) and extend the franchise. Within a short time, the Imperial Parliament granted Victoria responsible government with the passage of the Colony of Victoria Act 1855. Some of the leaders of the Eureka rebellion went on to become members of the Victorian Parliament.\n\nQuestion: When was there a armed protest at Eureka Stockade about mining taxes?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nThe text states that there was an armed rebellion at Ballarat (",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.003456115722656,
+          "prob": 9.325337763809748e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.325337763808878e-14,
+      "prompt": "You're given the following task:\nContext: In 1854 at Ballarat there was an armed rebellion against the government of Victoria by miners protesting against mining taxes (the \"Eureka Stockade\"). This was crushed by British troops, but the discontents prompted colonial authorities to reform the administration (particularly reducing the hated mining licence fees) and extend the franchise. Within a short time, the Imperial Parliament granted Victoria responsible government with the passage of the Colony of Victoria Act 1855. Some of the leaders of the Eureka rebellion went on to become members of the Victorian Parliament.\n\nQuestion: When was there a armed protest at Eureka Stockade about mining taxes?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

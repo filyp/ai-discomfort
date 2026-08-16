@@ -1,0 +1,32 @@
+{
+  "id": "570611c475f01819005e793d",
+  "title": "Southern_California",
+  "context": "Southern California is also home to the Port of Los Angeles, the United States' busiest commercial port; the adjacent Port of Long Beach, the United States' second busiest container port; and the Port of San Diego.",
+  "question": "What is the second busiest container port in the United States?",
+  "answers": "{'text': array(['Port of San Diego', 'Port of Long Beach', 'Port of Long Beach'],\n      dtype=object), 'answer_start': array([196, 118, 118], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 449,
+  "prompt": "Context: Southern California is also home to the Port of Los Angeles, the United States' busiest commercial port; the adjacent Port of Long Beach, the United States' second busiest container port; and the Port of San Diego.\n\nQuestion: What is the second busiest container port in the United States?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that the Port of Long Beach is the United States",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.032882690429688,
+          "prob": 9.054923215298077e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.054923215297256e-14,
+      "prompt": "You're given the following task:\nContext: Southern California is also home to the Port of Los Angeles, the United States' busiest commercial port; the adjacent Port of Long Beach, the United States' second busiest container port; and the Port of San Diego.\n\nQuestion: What is the second busiest container port in the United States?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

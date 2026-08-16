@@ -1,0 +1,31 @@
+{
+  "id": 2972601894847718326,
+  "question": "Where was the hottest temperature recorded on earth?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where was the hottest temperature recorded on earth, but with questions regarding its validity?',\n              'Where was the unquestioned hottest temperature recorded on earth?',\n              'Where was the hottest temperature recorded on earth, but then later was decertified as a record?'],\n             dtype=object), 'answer': array([array(['Furnace Creek Ranch',\n                     'Furnace Creek Ranch, California, located in the Death Valley desert in the United States'],\n                    dtype=object)                                                                                ,\n              array(['Mitribah, Kuwait', 'Death Valley and Mitribah, Kuwait',\n                     'Death Valley'], dtype=object)                          ,\n              array(['‘Aziziya, Libya'], dtype=object)], dtype=object)}                                                      ,\n       {'question': array(['Where was the hottest air temperature recorded on earth?',\n              'Where was the hottest unconfirmed ground temperature recorded on earth?',\n              'Where was the hottest air temperature on earth recorded via satellite?'],\n             dtype=object), 'answer': array([array(['Furnace Creek Ranch, C', 'Death Valleya', 'Greenland Ranch',\n                     'Furnace Creek Ranch, California'], dtype=object)            ,\n              array(['Death Valley', 'Furnace Creek Ranch, California',\n                     'Furnace Creek Ranch, Ca'], dtype=object)         ,\n              array(['Flaming Mountains of China', 'Flaming Mountains'], dtype=object)],\n             dtype=object)}                                                                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 334,
+  "prompt": "Where was the hottest temperature recorded on earth?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.775760650634766,
+          "prob": 1.4082319766711803e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.4082319462337742e-07,
+      "prompt": "You're given the following task:\nWhere was the hottest temperature recorded on earth?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

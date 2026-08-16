@@ -1,0 +1,31 @@
+{
+  "id": 5733209654758497457,
+  "question": "Where did the hemlock wooly adelgid come from?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where is the hemlock wooly adelgid native to?',\n              'Where did the hemlock wooly adelgid come to North America from?'],\n             dtype=object), 'answer': array([array(['East Asia'], dtype=object), array(['Japan'], dtype=object)],\n             dtype=object)}                                                                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 363,
+  "prompt": "Where did the hemlock wooly adelgid come from?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.000015258789062,
+          "prob": 2.7894255292884343e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.789425528510345e-10,
+      "prompt": "You're given the following task:\nWhere did the hemlock wooly adelgid come from?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

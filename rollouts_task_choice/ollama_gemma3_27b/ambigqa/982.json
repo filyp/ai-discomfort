@@ -1,0 +1,31 @@
+{
+  "id": 4572117518524254060,
+  "question": "Who won the match of asia cup 2018?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who won the match of men's asia cup 21 September 2018?\",\n              \"Who won the match of men's asia cup 23 September 2018?\",\n              \"Who won the match of men's asia cup 26 September 2018?\",\n              \"Who won the match of men's asia cup 28 September 2018?\",\n              \"Who won the 2018 Women's Twenty20 Asia Cup?\",\n              \"Who won the 2018 AFC Women's Asian Cup Final?\"], dtype=object), 'answer': array([array(['India, Pakistan'], dtype=object),\n              array(['India, Bangladesh'], dtype=object),\n              array(['Bangladesh'], dtype=object),\n              array(['India'], dtype=object),\n              array(['Bangladesh'], dtype=object),\n              array(['Japan'], dtype=object)], dtype=object)}                                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 982,
+  "prompt": "Who won the match of asia cup 2018?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.794761657714844,
+          "prob": 3.4249582170064947e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.424958215833461e-10,
+      "prompt": "You're given the following task:\nWho won the match of asia cup 2018?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

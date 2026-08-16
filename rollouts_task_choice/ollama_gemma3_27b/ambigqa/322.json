@@ -1,0 +1,31 @@
+{
+  "id": -3176814404414677007,
+  "question": "When did the us enter the second world war in europe?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the US start funding/supplying the second World War in Europe?',\n              'With the signing of what legislation did the US start funding/supplying the second World War in Europe?',\n              'When did Roosevelt publicly confirm the \"shoot on sight\" order, effectively entering the US in the second world war in Europe?',\n              'When did the US officially enter the second world war in europe?',\n              'Upon what event did the US officially enter the second world war in europe?'],\n             dtype=object), 'answer': array([array(['11 March 1941'], dtype=object),\n              array(['Lend-Lease Act'], dtype=object),\n              array(['11 September 1941'], dtype=object),\n              array(['7 December 1941'], dtype=object),\n              array(['attack on Pearl Harbor'], dtype=object)], dtype=object)}                                                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 322,
+  "prompt": "When did the us enter the second world war in europe?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.127094268798828,
+          "prob": 9.037130976140818e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.03713097532412e-11,
+      "prompt": "You're given the following task:\nWhen did the us enter the second world war in europe?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

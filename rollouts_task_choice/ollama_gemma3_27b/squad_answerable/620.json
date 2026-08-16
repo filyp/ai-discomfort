@@ -1,0 +1,32 @@
+{
+  "id": "570d2d68fed7b91900d45cbe",
+  "title": "Victoria_(Australia)",
+  "context": "More than 26,000 square kilometres (10,000 sq mi) of Victorian farmland are sown for grain, mostly in the state's west. More than 50% of this area is sown for wheat, 33% for barley and 7% for oats. A further 6,000 square kilometres (2,300 sq mi) is sown for hay. In 2003–04, Victorian farmers produced more than 3 million tonnes of wheat and 2 million tonnes of barley. Victorian farms produce nearly 90% of Australian pears and third of apples. It is also a leader in stone fruit production. The main vegetable crops include asparagus, broccoli, carrots, potatoes and tomatoes. Last year, 121,200 tonnes of pears and 270,000 tonnes of tomatoes were produced.",
+  "question": "How much does Victoria produce in Australian pears?",
+  "answers": "{'text': array(['90%', '90%', '90%'], dtype=object), 'answer_start': array([401, 401, 401], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 620,
+  "prompt": "Context: More than 26,000 square kilometres (10,000 sq mi) of Victorian farmland are sown for grain, mostly in the state's west. More than 50% of this area is sown for wheat, 33% for barley and 7% for oats. A further 6,000 square kilometres (2,300 sq mi) is sown for hay. In 2003–04, Victorian farmers produced more than 3 million tonnes of wheat and 2 million tonnes of barley. Victorian farms produce nearly 90% of Australian pears and third of apples. It is also a leader in stone fruit production. The main vegetable crops include asparagus, broccoli, carrots, potatoes and tomatoes. Last year, 121,200 tonnes of pears and 270,000 tonnes of tomatoes were produced.\n\nQuestion: How much does Victoria produce in Australian pears?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that Victorian farms produce **nearly 90%",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.518268585205078,
+          "prob": 1.1193548927250451e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1193548927237922e-12,
+      "prompt": "You're given the following task:\nContext: More than 26,000 square kilometres (10,000 sq mi) of Victorian farmland are sown for grain, mostly in the state's west. More than 50% of this area is sown for wheat, 33% for barley and 7% for oats. A further 6,000 square kilometres (2,300 sq mi) is sown for hay. In 2003–04, Victorian farmers produced more than 3 million tonnes of wheat and 2 million tonnes of barley. Victorian farms produce nearly 90% of Australian pears and third of apples. It is also a leader in stone fruit production. The main vegetable crops include asparagus, broccoli, carrots, potatoes and tomatoes. Last year, 121,200 tonnes of pears and 270,000 tonnes of tomatoes were produced.\n\nQuestion: How much does Victoria produce in Australian pears?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

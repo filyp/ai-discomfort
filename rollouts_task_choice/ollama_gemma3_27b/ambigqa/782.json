@@ -1,0 +1,31 @@
+{
+  "id": 6619094979746662600,
+  "question": "Who wrote brown eyes by destiny's child?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['B. Knowles, Walter Afanasieff'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([\"Who from Texas wrote brown eyes by destiny's child?\",\n              \"Who from Brazil wrote brown eyes by destiny's child?\"],\n             dtype=object), 'answer': array([array(['Beyoncé Giselle Knowles-Carter', 'Beyoncé Knowles'], dtype=object),\n              array(['Walter Afanasieff'], dtype=object)], dtype=object)}                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 782,
+  "prompt": "Who wrote brown eyes by destiny's child?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.12691879272461,
+          "prob": 4.934972222623096e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.9349721982691455e-09,
+      "prompt": "You're given the following task:\nWho wrote brown eyes by destiny's child?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

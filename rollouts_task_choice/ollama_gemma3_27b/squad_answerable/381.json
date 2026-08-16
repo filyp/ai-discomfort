@@ -1,0 +1,32 @@
+{
+  "id": "5705fd8475f01819005e7844",
+  "title": "Southern_California",
+  "context": "Southern California consists of one of the more varied collections of geologic, topographic, and natural ecosystem landscapes in a diversity outnumbering other major regions in the state and country. The region spans from Pacific Ocean islands, shorelines, beaches, and coastal plains, through the Transverse and Peninsular Ranges with their peaks, into the large and small interior valleys, to the vast deserts of California.",
+  "question": "The mountain ranges tail off into what kind of geographical formation?",
+  "answers": "{'text': array(['valleys', 'valleys', 'interior valleys'], dtype=object), 'answer_start': array([383, 383, 374], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 381,
+  "prompt": "Context: Southern California consists of one of the more varied collections of geologic, topographic, and natural ecosystem landscapes in a diversity outnumbering other major regions in the state and country. The region spans from Pacific Ocean islands, shorelines, beaches, and coastal plains, through the Transverse and Peninsular Ranges with their peaks, into the large and small interior valleys, to the vast deserts of California.\n\nQuestion: The mountain ranges tail off into what kind of geographical formation?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states the mountain ranges (Transverse and Peninsular)",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.484386444091797,
+          "prob": 4.2597895805778704e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.2597895805760564e-13,
+      "prompt": "You're given the following task:\nContext: Southern California consists of one of the more varied collections of geologic, topographic, and natural ecosystem landscapes in a diversity outnumbering other major regions in the state and country. The region spans from Pacific Ocean islands, shorelines, beaches, and coastal plains, through the Transverse and Peninsular Ranges with their peaks, into the large and small interior valleys, to the vast deserts of California.\n\nQuestion: The mountain ranges tail off into what kind of geographical formation?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "570d30fdfed7b91900d45ce5",
+  "title": "Victoria_(Australia)",
+  "context": "The Mallee and upper Wimmera are Victoria's warmest regions with hot winds blowing from nearby semi-deserts. Average temperatures exceed 32 °C (90 °F) during summer and 15 °C (59 °F) in winter. Except at cool mountain elevations, the inland monthly temperatures are 2–7 °C (4–13 °F) warmer than around Melbourne (see chart). Victoria's highest maximum temperature since World War II, of 48.8 °C (119.8 °F) was recorded in Hopetoun on 7 February 2009, during the 2009 southeastern Australia heat wave.",
+  "question": "How cold does this region of Victoria get in the winner?",
+  "answers": "{'text': array(['15 °C', '15 °C', '15 °C (59 °F)'], dtype=object), 'answer_start': array([169, 169, 169], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 629,
+  "prompt": "Context: The Mallee and upper Wimmera are Victoria's warmest regions with hot winds blowing from nearby semi-deserts. Average temperatures exceed 32 °C (90 °F) during summer and 15 °C (59 °F) in winter. Except at cool mountain elevations, the inland monthly temperatures are 2–7 °C (4–13 °F) warmer than around Melbourne (see chart). Victoria's highest maximum temperature since World War II, of 48.8 °C (119.8 °F) was recorded in Hopetoun on 7 February 2009, during the 2009 southeastern Australia heat wave.\n\nQuestion: How cold does this region of Victoria get in the winner?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that average temperatures exceed 15 °C (",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.253753662109375,
+          "prob": 5.364764861122459e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.364764861119582e-13,
+      "prompt": "You're given the following task:\nContext: The Mallee and upper Wimmera are Victoria's warmest regions with hot winds blowing from nearby semi-deserts. Average temperatures exceed 32 °C (90 °F) during summer and 15 °C (59 °F) in winter. Except at cool mountain elevations, the inland monthly temperatures are 2–7 °C (4–13 °F) warmer than around Melbourne (see chart). Victoria's highest maximum temperature since World War II, of 48.8 °C (119.8 °F) was recorded in Hopetoun on 7 February 2009, during the 2009 southeastern Australia heat wave.\n\nQuestion: How cold does this region of Victoria get in the winner?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

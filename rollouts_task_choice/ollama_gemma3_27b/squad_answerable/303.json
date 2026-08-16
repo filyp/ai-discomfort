@@ -1,0 +1,32 @@
+{
+  "id": "5705e33f52bb891400689650",
+  "title": "Southern_California",
+  "context": "The 8- and 10-county definitions are not used for the greater Southern California Megaregion, one of the 11 megaregions of the United States. The megaregion's area is more expansive, extending east into Las Vegas, Nevada, and south across the Mexican border into Tijuana.",
+  "question": "What is the name of the area past the border that the megaregion extends into?",
+  "answers": "{'text': array(['Tijuana', 'Tijuana', 'Tijuana'], dtype=object), 'answer_start': array([263, 263, 263], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 303,
+  "prompt": "Context: The 8- and 10-county definitions are not used for the greater Southern California Megaregion, one of the 11 megaregions of the United States. The megaregion's area is more expansive, extending east into Las Vegas, Nevada, and south across the Mexican border into Tijuana.\n\nQuestion: What is the name of the area past the border that the megaregion extends into?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states the megaregion extends south across the Mexican",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.35226821899414,
+          "prob": 1.3214807615741514e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3214807615724052e-12,
+      "prompt": "You're given the following task:\nContext: The 8- and 10-county definitions are not used for the greater Southern California Megaregion, one of the 11 megaregions of the United States. The megaregion's area is more expansive, extending east into Las Vegas, Nevada, and south across the Mexican border into Tijuana.\n\nQuestion: What is the name of the area past the border that the megaregion extends into?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

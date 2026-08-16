@@ -1,0 +1,32 @@
+{
+  "id": "571a4d1a4faf5e1900b8a958",
+  "title": "Oxygen",
+  "context": "In the meantime, on August 1, 1774, an experiment conducted by the British clergyman Joseph Priestley focused sunlight on mercuric oxide (HgO) inside a glass tube, which liberated a gas he named \"dephlogisticated air\". He noted that candles burned brighter in the gas and that a mouse was more active and lived longer while breathing it. After breathing the gas himself, he wrote: \"The feeling of it to my lungs was not sensibly different from that of common air, but I fancied that my breast felt peculiarly light and easy for some time afterwards.\" Priestley published his findings in 1775 in a paper titled \"An Account of Further Discoveries in Air\" which was included in the second volume of his book titled Experiments and Observations on Different Kinds of Air. Because he published his findings first, Priestley is usually given priority in the discovery.",
+  "question": "\"An Account of Further Discoveries in Air\" was published by who in 1775?",
+  "answers": "{'text': array(['Joseph Priestley', 'Priestley', 'Joseph Priestley',\n       'Joseph Priestley', 'Priestley'], dtype=object), 'answer_start': array([ 85, 551,  85,  85, 551], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1165,
+  "prompt": "Context: In the meantime, on August 1, 1774, an experiment conducted by the British clergyman Joseph Priestley focused sunlight on mercuric oxide (HgO) inside a glass tube, which liberated a gas he named \"dephlogisticated air\". He noted that candles burned brighter in the gas and that a mouse was more active and lived longer while breathing it. After breathing the gas himself, he wrote: \"The feeling of it to my lungs was not sensibly different from that of common air, but I fancied that my breast felt peculiarly light and easy for some time afterwards.\" Priestley published his findings in 1775 in a paper titled \"An Account of Further Discoveries in Air\" which was included in the second volume of his book titled Experiments and Observations on Different Kinds of Air. Because he published his findings first, Priestley is usually given priority in the discovery.\n\nQuestion: \"An Account of Further Discoveries in Air\" was published by who in 1775?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nAn Account of Further Discoveries in Air was published by Joseph Priest",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -33.99388122558594,
+          "prob": 1.7244275999911006e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7244275999910974e-15,
+      "prompt": "You're given the following task:\nContext: In the meantime, on August 1, 1774, an experiment conducted by the British clergyman Joseph Priestley focused sunlight on mercuric oxide (HgO) inside a glass tube, which liberated a gas he named \"dephlogisticated air\". He noted that candles burned brighter in the gas and that a mouse was more active and lived longer while breathing it. After breathing the gas himself, he wrote: \"The feeling of it to my lungs was not sensibly different from that of common air, but I fancied that my breast felt peculiarly light and easy for some time afterwards.\" Priestley published his findings in 1775 in a paper titled \"An Account of Further Discoveries in Air\" which was included in the second volume of his book titled Experiments and Observations on Different Kinds of Air. Because he published his findings first, Priestley is usually given priority in the discovery.\n\nQuestion: \"An Account of Further Discoveries in Air\" was published by who in 1775?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

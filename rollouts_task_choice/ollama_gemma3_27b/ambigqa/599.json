@@ -1,0 +1,31 @@
+{
+  "id": -34823966255409475,
+  "question": "How many culver's are there in the united states?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"How many constructed culver's are there in the united states as of June 24, 2019?\",\n              \"How many  culver's are there under construction in the united states as of June 24, 2019?\",\n              \"How many culver's are there in the united states as of January 23, 2020?\"],\n             dtype=object), 'answer': array([array(['710'], dtype=object), array(['18'], dtype=object),\n              array(['740'], dtype=object)], dtype=object)}                                                    ,\n       {'question': array([\"How many culver's are there in the united states in 1993?\",\n              \"How many culver's are there in the united states in 2011?\",\n              \"How many culver's are there in the united states in 1984?\"],\n             dtype=object), 'answer': array([array(['14'], dtype=object), array(['445'], dtype=object),\n              array(['1'], dtype=object)], dtype=object)}                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 599,
+  "prompt": "How many culver's are there in the united states?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help figure out how many Culver's restaurants",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.39862060546875,
+          "prob": 1.3835397225608424e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3835397206466602e-09,
+      "prompt": "You're given the following task:\nHow many culver's are there in the united states?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

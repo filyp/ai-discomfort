@@ -1,0 +1,32 @@
+{
+  "id": "56e1c7e2cd28a01900c67b76",
+  "title": "Computational_complexity_theory",
+  "context": "The time and space hierarchy theorems form the basis for most separation results of complexity classes. For instance, the time hierarchy theorem tells us that P is strictly contained in EXPTIME, and the space hierarchy theorem tells us that L is strictly contained in PSPACE.",
+  "question": "Within what variable is L constrained according to the space hierarchy theorem?",
+  "answers": "{'text': array(['PSPACE', 'PSPACE', 'PSPACE'], dtype=object), 'answer_start': array([268, 268, 268], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 215,
+  "prompt": "Context: The time and space hierarchy theorems form the basis for most separation results of complexity classes. For instance, the time hierarchy theorem tells us that P is strictly contained in EXPTIME, and the space hierarchy theorem tells us that L is strictly contained in PSPACE.\n\nQuestion: Within what variable is L constrained according to the space hierarchy theorem?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nAccording to the provided context, L is constrained within the variable of",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.43762969970703,
+          "prob": 3.298247992816826e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.2982479928059473e-12,
+      "prompt": "You're given the following task:\nContext: The time and space hierarchy theorems form the basis for most separation results of complexity classes. For instance, the time hierarchy theorem tells us that P is strictly contained in EXPTIME, and the space hierarchy theorem tells us that L is strictly contained in PSPACE.\n\nQuestion: Within what variable is L constrained according to the space hierarchy theorem?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

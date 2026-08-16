@@ -1,0 +1,32 @@
+{
+  "id": "57264865dd62a815002e8066",
+  "title": "European_Union_law",
+  "context": "Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.",
+  "question": "Is the Lisbon Treaty one that would alter existing treaties or replace them?",
+  "answers": "{'text': array(['altered the existing treaties',\n       'it significantly altered the existing treaties',\n       'significantly altered the existing treaties',\n       'altered the existing treaties'], dtype=object), 'answer_start': array([543, 526, 529, 543], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1537,
+  "prompt": "Context: Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.\n\nQuestion: Is the Lisbon Treaty one that would alter existing treaties or replace them?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states the Lisbon Treaty **altered** existing treaties but did",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -33.892234802246094,
+          "prob": 1.908927550855959e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.908927550855955e-15,
+      "prompt": "You're given the following task:\nContext: Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them.\n\nQuestion: Is the Lisbon Treaty one that would alter existing treaties or replace them?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

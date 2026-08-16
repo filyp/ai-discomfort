@@ -1,0 +1,32 @@
+{
+  "id": "5ad3fabc604f3c001a3ffb1d",
+  "title": "Steam_engine",
+  "context": "Virtually all nuclear power plants generate electricity by heating water to provide steam that drives a turbine connected to an electrical generator. Nuclear-powered ships and submarines either use a steam turbine directly for main propulsion, with generators providing auxiliary power, or else employ turbo-electric transmission, where the steam drives a turbo generator set with propulsion provided by electric motors. A limited number of steam turbine railroad locomotives were manufactured. Some non-condensing direct-drive locomotives did meet with some success for long haul freight operations in Sweden and for express passenger work in Britain, but were not repeated. Elsewhere, notably in the U.S.A., more advanced designs with electric transmission were built experimentally, but not reproduced. It was found that steam turbines were not ideally suited to the railroad environment and these locomotives failed to oust the classic reciprocating steam unit in the way that modern diesel and electric traction has done.[citation needed]",
+  "question": "What in a nuclear power plant is the diesel turbine connected to?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1131,
+  "prompt": "Context: Virtually all nuclear power plants generate electricity by heating water to provide steam that drives a turbine connected to an electrical generator. Nuclear-powered ships and submarines either use a steam turbine directly for main propulsion, with generators providing auxiliary power, or else employ turbo-electric transmission, where the steam drives a turbo generator set with propulsion provided by electric motors. A limited number of steam turbine railroad locomotives were manufactured. Some non-condensing direct-drive locomotives did meet with some success for long haul freight operations in Sweden and for express passenger work in Britain, but were not repeated. Elsewhere, notably in the U.S.A., more advanced designs with electric transmission were built experimentally, but not reproduced. It was found that steam turbines were not ideally suited to the railroad environment and these locomotives failed to oust the classic reciprocating steam unit in the way that modern diesel and electric traction has done.[citation needed]\n\nQuestion: What in a nuclear power plant is the diesel turbine connected to?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text actually discusses *steam* turbines, not diesel turbines,",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.1707495152950287,
+          "prob": 0.8430327138274053,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -1.8517262935638428,
+          "prob": 0.15696596296107537,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.15696617066052054,
+      "prompt": "You're given the following task:\nContext: Virtually all nuclear power plants generate electricity by heating water to provide steam that drives a turbine connected to an electrical generator. Nuclear-powered ships and submarines either use a steam turbine directly for main propulsion, with generators providing auxiliary power, or else employ turbo-electric transmission, where the steam drives a turbo generator set with propulsion provided by electric motors. A limited number of steam turbine railroad locomotives were manufactured. Some non-condensing direct-drive locomotives did meet with some success for long haul freight operations in Sweden and for express passenger work in Britain, but were not repeated. Elsewhere, notably in the U.S.A., more advanced designs with electric transmission were built experimentally, but not reproduced. It was found that steam turbines were not ideally suited to the railroad environment and these locomotives failed to oust the classic reciprocating steam unit in the way that modern diesel and electric traction has done.[citation needed]\n\nQuestion: What in a nuclear power plant is the diesel turbine connected to?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

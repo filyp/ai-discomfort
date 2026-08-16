@@ -1,0 +1,32 @@
+{
+  "id": "5725cb33271a42140099d1df",
+  "title": "Ctenophora",
+  "context": "Ctenophores form an animal phylum that is more complex than sponges, about as complex as cnidarians (jellyfish, sea anemones, etc.), and less complex than bilaterians (which include almost all other animals). Unlike sponges, both ctenophores and cnidarians have: cells bound by inter-cell connections and carpet-like basement membranes; muscles; nervous systems; and some have sensory organs. Ctenophores are distinguished from all other animals by having colloblasts, which are sticky and adhere to prey, although a few ctenophore species lack them.",
+  "question": "What does ctenophore use to capture prey?",
+  "answers": "{'text': array(['colloblasts', 'colloblasts', 'colloblasts'], dtype=object), 'answer_start': array([456, 456, 456], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1950,
+  "prompt": "Context: Ctenophores form an animal phylum that is more complex than sponges, about as complex as cnidarians (jellyfish, sea anemones, etc.), and less complex than bilaterians (which include almost all other animals). Unlike sponges, both ctenophores and cnidarians have: cells bound by inter-cell connections and carpet-like basement membranes; muscles; nervous systems; and some have sensory organs. Ctenophores are distinguished from all other animals by having colloblasts, which are sticky and adhere to prey, although a few ctenophore species lack them.\n\nQuestion: What does ctenophore use to capture prey?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nCtenophores use **colloblasts** to capture prey.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.50792694091797,
+          "prob": 5.6308722606720784e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.630872260671761e-14,
+      "prompt": "You're given the following task:\nContext: Ctenophores form an animal phylum that is more complex than sponges, about as complex as cnidarians (jellyfish, sea anemones, etc.), and less complex than bilaterians (which include almost all other animals). Unlike sponges, both ctenophores and cnidarians have: cells bound by inter-cell connections and carpet-like basement membranes; muscles; nervous systems; and some have sensory organs. Ctenophores are distinguished from all other animals by having colloblasts, which are sticky and adhere to prey, although a few ctenophore species lack them.\n\nQuestion: What does ctenophore use to capture prey?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

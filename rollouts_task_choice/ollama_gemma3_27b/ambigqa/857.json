@@ -1,0 +1,31 @@
+{
+  "id": -3469572554119413466,
+  "question": "Who was the greatest warrior for the trojans?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Hector'], dtype=object), array([], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['What was the name of the greatest warrior for the trojans?',\n              'What was the position of the greatest warrior for the trojans?'],\n             dtype=object), 'answer': array([array(['Hector'], dtype=object), array(['prince'], dtype=object)],\n             dtype=object)}                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 857,
+  "prompt": "Who was the greatest warrior for the trojans?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.062255859375,
+          "prob": 9.642497613088678e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.642497612158901e-11,
+      "prompt": "You're given the following task:\nWho was the greatest warrior for the trojans?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

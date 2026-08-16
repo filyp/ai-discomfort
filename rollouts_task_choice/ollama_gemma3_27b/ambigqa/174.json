@@ -1,0 +1,31 @@
+{
+  "id": 2460950840947172152,
+  "question": "Who's won the most premierships in afl?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who's won the most men's premierships in vfl/afl?\",\n              \"Who's won the most men's reserves premierships in vfl/afl?\",\n              \"Who's won the most men's under-19s premierships in vfl/afl?\",\n              \"Who's won the most women's premierships in afl?\"], dtype=object), 'answer': array([array(['Carlton', 'Essendon', 'Essendon and Carlton'], dtype=object),\n              array(['Melbourne'], dtype=object),\n              array(['Richmond'], dtype=object),\n              array(['Adelaide'], dtype=object)], dtype=object)}                                                                                                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 174,
+  "prompt": "Who's won the most premierships in afl?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.54888153076172,
+          "prob": 1.190512999426087e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1905129980087657e-09,
+      "prompt": "You're given the following task:\nWho's won the most premierships in afl?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -3093730042146727960,
+  "question": "When did the battle of new orleans start?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['January 8, 1815', 'Sunday, January 8, 1815 at 05:00'],\n             dtype=object)                                           ,\n       array(['Sunday, January 8, 1815', 'January 8, 1815',\n              'Sunday, January 8, 1815 at 05:00'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 423,
+  "prompt": "When did the battle of new orleans start?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.821224212646484,
+          "prob": 2.464629826222635e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.464629820148235e-09,
+      "prompt": "You're given the following task:\nWhen did the battle of new orleans start?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

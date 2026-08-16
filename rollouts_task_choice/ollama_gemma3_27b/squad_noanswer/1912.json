@@ -1,0 +1,32 @@
+{
+  "id": "5a7b054521c2de001afe9cd2",
+  "title": "Fresno,_California",
+  "context": "Fresno (/ˈfrɛznoʊ/ FREZ-noh), the county seat of Fresno County, is a city in the U.S. state of California. As of 2015, the city's population was 520,159, making it the fifth-largest city in California, the largest inland city in California and the 34th-largest in the nation. Fresno is in the center of the San Joaquin Valley and is the largest city in the Central Valley, which contains the San Joaquin Valley. It is approximately 220 miles (350 km) northwest of Los Angeles, 170 miles (270 km) south of the state capital, Sacramento, or 185 miles (300 km) south of San Francisco. The name Fresno means \"ash tree\" in Spanish, and an ash leaf is featured on the city's flag.",
+  "question": "Fresno is the capital of what state?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1912,
+  "prompt": "Context: Fresno (/ˈfrɛznoʊ/ FREZ-noh), the county seat of Fresno County, is a city in the U.S. state of California. As of 2015, the city's population was 520,159, making it the fifth-largest city in California, the largest inland city in California and the 34th-largest in the nation. Fresno is in the center of the San Joaquin Valley and is the largest city in the Central Valley, which contains the San Joaquin Valley. It is approximately 220 miles (350 km) northwest of Los Angeles, 170 miles (270 km) south of the state capital, Sacramento, or 185 miles (300 km) south of San Francisco. The name Fresno means \"ash tree\" in Spanish, and an ash leaf is featured on the city's flag.\n\nQuestion: Fresno is the capital of what state?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that Fresno is *in* the U.S",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.014615489169955254,
+          "prob": 0.9854907986456811,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.232968807220459,
+          "prob": 0.014509251373912487,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.014509250648165667,
+      "prompt": "You're given the following task:\nContext: Fresno (/ˈfrɛznoʊ/ FREZ-noh), the county seat of Fresno County, is a city in the U.S. state of California. As of 2015, the city's population was 520,159, making it the fifth-largest city in California, the largest inland city in California and the 34th-largest in the nation. Fresno is in the center of the San Joaquin Valley and is the largest city in the Central Valley, which contains the San Joaquin Valley. It is approximately 220 miles (350 km) northwest of Los Angeles, 170 miles (270 km) south of the state capital, Sacramento, or 185 miles (300 km) south of San Francisco. The name Fresno means \"ash tree\" in Spanish, and an ash leaf is featured on the city's flag.\n\nQuestion: Fresno is the capital of what state?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

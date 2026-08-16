@@ -1,0 +1,31 @@
+{
+  "id": -3735775619365496224,
+  "question": "Who is the actor that plays green arrow?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the actor that plays Green Arrow in The CW series Smallville?',\n              'Who is the actor that plays Green Arrow in The CW series Arrow?'],\n             dtype=object), 'answer': array([array(['Justin Scott Hartley'], dtype=object),\n              array(['Stephen Adam Amell'], dtype=object)], dtype=object)}                        ,\n       {'question': array(['Who is the actor that plays Green Arrow in the TV series Arrow?',\n              'Who is the actor that plays Green Arrow in Smallville?'],\n             dtype=object), 'answer': array([array(['Stephen Adam Amell', 'Stephen Amell'], dtype=object),\n              array(['Justin Scott Hartley', 'Justin Hartley'], dtype=object)],\n             dtype=object)}                                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 715,
+  "prompt": "Who is the actor that plays green arrow?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.25067901611328,
+          "prob": 5.901295563425098e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.901295559942569e-10,
+      "prompt": "You're given the following task:\nWho is the actor that plays green arrow?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

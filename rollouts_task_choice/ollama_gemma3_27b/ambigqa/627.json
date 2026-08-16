@@ -1,0 +1,31 @@
+{
+  "id": -7595754308232280417,
+  "question": "When did sunday became the seventh day of the week?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did sunday became the seventh day of the week and the Sabbath?',\n              'When did sunday became the seventh day of the week via ISO 8601?'],\n             dtype=object), 'answer': array([array(['second century', 'by the second century'], dtype=object),\n              array(['1988'], dtype=object)], dtype=object)}                                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 627,
+  "prompt": "When did sunday became the seventh day of the week?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, that's an interesting question! It highlights how our",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -6.198902156029362e-06,
+          "prob": 0.9999938011170572,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -11.996481895446777,
+          "prob": 6.165866403055441e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.165866606631021e-06,
+      "prompt": "You're given the following task:\nWhen did sunday became the seventh day of the week?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

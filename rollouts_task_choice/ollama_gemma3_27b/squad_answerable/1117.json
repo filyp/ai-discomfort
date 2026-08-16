@@ -1,0 +1,32 @@
+{
+  "id": "5711648850c2381900b54ac6",
+  "title": "Steam_engine",
+  "context": "One of the principal advantages the Rankine cycle holds over others is that during the compression stage relatively little work is required to drive the pump, the working fluid being in its liquid phase at this point. By condensing the fluid, the work required by the pump consumes only 1% to 3% of the turbine power and contributes to a much higher efficiency for a real cycle. The benefit of this is lost somewhat due to the lower heat addition temperature. Gas turbines, for instance, have turbine entry temperatures approaching 1500 °C. Nonetheless, the efficiencies of actual large steam cycles and large modern gas turbines are fairly well matched.[citation needed]",
+  "question": "What is the approximate turbine entry temperature of a gas turbine?",
+  "answers": "{'text': array(['1500 °C', '1500 °C', '1500 °C'], dtype=object), 'answer_start': array([532, 532, 532], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1117,
+  "prompt": "Context: One of the principal advantages the Rankine cycle holds over others is that during the compression stage relatively little work is required to drive the pump, the working fluid being in its liquid phase at this point. By condensing the fluid, the work required by the pump consumes only 1% to 3% of the turbine power and contributes to a much higher efficiency for a real cycle. The benefit of this is lost somewhat due to the lower heat addition temperature. Gas turbines, for instance, have turbine entry temperatures approaching 1500 °C. Nonetheless, the efficiencies of actual large steam cycles and large modern gas turbines are fairly well matched.[citation needed]\n\nQuestion: What is the approximate turbine entry temperature of a gas turbine?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that gas turbines have turbine entry temperatures *approaching",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.615768432617188,
+          "prob": 7.50262292931186e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.502622929255569e-12,
+      "prompt": "You're given the following task:\nContext: One of the principal advantages the Rankine cycle holds over others is that during the compression stage relatively little work is required to drive the pump, the working fluid being in its liquid phase at this point. By condensing the fluid, the work required by the pump consumes only 1% to 3% of the turbine power and contributes to a much higher efficiency for a real cycle. The benefit of this is lost somewhat due to the lower heat addition temperature. Gas turbines, for instance, have turbine entry temperatures approaching 1500 °C. Nonetheless, the efficiencies of actual large steam cycles and large modern gas turbines are fairly well matched.[citation needed]\n\nQuestion: What is the approximate turbine entry temperature of a gas turbine?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

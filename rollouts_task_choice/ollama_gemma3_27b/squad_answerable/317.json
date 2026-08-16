@@ -1,0 +1,32 @@
+{
+  "id": "5705e63175f01819005e7724",
+  "title": "Southern_California",
+  "context": "Within southern California are two major cities, Los Angeles and San Diego, as well as three of the country's largest metropolitan areas. With a population of 3,792,621, Los Angeles is the most populous city in California and the second most populous in the United States. To the south and with a population of 1,307,402 is San Diego, the second most populous city in the state and the eighth most populous in the nation.",
+  "question": "In which cardinal direction from Los Angeles is San Diego?",
+  "answers": "{'text': array(['south', 'south'], dtype=object), 'answer_start': array([280, 280], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 317,
+  "prompt": "Context: Within southern California are two major cities, Los Angeles and San Diego, as well as three of the country's largest metropolitan areas. With a population of 3,792,621, Los Angeles is the most populous city in California and the second most populous in the United States. To the south and with a population of 1,307,402 is San Diego, the second most populous city in the state and the eighth most populous in the nation.\n\nQuestion: In which cardinal direction from Los Angeles is San Diego?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nThe text states San Diego is \"to the south\" of",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.58297348022461,
+          "prob": 1.557181489613951e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5571814893714698e-10,
+      "prompt": "You're given the following task:\nContext: Within southern California are two major cities, Los Angeles and San Diego, as well as three of the country's largest metropolitan areas. With a population of 3,792,621, Los Angeles is the most populous city in California and the second most populous in the United States. To the south and with a population of 1,307,402 is San Diego, the second most populous city in the state and the eighth most populous in the nation.\n\nQuestion: In which cardinal direction from Los Angeles is San Diego?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

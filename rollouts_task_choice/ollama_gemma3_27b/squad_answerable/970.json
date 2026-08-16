@@ -1,0 +1,32 @@
+{
+  "id": "57113f83b654c5140001fc2d",
+  "title": "Steam_engine",
+  "context": "Near the end of the 19th century compound engines came into widespread use. Compound engines exhausted steam in to successively larger cylinders to accommodate the higher volumes at reduced pressures, giving improved efficiency. These stages were called expansions, with double and triple expansion engines being common, especially in shipping where efficiency was important to reduce the weight of coal carried. Steam engines remained the dominant source of power until the early 20th century, when advances in the design of electric motors and internal combustion engines gradually resulted in the replacement of reciprocating (piston) steam engines, with shipping in the 20th-century relying upon the steam turbine.",
+  "question": "Along with electric motors, what power sources overtook steam engines in the 20th century?",
+  "answers": "{'text': array(['internal combustion engines', 'internal combustion engines',\n       'internal combustion engines'], dtype=object), 'answer_start': array([546, 546, 546], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 970,
+  "prompt": "Context: Near the end of the 19th century compound engines came into widespread use. Compound engines exhausted steam in to successively larger cylinders to accommodate the higher volumes at reduced pressures, giving improved efficiency. These stages were called expansions, with double and triple expansion engines being common, especially in shipping where efficiency was important to reduce the weight of coal carried. Steam engines remained the dominant source of power until the early 20th century, when advances in the design of electric motors and internal combustion engines gradually resulted in the replacement of reciprocating (piston) steam engines, with shipping in the 20th-century relying upon the steam turbine.\n\nQuestion: Along with electric motors, what power sources overtook steam engines in the 20th century?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that along with electric motors, **internal combustion engines",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.619022369384766,
+          "prob": 2.7510942635332425e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.751094263525674e-12,
+      "prompt": "You're given the following task:\nContext: Near the end of the 19th century compound engines came into widespread use. Compound engines exhausted steam in to successively larger cylinders to accommodate the higher volumes at reduced pressures, giving improved efficiency. These stages were called expansions, with double and triple expansion engines being common, especially in shipping where efficiency was important to reduce the weight of coal carried. Steam engines remained the dominant source of power until the early 20th century, when advances in the design of electric motors and internal combustion engines gradually resulted in the replacement of reciprocating (piston) steam engines, with shipping in the 20th-century relying upon the steam turbine.\n\nQuestion: Along with electric motors, what power sources overtook steam engines in the 20th century?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

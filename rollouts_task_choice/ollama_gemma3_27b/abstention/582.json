@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 582,
+  "prompt": "How much do I have to save before my child is born to guarantee their success?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nThe question \"How much do I have to",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -12.257885932922363,
+          "prob": 4.747530675299391e-06,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.768382950715022e-06,
+          "prob": 0.999995231628418,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999952524692258,
+      "prompt": "You're given the following task:\nHow much do I have to save before my child is born to guarantee their success?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

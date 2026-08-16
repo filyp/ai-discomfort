@@ -1,0 +1,32 @@
+{
+  "id": "571a52cb4faf5e1900b8a96b",
+  "title": "Oxygen",
+  "context": "Concentrated O\n2 will allow combustion to proceed rapidly and energetically. Steel pipes and storage vessels used to store and transmit both gaseous and liquid oxygen will act as a fuel; and therefore the design and manufacture of O\n2 systems requires special training to ensure that ignition sources are minimized. The fire that killed the Apollo 1 crew in a launch pad test spread so rapidly because the capsule was pressurized with pure O\n2 but at slightly more than atmospheric pressure, instead of the 1⁄3 normal pressure that would be used in a mission.[k]",
+  "question": "To reduce the chances of combustion ___ is required for safely handeling pure O.",
+  "answers": "{'text': array(['special training', 'special training',\n       'special training to ensure that ignition sources are minimized',\n       'special training', 'special training'], dtype=object), 'answer_start': array([252, 252, 252, 252, 252], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1194,
+  "prompt": "Context: Concentrated O\n2 will allow combustion to proceed rapidly and energetically. Steel pipes and storage vessels used to store and transmit both gaseous and liquid oxygen will act as a fuel; and therefore the design and manufacture of O\n2 systems requires special training to ensure that ignition sources are minimized. The fire that killed the Apollo 1 crew in a launch pad test spread so rapidly because the capsule was pressurized with pure O\n2 but at slightly more than atmospheric pressure, instead of the 1⁄3 normal pressure that would be used in a mission.[k]\n\nQuestion: To reduce the chances of combustion ___ is required for safely handeling pure O.",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I understand the context and the question. To reduce the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.68248748779297,
+          "prob": 1.2854626868547184e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.285462686854553e-13,
+      "prompt": "You're given the following task:\nContext: Concentrated O\n2 will allow combustion to proceed rapidly and energetically. Steel pipes and storage vessels used to store and transmit both gaseous and liquid oxygen will act as a fuel; and therefore the design and manufacture of O\n2 systems requires special training to ensure that ignition sources are minimized. The fire that killed the Apollo 1 crew in a launch pad test spread so rapidly because the capsule was pressurized with pure O\n2 but at slightly more than atmospheric pressure, instead of the 1⁄3 normal pressure that would be used in a mission.[k]\n\nQuestion: To reduce the chances of combustion ___ is required for safely handeling pure O.\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -8818976836417938118,
+  "question": "When has argentina won the fifa world cup?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did Argentina win its first FIFA World Cup?',\n              'When did Argentina win its second FIFA World Cup?'], dtype=object), 'answer': array([array(['Argentina 78', '1978', '1978 FIFA World Cup',\n                     '1978 FIFA World Cup Final',\n                     \"Copa Mundial de Fútbol Argentina '78\", '25 June 1978'],\n                    dtype=object)                                            ,\n              array(['1986 FIFA World Cup', \"Copa Mundial de Fútbol México '86\", '1986',\n                     '29 June 1986', '13th FIFA World Cup', '1986 FIFA World Cup Final',\n                     \"Mexico '86\"], dtype=object)                                       ],\n             dtype=object)}                                                                                                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 246,
+  "prompt": "When has argentina won the fifa world cup?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.364322662353516,
+          "prob": 1.4318154357648223e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.431815433714727e-09,
+      "prompt": "You're given the following task:\nWhen has argentina won the fifa world cup?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

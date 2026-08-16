@@ -1,0 +1,31 @@
+{
+  "id": 1333258915620535192,
+  "question": "What is the name of the banjo player in deliverance?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the name of the character that is the banjo player in deliverance?',\n              'What is the name of the actor that is the banjo player in deliverance?',\n              'What is the name of the real life banjo players who played Dueling Banjos in deliverance?'],\n             dtype=object), 'answer': array([array(['Lonnie'], dtype=object),\n              array(['Redden', 'Billy Redden'], dtype=object),\n              array(['Eric Weissberg and Steve Mandell', 'Steve Mandell',\n                     'Eric Weissberg'], dtype=object)                    ],\n             dtype=object)}                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 772,
+  "prompt": "What is the name of the banjo player in deliverance?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you the name of the banjo player in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.90777587890625,
+          "prob": 3.3545571746901177e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.3545572490678447e-07,
+      "prompt": "You're given the following task:\nWhat is the name of the banjo player in deliverance?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

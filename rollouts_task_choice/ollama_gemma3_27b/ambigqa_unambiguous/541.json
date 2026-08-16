@@ -1,0 +1,31 @@
+{
+  "id": 1525287990843791600,
+  "question": "Who wrote it is no secret what god can do?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Stuart Hamblen', 'Carl Stuart Hamblen', 'Hamblen'], dtype=object),\n       array(['Stuart Hamblen', 'Carl Stuart Hamblen'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 541,
+  "prompt": "Who wrote it is no secret what god can do?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I'll continue. This looks like a question about",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -7.188578456407413e-05,
+          "prob": 0.999928116799157,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -9.540682792663574,
+          "prob": 7.186776012157287e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.186776123126294e-05,
+      "prompt": "You're given the following task:\nWho wrote it is no secret what god can do?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

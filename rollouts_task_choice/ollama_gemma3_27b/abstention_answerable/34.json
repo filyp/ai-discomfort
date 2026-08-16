@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 34,
+  "prompt": "When did the Basketball Tournament which  Kansas played its final in  1996–97 incept ",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! You're asking about",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.2649790025752736e-06,
+          "prob": 0.9999977350235625,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.972803115844727,
+          "prob": 2.3226469037316095e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3226467697834874e-06,
+      "prompt": "You're given the following task:\nWhen did the Basketball Tournament which  Kansas played its final in  1996–97 incept \nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 239,
+  "prompt": "What would the rate of cyberbullying in America had been in the year 2020 if regulations against it were made 20 years earlier?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis is an impossible question to answer accurately. Predicting rates of *",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -2.0471456050872803,
+          "prob": 0.12910288877937537,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.13823293149471283,
+          "prob": 0.8708958090552891,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.8708969431070992,
+      "prompt": "You're given the following task:\nWhat would the rate of cyberbullying in America had been in the year 2020 if regulations against it were made 20 years earlier?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

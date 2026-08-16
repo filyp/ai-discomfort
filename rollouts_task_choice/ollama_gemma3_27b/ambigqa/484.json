@@ -1,0 +1,31 @@
+{
+  "id": -4827500054960103969,
+  "question": "Who played the leprechaun in the movies leprechaun?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played the leprechaun in the movies leprechaun from 1993 to 2001?',\n              'Who played the leprechaun in the movies leprechaun in 2014?',\n              'Who played the leprechaun in the movies leprechaun in 2018?'],\n             dtype=object), 'answer': array([array(['Warwick Ashley Davis', 'Warwick Davis'], dtype=object),\n              array(['Dylan Postl', 'Dylan Mark Postl'], dtype=object),\n              array(['Linden Porco'], dtype=object)], dtype=object)}                                        ,\n       {'question': array(['Who played Lubdan the Leprechaun from 1993 to 2001?',\n              'Who played Lubdan the Leprechaun in Leprechaun: Origins from the Leprechaun film series?',\n              'Who played Lubdan the Leprechaun in Leprechaun Returns from the Leprechaun film series?'],\n             dtype=object), 'answer': array([array(['Warwick Davis'], dtype=object),\n              array(['Dylan Postl'], dtype=object),\n              array(['Linden Porco'], dtype=object)], dtype=object)}                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 484,
+  "prompt": "Who played the leprechaun in the movies leprechaun?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.741222381591797,
+          "prob": 7.257558339198019e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.257558286525867e-09,
+      "prompt": "You're given the following task:\nWho played the leprechaun in the movies leprechaun?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

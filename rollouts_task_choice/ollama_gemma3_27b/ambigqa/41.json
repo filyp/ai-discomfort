@@ -1,0 +1,31 @@
+{
+  "id": 7139732942062154674,
+  "question": "Which political party is currently in power in ireland?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Which political party is currently in power in ireland's Dáil Éireann from 2011 to 2016?\",\n              \"Which political party is currently in power in ireland's Dáil Éireann from 2016 to 2020?\",\n              \"Which political party is currently in power in ireland's presidency from 2011 to 2018?\",\n              \"Which political party is currently in power in ireland's presidency from 2004 to 2011?\",\n              \"Which political party is currently in power in ireland's presidency from 1997 to 2004?\",\n              \"Which political party is currently in power in ireland's Dáil Éireann from 2007 to 2011?\"],\n             dtype=object), 'answer': array([array(['Fine Gael–Labour Party coalition'], dtype=object),\n              array(['Fine Gael'], dtype=object),\n              array(['Labour Party'], dtype=object),\n              array(['Independent'], dtype=object),\n              array(['Independent'], dtype=object),\n              array(['Fianna Fáil', 'the Green Party', 'the Progressive Democrats'],\n                    dtype=object)                                                   ],\n             dtype=object)}                                                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 41,
+  "prompt": "Which political party is currently in power in ireland?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.902297973632812,
+          "prob": 3.0757628638883845e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.075762862942353e-10,
+      "prompt": "You're given the following task:\nWhich political party is currently in power in ireland?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5725c071271a42140099d12a",
+  "title": "Amazon_rainforest",
+  "context": "During the mid-Eocene, it is believed that the drainage basin of the Amazon was split along the middle of the continent by the Purus Arch. Water on the eastern side flowed toward the Atlantic, while to the west water flowed toward the Pacific across the Amazonas Basin. As the Andes Mountains rose, however, a large basin was created that enclosed a lake; now known as the Solimões Basin. Within the last 5–10 million years, this accumulating water broke through the Purus Arch, joining the easterly flow toward the Atlantic.",
+  "question": "How long ago was it when the water broke through the Purus Arch?",
+  "answers": "{'text': array(['Within the last 5–10 million years',\n       'Within the last 5–10 million years', 'last 5–10 million years'],\n      dtype=object), 'answer_start': array([389, 389, 400], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1749,
+  "prompt": "Context: During the mid-Eocene, it is believed that the drainage basin of the Amazon was split along the middle of the continent by the Purus Arch. Water on the eastern side flowed toward the Atlantic, while to the west water flowed toward the Pacific across the Amazonas Basin. As the Andes Mountains rose, however, a large basin was created that enclosed a lake; now known as the Solimões Basin. Within the last 5–10 million years, this accumulating water broke through the Purus Arch, joining the easterly flow toward the Atlantic.\n\nQuestion: How long ago was it when the water broke through the Purus Arch?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that the water broke through the Purus Arch within",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.23428726196289,
+          "prob": 2.0123817019833687e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0123817019829638e-13,
+      "prompt": "You're given the following task:\nContext: During the mid-Eocene, it is believed that the drainage basin of the Amazon was split along the middle of the continent by the Purus Arch. Water on the eastern side flowed toward the Atlantic, while to the west water flowed toward the Pacific across the Amazonas Basin. As the Andes Mountains rose, however, a large basin was created that enclosed a lake; now known as the Solimões Basin. Within the last 5–10 million years, this accumulating water broke through the Purus Arch, joining the easterly flow toward the Atlantic.\n\nQuestion: How long ago was it when the water broke through the Purus Arch?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

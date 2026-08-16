@@ -1,0 +1,32 @@
+{
+  "id": "5ad3cb62604f3c001a3ff112",
+  "title": "Steam_engine",
+  "context": "The acme of the horizontal engine was the Corliss steam engine, patented in 1849, which was a four-valve counter flow engine with separate steam admission and exhaust valves and automatic variable steam cutoff. When Corliss was given the Rumford medal the committee said that \"no one invention since Watt's time has so enhanced the efficiency of the steam engine\". In addition to using 30% less steam, it provided more uniform speed due to variable steam cut off, making it well suited to manufacturing, especially cotton spinning.",
+  "question": "In what year was the Rumford engine patented?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1105,
+  "prompt": "Context: The acme of the horizontal engine was the Corliss steam engine, patented in 1849, which was a four-valve counter flow engine with separate steam admission and exhaust valves and automatic variable steam cutoff. When Corliss was given the Rumford medal the committee said that \"no one invention since Watt's time has so enhanced the efficiency of the steam engine\". In addition to using 30% less steam, it provided more uniform speed due to variable steam cut off, making it well suited to manufacturing, especially cotton spinning.\n\nQuestion: In what year was the Rumford engine patented?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text actually discusses the *Corliss* steam engine, not",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.053141314536333084,
+          "prob": 0.9482460020695994,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -2.9612529277801514,
+          "prob": 0.05175403246827527,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.05175403068080104,
+      "prompt": "You're given the following task:\nContext: The acme of the horizontal engine was the Corliss steam engine, patented in 1849, which was a four-valve counter flow engine with separate steam admission and exhaust valves and automatic variable steam cutoff. When Corliss was given the Rumford medal the committee said that \"no one invention since Watt's time has so enhanced the efficiency of the steam engine\". In addition to using 30% less steam, it provided more uniform speed due to variable steam cut off, making it well suited to manufacturing, especially cotton spinning.\n\nQuestion: In what year was the Rumford engine patented?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

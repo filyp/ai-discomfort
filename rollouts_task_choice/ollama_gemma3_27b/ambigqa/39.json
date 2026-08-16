@@ -1,0 +1,31 @@
+{
+  "id": 5551188595738157887,
+  "question": "When does the last episode of stuck in the middle air?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When does episode 38 of stuck in the middle air?',\n              'When does episode 37 of stuck in the middle air?',\n              'When does episode 36 of stuck in the middle air?'], dtype=object), 'answer': array([array(['December 8, 2017'], dtype=object),\n              array(['October 27, 2017'], dtype=object),\n              array(['October 20, 2017'], dtype=object)], dtype=object)}                                                                     ,\n       {'question': array(['When does episode 38 of stuck in the middle air?',\n              'When does episode 37 of stuck in the middle air?',\n              'When does episode 36 of stuck in the middle air?'], dtype=object), 'answer': array([array(['December 8, 2017'], dtype=object),\n              array(['October 27, 2017'], dtype=object),\n              array(['October 20, 2017'], dtype=object)], dtype=object)}                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 39,
+  "prompt": "When does the last episode of stuck in the middle air?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely tell you when the last episode of *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.996719360351562,
+          "prob": 4.153541665229369e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.1535414927102926e-08,
+      "prompt": "You're given the following task:\nWhen does the last episode of stuck in the middle air?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

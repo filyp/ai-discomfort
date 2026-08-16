@@ -1,0 +1,31 @@
+{
+  "id": -3838130070903898367,
+  "question": "Who has made the most money on jeopardy?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who has made the most money over multiple appearances on jeopardy?',\n              'Who has made the most money in a single jeopardy game?'],\n             dtype=object), 'answer': array([array(['Ken Jennings'], dtype=object),\n              array(['James Holzhauer'], dtype=object)], dtype=object)}                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 971,
+  "prompt": "Who has made the most money on jeopardy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.748435974121094,
+          "prob": 1.3197138803855673e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.319713880211403e-10,
+      "prompt": "You're given the following task:\nWho has made the most money on jeopardy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

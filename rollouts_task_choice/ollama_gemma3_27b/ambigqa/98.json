@@ -1,0 +1,31 @@
+{
+  "id": 7986410680084895333,
+  "question": "When did india conduct the nuclear test at pokhran?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did india conduct the nuclear test pokran-1 at pokhran?',\n              'When did india conduct the nuclear test pokran-2 at pokhran?'],\n             dtype=object), 'answer': array([array(['18 May 1974'], dtype=object),\n              array(['11 may 1998', '13 may 1998', '11 and 13 May 1998'], dtype=object)],\n             dtype=object)}                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 98,
+  "prompt": "When did india conduct the nuclear test at pokhran?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.82166290283203,
+          "prob": 9.062889758662771e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.062889750449173e-10,
+      "prompt": "You're given the following task:\nWhen did india conduct the nuclear test at pokhran?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

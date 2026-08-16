@@ -1,0 +1,31 @@
+{
+  "id": -3891499323111275629,
+  "question": "Who played nellie bly in frankie and johnny?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played nellie bly in frankie and johnny in 1966?',\n              'Who played nellie bly in frankie and johnny in 1936?'],\n             dtype=object), 'answer': array([array(['Nancy Kovack'], dtype=object),\n              array(['Lilyan Tashman'], dtype=object)], dtype=object)}             ,\n       {'question': array(['Who played Nellie Bly in Frankie and Johnny (1936 film)?',\n              'Who played Nellie Bly in Frankie and Johnny (1966 film)?'],\n             dtype=object), 'answer': array([array(['Lilyan Tashman'], dtype=object),\n              array(['Nancy Kovack'], dtype=object)], dtype=object)}                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 378,
+  "prompt": "Who played nellie bly in frankie and johnny?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! While the film *Frank",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.0003089189704041928,
+          "prob": 0.9996911287401479,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.082645416259766,
+          "prob": 0.000308852909245611,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0003088529149132493,
+      "prompt": "You're given the following task:\nWho played nellie bly in frankie and johnny?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

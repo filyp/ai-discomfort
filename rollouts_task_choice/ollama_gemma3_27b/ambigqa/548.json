@@ -1,0 +1,31 @@
+{
+  "id": -2824129131202796674,
+  "question": "What year did the christmas story come out?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What year did a christmas story, the film come out?',\n              'What year did a christmas story 2, the film come out?'],\n             dtype=object), 'answer': array([array(['1983'], dtype=object), array(['2012'], dtype=object)],\n             dtype=object)}                                                                                ,\n       {'question': array(['What year did A Christmas Story release?',\n              'What year did A Christmas Story 2 release?'], dtype=object), 'answer': array([array(['1983'], dtype=object), array(['2012'], dtype=object)],\n             dtype=object)}                                                                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 548,
+  "prompt": "What year did the christmas story come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, there are actually *several* movies titled \"The Christmas",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.988887786865234,
+          "prob": 1.1379266336716689e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1379266398353841e-07,
+      "prompt": "You're given the following task:\nWhat year did the christmas story come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

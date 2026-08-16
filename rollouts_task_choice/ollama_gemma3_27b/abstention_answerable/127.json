@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 127,
+  "prompt": "Nijam, is a 2003 Telugu crime film produced & directed by Teja on Chitram Movies banner, the music was composed by R. P. Patnaik, a South Indian music composer with about how many films to his credits, in three south Indian languages (Telugu, Tamil and Kannada)?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help find out how many films R. P",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.552093505859375,
+          "prob": 1.7612118884914543e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7612119982103655e-07,
+      "prompt": "You're given the following task:\nNijam, is a 2003 Telugu crime film produced & directed by Teja on Chitram Movies banner, the music was composed by R. P. Patnaik, a South Indian music composer with about how many films to his credits, in three south Indian languages (Telugu, Tamil and Kannada)?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

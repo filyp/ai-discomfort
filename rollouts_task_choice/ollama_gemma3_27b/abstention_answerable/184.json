@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 184,
+  "prompt": "Who is an American actress, singer, and an artists that  uses their voices or bodies, often in relation to other objects, to convey artistic expression? ",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Based on the description – American actress, singer, and",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.42115020751953,
+          "prob": 1.8307042381597895e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.8307042378246417e-10,
+      "prompt": "You're given the following task:\nWho is an American actress, singer, and an artists that  uses their voices or bodies, often in relation to other objects, to convey artistic expression? \nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -1577497604183734452,
+  "question": "Who signed the treaty of versailles from germany?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the colonial minister that signed the treaty of versailles from germany?',\n              'Who is the foreign minister that signed the treaty of versailles from germany?'],\n             dtype=object), 'answer': array([array(['Johannes Bell', 'Bell'], dtype=object),\n              array(['Müller', 'Hermann Müller'], dtype=object)], dtype=object)}                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 40,
+  "prompt": "Who signed the treaty of versailles from germany?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.043365478515625,
+          "prob": 7.260766860487985e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.260766855216111e-10,
+      "prompt": "You're given the following task:\nWho signed the treaty of versailles from germany?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

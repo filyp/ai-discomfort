@@ -1,0 +1,31 @@
+{
+  "id": 6198864927814487890,
+  "question": "Who does the jack represent in a deck of cards?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who does the jack represent in a modern deck of cards?',\n              'Who does the jack represent in a deck of cards with the English pattern?',\n              'Who does the jack of spades represent in a deck of cards with the Paris pattern?',\n              'Who does the jack of hearts represent in a deck of cards with the Paris pattern?',\n              'Who does the jack of diamonds represent in a deck of cards with the Paris pattern?',\n              'Who does the jack of clubs represent in a deck of cards with the Paris pattern?'],\n             dtype=object), 'answer': array([array(['a man in the traditional or historic aristocratic or courtier dress'],\n                    dtype=object)                                                           ,\n              array(['no one in particular'], dtype=object),\n              array(['Ogier the Dane'], dtype=object),\n              array(['La Hire'], dtype=object), array(['Hector'], dtype=object),\n              array(['Lancelot', 'Lancelot or Judas Maccabeus', 'Judas Maccabeus'],\n                    dtype=object)                                                  ],\n             dtype=object)}                                                                                                ,\n       {'question': array(['Who does the jack of spades represent in a French deck of cards?',\n              'Who does the jack of hearts represent in a French deck of cards?',\n              'Who does the jack of diamonds represent in a French deck of cards?',\n              'Who does the jack of clubs represent in a French deck of cards?'],\n             dtype=object), 'answer': array([array(['Ogier the Dane', 'Holger Danske', 'Ogier de Danemarche',\n                     'Ogier le Danois'], dtype=object)                        ,\n              array(['La Hire', 'Étienne de Vignolles'], dtype=object),\n              array(['Hector'], dtype=object),\n              array(['Lancelot du Lac', 'Judah Maccabee.', 'Launcelot',\n                     'Judas Maccabeus', 'Lancelot or Judas Maccabeus'], dtype=object)],\n             dtype=object)}                                                                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 788,
+  "prompt": "Who does the jack represent in a deck of cards?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely tell you about who the Jack represents in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.011932373046875,
+          "prob": 5.536339065936992e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.536339035285941e-09,
+      "prompt": "You're given the following task:\nWho does the jack represent in a deck of cards?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

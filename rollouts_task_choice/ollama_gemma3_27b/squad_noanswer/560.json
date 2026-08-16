@@ -1,0 +1,32 @@
+{
+  "id": "5a2c0fb8bfd06b001a5ae9bb",
+  "title": "Sky_(United_Kingdom)",
+  "context": "BSkyB's digital service was officially launched on 1 October 1998 under the name Sky Digital, although small-scale tests were carried out before then. At this time the use of the Sky Digital brand made an important distinction between the new service and Sky's analogue services. Key selling points were the improvement in picture and sound quality, increased number of channels and an interactive service branded Open.... now called Sky Active, BSkyB competed with the ONdigital (later ITV Digital) terrestrial offering and cable services. Within 30 days, over 100,000 digiboxes had been sold, which help bolstered BSkyB's decision to give away free digiboxes and minidishes from May 1999.",
+  "question": "Within 30 days how many digiboxes had been discarded?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 560,
+  "prompt": "Context: BSkyB's digital service was officially launched on 1 October 1998 under the name Sky Digital, although small-scale tests were carried out before then. At this time the use of the Sky Digital brand made an important distinction between the new service and Sky's analogue services. Key selling points were the improvement in picture and sound quality, increased number of channels and an interactive service branded Open.... now called Sky Active, BSkyB competed with the ONdigital (later ITV Digital) terrestrial offering and cable services. Within 30 days, over 100,000 digiboxes had been sold, which help bolstered BSkyB's decision to give away free digiboxes and minidishes from May 1999.\n\nQuestion: Within 30 days how many digiboxes had been discarded?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text states how many digiboxes were *sold",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -7.130286693572998,
+          "prob": 0.0008004898592938142,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.0008007512660697103,
+          "prob": 0.9991995692496685,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9991995101880224,
+      "prompt": "You're given the following task:\nContext: BSkyB's digital service was officially launched on 1 October 1998 under the name Sky Digital, although small-scale tests were carried out before then. At this time the use of the Sky Digital brand made an important distinction between the new service and Sky's analogue services. Key selling points were the improvement in picture and sound quality, increased number of channels and an interactive service branded Open.... now called Sky Active, BSkyB competed with the ONdigital (later ITV Digital) terrestrial offering and cable services. Within 30 days, over 100,000 digiboxes had been sold, which help bolstered BSkyB's decision to give away free digiboxes and minidishes from May 1999.\n\nQuestion: Within 30 days how many digiboxes had been discarded?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

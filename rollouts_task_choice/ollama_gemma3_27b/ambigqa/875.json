@@ -1,0 +1,31 @@
+{
+  "id": -3072146511895791249,
+  "question": "When did the draft began for the vietnam war?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the draft began for the vietnam war in United States?',\n              'When did the draft began for the vietnam war in France?',\n              'When did the draft began for the vietnam war in China?'],\n             dtype=object), 'answer': array([array(['December 1, 1969'], dtype=object),\n              array(['1954'], dtype=object),\n              array(['summer of 1962'], dtype=object)], dtype=object)}                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 875,
+  "prompt": "When did the draft began for the vietnam war?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.9776611328125,
+          "prob": 2.852482869002886e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.85248286818922e-10,
+      "prompt": "You're given the following task:\nWhen did the draft began for the vietnam war?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

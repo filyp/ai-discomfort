@@ -1,0 +1,31 @@
+{
+  "id": -1374031437615432306,
+  "question": "Which mountains would you cross to travel from northern italy to switzerland?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['High Alps', 'Swiss Alps', 'The Alps', 'Pennine Alps'],\n             dtype=object)                                           ,\n       array(['Swiss Alps', 'The Alps', 'Pennine Alps'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 689,
+  "prompt": "Which mountains would you cross to travel from northern italy to switzerland?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! To best answer which mountains you'd cross traveling from",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.20681381225586,
+          "prob": 1.5283783994008927e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5283783993985568e-12,
+      "prompt": "You're given the following task:\nWhich mountains would you cross to travel from northern italy to switzerland?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

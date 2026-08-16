@@ -1,0 +1,31 @@
+{
+  "id": 1669382249251092390,
+  "question": "Who wrote the book of 1 and 2 thessalonians?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is traditionally said to have written 2 Thessalonians?',\n              'Who do many modern scholars argue wrote 2 Thessalonians?',\n              'Who do most scholars say wrote 1 Thessalonians?'], dtype=object), 'answer': array([array(['Paul the Apostle, with Timothy'], dtype=object),\n              array(['not written by Paul but by an associate or disciple'],\n                    dtype=object)                                           ,\n              array(['Paul the Apostle'], dtype=object)], dtype=object)}                                                                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 496,
+  "prompt": "Who wrote the book of 1 and 2 thessalonians?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.9071044921875,
+          "prob": 1.5239894440239614e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.523989444000736e-11,
+      "prompt": "You're given the following task:\nWho wrote the book of 1 and 2 thessalonians?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

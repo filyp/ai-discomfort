@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 417,
+  "prompt": "who will become next Indian prime minister after Modi?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about potential candidates to become the next",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.016766127198934555,
+          "prob": 0.9833736420916341,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.096790790557861,
+          "prob": 0.016625946020709124,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.016625952868733893,
+      "prompt": "You're given the following task:\nwho will become next Indian prime minister after Modi?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

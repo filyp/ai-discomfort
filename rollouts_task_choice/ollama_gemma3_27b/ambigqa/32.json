@@ -1,0 +1,31 @@
+{
+  "id": -881464876144297194,
+  "question": "Who played the weasley brothers in harry potter?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played  Bill weasley in Harry Potter and the Prisoner of Azkaban?',\n              'Who played percy weasley in harry potter?',\n              'Who played fred weasley in harry potter?',\n              'Who played ron weasley in harry potter?',\n              'Who played george weasley in harry potter?',\n              'Who played  Bill weasley in harry potter (2001-2011)?'],\n             dtype=object), 'answer': array([array(['Richard Fish'], dtype=object),\n              array(['Chris Rankin'], dtype=object),\n              array(['James Phelps'], dtype=object),\n              array(['Rupert Grint'], dtype=object),\n              array(['Oliver Phelps'], dtype=object),\n              array(['Domhnall Gleeson'], dtype=object)], dtype=object)}                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 32,
+  "prompt": "Who played the weasley brothers in harry potter?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.68352508544922,
+          "prob": 1.4082190831943653e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.4082190829960572e-10,
+      "prompt": "You're given the following task:\nWho played the weasley brothers in harry potter?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

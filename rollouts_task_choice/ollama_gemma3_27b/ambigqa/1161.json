@@ -1,0 +1,31 @@
+{
+  "id": 8316048173907805666,
+  "question": "When do the college championship game come on?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the college football championship air in 2015?',\n              'When did the 2016 college football championship air?',\n              'When did the 2017 football college championship game air?'],\n             dtype=object), 'answer': array([array(['January 12, 2015'], dtype=object),\n              array(['January 11, 2016'], dtype=object),\n              array(['January 9, 2017'], dtype=object)], dtype=object)}                ,\n       {'question': array(['When does the college football championship game come on in 2017?',\n              'When does the college football championship game come on in 2016?',\n              'When does the college football championship game come on in 2015?'],\n             dtype=object), 'answer': array([array(['January 9, 2017'], dtype=object),\n              array(['January 11, 2016'], dtype=object),\n              array(['January 12, 2015'], dtype=object)], dtype=object)}                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1161,
+  "prompt": "When do the college championship game come on?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! To give you the most accurate information about when the college",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.06771469116211,
+          "prob": 5.235964907066692e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.235964879651363e-09,
+      "prompt": "You're given the following task:\nWhen do the college championship game come on?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

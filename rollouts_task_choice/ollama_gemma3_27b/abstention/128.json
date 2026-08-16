@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 128,
+  "prompt": "Is it importable for the retail industry to donate to disaster relief efforts?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's discuss whether it's important for the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.274887084960938,
+          "prob": 3.881159817362749e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.881160280018018e-12,
+      "prompt": "You're given the following task:\nIs it importable for the retail industry to donate to disaster relief efforts?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

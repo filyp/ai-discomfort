@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 354,
+  "prompt": "Why is it impossible to create a relaxing bedroom oasis.",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nWhile I *could* argue why creating a truly \"impossible\"",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -1.2697685956954956,
+          "prob": 0.2808966149440594,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.3297509551048279,
+          "prob": 0.7191028000146391,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.7191032207197233,
+      "prompt": "You're given the following task:\nWhy is it impossible to create a relaxing bedroom oasis.\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

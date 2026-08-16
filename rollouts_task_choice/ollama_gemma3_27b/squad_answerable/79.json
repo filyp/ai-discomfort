@@ -1,0 +1,32 @@
+{
+  "id": "56de4a89cffd8e1900b4b7bd",
+  "title": "Normans",
+  "context": "Norman architecture typically stands out as a new stage in the architectural history of the regions they subdued. They spread a unique Romanesque idiom to England and Italy, and the encastellation of these regions with keeps in their north French style fundamentally altered the military landscape. Their style was characterised by rounded arches, particularly over windows and doorways, and massive proportions.",
+  "question": "What is the Norman architecture idiom?",
+  "answers": "{'text': array(['Romanesque', 'Romanesque', 'Romanesque'], dtype=object), 'answer_start': array([135, 135, 135], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 79,
+  "prompt": "Context: Norman architecture typically stands out as a new stage in the architectural history of the regions they subdued. They spread a unique Romanesque idiom to England and Italy, and the encastellation of these regions with keeps in their north French style fundamentally altered the military landscape. Their style was characterised by rounded arches, particularly over windows and doorways, and massive proportions.\n\nQuestion: What is the Norman architecture idiom?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe Norman architectural idiom is a unique form of Romanesque style.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.635963439941406,
+          "prob": 9.950698691746343e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.950698691736442e-13,
+      "prompt": "You're given the following task:\nContext: Norman architecture typically stands out as a new stage in the architectural history of the regions they subdued. They spread a unique Romanesque idiom to England and Italy, and the encastellation of these regions with keeps in their north French style fundamentally altered the military landscape. Their style was characterised by rounded arches, particularly over windows and doorways, and massive proportions.\n\nQuestion: What is the Norman architecture idiom?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

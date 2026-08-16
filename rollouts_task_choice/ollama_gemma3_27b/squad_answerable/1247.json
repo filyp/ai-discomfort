@@ -1,0 +1,32 @@
+{
+  "id": "571c9348dd7acb1400e4c114",
+  "title": "Oxygen",
+  "context": "In 1891 Scottish chemist James Dewar was able to produce enough liquid oxygen to study. The first commercially viable process for producing liquid oxygen was independently developed in 1895 by German engineer Carl von Linde and British engineer William Hampson. Both men lowered the temperature of air until it liquefied and then distilled the component gases by boiling them off one at a time and capturing them. Later, in 1901, oxyacetylene welding was demonstrated for the first time by burning a mixture of acetylene and compressed O\n2. This method of welding and cutting metal later became common.",
+  "question": "What chemist managed to make enough liquid oxygen to use for study?",
+  "answers": "{'text': array(['James Dewar', 'James Dewar', 'James Dewar', 'Dewar',\n       'James Dewar'], dtype=object), 'answer_start': array([25, 25, 25, 31, 25], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1247,
+  "prompt": "Context: In 1891 Scottish chemist James Dewar was able to produce enough liquid oxygen to study. The first commercially viable process for producing liquid oxygen was independently developed in 1895 by German engineer Carl von Linde and British engineer William Hampson. Both men lowered the temperature of air until it liquefied and then distilled the component gases by boiling them off one at a time and capturing them. Later, in 1901, oxyacetylene welding was demonstrated for the first time by burning a mixture of acetylene and compressed O\n2. This method of welding and cutting metal later became common.\n\nQuestion: What chemist managed to make enough liquid oxygen to use for study?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nJames Dewar was the chemist who managed to make enough liquid oxygen to",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.570213317871094,
+          "prob": 3.909435112491311e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.9094351124897824e-13,
+      "prompt": "You're given the following task:\nContext: In 1891 Scottish chemist James Dewar was able to produce enough liquid oxygen to study. The first commercially viable process for producing liquid oxygen was independently developed in 1895 by German engineer Carl von Linde and British engineer William Hampson. Both men lowered the temperature of air until it liquefied and then distilled the component gases by boiling them off one at a time and capturing them. Later, in 1901, oxyacetylene welding was demonstrated for the first time by burning a mixture of acetylene and compressed O\n2. This method of welding and cutting metal later became common.\n\nQuestion: What chemist managed to make enough liquid oxygen to use for study?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

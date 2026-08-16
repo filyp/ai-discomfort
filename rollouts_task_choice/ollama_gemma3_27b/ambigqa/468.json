@@ -1,0 +1,31 @@
+{
+  "id": -8377155967940203923,
+  "question": "Who determines the size of the supreme court?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who determines the size of the US Supreme Court?',\n              'What determines the size of the Supreme Court of the United Kingdom?',\n              'Who determines the size of the Supreme Court of Israel?'],\n             dtype=object), 'answer': array([array(['Congress'], dtype=object),\n              array(['section 23(6) of the Constitutional Reform Act'], dtype=object),\n              array(['Knesset'], dtype=object)], dtype=object)}                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 468,
+  "prompt": "Who determines the size of the supreme court?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.390277862548828,
+          "prob": 6.945945863530068e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.945945863047606e-11,
+      "prompt": "You're given the following task:\nWho determines the size of the supreme court?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

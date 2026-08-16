@@ -1,0 +1,32 @@
+{
+  "id": "571ccd9b5efbb31900334dfc",
+  "title": "Oxygen",
+  "context": "The other major method of producing O\n2 gas involves passing a stream of clean, dry air through one bed of a pair of identical zeolite molecular sieves, which absorbs the nitrogen and delivers a gas stream that is 90% to 93% O\n2. Simultaneously, nitrogen gas is released from the other nitrogen-saturated zeolite bed, by reducing the chamber operating pressure and diverting part of the oxygen gas from the producer bed through it, in the reverse direction of flow. After a set cycle time the operation of the two beds is interchanged, thereby allowing for a continuous supply of gaseous oxygen to be pumped through a pipeline. This is known as pressure swing adsorption. Oxygen gas is increasingly obtained by these non-cryogenic technologies (see also the related vacuum swing adsorption).",
+  "question": "How much is the sieve method of gas production used?",
+  "answers": "{'text': array(['major method', 'increasingly', 'major method', 'increasingly'],\n      dtype=object), 'answer_start': array([ 10, 686,  10, 686], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1320,
+  "prompt": "Context: The other major method of producing O\n2 gas involves passing a stream of clean, dry air through one bed of a pair of identical zeolite molecular sieves, which absorbs the nitrogen and delivers a gas stream that is 90% to 93% O\n2. Simultaneously, nitrogen gas is released from the other nitrogen-saturated zeolite bed, by reducing the chamber operating pressure and diverting part of the oxygen gas from the producer bed through it, in the reverse direction of flow. After a set cycle time the operation of the two beds is interchanged, thereby allowing for a continuous supply of gaseous oxygen to be pumped through a pipeline. This is known as pressure swing adsorption. Oxygen gas is increasingly obtained by these non-cryogenic technologies (see also the related vacuum swing adsorption).\n\nQuestion: How much is the sieve method of gas production used?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that oxygen gas is \"increasingly obtained\" by",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.355056762695312,
+          "prob": 5.316388222486349e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.316388219659952e-10,
+      "prompt": "You're given the following task:\nContext: The other major method of producing O\n2 gas involves passing a stream of clean, dry air through one bed of a pair of identical zeolite molecular sieves, which absorbs the nitrogen and delivers a gas stream that is 90% to 93% O\n2. Simultaneously, nitrogen gas is released from the other nitrogen-saturated zeolite bed, by reducing the chamber operating pressure and diverting part of the oxygen gas from the producer bed through it, in the reverse direction of flow. After a set cycle time the operation of the two beds is interchanged, thereby allowing for a continuous supply of gaseous oxygen to be pumped through a pipeline. This is known as pressure swing adsorption. Oxygen gas is increasingly obtained by these non-cryogenic technologies (see also the related vacuum swing adsorption).\n\nQuestion: How much is the sieve method of gas production used?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

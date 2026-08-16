@@ -1,0 +1,31 @@
+{
+  "id": 2900239413928677063,
+  "question": "What has the hottest temperature been on earth?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What has the hottest uncontested air temperature been on earth?',\n              'What has the hottest alleged ground temperature been on earth?',\n              'What has the hottest recorded satelllite temperature been on earth?',\n              'What has the hottest air temperature been on earth according to the WMO?'],\n             dtype=object), 'answer': array([array(['54.0 °C (129.2 °F)', '129.2 °F', '54.0 °C'], dtype=object),\n              array(['201 °F', '93.9 °C', '93.9 °C (201 °F)'], dtype=object),\n              array(['66.8 °C', '152.2 °F', '66.8 °C (152.2 °F)'], dtype=object),\n              array(['56.7 °C (134.1 °F)', '56.7 °C', '134.1 °F'], dtype=object)],\n             dtype=object)}                                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 876,
+  "prompt": "What has the hottest temperature been on earth?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.977432250976562,
+          "prob": 5.730676496474731e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.730676463634078e-09,
+      "prompt": "You're given the following task:\nWhat has the hottest temperature been on earth?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

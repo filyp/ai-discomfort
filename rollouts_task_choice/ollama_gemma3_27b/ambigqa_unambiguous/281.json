@@ -1,0 +1,31 @@
+{
+  "id": 687669261928806097,
+  "question": "Who starred in the 1988 christmas movie scrooged?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Bill Murray'], dtype=object),\n       array(['John Forsythe', 'Michael J. Pollard', 'Karen Allen', 'Carol Kane',\n              'Alfre Woodard', 'Bobcat Goldthwait', 'Robert Mitchum',\n              'Bill Murray'], dtype=object)                                      ],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 281,
+  "prompt": "Who starred in the 1988 christmas movie scrooged?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.045074462890625,
+          "prob": 7.248368920333377e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.248368915079492e-10,
+      "prompt": "You're given the following task:\nWho starred in the 1988 christmas movie scrooged?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

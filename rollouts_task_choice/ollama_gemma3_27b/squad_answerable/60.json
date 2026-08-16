@@ -1,0 +1,32 @@
+{
+  "id": "56de3e414396321400ee26d8",
+  "title": "Normans",
+  "context": "The legendary religious zeal of the Normans was exercised in religious wars long before the First Crusade carved out a Norman principality in Antioch. They were major foreign participants in the Reconquista in Iberia. In 1018, Roger de Tosny travelled to the Iberian Peninsula to carve out a state for himself from Moorish lands, but failed. In 1064, during the War of Barbastro, William of Montreuil led the papal army and took a huge booty.",
+  "question": "What year did Roger de Tosny fail to accomplish what he set out to do?",
+  "answers": "{'text': array(['1018', '1064', '1018'], dtype=object), 'answer_start': array([221, 345, 221], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 60,
+  "prompt": "Context: The legendary religious zeal of the Normans was exercised in religious wars long before the First Crusade carved out a Norman principality in Antioch. They were major foreign participants in the Reconquista in Iberia. In 1018, Roger de Tosny travelled to the Iberian Peninsula to carve out a state for himself from Moorish lands, but failed. In 1064, during the War of Barbastro, William of Montreuil led the papal army and took a huge booty.\n\nQuestion: What year did Roger de Tosny fail to accomplish what he set out to do?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe year Roger de Tosny failed to carve out a state for",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.428306579589844,
+          "prob": 4.505503409041887e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.5055034090398567e-13,
+      "prompt": "You're given the following task:\nContext: The legendary religious zeal of the Normans was exercised in religious wars long before the First Crusade carved out a Norman principality in Antioch. They were major foreign participants in the Reconquista in Iberia. In 1018, Roger de Tosny travelled to the Iberian Peninsula to carve out a state for himself from Moorish lands, but failed. In 1064, during the War of Barbastro, William of Montreuil led the papal army and took a huge booty.\n\nQuestion: What year did Roger de Tosny fail to accomplish what he set out to do?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

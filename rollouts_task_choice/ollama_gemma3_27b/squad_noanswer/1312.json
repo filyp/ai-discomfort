@@ -1,0 +1,32 @@
+{
+  "id": "5ad26530d7d075001a4291a3",
+  "title": "Oxygen",
+  "context": "Oxygen gas (O\n2) can be toxic at elevated partial pressures, leading to convulsions and other health problems.[j] Oxygen toxicity usually begins to occur at partial pressures more than 50 kilopascals (kPa), equal to about 50% oxygen composition at standard pressure or 2.5 times the normal sea-level O\n2 partial pressure of about 21 kPa. This is not a problem except for patients on mechanical ventilators, since gas supplied through oxygen masks in medical applications is typically composed of only 30%–50% O\n2 by volume (about 30 kPa at standard pressure). (although this figure also is subject to wide variation, depending on type of mask).",
+  "question": "What is composed of 21%-50% O2 by volume?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1312,
+  "prompt": "Context: Oxygen gas (O\n2) can be toxic at elevated partial pressures, leading to convulsions and other health problems.[j] Oxygen toxicity usually begins to occur at partial pressures more than 50 kilopascals (kPa), equal to about 50% oxygen composition at standard pressure or 2.5 times the normal sea-level O\n2 partial pressure of about 21 kPa. This is not a problem except for patients on mechanical ventilators, since gas supplied through oxygen masks in medical applications is typically composed of only 30%–50% O\n2 by volume (about 30 kPa at standard pressure). (although this figure also is subject to wide variation, depending on type of mask).\n\nQuestion: What is composed of 21%-50% O2 by volume?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBased on the provided text, **gas supplied through oxygen masks in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.817138671875,
+          "prob": 8.301759971203775e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.301759971196883e-13,
+      "prompt": "You're given the following task:\nContext: Oxygen gas (O\n2) can be toxic at elevated partial pressures, leading to convulsions and other health problems.[j] Oxygen toxicity usually begins to occur at partial pressures more than 50 kilopascals (kPa), equal to about 50% oxygen composition at standard pressure or 2.5 times the normal sea-level O\n2 partial pressure of about 21 kPa. This is not a problem except for patients on mechanical ventilators, since gas supplied through oxygen masks in medical applications is typically composed of only 30%–50% O\n2 by volume (about 30 kPa at standard pressure). (although this figure also is subject to wide variation, depending on type of mask).\n\nQuestion: What is composed of 21%-50% O2 by volume?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5a638b3668151a001a92235a",
+  "title": "Victoria_(Australia)",
+  "context": "As of August 2010, Victoria had 1,548 public schools, 489 Catholic schools and 214 independent schools. Just under 540,800 students were enrolled in public schools, and just over 311,800 in private schools. Over 61 per cent of private students attend Catholic schools. More than 462,000 students were enrolled in primary schools and more than 390,000 in secondary schools. Retention rates for the final two years of secondary school were 77 per cent for public school students and 90 per cent for private school students. Victoria has about 63,519 full-time teachers.",
+  "question": "By August 2010 how many trade schools did Victoria have?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 664,
+  "prompt": "Context: As of August 2010, Victoria had 1,548 public schools, 489 Catholic schools and 214 independent schools. Just under 540,800 students were enrolled in public schools, and just over 311,800 in private schools. Over 61 per cent of private students attend Catholic schools. More than 462,000 students were enrolled in primary schools and more than 390,000 in secondary schools. Retention rates for the final two years of secondary school were 77 per cent for public school students and 90 per cent for private school students. Victoria has about 63,519 full-time teachers.\n\nQuestion: By August 2010 how many trade schools did Victoria have?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text does *not* contain information about the number of",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -10.281871795654297,
+          "prob": 3.4248362806990886e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -3.421365181566216e-05,
+          "prob": 0.9999657869334646,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999657516384017,
+      "prompt": "You're given the following task:\nContext: As of August 2010, Victoria had 1,548 public schools, 489 Catholic schools and 214 independent schools. Just under 540,800 students were enrolled in public schools, and just over 311,800 in private schools. Over 61 per cent of private students attend Catholic schools. More than 462,000 students were enrolled in primary schools and more than 390,000 in secondary schools. Retention rates for the final two years of secondary school were 77 per cent for public school students and 90 per cent for private school students. Victoria has about 63,519 full-time teachers.\n\nQuestion: By August 2010 how many trade schools did Victoria have?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

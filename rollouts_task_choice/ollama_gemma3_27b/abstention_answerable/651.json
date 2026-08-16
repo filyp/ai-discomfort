@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 651,
+  "prompt": "\"Oranges Are Not The Only Fruit\"  was written by an award winning writer who also wrote a novel about human relationships and physics in what year?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.844066619873047,
+          "prob": 3.575228288696607e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.575228289072123e-07,
+      "prompt": "You're given the following task:\n\"Oranges Are Not The Only Fruit\"  was written by an award winning writer who also wrote a novel about human relationships and physics in what year?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

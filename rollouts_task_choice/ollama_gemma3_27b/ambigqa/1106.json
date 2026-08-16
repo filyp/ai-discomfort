@@ -1,0 +1,31 @@
+{
+  "id": 267504983206791369,
+  "question": "How many players on the field for football?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"How many players can play on the field for women's Australian rules football?\",\n              \"How many players can play on the field for men's Australian rules football?\",\n              'How many players can play on the field for Canadian football?',\n              'How many players can play on the field for rugby league football?',\n              'How many players can play on the field for rugby union football?',\n              'How many players can play on the field for Gaelic football?',\n              'How many players can play on the field for American football?',\n              'How many players can play on the field for association football?',\n              'How many players in one team can play on the field for American football?|How many players in one team can play on the field for Association football?'],\n             dtype=object), 'answer': array([array(['16'], dtype=object), array(['18'], dtype=object),\n              array(['24'], dtype=object), array(['26'], dtype=object),\n              array(['30'], dtype=object), array(['30'], dtype=object),\n              array(['22'], dtype=object), array(['22'], dtype=object),\n              array(['11', 'two teams of eleven players'], dtype=object)],\n             dtype=object)}                                                                                                                                             ,\n       {'question': array(['How many players per team on the field for American football?',\n              'How many players per team on the field for Canadian football?',\n              \"How many players on the field for men's Australian football?\",\n              'How many players on the field for Canadian football?',\n              'How many players on the field for rugby league football?',\n              'How many players on the field for rugby union football?|How many players on the field for Gaelic football?',\n              'How many players on the field for American football?|How many players on the field for association football?'],\n             dtype=object), 'answer': array([array(['11'], dtype=object), array(['12'], dtype=object),\n              array(['18'], dtype=object), array(['24'], dtype=object),\n              array(['26'], dtype=object),\n              array(['two teams of 15', '30'], dtype=object),\n              array(['two teams of eleven players', '22'], dtype=object)],\n             dtype=object)}                                                                                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1106,
+  "prompt": "How many players on the field for football?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out how many players are on the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.974014282226562,
+          "prob": 5.750297282170554e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.7502972491046355e-09,
+      "prompt": "You're given the following task:\nHow many players on the field for football?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

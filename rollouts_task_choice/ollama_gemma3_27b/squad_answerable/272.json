@@ -1,0 +1,32 @@
+{
+  "id": "56e1febfe3433e1400423238",
+  "title": "Computational_complexity_theory",
+  "context": "What intractability means in practice is open to debate. Saying that a problem is not in P does not imply that all large cases of the problem are hard or even that most of them are. For example, the decision problem in Presburger arithmetic has been shown not to be in P, yet algorithms have been written that solve the problem in reasonable times in most cases. Similarly, algorithms can solve the NP-complete knapsack problem over a wide range of sizes in less than quadratic time and SAT solvers routinely handle large instances of the NP-complete Boolean satisfiability problem.",
+  "question": "What is an example of a problem to which effective algorithms have provided a solution in spite of the intractability associated with the breadth of sizes?",
+  "answers": "{'text': array(['NP-complete knapsack problem', 'NP-complete knapsack',\n       'the NP-complete knapsack problem'], dtype=object), 'answer_start': array([399, 399, 395], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 272,
+  "prompt": "Context: What intractability means in practice is open to debate. Saying that a problem is not in P does not imply that all large cases of the problem are hard or even that most of them are. For example, the decision problem in Presburger arithmetic has been shown not to be in P, yet algorithms have been written that solve the problem in reasonable times in most cases. Similarly, algorithms can solve the NP-complete knapsack problem over a wide range of sizes in less than quadratic time and SAT solvers routinely handle large instances of the NP-complete Boolean satisfiability problem.\n\nQuestion: What is an example of a problem to which effective algorithms have provided a solution in spite of the intractability associated with the breadth of sizes?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text provides two examples:\n\n1. **The decision problem",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.765750885009766,
+          "prob": 4.351151039616924e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.351151039616735e-14,
+      "prompt": "You're given the following task:\nContext: What intractability means in practice is open to debate. Saying that a problem is not in P does not imply that all large cases of the problem are hard or even that most of them are. For example, the decision problem in Presburger arithmetic has been shown not to be in P, yet algorithms have been written that solve the problem in reasonable times in most cases. Similarly, algorithms can solve the NP-complete knapsack problem over a wide range of sizes in less than quadratic time and SAT solvers routinely handle large instances of the NP-complete Boolean satisfiability problem.\n\nQuestion: What is an example of a problem to which effective algorithms have provided a solution in spite of the intractability associated with the breadth of sizes?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

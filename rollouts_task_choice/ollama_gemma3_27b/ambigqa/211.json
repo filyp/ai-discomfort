@@ -1,0 +1,31 @@
+{
+  "id": -7198392411080809141,
+  "question": "Who sang what a difference a day make?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object), array(['Dinah Washington'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['Who originally sang the Spanish version of what a difference a day make?',\n              'Who sang the version of what a difference a day make that won a Grammy?',\n              'Who sang what a difference a day make on SNL in 1975?'],\n             dtype=object), 'answer': array([array(['Nestor Mesta Chayres', 'Ciudad Lerdo', 'Nestor Chaires'],\n                    dtype=object)                                              ,\n              array(['Ruth Lee Jones', 'Dinah Washington'], dtype=object),\n              array(['Esther Phillips', 'Esther Mae Jones'], dtype=object)],\n             dtype=object)}                                                                                   ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 211,
+  "prompt": "Who sang what a difference a day make?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! \"What a Difference a Day Makes\" has been famously",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.370445251464844,
+          "prob": 1.0515186919738766e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0515186809169612e-08,
+      "prompt": "You're given the following task:\nWho sang what a difference a day make?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

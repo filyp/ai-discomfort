@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 917,
+  "prompt": "What is the ideal parenting method for all?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis question – “What is the ideal parenting method for all?”",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -10.010237693786621,
+          "prob": 4.493751027704509e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.49429135187529e-05,
+          "prob": 0.9999550580963988,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999550624895256,
+      "prompt": "You're given the following task:\nWhat is the ideal parenting method for all?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

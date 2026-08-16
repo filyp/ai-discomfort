@@ -1,0 +1,31 @@
+{
+  "id": 3257374324240537058,
+  "question": "Who scored maximum goals in a single world cup match?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who scored the most goals in one woman's World Cup game?|What player scored maximum goals in a single Women's world cup match?\",\n              \"Who scored the most goals in one men's World Cup game?|What player scored maximum goals in a single Men's world cup match?\",\n              \"Which country has the most goals in a single men's World Cup match?|What team scored maximum goals in a single Men's world cup match?\",\n              \"Which country has the most goals in a single woman's World Cup match?\",\n              \"What teams scored maximum goals combined in a single Men's world cup match?\"],\n             dtype=object), 'answer': array([array(['Alex Morgan', 'Michelle Akers and Alex Morgan'], dtype=object),\n              array(['Oleg Anatolyevich Salenko', 'Oleg Salenko'], dtype=object),\n              array(['Hungary'], dtype=object),\n              array(['United States'], dtype=object),\n              array(['Austria v Switzerland'], dtype=object)], dtype=object)}                                                                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1114,
+  "prompt": "Who scored maximum goals in a single world cup match?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.818527221679688,
+          "prob": 2.4712858822273694e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.4712858761201154e-09,
+      "prompt": "You're given the following task:\nWho scored maximum goals in a single world cup match?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

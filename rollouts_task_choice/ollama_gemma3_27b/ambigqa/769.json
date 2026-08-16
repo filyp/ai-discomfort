@@ -1,0 +1,31 @@
+{
+  "id": -3452385012217882108,
+  "question": "When did the who play at the super bowl?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When during the super bowl did The Who perform?',\n              'On what date did the Who play at the super bowl?',\n              'At which super bowl did Thw Who perform?'], dtype=object), 'answer': array([array(['halftime'], dtype=object),\n              array(['February 7, 2010'], dtype=object),\n              array(['Super Bowl XLIV'], dtype=object)], dtype=object)}                                                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 769,
+  "prompt": "When did the who play at the super bowl?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.813011169433594,
+          "prob": 3.688000648462493e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.6880006072594003e-07,
+      "prompt": "You're given the following task:\nWhen did the who play at the super bowl?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

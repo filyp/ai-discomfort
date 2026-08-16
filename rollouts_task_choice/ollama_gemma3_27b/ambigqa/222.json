@@ -1,0 +1,31 @@
+{
+  "id": -5485901134801622830,
+  "question": "Where did italy win the world cup in 2006?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where is the stadium did italy win the world cup in 2006?',\n              'Where is the location did italy win the world cup in 2006?'],\n             dtype=object), 'answer': array([array(['Olympiastadion', 'Olympiastadion Berlin'], dtype=object),\n              array(['Berlin, Germany', 'Berlin'], dtype=object)], dtype=object)}                             ,\n       {'question': array(['In what location was the 2006 FIFA World Cup Final?',\n              'In what stadium was the 2006 FIFA World Cup Final?'], dtype=object), 'answer': array([array(['Berlin, Germany'], dtype=object),\n              array(['Olympiastadion'], dtype=object)], dtype=object)}                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 222,
+  "prompt": "Where did italy win the world cup in 2006?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.272083282470703,
+          "prob": 2.124991170841761e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.1249911703902022e-10,
+      "prompt": "You're given the following task:\nWhere did italy win the world cup in 2006?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

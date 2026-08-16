@@ -1,0 +1,69 @@
+{
+  "id": -1703843779501228505,
+  "question": "Who is the administrator of the small business administration?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the administrator of the small business administration from 2017 to 2019?',\n              'Who is the administrator of the small business administration from January 2017 to February 2017?',\n              'Who is the administrator of the small business administration from 2014 to 2017?'],\n             dtype=object), 'answer': array([array(['Linda McMahon', 'Linda Marie McMahon'], dtype=object),\n              array(['Joseph Loddo'], dtype=object),\n              array(['Maria Contreras-Sweet'], dtype=object)], dtype=object)}                                     ,\n       {'question': array(['Who is the administrator of the small business administration, starting on Feburary 14, 2017?',\n              'Who is the administrator of the small business administration, starting on January 20, 2017?',\n              'Who is the administrator of the small business administration, starting on April 7, 2014?'],\n             dtype=object), 'answer': array([array(['Loddo', 'Joseph Loddo'], dtype=object),\n              array(['Loddo', 'Joseph Loddo'], dtype=object),\n              array(['Maria Contreras-Sweet', 'Contreras-Sweet'], dtype=object)],\n             dtype=object)}                                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 17,
+  "prompt": "Who is the administrator of the small business administration?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.758365631103516,
+          "prob": 7.134200603097157e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.134200552200339e-09,
+      "prompt": "You're given the following task:\nWho is the administrator of the small business administration?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! Currently (as of November",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.26309585571289,
+          "prob": 1.1706801307391315e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.170680117034212e-08,
+      "prompt": "You're given the following task:\nWho is the administrator of the small business administration?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nThe current administrator of the Small Business Administration (SBA) is",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -23.268592834472656,
+          "prob": 7.844739568184786e-11,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.844739567569386e-11,
+      "prompt": "You're given the following task:\nWho is the administrator of the small business administration?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

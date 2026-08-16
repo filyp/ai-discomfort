@@ -1,0 +1,32 @@
+{
+  "id": "57107d73b654c5140001f91f",
+  "title": "Huguenot",
+  "context": "Renewed religious warfare in the 1620s caused the political and military privileges of the Huguenots to be abolished following their defeat. They retained the religious provisions of the Edict of Nantes until the rule of Louis XIV, who progressively increased persecution of them until he issued the Edict of Fontainebleau (1685), which abolished all legal recognition of Protestantism in France, and forced the Huguenots to convert. While nearly three-quarters eventually were killed  or submitted, roughly 500,000 Huguenots had fled France by the early 18th century[citation needed].",
+  "question": "Which French kind issued this declaration?",
+  "answers": "{'text': array(['Louis XIV', 'Louis XIV', 'Louis XIV'], dtype=object), 'answer_start': array([221, 221, 221], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 748,
+  "prompt": "Context: Renewed religious warfare in the 1620s caused the political and military privileges of the Huguenots to be abolished following their defeat. They retained the religious provisions of the Edict of Nantes until the rule of Louis XIV, who progressively increased persecution of them until he issued the Edict of Fontainebleau (1685), which abolished all legal recognition of Protestantism in France, and forced the Huguenots to convert. While nearly three-quarters eventually were killed  or submitted, roughly 500,000 Huguenots had fled France by the early 18th century[citation needed].\n\nQuestion: Which French kind issued this declaration?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that Louis XIV progressively increased persecution of the Huguenots",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.426895141601562,
+          "prob": 6.696204553508398e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.696204553060006e-11,
+      "prompt": "You're given the following task:\nContext: Renewed religious warfare in the 1620s caused the political and military privileges of the Huguenots to be abolished following their defeat. They retained the religious provisions of the Edict of Nantes until the rule of Louis XIV, who progressively increased persecution of them until he issued the Edict of Fontainebleau (1685), which abolished all legal recognition of Protestantism in France, and forced the Huguenots to convert. While nearly three-quarters eventually were killed  or submitted, roughly 500,000 Huguenots had fled France by the early 18th century[citation needed].\n\nQuestion: Which French kind issued this declaration?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

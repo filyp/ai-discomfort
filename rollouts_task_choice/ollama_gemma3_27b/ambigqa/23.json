@@ -1,0 +1,31 @@
+{
+  "id": -7757809414567741478,
+  "question": "Who played tony in only fools and horses?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played tony angelino in only fools and horses?',\n              'Who played tony driscoll in only fools and horses?'], dtype=object), 'answer': array([array(['Philip Pope', 'Philip R. J. Pope'], dtype=object),\n              array(['Christopher Ryan', 'Christopher Papazoglou'], dtype=object)],\n             dtype=object)}                                                                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 23,
+  "prompt": "Who played tony in only fools and horses?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, that's an easy one! While \"Tony\"",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.901966094970703,
+          "prob": 1.6798670426131993e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.679867014393667e-08,
+      "prompt": "You're given the following task:\nWho played tony in only fools and horses?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -2868527606566910012,
+  "question": "Who sings in next to me imagine dragons?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sings lead vocals in \"Next to Me\" by Imagine Dragons?',\n              'Who sings background vocals in \"Next to Me\" by Imagine Dragons?'],\n             dtype=object), 'answer': array([array(['Dan Reynolds'], dtype=object),\n              array(['YEBBA'], dtype=object)], dtype=object)}                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 38,
+  "prompt": "Who sings in next to me imagine dragons?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.151771545410156,
+          "prob": 4.8138360965625476e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.81383607338953e-09,
+      "prompt": "You're given the following task:\nWho sings in next to me imagine dragons?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

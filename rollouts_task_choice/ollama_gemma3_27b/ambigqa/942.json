@@ -1,0 +1,31 @@
+{
+  "id": 7687628139095653063,
+  "question": "Who hit the longest recorded homerun in mlb history?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object), array(['Babe Ruth'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['Who is the player that hit the longest recorded homerun in mlb history?',\n              'Who is the team that hit the longest recorded homerun in mlb history?'],\n             dtype=object), 'answer': array([array(['Babe Ruth', '\"The Sultan of Swat\"', '\"The Bambino\"',\n                     'George Herman \"Babe\" Ruth Jr.'], dtype=object)      ,\n              array(['New York Highlanders', 'Baltimore Orioles', 'New York Yankees'],\n                    dtype=object)                                                     ],\n             dtype=object)}                                                                              ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 942,
+  "prompt": "Who hit the longest recorded homerun in mlb history?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.039527893066406,
+          "prob": 5.385649649351727e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.385649620346505e-09,
+      "prompt": "You're given the following task:\nWho hit the longest recorded homerun in mlb history?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

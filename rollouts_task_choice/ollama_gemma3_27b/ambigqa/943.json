@@ -1,0 +1,31 @@
+{
+  "id": -2073131922098874125,
+  "question": "When is the last time the astros been to the world series?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When is the last time the astros went to the world series as of 2017 as an American League team?',\n              'When is the last time the astros went to the world series as a National League team?',\n              'When is the last edition the astro went to the world series as an American League team?',\n              'When is the last edition the astros went to the world series as a National League team?'],\n             dtype=object), 'answer': array([array(['October 24 – November 1 2017'], dtype=object),\n              array(['October 22–26 2005'], dtype=object),\n              array(['113'], dtype=object), array(['101'], dtype=object)],\n             dtype=object)}                                                                                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 943,
+  "prompt": "When is the last time the astros been to the world series?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely tell you when the Astros last went to",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.413005828857422,
+          "prob": 3.707137472641897e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.707137458899029e-09,
+      "prompt": "You're given the following task:\nWhen is the last time the astros been to the world series?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

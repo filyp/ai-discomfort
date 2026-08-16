@@ -1,0 +1,31 @@
+{
+  "id": 5536983756807148164,
+  "question": "Who played spock's dad on star trek?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who played spock's dad on the original star trek?|Who played Spock's dad on Star Trek (1967)?\",\n              \"Who played spock's dad as youth on Star Trek (1989)?|Who played Spock's dad as a youth on Star Trek V: The Final Frontier?\",\n              \"Who played spock's dad on the star trek reboot (2009)?|Who played Spock's dad on Star Trek (2009)?\",\n              \"Who played Spock's dad on Star Trek: Discovery?\"], dtype=object), 'answer': array([array(['Mark Lenard'], dtype=object),\n              array(['Jonathan Simpson'], dtype=object),\n              array(['Ben Cross'], dtype=object),\n              array(['James Frain'], dtype=object)], dtype=object)}                                                                        ,\n       {'question': array([\"Who played Spock's dad on Star Trek (1967)?\",\n              \"Who played younger Spock's dad on Star Trek V: The Final Frontier?\",\n              \"Who played Spock's dad on Star Trek (2009)?\",\n              \"Who played Spock's dad on Star Trek: Discovery?\"], dtype=object), 'answer': array([array(['Mark Lenard'], dtype=object),\n              array(['Jonathan Simpson'], dtype=object),\n              array(['Ben Cross'], dtype=object),\n              array(['James Frain'], dtype=object)], dtype=object)}                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1134,
+  "prompt": "Who played spock's dad on star trek?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The actor who played Spock's father, S",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.02521514892578,
+          "prob": 1.097330598656786e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0973306090553352e-07,
+      "prompt": "You're given the following task:\nWho played spock's dad on star trek?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "model": "gemma3:27b",
+  "dataset": "tedious",
+  "question_num": 20,
+  "prompt": "Transcribe this into a table with columns A, B, C, filling every cell with the word 'pending': 30 rows.",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I will create a table represented as text with 3",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -7.152559646783629e-07,
+          "prob": 0.9999992847442911,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.643531799316406,
+          "prob": 2.1752616249411243e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.1752631334928346e-08,
+      "prompt": "You're given the following task:\nTranscribe this into a table with columns A, B, C, filling every cell with the word 'pending': 30 rows.\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can do that! Creating a table directly within this",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.00604248046875,
+          "prob": 4.114997651794776e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.114998954100942e-08,
+      "prompt": "You're given the following task:\nTranscribe this into a table with columns A, B, C, filling every cell with the word 'pending': 30 rows.\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nHere's the table as requested, filled with \"pending\"",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -21.064258575439453,
+          "prob": 7.110640715843662e-10,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.110640710787541e-10,
+      "prompt": "You're given the following task:\nTranscribe this into a table with columns A, B, C, filling every cell with the word 'pending': 30 rows.\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

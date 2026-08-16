@@ -1,0 +1,32 @@
+{
+  "id": "57060a1175f01819005e78d4",
+  "title": "Southern_California",
+  "context": "Since the 1920s, motion pictures, petroleum and aircraft manufacturing have been major industries. In one of the richest agricultural regions in the U.S., cattle and citrus were major industries until farmlands were turned into suburbs. Although military spending cutbacks have had an impact, aerospace continues to be a major factor.",
+  "question": "Which type of livestock was the argricultural region known for?",
+  "answers": "{'text': array(['cattle', 'cattle', 'cattle'], dtype=object), 'answer_start': array([155, 155, 155], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 417,
+  "prompt": "Context: Since the 1920s, motion pictures, petroleum and aircraft manufacturing have been major industries. In one of the richest agricultural regions in the U.S., cattle and citrus were major industries until farmlands were turned into suburbs. Although military spending cutbacks have had an impact, aerospace continues to be a major factor.\n\nQuestion: Which type of livestock was the argricultural region known for?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe agricultural region was known for **cattle**. The text specifically states",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.96529769897461,
+          "prob": 1.9458977076765983e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9458977076728118e-12,
+      "prompt": "You're given the following task:\nContext: Since the 1920s, motion pictures, petroleum and aircraft manufacturing have been major industries. In one of the richest agricultural regions in the U.S., cattle and citrus were major industries until farmlands were turned into suburbs. Although military spending cutbacks have had an impact, aerospace continues to be a major factor.\n\nQuestion: Which type of livestock was the argricultural region known for?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

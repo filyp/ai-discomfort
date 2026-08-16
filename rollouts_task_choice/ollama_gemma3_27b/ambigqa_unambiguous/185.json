@@ -1,0 +1,31 @@
+{
+  "id": 6629839398611718631,
+  "question": "What is the control panel on the computer?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['provides the ability to view and change system settings',\n              'give the user control of software and hardware features'],\n             dtype=object)                                               ,\n       array(['omponent of Microsoft Windows that provides the ability to view and change system settings.'],\n             dtype=object)                                                                                   ],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 185,
+  "prompt": "What is the control panel on the computer?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can definitely explain what the Control Panel is on a",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.41754150390625,
+          "prob": 6.759132267557091e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.759132267100233e-11,
+      "prompt": "You're given the following task:\nWhat is the control panel on the computer?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

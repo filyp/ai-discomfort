@@ -1,0 +1,69 @@
+{
+  "id": -1082244901275608711,
+  "question": "What is the tallest ride at six flags over texas?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the tallest roller coaster at six flags over texas 2001?',\n              'What is the tallest wooden roller coaster at six flags over texas in 2011?',\n              'What is the tallest wooden roller coaster at six flags over texas in 1990?',\n              'What is the tallest swing ride at six flags over texas?',\n              'What is the tallest triple drop tower ride at six flags over texas?'],\n             dtype=object), 'answer': array([array(['The Titan'], dtype=object),\n              array(['The New Texas Giant'], dtype=object),\n              array(['The Texas Giant'], dtype=object),\n              array(['Texas SkyScreamer'], dtype=object),\n              array(['Superman: Tower of Power'], dtype=object)], dtype=object)}              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 18,
+  "prompt": "What is the tallest ride at six flags over texas?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To give you the *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.514755249023438,
+          "prob": 4.5316933650626295e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.531693363009005e-10,
+      "prompt": "You're given the following task:\nWhat is the tallest ride at six flags over texas?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can definitely help you figure out the tallest ride at",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.008434295654297,
+          "prob": 1.510206578310939e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5102065555037e-08,
+      "prompt": "You're given the following task:\nWhat is the tallest ride at six flags over texas?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -25.92639923095703,
+          "prob": 5.499305903832916e-12,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.499305903802673e-12,
+      "prompt": "You're given the following task:\nWhat is the tallest ride at six flags over texas?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

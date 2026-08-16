@@ -1,0 +1,31 @@
+{
+  "id": -318547890753647368,
+  "question": "What is the name of the oven used to fire clay objects so that they become ceramics?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Ceramic kilns', 'kilns', 'Ceramic kiln', 'kiln'], dtype=object),\n       array(['kiln'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 196,
+  "prompt": "What is the name of the oven used to fire clay objects so that they become ceramics?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe oven used to fire clay objects and turn them into ceramics is",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.120250701904297,
+          "prob": 4.530219594940106e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.530219594919583e-12,
+      "prompt": "You're given the following task:\nWhat is the name of the oven used to fire clay objects so that they become ceramics?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

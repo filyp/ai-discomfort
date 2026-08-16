@@ -1,0 +1,31 @@
+{
+  "id": -6502702531638979425,
+  "question": "Who is known as the father of toxicology?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is known as the father of toxicology with Traité des poisons, also called Toxicologie générale?',\n              'Who is known as the father of toxicology with Alle Dinge sind Gift und nichts ist ohne Gift allein die Dosis macht, dass ein Ding kein Gift ist?'],\n             dtype=object), 'answer': array([array(['Mathieu Orfila'], dtype=object),\n              array(['Paracelsus', 'Theophrastus von Hohenheim'], dtype=object)],\n             dtype=object)}                                                                                                                                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 240,
+  "prompt": "Who is known as the father of toxicology?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.582000732421875,
+          "prob": 1.1517299363334606e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1517299350069786e-09,
+      "prompt": "You're given the following task:\nWho is known as the father of toxicology?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

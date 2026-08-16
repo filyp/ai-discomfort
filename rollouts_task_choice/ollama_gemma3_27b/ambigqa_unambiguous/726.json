@@ -1,0 +1,31 @@
+{
+  "id": -4500277176198297377,
+  "question": "Who wrote the book the hitchhiker's guide to the galaxy?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Douglas Adams'], dtype=object),\n       array(['Douglas Adams'], dtype=object),\n       array(['Douglas Adams'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 726,
+  "prompt": "Who wrote the book the hitchhiker's guide to the galaxy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.56041717529297,
+          "prob": 5.859233820240681e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.859233819897375e-11,
+      "prompt": "You're given the following task:\nWho wrote the book the hitchhiker's guide to the galaxy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

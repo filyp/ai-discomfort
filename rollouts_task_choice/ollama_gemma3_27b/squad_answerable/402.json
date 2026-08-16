@@ -1,0 +1,32 @@
+{
+  "id": "5706074552bb8914006897d6",
+  "title": "Southern_California",
+  "context": "Southern California consists of one Combined Statistical Area, eight Metropolitan Statistical Areas, one international metropolitan area, and multiple metropolitan divisions. The region is home to two extended metropolitan areas that exceed five million in population. These are the Greater Los Angeles Area at 17,786,419, and San Diego–Tijuana at 5,105,768. Of these metropolitan areas, the Los Angeles-Long Beach-Santa Ana metropolitan area, Riverside-San Bernardino-Ontario metropolitan area, and Oxnard-Thousand Oaks-Ventura metropolitan area form Greater Los Angeles; while the El Centro metropolitan area and San Diego-Carlsbad-San Marcos metropolitan area form the Southern Border Region. North of Greater Los Angeles are the Santa Barbara, San Luis Obispo, and Bakersfield metropolitan areas.",
+  "question": "Each of the extended metropolitan areas has a population that exceeds what number?",
+  "answers": "{'text': array(['five million', 'five million', 'five million'], dtype=object), 'answer_start': array([241, 241, 241], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 402,
+  "prompt": "Context: Southern California consists of one Combined Statistical Area, eight Metropolitan Statistical Areas, one international metropolitan area, and multiple metropolitan divisions. The region is home to two extended metropolitan areas that exceed five million in population. These are the Greater Los Angeles Area at 17,786,419, and San Diego–Tijuana at 5,105,768. Of these metropolitan areas, the Los Angeles-Long Beach-Santa Ana metropolitan area, Riverside-San Bernardino-Ontario metropolitan area, and Oxnard-Thousand Oaks-Ventura metropolitan area form Greater Los Angeles; while the El Centro metropolitan area and San Diego-Carlsbad-San Marcos metropolitan area form the Southern Border Region. North of Greater Los Angeles are the Santa Barbara, San Luis Obispo, and Bakersfield metropolitan areas.\n\nQuestion: Each of the extended metropolitan areas has a population that exceeds what number?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure this out. The text states there",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.690311431884766,
+          "prob": 1.2754445404735377e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.275444540473375e-13,
+      "prompt": "You're given the following task:\nContext: Southern California consists of one Combined Statistical Area, eight Metropolitan Statistical Areas, one international metropolitan area, and multiple metropolitan divisions. The region is home to two extended metropolitan areas that exceed five million in population. These are the Greater Los Angeles Area at 17,786,419, and San Diego–Tijuana at 5,105,768. Of these metropolitan areas, the Los Angeles-Long Beach-Santa Ana metropolitan area, Riverside-San Bernardino-Ontario metropolitan area, and Oxnard-Thousand Oaks-Ventura metropolitan area form Greater Los Angeles; while the El Centro metropolitan area and San Diego-Carlsbad-San Marcos metropolitan area form the Southern Border Region. North of Greater Los Angeles are the Santa Barbara, San Luis Obispo, and Bakersfield metropolitan areas.\n\nQuestion: Each of the extended metropolitan areas has a population that exceeds what number?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

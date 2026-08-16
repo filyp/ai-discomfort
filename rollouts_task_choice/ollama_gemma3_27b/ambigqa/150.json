@@ -1,0 +1,31 @@
+{
+  "id": -6612434309257086365,
+  "question": "Who owns the trump tower in new york?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Which umbrella organization owns the trump tower on Fifth Avenue in new york?',\n              'Who owns the organization that owns the trump tower on Fifth Avenue in new york?'],\n             dtype=object), 'answer': array([array(['The Trump Organization'], dtype=object),\n              array(['Donald Trump', 'Donald John Trump'], dtype=object)],\n             dtype=object)}                                                                                ,\n       {'question': array(['Who is the individual who owns the trump tower in new york?',\n              'What organization owns the trump tower in new york?'],\n             dtype=object), 'answer': array([array(['Donald Trump'], dtype=object),\n              array(['The Trump Organization'], dtype=object)], dtype=object)}           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 150,
+  "prompt": "Who owns the trump tower in new york?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.89629364013672,
+          "prob": 2.286385523969967e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.286385518742408e-09,
+      "prompt": "You're given the following task:\nWho owns the trump tower in new york?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

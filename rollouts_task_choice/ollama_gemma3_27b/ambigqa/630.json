@@ -1,0 +1,31 @@
+{
+  "id": 1706642650989132478,
+  "question": "When does the lego ninjago movie take place?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When does the lego ninjago movie release take place at Regency Village theater?',\n              'When does the lego ninjago movie release take place in Denmark?',\n              'When does the lego ninjago movie release take place in the United States?',\n              'When does the lego ninjago movie release take place in the Philippines?'],\n             dtype=object), 'answer': array([array(['September 16, 2017'], dtype=object),\n              array(['September 21, 2017'], dtype=object),\n              array(['September 22, 2017'], dtype=object),\n              array(['September 27, 2017'], dtype=object)], dtype=object)}                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 630,
+  "prompt": "When does the lego ninjago movie take place?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out when *The LEGO Ninj",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.456695556640625,
+          "prob": 1.7667741564273099e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7667741561151608e-10,
+      "prompt": "You're given the following task:\nWhen does the lego ninjago movie take place?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

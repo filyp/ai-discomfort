@@ -1,0 +1,31 @@
+{
+  "id": -4164200591720577085,
+  "question": "When will they finish building the sagrada familia?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When will they finish building the steeples and most of the structure of sagrada familia?',\n              'When will they finish building the decorative elements of sagrada familia?'],\n             dtype=object), 'answer': array([array(['2026'], dtype=object),\n              array(['2030 or 2032'], dtype=object)], dtype=object)}                                                   ,\n       {'question': array(['When will the steeples and most of the churches structures of the Sagrada Familia be completed?',\n              'When will the decorative elements of the Sagrada Familia be completed?'],\n             dtype=object), 'answer': array([array(['by 2026'], dtype=object),\n              array(['2030 or 2032'], dtype=object)], dtype=object)}                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 337,
+  "prompt": "When will they finish building the sagrada familia?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.040451049804688,
+          "prob": 1.4626205062242407e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.4626204848316535e-08,
+      "prompt": "You're given the following task:\nWhen will they finish building the sagrada familia?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

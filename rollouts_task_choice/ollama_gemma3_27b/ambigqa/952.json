@@ -1,0 +1,31 @@
+{
+  "id": 4300976913851386980,
+  "question": "What's the most home runs hit in the home run derby?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"What's the most home runs hit by a player in a single round in the MLB Home Run Derby?\",\n              \"What's the most home runs hit by a player in one MLB Home Run Derby?\",\n              \"What's the most all-time home runs hit by a player in MLB Home Run Derbies?\"],\n             dtype=object), 'answer': array([array(['40'], dtype=object), array(['91'], dtype=object),\n              array(['99'], dtype=object)], dtype=object)}                                                          ,\n       {'question': array([\"What's the most home runs hit in a single round of the home run derby?\",\n              \"What's the most single-derby home runs hit in the home run derby in ?\",\n              \"What's the most all-time home runs hit in the home run derby in ?\",\n              \"What's the most home runs hit in the home run derby in 2017?\",\n              \"What's the most home runs hit in the home run derby in 2016?\",\n              \"What's the most home runs hit in the home run derby in 2015?\"],\n             dtype=object), 'answer': array([array(['40'], dtype=object), array(['91'], dtype=object),\n              array(['99'], dtype=object), array(['47'], dtype=object),\n              array(['61'], dtype=object), array(['40'], dtype=object)],\n             dtype=object)}                                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 952,
+  "prompt": "What's the most home runs hit in the home run derby?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out who hit the most home runs",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.98450469970703,
+          "prob": 1.5467810726888307e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.546781048763514e-08,
+      "prompt": "You're given the following task:\nWhat's the most home runs hit in the home run derby?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

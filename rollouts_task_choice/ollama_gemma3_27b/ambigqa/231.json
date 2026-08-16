@@ -1,0 +1,31 @@
+{
+  "id": -5369316937466876758,
+  "question": "Where was the biggest gold nugget ever found?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Moliagul', 'Moliagul, Victoria'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Where was the biggest gold nugget ever found in Australia?',\n              'Where was the biggest gold nugget ever found in Brazil?',\n              'Where was the biggest gold nugget ever found in United States?'],\n             dtype=object), 'answer': array([array(['Moliagul, Victoria'], dtype=object),\n              array(['State of Para'], dtype=object),\n              array(['Sierra Buttes'], dtype=object)], dtype=object)}                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 231,
+  "prompt": "Where was the biggest gold nugget ever found?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.672794342041016,
+          "prob": 7.771564495670856e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.771564435273642e-09,
+      "prompt": "You're given the following task:\nWhere was the biggest gold nugget ever found?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

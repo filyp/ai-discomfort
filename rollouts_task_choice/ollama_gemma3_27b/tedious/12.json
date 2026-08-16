@@ -1,0 +1,65 @@
+{
+  "model": "gemma3:27b",
+  "dataset": "tedious",
+  "question_num": 12,
+  "prompt": "List the letters of the alphabet 15 times in a row.",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can list the letters of the alphabet 15",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.002583619672805071,
+          "prob": 0.9974197150000415,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -5.959843635559082,
+          "prob": 0.002580315410061163,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.002580315331593509,
+      "prompt": "You're given the following task:\nList the letters of the alphabet 15 times in a row.\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can do that! Listing the alphabet 15",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.00030915747629478574,
+          "prob": 0.9996908903079533,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.081546783447266,
+          "prob": 0.0003091924116460347,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0003091923860697644,
+      "prompt": "You're given the following task:\nList the letters of the alphabet 15 times in a row.\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nHere are the letters of the alphabet, repeated 15 times",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -18.96807098388672,
+          "prob": 5.7845747742441446e-09,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.784574740782839e-09,
+      "prompt": "You're given the following task:\nList the letters of the alphabet 15 times in a row.\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5729edd56aef051400155115",
+  "title": "Amazon_rainforest",
+  "context": "The first European to travel the length of the Amazon River was Francisco de Orellana in 1542. The BBC's Unnatural Histories presents evidence that Orellana, rather than exaggerating his claims as previously thought, was correct in his observations that a complex civilization was flourishing along the Amazon in the 1540s. It is believed that the civilization was later devastated by the spread of diseases from Europe, such as smallpox. Since the 1970s, numerous geoglyphs have been discovered on deforested land dating between AD 0–1250, furthering claims about Pre-Columbian civilizations. Ondemar Dias is accredited with first discovering the geoglyphs in 1977 and Alceu Ranzi with furthering their discovery after flying over Acre. The BBC's Unnatural Histories presented evidence that the Amazon rainforest, rather than being a pristine wilderness, has been shaped by man for at least 11,000 years through practices such as forest gardening and terra preta.",
+  "question": "Who is given credit for discovering geoglyphs along the Amazon River?",
+  "answers": "{'text': array(['Ondemar Dias', 'Ondemar Dias', 'Ondemar Dias'], dtype=object), 'answer_start': array([594, 594, 594], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1812,
+  "prompt": "Context: The first European to travel the length of the Amazon River was Francisco de Orellana in 1542. The BBC's Unnatural Histories presents evidence that Orellana, rather than exaggerating his claims as previously thought, was correct in his observations that a complex civilization was flourishing along the Amazon in the 1540s. It is believed that the civilization was later devastated by the spread of diseases from Europe, such as smallpox. Since the 1970s, numerous geoglyphs have been discovered on deforested land dating between AD 0–1250, furthering claims about Pre-Columbian civilizations. Ondemar Dias is accredited with first discovering the geoglyphs in 1977 and Alceu Ranzi with furthering their discovery after flying over Acre. The BBC's Unnatural Histories presented evidence that the Amazon rainforest, rather than being a pristine wilderness, has been shaped by man for at least 11,000 years through practices such as forest gardening and terra preta.\n\nQuestion: Who is given credit for discovering geoglyphs along the Amazon River?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOndemar Dias is accredited with first discovering the geoglyphs",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.224166870117188,
+          "prob": 2.751164927000273e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.751164927000197e-14,
+      "prompt": "You're given the following task:\nContext: The first European to travel the length of the Amazon River was Francisco de Orellana in 1542. The BBC's Unnatural Histories presents evidence that Orellana, rather than exaggerating his claims as previously thought, was correct in his observations that a complex civilization was flourishing along the Amazon in the 1540s. It is believed that the civilization was later devastated by the spread of diseases from Europe, such as smallpox. Since the 1970s, numerous geoglyphs have been discovered on deforested land dating between AD 0–1250, furthering claims about Pre-Columbian civilizations. Ondemar Dias is accredited with first discovering the geoglyphs in 1977 and Alceu Ranzi with furthering their discovery after flying over Acre. The BBC's Unnatural Histories presented evidence that the Amazon rainforest, rather than being a pristine wilderness, has been shaped by man for at least 11,000 years through practices such as forest gardening and terra preta.\n\nQuestion: Who is given credit for discovering geoglyphs along the Amazon River?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

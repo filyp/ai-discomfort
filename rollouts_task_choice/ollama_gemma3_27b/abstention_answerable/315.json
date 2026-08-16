@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 315,
+  "prompt": "The CBS host that Suzette Quintanilla told about Selena's album, \"Unos\", has been the host of what CBS reality-television program?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nLet's figure this out! I need to identify the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.845516204833984,
+          "prob": 1.7774229584617397e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7774229268694165e-08,
+      "prompt": "You're given the following task:\nThe CBS host that Suzette Quintanilla told about Selena's album, \"Unos\", has been the host of what CBS reality-television program?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

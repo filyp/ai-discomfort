@@ -1,0 +1,31 @@
+{
+  "id": -8177486160066957979,
+  "question": "What is the purpose of a traffic circle?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object),\n       array(['engagement with pedestrians, encouraging deference towards them',\n              'reduced driver confusion associated with perpendicular junctions and reduced queuing associated with traffic lights',\n              'reduce the likelihood and severity of collisions',\n              'potentially leads to less pollution'], dtype=object)                                                                 ],\n      dtype=object), 'qaPairs': array([{'question': array(['What is the purpose of a traffic circle in terms of safety?',\n              'What is the purpose of a traffic circle in terms of how it establishes a flow of traffic?',\n              'What is the purpose of a traffic circle in terms of environmental benefits?'],\n             dtype=object), 'answer': array([array(['reduce the likelihood and severity of collisions greatly'],\n                    dtype=object)                                                ,\n              array(['traffic is permitted to flow in one direction around a central island'],\n                    dtype=object)                                                             ,\n              array(['potentially leads to less pollution'], dtype=object)],\n             dtype=object)}                                                                                     ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 956,
+  "prompt": "What is the purpose of a traffic circle?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can explain the purpose of a traffic circle (also",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.285778045654297,
+          "prob": 2.0960882808252407e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0960882803858822e-10,
+      "prompt": "You're given the following task:\nWhat is the purpose of a traffic circle?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

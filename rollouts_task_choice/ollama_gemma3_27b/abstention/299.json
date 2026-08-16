@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 299,
+  "prompt": "Who constructed the Oak Island treasure pit?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.98023678624304e-06,
+          "prob": 0.9999970197676546,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.74183177947998,
+          "prob": 2.9261242870830757e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.9261244454099875e-06,
+      "prompt": "You're given the following task:\nWho constructed the Oak Island treasure pit?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

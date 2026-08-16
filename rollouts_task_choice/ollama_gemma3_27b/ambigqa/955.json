@@ -1,0 +1,31 @@
+{
+  "id": 6682453597867083596,
+  "question": "Who won new hampshire in the 2016 presidential election?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who won New Hampshire in the 2016 presidential Democratic primary election?',\n              'Who won New Hampshire in the 2016 presidential Republican primary election?',\n              'Who won New Hampshire in the 2016 United States presidential election?'],\n             dtype=object), 'answer': array([array(['Bernie Sanders'], dtype=object),\n              array(['Donald Trump'], dtype=object),\n              array(['Hillary Rodham Clinton', 'Hillary Clinton'], dtype=object)],\n             dtype=object)}                                                                              ,\n       {'question': array(['Who won new hampshire in the 2016 presidential election  as candidate?',\n              'Who won new hampshire in the 2016 presidential election  as party?'],\n             dtype=object), 'answer': array([array(['Hillary Diane Rodham Clinton', 'Hillary Clinton'], dtype=object),\n              array(['Democratic Party'], dtype=object)], dtype=object)}                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 955,
+  "prompt": "Who won new hampshire in the 2016 presidential election?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.40393829345703,
+          "prob": 3.740904935377421e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.740904921383051e-09,
+      "prompt": "You're given the following task:\nWho won new hampshire in the 2016 presidential election?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

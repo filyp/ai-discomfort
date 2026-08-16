@@ -1,0 +1,69 @@
+{
+  "id": 1113020886859672264,
+  "question": "What do the symbols on the indian flag represent?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What does the wheel symbol on the indian flag represent?',\n              'What does the saffron stripe symbol on the indian flag represent?',\n              'What does the white stripe symbol on the indian flag represent?',\n              'What does the green stripe symbol on the indian flag represent?',\n              'What did the eight lotus symbols on the calcutta indian flag represent?'],\n             dtype=object), 'answer': array([array(['Dharma Chakra', 'edicts of Ashoka', 'Ashoka Chakra'], dtype=object),\n              array(['courage and sacrifice'], dtype=object),\n              array(['peace and truth'], dtype=object),\n              array(['faith and chivalry'], dtype=object),\n              array(['the eight provinces'], dtype=object)], dtype=object)}                                              ,\n       {'question': array(['What does the symbol in the center of the indian flag represent?',\n              'What do the first 12 spokes on the symbol in the center of the indian flag represent?',\n              'What do the second 12 spokes on the symbol in the center of the indian flag represent?',\n              'What does the saffron stripe on the indian flag represent?',\n              'What does the white stripe on the indian flag represent?',\n              'What does the green stripe on the indian flag represent?'],\n             dtype=object), 'answer': array([array(['Dharma Chakra', 'Wheel of the Law'], dtype=object),\n              array(['twelve causal links', '12 stages of suffering'], dtype=object),\n              array(['no cause no effect'], dtype=object),\n              array(['courage and sacrifice'], dtype=object),\n              array(['peace and truth'], dtype=object),\n              array(['faith and chivalry'], dtype=object)], dtype=object)}                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 15,
+  "prompt": "What do the symbols on the indian flag represent?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.78907012939453,
+          "prob": 6.308834713591145e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.308834713551344e-12,
+      "prompt": "You're given the following task:\nWhat do the symbols on the indian flag represent?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can definitely explain what the symbols on the Indian flag",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.840171813964844,
+          "prob": 1.2040358425166334e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.204035842371663e-10,
+      "prompt": "You're given the following task:\nWhat do the symbols on the indian flag represent?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nThe Indian flag, also known as the Tiranga (meaning \"",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -29.412017822265625,
+          "prob": 1.6847014829526853e-13,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6847014829524013e-13,
+      "prompt": "You're given the following task:\nWhat do the symbols on the indian flag represent?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 8753606012980323644,
+  "question": "How do you say hot dog in mexico?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['\"dogos\" or \"jochos\"'], dtype=object),\n       array(['\"jochos\"', '\"dogos\"', '\"Pico de Gallo\"'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 322,
+  "prompt": "How do you say hot dog in mexico?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! So, how do you say \"hot dog\" in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.842906951904297,
+          "prob": 4.844159691666599e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.844159457007779e-08,
+      "prompt": "You're given the following task:\nHow do you say hot dog in mexico?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

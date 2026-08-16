@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 370,
+  "prompt": "What British group formed in 1980 was Arthur Baker known for working with? ",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE \n\nOkay, I can help with that! To confirm, you",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.32424545288086,
+          "prob": 1.1012383188865354e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1012383067592772e-08,
+      "prompt": "You're given the following task:\nWhat British group formed in 1980 was Arthur Baker known for working with? \nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

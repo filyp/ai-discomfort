@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 288,
+  "prompt": "Which American would be the next prime minister of china?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThis question is inherently absurd and relies on a premise that is impossible (",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -14.114789009094238,
+          "prob": 7.413529501252658e-07,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -7.152559646783629e-07,
+          "prob": 0.9999992847442911,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999992586470692,
+      "prompt": "You're given the following task:\nWhich American would be the next prime minister of china?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 8655001621666816912,
+  "question": "When does the new army uniform come out?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When does the new Army Combat Uniform come out?',\n              'When does the new Army Service Uniform come out?'], dtype=object), 'answer': array([array(['June 2004'], dtype=object), array(['2020'], dtype=object)],\n             dtype=object)}                                                                                                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 404,
+  "prompt": "When does the new army uniform come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nI need more information to answer that question! Which army are you",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.027511596679688,
+          "prob": 5.450755594547489e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.450755564836752e-09,
+      "prompt": "You're given the following task:\nWhen does the new army uniform come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

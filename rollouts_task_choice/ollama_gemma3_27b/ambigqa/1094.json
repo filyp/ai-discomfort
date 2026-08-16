@@ -1,0 +1,31 @@
+{
+  "id": 1628037090770236728,
+  "question": "Who is the original singer of you were always on my mind?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the original singer of  always on my mind?',\n              'Who is the original singer of  you’re always on my mind?',\n              'Who is the original singer of  you were on my mind?'],\n             dtype=object), 'answer': array([array(['B.J. Thomas'], dtype=object),\n              array(['Sam Cooke'], dtype=object),\n              array(['Sylvia Fricker'], dtype=object)], dtype=object)}            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1094,
+  "prompt": "Who is the original singer of you were always on my mind?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.814250946044922,
+          "prob": 6.746439544970619e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.746439499456172e-09,
+      "prompt": "You're given the following task:\nWho is the original singer of you were always on my mind?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

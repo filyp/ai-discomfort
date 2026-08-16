@@ -1,0 +1,31 @@
+{
+  "id": -3298679965487154416,
+  "question": "Who sang to the window to the wall?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object),\n       array(['Ying Yang Twins', 'Lil Jon & the East Side Boyz'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['Who recorded \"Get Low\" (which has lyrics saying \"to the window, to the wall\")?',\n              'Who was featured on Lil Jon & the East Side Boyz\\' recording of \"Get Low\" (which has lyrics saying \"to the window, to the wall\")?'],\n             dtype=object), 'answer': array([array(['Lil Jon & the East Side Boyz'], dtype=object),\n              array(['Ying Yang Twins'], dtype=object)], dtype=object)}                                                                            ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 160,
+  "prompt": "Who sang to the window to the wall?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The song \"Window to the Wall\" was sung by",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.2649790025752736e-06,
+          "prob": 0.9999977350235625,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.999300003051758,
+          "prob": 2.261912184573076e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.261912191504147e-06,
+      "prompt": "You're given the following task:\nWho sang to the window to the wall?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

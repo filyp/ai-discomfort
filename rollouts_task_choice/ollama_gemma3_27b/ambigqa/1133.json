@@ -1,0 +1,31 @@
+{
+  "id": 5478916398121681810,
+  "question": "Who won so you think uou can dance?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who won So you Think you can Dance Season 14?|Who won so you think you can dance in 2017?',\n              'Who won So you Think you can Dance Season 13?|Who won so you think you can dance in 2016?',\n              'Who won So you Think you can Dance Season 16?',\n              'Who won So you Think you can Dance Season 15?',\n              'Who won so you think you can dance in 2015?'], dtype=object), 'answer': array([array(['Lex Ishimoto'], dtype=object),\n              array(['Leon \"Kida\" Burns', 'Kida', 'Leon Burns'], dtype=object),\n              array(['Bailey Muñoz'], dtype=object),\n              array(['Hannahlei Cabanilla'], dtype=object),\n              array(['Gaby Diaz'], dtype=object)], dtype=object)}                                                                   ,\n       {'question': array(['Who won So you Think you can Dance Season 13?|Who won so you think you can dance in 2016?',\n              'Who won So you Think you can Dance Season 14?|Who won so you think you can dance in 2017?',\n              'Who won So you Think you can Dance Season 16?',\n              'Who won So you Think you can Dance Season 15?',\n              'Who won so you think you can dance in 2015?'], dtype=object), 'answer': array([array(['Leon \"Kida\" Burns', 'Kida', 'Leon Burns'], dtype=object),\n              array(['Lex Ishimoto', 'Contemporary dancer Lex Ishimoto'], dtype=object),\n              array(['Bailey Muñoz'], dtype=object),\n              array(['Hannahlei Cabanilla'], dtype=object),\n              array(['Gaby Diaz'], dtype=object)], dtype=object)}                                                                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1133,
+  "prompt": "Who won so you think uou can dance?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! \"So You Think You Can Dance\" has had many",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.83861297450494e-05,
+          "prob": 0.999961614606993,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -10.167839050292969,
+          "prob": 3.838518230582348e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.838518231391128e-05,
+      "prompt": "You're given the following task:\nWho won so you think uou can dance?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

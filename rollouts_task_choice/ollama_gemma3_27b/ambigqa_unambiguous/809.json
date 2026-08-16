@@ -1,0 +1,31 @@
+{
+  "id": 5430047601250840783,
+  "question": "Name the 3 governmental structures or types of governments in operation in the united states?",
+  "annotations": "{'type': array(['singleAnswer'], dtype=object), 'answer': array([array(['Federal Government', 'local, state, and federal government',\n              'State Government', 'Local Government'], dtype=object)       ],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 809,
+  "prompt": "Name the 3 governmental structures or types of governments in operation in the united states?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's tackle this! The United States operates under",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.45447540283203,
+          "prob": 1.770701024311984e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.770701023998446e-10,
+      "prompt": "You're given the following task:\nName the 3 governmental structures or types of governments in operation in the united states?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

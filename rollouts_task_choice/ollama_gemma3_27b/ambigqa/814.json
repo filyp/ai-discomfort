@@ -1,0 +1,31 @@
+{
+  "id": 2910641576053787547,
+  "question": "When is the next modern family episode airing?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When is episode 198 of modern family episode airing?',\n              'When is episode 197 of modern family episode airing?',\n              'When is episode 196 of modern family episode airing?'],\n             dtype=object), 'answer': array([array(['December 13, 2017'], dtype=object),\n              array(['December 6, 2017'], dtype=object),\n              array(['November 29, 2017'], dtype=object)], dtype=object)}               ,\n       {'question': array(['When is the next modern family season 9 episode 1 airing?',\n              'When is the next modern family season 8 episode 1 airing?',\n              'When is the next modern family season 7 episode 1 airing?',\n              'When is the final modern family episode airing?'], dtype=object), 'answer': array([array(['September 27, 2017'], dtype=object),\n              array(['September 21, 2016'], dtype=object),\n              array(['September 23, 2015'], dtype=object),\n              array(['April 8, 2020'], dtype=object)], dtype=object)}                                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 814,
+  "prompt": "When is the next modern family episode airing?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\n\"Modern Family\" concluded its run in April",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -2.3659236431121826,
+          "prob": 0.09386256480681783,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.0985666885972023,
+          "prob": 0.9061352617097881,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9061372311840128,
+      "prompt": "You're given the following task:\nWhen is the next modern family episode airing?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

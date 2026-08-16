@@ -1,0 +1,31 @@
+{
+  "id": -5824736776762973289,
+  "question": "What is the meaning of yang in chinese?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the meaning of yang in Chinese in reference to yin and yang?',\n              'What is the meaning of yang in Chinese in reference to Yang as a surname?'],\n             dtype=object), 'answer': array([array(['sunny side', 'bright', 'positive'], dtype=object),\n              array(['willow', 'aspen'], dtype=object)], dtype=object)}                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 232,
+  "prompt": "What is the meaning of yang in chinese?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can definitely explain the meaning of *yang* in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.49663543701172,
+          "prob": 1.5480108309965807e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.548010830996341e-13,
+      "prompt": "You're given the following task:\nWhat is the meaning of yang in chinese?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

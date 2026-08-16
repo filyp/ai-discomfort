@@ -1,0 +1,31 @@
+{
+  "id": -1278536303436180098,
+  "question": "When did they put the 3 point line in?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the 3 point line first tested in college basketball?',\n              'When did the American Basketball League permanently add the 3 point line?',\n              'When did the NBA adopt the three point line for a one year trial?',\n              'When was the 3 point line first used in the Olympics?',\n              'When did the first NCAA conference use the 3 point line?',\n              'When did the 3 point line get put in for high schools, elementary schools, and middle schools?'],\n             dtype=object), 'answer': array([array(['1945'], dtype=object), array(['1961'], dtype=object),\n              array(['June, 1979'], dtype=object), array(['1988'], dtype=object),\n              array(['1980-81 season'], dtype=object),\n              array(['1987'], dtype=object)], dtype=object)}                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 228,
+  "prompt": "When did they put the 3 point line in?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you about when the three-point line",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.522567749023438,
+          "prob": 6.67329002160504e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.673290371795177e-08,
+      "prompt": "You're given the following task:\nWhen did they put the 3 point line in?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

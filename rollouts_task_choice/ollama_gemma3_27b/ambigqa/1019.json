@@ -1,0 +1,31 @@
+{
+  "id": 531835759431685810,
+  "question": "Who produced the ten commandments of computer ethics?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Which institute produced the ten commandments of computer ethics?',\n              'Which person produced the ten commandments of computer ethics?'],\n             dtype=object), 'answer': array([array(['Computer Ethics Institute', 'the Computer Ethics Institute'],\n                    dtype=object)                                                  ,\n              array(['Ramon C. Barquin'], dtype=object)], dtype=object)}                                          ,\n       {'question': array(['Who is the group that produced the ten commandments of computer ethics?',\n              'Who is the person that produced the ten commandments of computer ethics?'],\n             dtype=object), 'answer': array([array(['Computer Ethics Institute'], dtype=object),\n              array(['Ramon C. Barquin'], dtype=object)], dtype=object)}                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1019,
+  "prompt": "Who produced the ten commandments of computer ethics?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.0789794921875,
+          "prob": 1.0398912691264838e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.039891284953791e-07,
+      "prompt": "You're given the following task:\nWho produced the ten commandments of computer ethics?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

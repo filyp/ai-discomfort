@@ -1,0 +1,31 @@
+{
+  "id": 3187022654188680332,
+  "question": "Where is the soccer world cup taking place this year?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What city is the soccer world cup taking place in 2014?',\n              'What city is the soccer world cup taking place in 2010?',\n              'What city is the soccer world cup taking place in 2006?',\n              'What venue is the soccer world cup taking place in in 2014?',\n              'What venue is the soccer world cup taking place in in 2010?',\n              'What venue is the soccer world cup taking place in in 2006?'],\n             dtype=object), 'answer': array([array(['Rio de Janeiro, Brazil', 'Rio de Janeiro', 'Rio'], dtype=object),\n              array(['Johannesburg', 'Johannesburg, South Africa'], dtype=object),\n              array(['Berlin, Germany', 'Berlin'], dtype=object),\n              array(['Maracanã Stadium', 'Maracanã Stadium, Rio de Janeiro'],\n                    dtype=object)                                            ,\n              array(['The Calabash', 'First National Bank Stadium', 'Soccer City',\n                     'Soccer City, Johannesburg', 'FNB Stadium'], dtype=object)   ,\n              array(['Olympiastadion', 'Olympiastadion, Berlin', 'Olympiapark Berlin'],\n                    dtype=object)                                                      ],\n             dtype=object)}                                                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 477,
+  "prompt": "Where is the soccer world cup taking place this year?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.065338134765625,
+          "prob": 5.248423271096955e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.248423243551008e-09,
+      "prompt": "You're given the following task:\nWhere is the soccer world cup taking place this year?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

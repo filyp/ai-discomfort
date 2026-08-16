@@ -1,0 +1,31 @@
+{
+  "id": -3225724984379691389,
+  "question": "Where was the count of monte cristo published?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where was first edition in book form of The Count of Monte Cristo published?|What country was the count of monte cristo published?|What country was the Count of Monte Cristo published in?',\n              'Where was The Count of Monte Cristo originally published?|What publication was the Count of Monte Cristo published in?',\n              'Where was The Count of Monte Cristo English translation first published?',\n              \"Where was The Count of Monte Cristo's Japanese translation published?\",\n              'What country was the Count of Monte Cristo comic book published in?'],\n             dtype=object), 'answer': array([array(['Paris, France', 'France'], dtype=object),\n              array(['Journal des Débats', 'Journal del Debats',\n                     'the Journal des Débats'], dtype=object)   ,\n              array([\"Volume VII of Ainsworth's Magazine\"], dtype=object),\n              array(['Yorozu Chouhou'], dtype=object),\n              array(['United States'], dtype=object)], dtype=object)}                                                                                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1049,
+  "prompt": "Where was the count of monte cristo published?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.96442413330078,
+          "prob": 7.857172403689624e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.857172397516109e-10,
+      "prompt": "You're given the following task:\nWhere was the count of monte cristo published?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

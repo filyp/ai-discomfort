@@ -1,0 +1,31 @@
+{
+  "id": 5621684038737486499,
+  "question": "What family does paris belong to in romeo and juliet?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What royal family member does paris belong to in romeo and juliet?',\n              'What non-royal family member does paris belong to in romeo and juliet?',\n              'What is the family name that Paris belongs to in romeo and juliet?'],\n             dtype=object), 'answer': array([array(['Prince Escalus'], dtype=object),\n              array(['Mercutio'], dtype=object),\n              array(['House of Escalus', 'Escalus'], dtype=object)], dtype=object)}             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 59,
+  "prompt": "What family does paris belong to in romeo and juliet?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.739013671875,
+          "prob": 4.9009171009334985e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.9009171006933086e-11,
+      "prompt": "You're given the following task:\nWhat family does paris belong to in romeo and juliet?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

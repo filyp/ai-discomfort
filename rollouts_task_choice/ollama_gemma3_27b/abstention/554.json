@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 554,
+  "prompt": "How long does it take to fly to that location?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nI need more information! To tell someone how long it takes to",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.036109924316406,
+          "prob": 3.641246611187019e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.641246611054432e-11,
+      "prompt": "You're given the following task:\nHow long does it take to fly to that location?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

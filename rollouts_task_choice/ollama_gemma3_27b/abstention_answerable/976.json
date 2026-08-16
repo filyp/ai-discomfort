@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 976,
+  "prompt": "What makes it necessary to drive through Alabama to take the shortest route from Miami, Florida to Houston, Texas?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can explain why driving through Alabama is often necessary for",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.682018280029297,
+          "prob": 2.0931339991104145e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.093133955298316e-08,
+      "prompt": "You're given the following task:\nWhat makes it necessary to drive through Alabama to take the shortest route from Miami, Florida to Houston, Texas?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

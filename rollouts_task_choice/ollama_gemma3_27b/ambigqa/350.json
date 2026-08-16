@@ -1,0 +1,31 @@
+{
+  "id": 5924020823075731019,
+  "question": "Where do the ny yankees play spring training?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where have the Yankees played spring training since March 1, 1996?',\n              'Where did the Yankees play spring training from 1947-1950 and 1952-1961?',\n              'Where did the Yankees play spring training from 1962-1995?',\n              'In what spring training league league do the NY Yankees play spring training?'],\n             dtype=object), 'answer': array([array(['George M. Steinbrenner Field', 'Tampa, FL'], dtype=object),\n              array(['St. Petersburg, Florida', 'Al Lang Stadium'], dtype=object),\n              array(['Fort Lauderdale, Florida', 'Fort Lauderdale Stadium'],\n                    dtype=object)                                           ,\n              array(['Grapefruit League'], dtype=object)], dtype=object)}                                       ,\n       {'question': array(['Where have the NY Yankees played spring training since 1996?',\n              'In what league do the NY Yankees play spring training?',\n              'Where did the NY Yankees play spring training from 1962-1995?',\n              'Where did the NY Yankees play spring training before they played in Fort Lauderdale?'],\n             dtype=object), 'answer': array([array(['George M. Steinbrenner Field', 'Tampa, Florida', 'Legends Field',\n                     '1 Steinbrenner Drive Tampa, FL 33614'], dtype=object)            ,\n              array(['Grapefruit League'], dtype=object),\n              array(['Fort Lauderdale, Florida', 'Fort Lauderdale Stadium'],\n                    dtype=object)                                           ,\n              array(['St. Petersburg, Florida', 'Al Lang Stadium',\n                     '180 2nd Avenue SE St. Petersburg, Florida 33701'], dtype=object)],\n             dtype=object)}                                                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 350,
+  "prompt": "Where do the ny yankees play spring training?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.70635223388672,
+          "prob": 1.01705744787764e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0170574468432342e-09,
+      "prompt": "You're given the following task:\nWhere do the ny yankees play spring training?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

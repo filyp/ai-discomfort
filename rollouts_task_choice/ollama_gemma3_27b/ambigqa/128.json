@@ -1,0 +1,31 @@
+{
+  "id": -8780289946466019973,
+  "question": "Who plays ruths mum in home and away?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who plays ruths mum in home and away in 1989?',\n              'Who plays ruths mum in home and away since 2018?'], dtype=object), 'answer': array([array(['Alison Mulvaney'], dtype=object),\n              array(['Giblin', 'Belinda Giblin'], dtype=object)], dtype=object)}                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 128,
+  "prompt": "Who plays ruths mum in home and away?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! Ruth's mum in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.6689314179529902e-06,
+          "prob": 0.9999983310699747,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.286653518676758,
+          "prob": 1.6969916050218845e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6969915574016207e-06,
+      "prompt": "You're given the following task:\nWho plays ruths mum in home and away?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 6535013039679844492,
+  "question": "Who was the last person hanged in england?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Of the last two people hanged in England, who was the person hanged in Liverpool?',\n              'Of the last two people hanged in England, who was the person hanged in Manchester?'],\n             dtype=object), 'answer': array([array(['Peter Anthony Allen', 'Peter Allen', 'Allen'], dtype=object),\n              array(['Gwynne Owen Evans', 'Evans'], dtype=object)], dtype=object)}                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 556,
+  "prompt": "Who was the last person hanged in england?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who the last person hanged in England",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.759258270263672,
+          "prob": 7.12783517769908e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.127835126893045e-09,
+      "prompt": "You're given the following task:\nWho was the last person hanged in england?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

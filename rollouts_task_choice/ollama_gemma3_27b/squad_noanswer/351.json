@@ -1,0 +1,32 @@
+{
+  "id": "5ad01f0f77cf76001a686ac2",
+  "title": "Southern_California",
+  "context": "Its counties of Los Angeles, Orange, San Diego, San Bernardino, and Riverside are the five most populous in the state and all are in the top 15 most populous counties in the United States.",
+  "question": "What are the five most populous counties in the United States?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 351,
+  "prompt": "Context: Its counties of Los Angeles, Orange, San Diego, San Bernardino, and Riverside are the five most populous in the state and all are in the top 15 most populous counties in the United States.\n\nQuestion: What are the five most populous counties in the United States?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, the context tells us that Los Angeles, Orange, San",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.00010276368993800133,
+          "prob": 0.9998972415900691,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -9.18277359008789,
+          "prob": 0.00010279502612745851,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.00010279502236349577,
+      "prompt": "You're given the following task:\nContext: Its counties of Los Angeles, Orange, San Diego, San Bernardino, and Riverside are the five most populous in the state and all are in the top 15 most populous counties in the United States.\n\nQuestion: What are the five most populous counties in the United States?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

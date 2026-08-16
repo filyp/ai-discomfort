@@ -1,0 +1,31 @@
+{
+  "id": -8969137547853349541,
+  "question": "What engine is in the audi r8 v10?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What engine is in the Audi R8 (Type 42)?',\n              'What engine is in the Audi R8  (Type 4S)?'], dtype=object), 'answer': array([array(['4.2 L FSI DOHC V8 5.2 L odd firing FSI DOHC V10'], dtype=object),\n              array(['5.2 L FSI V10'], dtype=object)], dtype=object)}                                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 254,
+  "prompt": "What engine is in the audi r8 v10?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you about the engine in the Audi R",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.808116912841797,
+          "prob": 4.573684471170523e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.5736844709613376e-11,
+      "prompt": "You're given the following task:\nWhat engine is in the audi r8 v10?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

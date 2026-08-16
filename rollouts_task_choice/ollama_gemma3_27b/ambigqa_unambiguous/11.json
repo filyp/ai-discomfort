@@ -1,0 +1,69 @@
+{
+  "id": -4272753945489602848,
+  "question": "Who wrote the original lyrics to pink cadillac?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Bruce Springsteen'], dtype=object),\n       array(['Bruce Springsteen'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 11,
+  "prompt": "Who wrote the original lyrics to pink cadillac?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.23476791381836,
+          "prob": 2.4189359106827086e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.418935902276877e-07,
+      "prompt": "You're given the following task:\nWho wrote the original lyrics to pink cadillac?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out who wrote the original lyrics to",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.541977250482887e-05,
+          "prob": 0.9999545812589574,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -9.99981689453125,
+          "prob": 4.5408243499027314e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.540824397570233e-05,
+      "prompt": "You're given the following task:\nWho wrote the original lyrics to pink cadillac?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -20.406532287597656,
+          "prob": 1.3726367832304902e-09,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3726367813463583e-09,
+      "prompt": "You're given the following task:\nWho wrote the original lyrics to pink cadillac?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

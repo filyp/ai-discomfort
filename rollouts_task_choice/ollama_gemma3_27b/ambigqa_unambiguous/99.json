@@ -1,0 +1,31 @@
+{
+  "id": -1050611291306592144,
+  "question": "When do the salmon run in lake tahoe?",
+  "annotations": "{'type': array(['singleAnswer'], dtype=object), 'answer': array([array(['late September through mid-October'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 99,
+  "prompt": "When do the salmon run in lake tahoe?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can tell you about the salmon run in Lake Tahoe",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.000154745634063147,
+          "prob": 0.999845266338425,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.774057388305664,
+          "prob": 0.00015469464934124712,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.00015469465537623118,
+      "prompt": "You're given the following task:\nWhen do the salmon run in lake tahoe?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

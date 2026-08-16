@@ -1,0 +1,31 @@
+{
+  "id": -2939470594355766463,
+  "question": "When did alice through the looking glass come out?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did a silent movie Alice Through the Looking Glass come out?',\n              'When did a TV musical Alice Through the Looking Glass come out?',\n              'When did the BBC TV movie Alice Through the Looking Glass come out?',\n              'When did an animated TV movie Alice Through the Looking Glass come out?',\n              'When did the Channel 4 TV movie Alice Through the Looking Glass come out?',\n              'When did the 2016 film Alice Through the Looking Glass come out in London?',\n              'When did the 2016 film Alice Through the Looking Glass come out in the US?',\n              'When did alice through the looking glass novel come out?'],\n             dtype=object), 'answer': array([array(['1928'], dtype=object), array(['1966'], dtype=object),\n              array(['1973'], dtype=object), array(['1987'], dtype=object),\n              array(['1998'], dtype=object),\n              array(['May 10, 2016'], dtype=object),\n              array(['May 27, 2016'], dtype=object),\n              array(['December 27, 1871'], dtype=object)], dtype=object)}                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 218,
+  "prompt": "When did alice through the looking glass come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! \"Alice Through the Looking-Glass\" (also known",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.773784637451172,
+          "prob": 5.190842972839898e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.190842703391404e-08,
+      "prompt": "You're given the following task:\nWhen did alice through the looking glass come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

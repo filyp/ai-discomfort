@@ -1,0 +1,31 @@
+{
+  "id": -8066401577277886429,
+  "question": "The correct order of the emergency chain of survival is?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['early access, early CPR, early defibrillation, and early advanced cardiac life support'],\n             dtype=object)                                                                              ,\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['The first link in the emergency chain of survival is?',\n              'The second link in the emergency chain of survival is?',\n              'The third link in the emergency chain of survival is?',\n              'The final link in the emergency chain of survival is?'],\n             dtype=object), 'answer': array([array(['Early access'], dtype=object),\n              array(['early CPR'], dtype=object),\n              array(['early defibrillation'], dtype=object),\n              array(['early advanced cardiac life support', 'early advanced care'],\n                    dtype=object)                                                  ],\n             dtype=object)}                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 194,
+  "prompt": "The correct order of the emergency chain of survival is?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.640419006347656,
+          "prob": 2.9530744987422874e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.9530744900216386e-09,
+      "prompt": "You're given the following task:\nThe correct order of the emergency chain of survival is?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

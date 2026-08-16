@@ -1,0 +1,32 @@
+{
+  "id": "5ad3c1ad604f3c001a3fef91",
+  "title": "Steam_engine",
+  "context": "Steam engines can be said to have been the moving force behind the Industrial Revolution and saw widespread commercial use driving machinery in factories, mills and mines; powering pumping stations; and propelling transport appliances such as railway locomotives, ships, steamboats and road vehicles. Their use in agriculture led to an increase in the land available for cultivation. There have at one time or another been steam-powered farm tractors, motorcycles (without much success) and even automobiles as the Stanley Steamer.",
+  "question": "What did the use of motorcycles in farming lead to?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1008,
+  "prompt": "Context: Steam engines can be said to have been the moving force behind the Industrial Revolution and saw widespread commercial use driving machinery in factories, mills and mines; powering pumping stations; and propelling transport appliances such as railway locomotives, ships, steamboats and road vehicles. Their use in agriculture led to an increase in the land available for cultivation. There have at one time or another been steam-powered farm tractors, motorcycles (without much success) and even automobiles as the Stanley Steamer.\n\nQuestion: What did the use of motorcycles in farming lead to?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states steam-powered motorcycles existed \"without much success.\"",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.008495492860674858,
+          "prob": 0.9915404918640388,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.772464752197266,
+          "prob": 0.00845950386233921,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.008459503898491932,
+      "prompt": "You're given the following task:\nContext: Steam engines can be said to have been the moving force behind the Industrial Revolution and saw widespread commercial use driving machinery in factories, mills and mines; powering pumping stations; and propelling transport appliances such as railway locomotives, ships, steamboats and road vehicles. Their use in agriculture led to an increase in the land available for cultivation. There have at one time or another been steam-powered farm tractors, motorcycles (without much success) and even automobiles as the Stanley Steamer.\n\nQuestion: What did the use of motorcycles in farming lead to?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

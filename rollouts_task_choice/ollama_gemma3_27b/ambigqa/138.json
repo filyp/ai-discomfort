@@ -1,0 +1,31 @@
+{
+  "id": 6750695717303546788,
+  "question": "When was the last time the cubs won the world series before 2016?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What was the last world series the cubs won before 2016?',\n              'What date was the last time the cubs won the world series before 2016?'],\n             dtype=object), 'answer': array([array(['1908 World Series'], dtype=object),\n              array(['October 14, 1908', 'October 14 1908'], dtype=object)],\n             dtype=object)}                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 138,
+  "prompt": "When was the last time the cubs won the world series before 2016?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out when the Cubs last won the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.9073504518019035e-06,
+          "prob": 0.9999980926513672,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.201387405395508,
+          "prob": 1.8480354437773514e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.8480355533902336e-06,
+      "prompt": "You're given the following task:\nWhen was the last time the cubs won the world series before 2016?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

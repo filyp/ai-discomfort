@@ -1,0 +1,31 @@
+{
+  "id": 6962706727076805207,
+  "question": "What kind of car in to catch a thief?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What kind of car in to catch a thief in terms of model?',\n              'What kind of car in to catch a thief in terms of automobile make?'],\n             dtype=object), 'answer': array([array(['Sunbeam Alpine', '1953 Sunbeam Alpine Mk I'], dtype=object),\n              array(['Rootes Group'], dtype=object)], dtype=object)}                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 472,
+  "prompt": "What kind of car in to catch a thief?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's play this out! This is a fun",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.489540100097656,
+          "prob": 1.8749004240909827e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.8749005195769226e-07,
+      "prompt": "You're given the following task:\nWhat kind of car in to catch a thief?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

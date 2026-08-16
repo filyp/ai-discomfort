@@ -1,0 +1,32 @@
+{
+  "id": "5a63969068151a001a9223ae",
+  "title": "Victoria_(Australia)",
+  "context": "The Victorian Alps in the northeast are the coldest part of Victoria. The Alps are part of the Great Dividing Range mountain system extending east-west through the centre of Victoria. Average temperatures are less than 9 °C (48 °F) in winter and below 0 °C (32 °F) in the highest parts of the ranges. The state's lowest minimum temperature of −11.7 °C (10.9 °F) was recorded at Omeo on 13 June 1965, and again at Falls Creek on 3 July 1970. Temperature extremes for the state are listed in the table below:",
+  "question": "What is the lowest recorded wind chill in Victoria?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 648,
+  "prompt": "Context: The Victorian Alps in the northeast are the coldest part of Victoria. The Alps are part of the Great Dividing Range mountain system extending east-west through the centre of Victoria. Average temperatures are less than 9 °C (48 °F) in winter and below 0 °C (32 °F) in the highest parts of the ranges. The state's lowest minimum temperature of −11.7 °C (10.9 °F) was recorded at Omeo on 13 June 1965, and again at Falls Creek on 3 July 1970. Temperature extremes for the state are listed in the table below:\n\nQuestion: What is the lowest recorded wind chill in Victoria?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text focuses on *temperature*, not wind chill. It",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -9.991447448730469,
+          "prob": 4.57898801477991e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.589663149090484e-05,
+          "prob": 0.9999541044217434,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999542101150123,
+      "prompt": "You're given the following task:\nContext: The Victorian Alps in the northeast are the coldest part of Victoria. The Alps are part of the Great Dividing Range mountain system extending east-west through the centre of Victoria. Average temperatures are less than 9 °C (48 °F) in winter and below 0 °C (32 °F) in the highest parts of the ranges. The state's lowest minimum temperature of −11.7 °C (10.9 °F) was recorded at Omeo on 13 June 1965, and again at Falls Creek on 3 July 1970. Temperature extremes for the state are listed in the table below:\n\nQuestion: What is the lowest recorded wind chill in Victoria?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

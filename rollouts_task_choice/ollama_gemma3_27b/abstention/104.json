@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 104,
+  "prompt": "If podcasts never were invented, would something else have replaced it as a critical platform for promotion in the publishing industry?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nLet's talk about this! It’s a fascinating",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.044193267822266,
+          "prob": 4.8882181379137e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.8882181378898045e-12,
+      "prompt": "You're given the following task:\nIf podcasts never were invented, would something else have replaced it as a critical platform for promotion in the publishing industry?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

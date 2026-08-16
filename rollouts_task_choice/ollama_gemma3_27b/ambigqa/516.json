@@ -1,0 +1,31 @@
+{
+  "id": -2902127503107129011,
+  "question": "What episode does jaime lannister lose his hand?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the name of the episode  when jaime lannister loses his hand?',\n              'What episode number does jaime lannister lose his hand?',\n              'What episode of season 3 does jaime lannister lose his hand?'],\n             dtype=object), 'answer': array([array(['Walk of Punishment'], dtype=object),\n              array(['23'], dtype=object), array(['3'], dtype=object)],\n             dtype=object)}                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 516,
+  "prompt": "What episode does jaime lannister lose his hand?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can definitely tell you what episode Jaime Lannister loses",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.864974975585938,
+          "prob": 2.3591251740664105e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.359125168500939e-09,
+      "prompt": "You're given the following task:\nWhat episode does jaime lannister lose his hand?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

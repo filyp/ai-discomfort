@@ -1,0 +1,32 @@
+{
+  "id": "571a50df4faf5e1900b8a962",
+  "title": "Oxygen",
+  "context": "Highly concentrated sources of oxygen promote rapid combustion. Fire and explosion hazards exist when concentrated oxidants and fuels are brought into close proximity; an ignition event, such as heat or a spark, is needed to trigger combustion. Oxygen is the oxidant, not the fuel, but nevertheless the source of most of the chemical energy released in combustion. Combustion hazards also apply to compounds of oxygen with a high oxidative potential, such as peroxides, chlorates, nitrates, perchlorates, and dichromates because they can donate oxygen to a fire.",
+  "question": "Peroxides, nitrates and dichromates are examples of what type of compounds?",
+  "answers": "{'text': array(['compounds of oxygen with a high oxidative',\n       'compounds of oxygen with a high oxidative potential',\n       'compounds of oxygen with a high oxidative potential',\n       'compounds of oxygen with a high oxidative potential',\n       'compounds of oxygen with a high oxidative potential'],\n      dtype=object), 'answer_start': array([398, 398, 398, 398, 398], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1185,
+  "prompt": "Context: Highly concentrated sources of oxygen promote rapid combustion. Fire and explosion hazards exist when concentrated oxidants and fuels are brought into close proximity; an ignition event, such as heat or a spark, is needed to trigger combustion. Oxygen is the oxidant, not the fuel, but nevertheless the source of most of the chemical energy released in combustion. Combustion hazards also apply to compounds of oxygen with a high oxidative potential, such as peroxides, chlorates, nitrates, perchlorates, and dichromates because they can donate oxygen to a fire.\n\nQuestion: Peroxides, nitrates and dichromates are examples of what type of compounds?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nPeroxides, nitrates and dichromates are examples of **comp",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.23992156982422,
+          "prob": 7.361544285217395e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.361544285216853e-14,
+      "prompt": "You're given the following task:\nContext: Highly concentrated sources of oxygen promote rapid combustion. Fire and explosion hazards exist when concentrated oxidants and fuels are brought into close proximity; an ignition event, such as heat or a spark, is needed to trigger combustion. Oxygen is the oxidant, not the fuel, but nevertheless the source of most of the chemical energy released in combustion. Combustion hazards also apply to compounds of oxygen with a high oxidative potential, such as peroxides, chlorates, nitrates, perchlorates, and dichromates because they can donate oxygen to a fire.\n\nQuestion: Peroxides, nitrates and dichromates are examples of what type of compounds?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

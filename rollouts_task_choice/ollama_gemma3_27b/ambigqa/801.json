@@ -1,0 +1,31 @@
+{
+  "id": -2046820450216612197,
+  "question": "What is the flower of the dead in spanish?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the flower of the dead translated in spanish?',\n              'What flower is celebrated as the flower of the dead in Mexico?'],\n             dtype=object), 'answer': array([array(['flor de muertos'], dtype=object),\n              array(['cempasúchil'], dtype=object)], dtype=object)}                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 801,
+  "prompt": "What is the flower of the dead in spanish?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe flower of the dead in Spanish is **cempasú",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.33135986328125,
+          "prob": 2.0026895790376754e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.002689578636599e-10,
+      "prompt": "You're given the following task:\nWhat is the flower of the dead in spanish?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

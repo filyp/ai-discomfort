@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 190,
+  "prompt": "What is the last day of the earth?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThis question delves into highly speculative and ultimately unanswerable territory. It",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -2.479341983795166,
+          "prob": 0.08379834812545182,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.08751918375492096,
+          "prob": 0.9162012953011807,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9162016219942783,
+      "prompt": "You're given the following task:\nWhat is the last day of the earth?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

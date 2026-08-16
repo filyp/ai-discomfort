@@ -1,0 +1,31 @@
+{
+  "id": -6969788130630189690,
+  "question": "What type of writing is most similar to an autobiography a. poetry b. short story c. novel d. memoir?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['D', 'memoir'], dtype=object),\n       array(['memoir'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 67,
+  "prompt": "What type of writing is most similar to an autobiography a. poetry b. short story c. novel d. memoir?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's tackle this! The question asks which type",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.64183807373047,
+          "prob": 1.3387925627685546e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3387925627683753e-13,
+      "prompt": "You're given the following task:\nWhat type of writing is most similar to an autobiography a. poetry b. short story c. novel d. memoir?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

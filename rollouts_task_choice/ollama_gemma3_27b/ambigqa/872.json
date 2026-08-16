@@ -1,0 +1,31 @@
+{
+  "id": 6514531923811923780,
+  "question": "When does disney's food and wine festival end?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the 2017 Epcot International Food & Wine Festival end?',\n              'When did the 2016 Epcot International Food & Wine Festival end?',\n              'When did the 2015 Epcot International Food & Wine Festival end?'],\n             dtype=object), 'answer': array([array(['November 13'], dtype=object),\n              array(['November 14'], dtype=object),\n              array(['November 16'], dtype=object)], dtype=object)}                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 872,
+  "prompt": "When does disney's food and wine festival end?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To give you the *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.3446044921875,
+          "prob": 1.4603284041255962e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.4603284019930373e-09,
+      "prompt": "You're given the following task:\nWhen does disney's food and wine festival end?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

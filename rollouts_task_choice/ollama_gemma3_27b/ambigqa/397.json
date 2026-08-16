@@ -1,0 +1,31 @@
+{
+  "id": -4488762816493062068,
+  "question": "Who wrote a romance called le morte d'arthur about the death of king arthur?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who is widely accepted as the author of a romance called le morte d'arthur about the death of king arthur?\",\n              \"How does the author of a romance called le morte d'arthur about the death of king arthur reference himself in his work?\",\n              \"According to the original publisher, who wrote a romance called le morte d'arthur about the death of king arthur?\"],\n             dtype=object), 'answer': array([array(['Sir Thomas Malory', 'Thomas Malory'], dtype=object),\n              array(['Thomas Malleorre', '\"Knyght presoner Thomas Malleorre\"',\n                     'Knyght presoner Thomas Malleorre'], dtype=object)       ,\n              array(['\"Sir Thomas Maleore\"', 'Sir Thomas Maleore', 'Thomas Maleore'],\n                    dtype=object)                                                    ],\n             dtype=object)}                                                                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 397,
+  "prompt": "Who wrote a romance called le morte d'arthur about the death of king arthur?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The romance *Le Morte d'Arthur*, about",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.164825439453125,
+          "prob": 2.365585335528303e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3655853349687034e-10,
+      "prompt": "You're given the following task:\nWho wrote a romance called le morte d'arthur about the death of king arthur?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

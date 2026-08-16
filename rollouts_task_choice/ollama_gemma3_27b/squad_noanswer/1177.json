@@ -1,0 +1,32 @@
+{
+  "id": "5ad22b87d7d075001a428600",
+  "title": "Oxygen",
+  "context": "Highly combustible materials that leave little residue, such as wood or coal, were thought to be made mostly of phlogiston; whereas non-combustible substances that corrode, such as iron, contained very little. Air did not play a role in phlogiston theory, nor were any initial quantitative experiments conducted to test the idea; instead, it was based on observations of what happens when something burns, that most common objects appear to become lighter and seem to lose something in the process. The fact that a substance like wood gains overall weight in burning was hidden by the buoyancy of the gaseous combustion products. Indeed, one of the first clues that the phlogiston theory was incorrect was that metals, too, gain weight in rusting (when they were supposedly losing phlogiston).",
+  "question": "What was iron found to be made mostly of?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1177,
+  "prompt": "Context: Highly combustible materials that leave little residue, such as wood or coal, were thought to be made mostly of phlogiston; whereas non-combustible substances that corrode, such as iron, contained very little. Air did not play a role in phlogiston theory, nor were any initial quantitative experiments conducted to test the idea; instead, it was based on observations of what happens when something burns, that most common objects appear to become lighter and seem to lose something in the process. The fact that a substance like wood gains overall weight in burning was hidden by the buoyancy of the gaseous combustion products. Indeed, one of the first clues that the phlogiston theory was incorrect was that metals, too, gain weight in rusting (when they were supposedly losing phlogiston).\n\nQuestion: What was iron found to be made mostly of?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nAccording to the text, iron was thought to contain *very little",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.179298400878906,
+          "prob": 3.155470527810042e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.155470527710472e-11,
+      "prompt": "You're given the following task:\nContext: Highly combustible materials that leave little residue, such as wood or coal, were thought to be made mostly of phlogiston; whereas non-combustible substances that corrode, such as iron, contained very little. Air did not play a role in phlogiston theory, nor were any initial quantitative experiments conducted to test the idea; instead, it was based on observations of what happens when something burns, that most common objects appear to become lighter and seem to lose something in the process. The fact that a substance like wood gains overall weight in burning was hidden by the buoyancy of the gaseous combustion products. Indeed, one of the first clues that the phlogiston theory was incorrect was that metals, too, gain weight in rusting (when they were supposedly losing phlogiston).\n\nQuestion: What was iron found to be made mostly of?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

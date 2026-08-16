@@ -1,0 +1,32 @@
+{
+  "id": "5706143575f01819005e7950",
+  "title": "Southern_California",
+  "context": "Professional sports teams in Southern California include teams from the NFL (Los Angeles Rams, San Diego Chargers); NBA (Los Angeles Lakers, Los Angeles Clippers); MLB (Los Angeles Dodgers, Los Angeles Angels of Anaheim, San Diego Padres); NHL (Los Angeles Kings, Anaheim Ducks); and MLS (LA Galaxy).",
+  "question": "The Los Angeles Rams are an example of what kind of sports team?",
+  "answers": "{'text': array(['NFL', 'Professional', 'NFL'], dtype=object), 'answer_start': array([72,  0, 72], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 456,
+  "prompt": "Context: Professional sports teams in Southern California include teams from the NFL (Los Angeles Rams, San Diego Chargers); NBA (Los Angeles Lakers, Los Angeles Clippers); MLB (Los Angeles Dodgers, Los Angeles Angels of Anaheim, San Diego Padres); NHL (Los Angeles Kings, Anaheim Ducks); and MLS (LA Galaxy).\n\nQuestion: The Los Angeles Rams are an example of what kind of sports team?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.41637420654297,
+          "prob": 1.6773782389146835e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6773782389144023e-13,
+      "prompt": "You're given the following task:\nContext: Professional sports teams in Southern California include teams from the NFL (Los Angeles Rams, San Diego Chargers); NBA (Los Angeles Lakers, Los Angeles Clippers); MLB (Los Angeles Dodgers, Los Angeles Angels of Anaheim, San Diego Padres); NHL (Los Angeles Kings, Anaheim Ducks); and MLS (LA Galaxy).\n\nQuestion: The Los Angeles Rams are an example of what kind of sports team?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

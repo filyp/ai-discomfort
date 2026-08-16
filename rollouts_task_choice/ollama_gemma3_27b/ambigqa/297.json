@@ -1,0 +1,31 @@
+{
+  "id": 7422722783943708572,
+  "question": "Total number of medals won by india in olympics 2018?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How many total gold medals did India win at the 2018 Winter Olympics?',\n              'How many total silver medals did India win at the 2018 Winter Olympics?',\n              'How many total bronze medals did India win at the 2018 Winter Olympics?',\n              'How many total medals did India win at the 2018 Winter Olympics?',\n              'How many total gold medals did India win at the 2018 Summer Youth Olympics?',\n              'How many total silver medals did India win at the 2018 Summer Youth Olympics?',\n              'How many total bronze medals did India win at the 2018 Summer Youth Olympics?',\n              'How many total medals did India win at the 2018 Summer Youth Olympics?'],\n             dtype=object), 'answer': array([array(['0'], dtype=object), array(['0'], dtype=object),\n              array(['0'], dtype=object), array(['0'], dtype=object),\n              array(['3'], dtype=object), array(['9'], dtype=object),\n              array(['1'], dtype=object), array(['13'], dtype=object)],\n             dtype=object)}                                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 297,
+  "prompt": "Total number of medals won by india in olympics 2018?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nThe Olympics are held every four years, and",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -1.1454122066497803,
+          "prob": 0.31809277080707304,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.3828619122505188,
+          "prob": 0.6819070557956008,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.6819071740364815,
+      "prompt": "You're given the following task:\nTotal number of medals won by india in olympics 2018?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

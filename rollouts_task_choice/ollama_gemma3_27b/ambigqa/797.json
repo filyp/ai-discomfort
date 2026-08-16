@@ -1,0 +1,31 @@
+{
+  "id": -4579542460060898599,
+  "question": "Where is the ferris wheel located in myrtle beach?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Oceanfront Boardwalk and Promenade'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['At what location is the ferris wheel located in myrtle beach?',\n              'At what coordinates is the ferris wheel located in myrtle beach?'],\n             dtype=object), 'answer': array([array(['Oceanfront Boardwalk and Promenade'], dtype=object),\n              array(['33.692035°N 78.87954°W'], dtype=object)], dtype=object)}                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 797,
+  "prompt": "Where is the ferris wheel located in myrtle beach?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! To give you the *most* accurate location, there",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.626319885253906,
+          "prob": 8.141268080222303e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.141268013942057e-09,
+      "prompt": "You're given the following task:\nWhere is the ferris wheel located in myrtle beach?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

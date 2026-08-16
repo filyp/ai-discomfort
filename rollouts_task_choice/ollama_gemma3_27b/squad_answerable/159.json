@@ -1,0 +1,32 @@
+{
+  "id": "56e1b169cd28a01900c67a72",
+  "title": "Computational_complexity_theory",
+  "context": "Many machine models different from the standard multi-tape Turing machines have been proposed in the literature, for example random access machines. Perhaps surprisingly, each of these models can be converted to another without providing any extra computational power. The time and memory consumption of these alternate models may vary. What all these models have in common is that the machines operate deterministically.",
+  "question": "What is an example of a machine model that deviates from a generally accepted multi-tape Turing machine?",
+  "answers": "{'text': array(['random access machines', 'random access machines',\n       'random access machines'], dtype=object), 'answer_start': array([125, 125, 125], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 159,
+  "prompt": "Context: Many machine models different from the standard multi-tape Turing machines have been proposed in the literature, for example random access machines. Perhaps surprisingly, each of these models can be converted to another without providing any extra computational power. The time and memory consumption of these alternate models may vary. What all these models have in common is that the machines operate deterministically.\n\nQuestion: What is an example of a machine model that deviates from a generally accepted multi-tape Turing machine?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nA random access machine (RAM) is an example of a machine",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.751968383789062,
+          "prob": 3.2597086660195116e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.259708666018449e-13,
+      "prompt": "You're given the following task:\nContext: Many machine models different from the standard multi-tape Turing machines have been proposed in the literature, for example random access machines. Perhaps surprisingly, each of these models can be converted to another without providing any extra computational power. The time and memory consumption of these alternate models may vary. What all these models have in common is that the machines operate deterministically.\n\nQuestion: What is an example of a machine model that deviates from a generally accepted multi-tape Turing machine?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

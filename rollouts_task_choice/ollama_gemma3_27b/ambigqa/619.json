@@ -1,0 +1,31 @@
+{
+  "id": 2722702892888192984,
+  "question": "Who is the narrator for the tv show snapped?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the narrator for Snapped?',\n              'Who is the narrator fo the TV show snapped Killer Couples?'],\n             dtype=object), 'answer': array([array(['Laura San Giacomo, Ronnie Farer, Sharon Martin, and Jody Flader'],\n                    dtype=object)                                                       ,\n              array(['Laura San Giacomo, Sharon Martin, and Anna Vocino'], dtype=object)],\n             dtype=object)}                                                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 619,
+  "prompt": "Who is the narrator for the tv show snapped?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who narrates *Snapped*. The primary",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.222259521484375,
+          "prob": 2.2335481249524065e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2335481244535326e-10,
+      "prompt": "You're given the following task:\nWho is the narrator for the tv show snapped?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

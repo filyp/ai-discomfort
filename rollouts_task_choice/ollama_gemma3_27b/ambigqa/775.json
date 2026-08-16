@@ -1,0 +1,31 @@
+{
+  "id": 651294105754681460,
+  "question": "What is the dog called in midsomer murders?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the dog called in midsomer murders from series 14 to series 18?',\n              'What is the dog called in midsomer murders after series 19?',\n              \"What is the dog's breed called in midsomer murders?\"],\n             dtype=object), 'answer': array([array(['Sykes'], dtype=object), array(['Paddy'], dtype=object),\n              array(['Terrier'], dtype=object)], dtype=object)}                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 775,
+  "prompt": "What is the dog called in midsomer murders?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! The dog in *M",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.838752746582031,
+          "prob": 3.5942771656444445e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.594277159175267e-07,
+      "prompt": "You're given the following task:\nWhat is the dog called in midsomer murders?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

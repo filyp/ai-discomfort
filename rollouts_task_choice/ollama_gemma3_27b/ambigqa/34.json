@@ -1,0 +1,31 @@
+{
+  "id": 4142368272814390339,
+  "question": "When did the yankees lose the world series?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['1921, 1922, 1926, 1942, 1955, 1957, 1960, 1963, 1964, 1976, 1981, 2001, and 2003'],\n             dtype=object)                                                                        ,\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['When did the yankees lose the world series in 2003?',\n              'When did the yankees lose the world series in 2001?',\n              'When did the yankees lose the world series in 1981?'],\n             dtype=object), 'answer': array([array(['October 25,2003'], dtype=object),\n              array(['November 4,2001'], dtype=object),\n              array(['October 28,1981'], dtype=object)], dtype=object)}               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 34,
+  "prompt": "When did the yankees lose the world series?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.205074310302734,
+          "prob": 2.491839868553204e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.4918398417275323e-07,
+      "prompt": "You're given the following task:\nWhen did the yankees lose the world series?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

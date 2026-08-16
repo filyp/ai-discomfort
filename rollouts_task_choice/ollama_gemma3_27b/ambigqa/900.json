@@ -1,0 +1,31 @@
+{
+  "id": -8118284230798145822,
+  "question": "When did the ottoman empire take over greece?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the ottoman empire take over all of mainland greece, not including the Despotate of the Morea?',\n              'When did the ottoman empire take over all of mainland greece, including the Despotate of the Morea?',\n              'When did the ottoman empire take over all of greece?'],\n             dtype=object), 'answer': array([array(['1453'], dtype=object), array(['1460'], dtype=object),\n              array(['1670'], dtype=object)], dtype=object)}                                                                         ,\n       {'question': array(['When did the ottoman empire take over Athens, greece?',\n              'When did the ottoman empire complete their take over of mainland greece?',\n              'When did the ottoman empire complete their take over of greece except for the Ionian Islands?'],\n             dtype=object), 'answer': array([array(['1458'], dtype=object), array(['1460'], dtype=object),\n              array(['1670'], dtype=object)], dtype=object)}                                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 900,
+  "prompt": "When did the ottoman empire take over greece?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, that's a good question! It wasn't",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.5968017578125,
+          "prob": 6.195845495900564e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.195845850617867e-08,
+      "prompt": "You're given the following task:\nWhen did the ottoman empire take over greece?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

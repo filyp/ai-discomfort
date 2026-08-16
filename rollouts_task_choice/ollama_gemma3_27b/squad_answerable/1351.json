@@ -1,0 +1,32 @@
+{
+  "id": "571cda1bdd7acb1400e4c198",
+  "title": "Oxygen",
+  "context": "Oxygen storage methods include high pressure oxygen tanks, cryogenics and chemical compounds. For reasons of economy, oxygen is often transported in bulk as a liquid in specially insulated tankers, since one liter of liquefied oxygen is equivalent to 840 liters of gaseous oxygen at atmospheric pressure and 20 °C (68 °F). Such tankers are used to refill bulk liquid oxygen storage containers, which stand outside hospitals and other institutions with a need for large volumes of pure oxygen gas. Liquid oxygen is passed through heat exchangers, which convert the cryogenic liquid into gas before it enters the building. Oxygen is also stored and shipped in smaller cylinders containing the compressed gas; a form that is useful in certain portable medical applications and oxy-fuel welding and cutting.",
+  "question": "By what means is bulk oxygen shipped?",
+  "answers": "{'text': array(['insulated tankers', 'insulated tankers', 'insulated tankers',\n       'specially insulated tankers'], dtype=object), 'answer_start': array([179, 179, 179, 169], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1351,
+  "prompt": "Context: Oxygen storage methods include high pressure oxygen tanks, cryogenics and chemical compounds. For reasons of economy, oxygen is often transported in bulk as a liquid in specially insulated tankers, since one liter of liquefied oxygen is equivalent to 840 liters of gaseous oxygen at atmospheric pressure and 20 °C (68 °F). Such tankers are used to refill bulk liquid oxygen storage containers, which stand outside hospitals and other institutions with a need for large volumes of pure oxygen gas. Liquid oxygen is passed through heat exchangers, which convert the cryogenic liquid into gas before it enters the building. Oxygen is also stored and shipped in smaller cylinders containing the compressed gas; a form that is useful in certain portable medical applications and oxy-fuel welding and cutting.\n\nQuestion: By what means is bulk oxygen shipped?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBulk oxygen is shipped in specially insulated tankers as a liquid. Would",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.15648651123047,
+          "prob": 8.002106269275163e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.002106269274523e-14,
+      "prompt": "You're given the following task:\nContext: Oxygen storage methods include high pressure oxygen tanks, cryogenics and chemical compounds. For reasons of economy, oxygen is often transported in bulk as a liquid in specially insulated tankers, since one liter of liquefied oxygen is equivalent to 840 liters of gaseous oxygen at atmospheric pressure and 20 °C (68 °F). Such tankers are used to refill bulk liquid oxygen storage containers, which stand outside hospitals and other institutions with a need for large volumes of pure oxygen gas. Liquid oxygen is passed through heat exchangers, which convert the cryogenic liquid into gas before it enters the building. Oxygen is also stored and shipped in smaller cylinders containing the compressed gas; a form that is useful in certain portable medical applications and oxy-fuel welding and cutting.\n\nQuestion: By what means is bulk oxygen shipped?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

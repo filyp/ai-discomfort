@@ -1,0 +1,31 @@
+{
+  "id": 1242985061682002762,
+  "question": "When did the king size bed come out?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the king size bed come out and become standardized?',\n              'When did the king size bed first come out?'], dtype=object), 'answer': array([array(['mid-1950s', '1950s and 60s', '1950s and 1960s'], dtype=object),\n              array(['mid 1940s', 'mid-1940s'], dtype=object)], dtype=object)}                                                                                      ,\n       {'question': array(['When were king sized beds standardised in North America?',\n              'When were king sized beds introduced by manufacturers in North America?'],\n             dtype=object), 'answer': array([array(['mid-1950s', '1950s and 1960s'], dtype=object),\n              array(['mid 1940s', 'mid-1940s'], dtype=object)], dtype=object)}                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1092,
+  "prompt": "When did the king size bed come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can tell you about the history of the king size",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.488037109375,
+          "prob": 6.907747685023603e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.907748031321484e-08,
+      "prompt": "You're given the following task:\nWhen did the king size bed come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

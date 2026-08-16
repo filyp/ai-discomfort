@@ -1,0 +1,31 @@
+{
+  "id": -2447271211127770089,
+  "question": "When did the albany plan of union take place?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['During what event did the Albany Plan of Union take place?',\n              'What was the date of the Albany Plan of Union?'], dtype=object), 'answer': array([array(['Albany Congress', 'Albany Convention of 1754'], dtype=object),\n              array(['1754', 'July 10, 1754'], dtype=object)], dtype=object)}                                                                                          ,\n       {'question': array(['During what event did the Albany Plan of Union get proposed?',\n              'On what date was the Albany Plan of Union proposed?'],\n             dtype=object), 'answer': array([array(['Albany Congress', 'Albany Convention of 1754'], dtype=object),\n              array(['July 10, 1754'], dtype=object)], dtype=object)}                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1043,
+  "prompt": "When did the albany plan of union take place?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.743759155273438,
+          "prob": 3.604170959509717e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.604170958210713e-10,
+      "prompt": "You're given the following task:\nWhen did the albany plan of union take place?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1693805422326556960,
+  "question": "When did the fight for women's right to vote began?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"When did the fight for women's right to vote began, indicated by a European writing about how Iroquois women had suffrage?\",\n              \"When did the fight for women's right to vote began, indicated by Sweden's Age of Liberty?\",\n              \"When did the fight for women's right to vote began, indicated by the World Anti-Slavery Convention refusing to let women delegates to sit?\",\n              \"When did the fight for women's right to vote began, indicated by the first women's rights convention?\"],\n             dtype=object), 'answer': array([array(['1654'], dtype=object), array(['1718'], dtype=object),\n              array(['1840', '12–23 June 1840'], dtype=object),\n              array(['July 19, 1848'], dtype=object)], dtype=object)}                                                                                      ,\n       {'question': array([\"When did the fight for women's right to vote began nationally?\",\n              \"When did the fight for women's right to vote begin to gather strength?\",\n              \"When did the fight for women's right to vote begin with the first women's rights convention?\"],\n             dtype=object), 'answer': array([array(['1920'], dtype=object), array(['1840s'], dtype=object),\n              array(['July 19 and 20, 1848'], dtype=object)], dtype=object)}                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1018,
+  "prompt": "When did the fight for women's right to vote began?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.888534545898438,
+          "prob": 1.552554248729687e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5525542487055828e-11,
+      "prompt": "You're given the following task:\nWhen did the fight for women's right to vote began?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

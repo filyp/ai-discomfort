@@ -1,0 +1,31 @@
+{
+  "id": 3985013743842784507,
+  "question": "What episode of law and order was ludacris on?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What episode of law and order was ludacris on and his storyline gets resolved?',\n              'What episode of law and order was ludacris on first?'],\n             dtype=object), 'answer': array([array(['season 8, episode 183', 'Screwed', 'episode 183'], dtype=object),\n              array(['episode 157', 'Venom', 'season 7, episode 156'], dtype=object)],\n             dtype=object)}                                                                                           ,\n       {'question': array(['What was the last episode of Law and Order: SVU that Ludacris appeared in?',\n              'What episode did Ludacris first appear on Law and Order: SVU?'],\n             dtype=object), 'answer': array([array(['Screwed', \"'Screwed.'\", 'episode 183'], dtype=object),\n              array(['episode 156', \"'Venom.'\", 'Venom'], dtype=object)],\n             dtype=object)}                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1121,
+  "prompt": "What episode of law and order was ludacris on?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Ludacris (Chris Bridges) was on **Law",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.847923278808594,
+          "prob": 1.3101902715837386e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3101902561107262e-07,
+      "prompt": "You're given the following task:\nWhat episode of law and order was ludacris on?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

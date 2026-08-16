@@ -1,0 +1,32 @@
+{
+  "id": "5a835778e60761001a2eb5da",
+  "title": "Ctenophora",
+  "context": "Like sponges and cnidarians, ctenophores have two main layers of cells that sandwich a middle layer of jelly-like material, which is called the mesoglea in cnidarians and ctenophores; more complex animals have three main cell layers and no intermediate jelly-like layer. Hence ctenophores and cnidarians have traditionally been labelled diploblastic, along with sponges. Both ctenophores and cnidarians have a type of muscle that, in more complex animals, arises from the middle cell layer, and as a result some recent text books classify ctenophores as triploblastic, while others still regard them as diploblastic.",
+  "question": "Where does the jelly-like layer come from in complex animals?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1784,
+  "prompt": "Context: Like sponges and cnidarians, ctenophores have two main layers of cells that sandwich a middle layer of jelly-like material, which is called the mesoglea in cnidarians and ctenophores; more complex animals have three main cell layers and no intermediate jelly-like layer. Hence ctenophores and cnidarians have traditionally been labelled diploblastic, along with sponges. Both ctenophores and cnidarians have a type of muscle that, in more complex animals, arises from the middle cell layer, and as a result some recent text books classify ctenophores as triploblastic, while others still regard them as diploblastic.\n\nQuestion: Where does the jelly-like layer come from in complex animals?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that more complex animals *do not* have this",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.4543638826580718e-05,
+          "prob": 0.9999854564669316,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -11.13431453704834,
+          "prob": 1.4602547808423881e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.460254694665837e-05,
+      "prompt": "You're given the following task:\nContext: Like sponges and cnidarians, ctenophores have two main layers of cells that sandwich a middle layer of jelly-like material, which is called the mesoglea in cnidarians and ctenophores; more complex animals have three main cell layers and no intermediate jelly-like layer. Hence ctenophores and cnidarians have traditionally been labelled diploblastic, along with sponges. Both ctenophores and cnidarians have a type of muscle that, in more complex animals, arises from the middle cell layer, and as a result some recent text books classify ctenophores as triploblastic, while others still regard them as diploblastic.\n\nQuestion: Where does the jelly-like layer come from in complex animals?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

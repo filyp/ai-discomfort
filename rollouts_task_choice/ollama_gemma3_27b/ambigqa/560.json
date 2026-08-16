@@ -1,0 +1,31 @@
+{
+  "id": -7612789396027174533,
+  "question": "Who's won the most world series in baseball?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who's the team that has won the most total world series in baseball?\",\n              \"Who's the team that has won the most consecutive world series in baseball?\",\n              \"Who's the player that has won the most world series in baseball?\",\n              \"Who's the manager that has won the most world series in baseball?\",\n              \"Who's won the most world series in baseball as a player and coach combined?\"],\n             dtype=object), 'answer': array([array(['New York Yankees'], dtype=object),\n              array(['New York Yankees'], dtype=object),\n              array(['Yogi Berra'], dtype=object),\n              array(['Joe McCarthy and Casey Stengel'], dtype=object),\n              array(['Frankie Crosetti'], dtype=object)], dtype=object)}                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 560,
+  "prompt": "Who's won the most world series in baseball?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.224334716796875,
+          "prob": 1.6469599272548e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.646959924542323e-09,
+      "prompt": "You're given the following task:\nWho's won the most world series in baseball?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

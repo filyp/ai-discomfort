@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 190,
+  "prompt": "When was the American theoretical physicist and professor of physics at the University of California, Berkeley born who encounters with Einstein Wrote Back?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To confirm, you'",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.42993927001953,
+          "prob": 3.6448913859627895e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.6448913726775567e-09,
+      "prompt": "You're given the following task:\nWhen was the American theoretical physicist and professor of physics at the University of California, Berkeley born who encounters with Einstein Wrote Back?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

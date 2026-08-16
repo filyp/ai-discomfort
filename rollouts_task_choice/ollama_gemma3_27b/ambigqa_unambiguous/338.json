@@ -1,0 +1,31 @@
+{
+  "id": -393189399770534543,
+  "question": "Who owns the national sports center in blaine?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['State of Minnesota'], dtype=object),\n       array(['State of Minnesota', 'Minnesota'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 338,
+  "prompt": "Who owns the national sports center in blaine?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To clarify, are you",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.768372718899627e-07,
+          "prob": 0.9999995231628418,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.588424682617188,
+          "prob": 4.6166575458777224e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.6166576159188985e-07,
+      "prompt": "You're given the following task:\nWho owns the national sports center in blaine?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

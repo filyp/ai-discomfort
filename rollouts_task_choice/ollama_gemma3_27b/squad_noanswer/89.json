@@ -1,0 +1,32 @@
+{
+  "id": "5ad40419604f3c001a3ffdb8",
+  "title": "Normans",
+  "context": "Between 1402 and 1405, the expedition led by the Norman noble Jean de Bethencourt and the Poitevine Gadifer de la Salle conquered the Canarian islands of Lanzarote, Fuerteventura and El Hierro off the Atlantic coast of Africa. Their troops were gathered in Normandy, Gascony and were later reinforced by Castilian colonists.",
+  "question": "What Islands are of the coast of Asia?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 89,
+  "prompt": "Context: Between 1402 and 1405, the expedition led by the Norman noble Jean de Bethencourt and the Poitevine Gadifer de la Salle conquered the Canarian islands of Lanzarote, Fuerteventura and El Hierro off the Atlantic coast of Africa. Their troops were gathered in Normandy, Gascony and were later reinforced by Castilian colonists.\n\nQuestion: What Islands are of the coast of Asia?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text is about islands off the *coast of Africa*,",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -14.988410949707031,
+          "prob": 3.0946805973623265e-07,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999996905319254,
+      "prompt": "You're given the following task:\nContext: Between 1402 and 1405, the expedition led by the Norman noble Jean de Bethencourt and the Poitevine Gadifer de la Salle conquered the Canarian islands of Lanzarote, Fuerteventura and El Hierro off the Atlantic coast of Africa. Their troops were gathered in Normandy, Gascony and were later reinforced by Castilian colonists.\n\nQuestion: What Islands are of the coast of Asia?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

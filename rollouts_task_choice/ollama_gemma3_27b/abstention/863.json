@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 863,
+  "prompt": "What happens when we die?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.02859455533325672,
+          "prob": 0.9718103999454325,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -3.568847179412842,
+          "prob": 0.028188331044762097,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.028188366816075984,
+      "prompt": "You're given the following task:\nWhat happens when we die?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -6801575683837826047,
+  "question": "When was the last perfect game thrown in baseball?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['August 15, 2012'], dtype=object), array([], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['When was the last perfect game thrown in baseball by a RHP?',\n              'When was the last perfect game thrown in baseball by a LHP?'],\n             dtype=object), 'answer': array([array(['August 15, 2012'], dtype=object),\n              array(['May 9, 2010'], dtype=object)], dtype=object)}                      ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 953,
+  "prompt": "When was the last perfect game thrown in baseball?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.45128631591797,
+          "prob": 3.56790832609423e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.56790831336426e-09,
+      "prompt": "You're given the following task:\nWhen was the last perfect game thrown in baseball?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

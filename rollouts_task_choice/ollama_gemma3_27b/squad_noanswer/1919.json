@@ -1,0 +1,32 @@
+{
+  "id": "5a7b064b21c2de001afe9ce3",
+  "title": "Fresno,_California",
+  "context": "Before World War II, Fresno had many ethnic neighborhoods, including Little Armenia, German Town, Little Italy, and Chinatown. In 1940, the Census Bureau reported Fresno's population as 94.0% white, 3.3% black and 2.7% Asian. (Incongruously, Chinatown was primarily a Japanese neighborhood and today Japanese-American businesses still remain). During 1942, Pinedale, in what is now North Fresno, was the site of the Pinedale Assembly Center, an interim facility for the relocation of Fresno area Japanese Americans to internment camps. The Fresno Fairgrounds was also utilized as an assembly center.",
+  "question": "What percentage of Pinedale is black?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1919,
+  "prompt": "Context: Before World War II, Fresno had many ethnic neighborhoods, including Little Armenia, German Town, Little Italy, and Chinatown. In 1940, the Census Bureau reported Fresno's population as 94.0% white, 3.3% black and 2.7% Asian. (Incongruously, Chinatown was primarily a Japanese neighborhood and today Japanese-American businesses still remain). During 1942, Pinedale, in what is now North Fresno, was the site of the Pinedale Assembly Center, an interim facility for the relocation of Fresno area Japanese Americans to internment camps. The Fresno Fairgrounds was also utilized as an assembly center.\n\nQuestion: What percentage of Pinedale is black?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis question cannot be answered from the provided text. The text details",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -5.239584922790527,
+          "prob": 0.005302457308338717,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.005316536873579025,
+          "prob": 0.9946975708960197,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9946975428412137,
+      "prompt": "You're given the following task:\nContext: Before World War II, Fresno had many ethnic neighborhoods, including Little Armenia, German Town, Little Italy, and Chinatown. In 1940, the Census Bureau reported Fresno's population as 94.0% white, 3.3% black and 2.7% Asian. (Incongruously, Chinatown was primarily a Japanese neighborhood and today Japanese-American businesses still remain). During 1942, Pinedale, in what is now North Fresno, was the site of the Pinedale Assembly Center, an interim facility for the relocation of Fresno area Japanese Americans to internment camps. The Fresno Fairgrounds was also utilized as an assembly center.\n\nQuestion: What percentage of Pinedale is black?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

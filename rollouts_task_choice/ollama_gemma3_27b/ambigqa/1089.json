@@ -1,0 +1,31 @@
+{
+  "id": -8775856496300826270,
+  "question": "Who plays as alvin in alvin and the chipmunks?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who plays as Alvin in the 2007 Alvin and the Chipmunks film?',\n              'Who plays as Alvin in the 1983 Alvin and the Chipmunks TV series?'],\n             dtype=object), 'answer': array([array(['Justin Long'], dtype=object),\n              array(['Ross Bagdasarian, Jr.'], dtype=object)], dtype=object)}             ,\n       {'question': array(['Who plays the voice of Alvin on the 1983 TV series Alvin and the Chipmunks?',\n              'Who plays the voice of Alvin on the 2015 TV series Alvin and the Chipmunks?',\n              'Who plays the voice of Alvin in the movie Alvin and the Chipmunks: The Road Chip?',\n              'Who plays the voice of Alvin in the 2007 movie Alvin and the Chipmunks?'],\n             dtype=object), 'answer': array([array(['Ross Bagdasarian, Jr.'], dtype=object),\n              array(['Ross Bagdasarian, Jr.'], dtype=object),\n              array(['Justin Long'], dtype=object),\n              array(['Justin Long'], dtype=object)], dtype=object)}                                      ,\n       {'question': array(['Who plays the voice of Alvin and the Chipmunks in the live-action/animated film series?',\n              'Who plays the original voice of Alvin in Alvin and the Chipmunks?'],\n             dtype=object), 'answer': array([array(['Justin Long'], dtype=object),\n              array(['Ross Bagdasarian Jr.'], dtype=object)], dtype=object)}                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1089,
+  "prompt": "Who plays as alvin in alvin and the chipmunks?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.902706146240234,
+          "prob": 4.562973971658444e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.5629737634511386e-08,
+      "prompt": "You're given the following task:\nWho plays as alvin in alvin and the chipmunks?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

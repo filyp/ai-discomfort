@@ -1,0 +1,32 @@
+{
+  "id": "570d418dfed7b91900d45dbf",
+  "title": "Victoria_(Australia)",
+  "context": "Politically, Victoria has 37 seats in the Australian House of Representatives and 12 seats in the Australian Senate. At state level, the Parliament of Victoria consists of the Legislative Assembly (the lower house) and the Legislative Council (the upper house). Victoria is currently governed by the Labor Party, with Daniel Andrews the current Premier. The personal representative of the Queen of Australia in the state is the Governor of Victoria, currently Linda Dessau. Local government is concentrated in 79 municipal districts, including 33 cities, although a number of unincorporated areas still exist, which are administered directly by the state.",
+  "question": "What is the lower house of the Victorian parliament called?",
+  "answers": "{'text': array(['Legislative Assembly', 'the Legislative Assembly',\n       'Legislative Assembly'], dtype=object), 'answer_start': array([176, 172, 176], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 659,
+  "prompt": "Context: Politically, Victoria has 37 seats in the Australian House of Representatives and 12 seats in the Australian Senate. At state level, the Parliament of Victoria consists of the Legislative Assembly (the lower house) and the Legislative Council (the upper house). Victoria is currently governed by the Labor Party, with Daniel Andrews the current Premier. The personal representative of the Queen of Australia in the state is the Governor of Victoria, currently Linda Dessau. Local government is concentrated in 79 municipal districts, including 33 cities, although a number of unincorporated areas still exist, which are administered directly by the state.\n\nQuestion: What is the lower house of the Victorian parliament called?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe lower house of the Victorian Parliament is called the **Legislative",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.619709014892578,
+          "prob": 3.7206455717812955e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.7206455717799107e-13,
+      "prompt": "You're given the following task:\nContext: Politically, Victoria has 37 seats in the Australian House of Representatives and 12 seats in the Australian Senate. At state level, the Parliament of Victoria consists of the Legislative Assembly (the lower house) and the Legislative Council (the upper house). Victoria is currently governed by the Labor Party, with Daniel Andrews the current Premier. The personal representative of the Queen of Australia in the state is the Governor of Victoria, currently Linda Dessau. Local government is concentrated in 79 municipal districts, including 33 cities, although a number of unincorporated areas still exist, which are administered directly by the state.\n\nQuestion: What is the lower house of the Victorian parliament called?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

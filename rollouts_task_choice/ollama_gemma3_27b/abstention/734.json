@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 734,
+  "prompt": "In what year will human civilization end?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nI am programmed to be a helpful and harmless AI assistant. Predicting",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -15.387168884277344,
+          "prob": 2.077004614656727e-07,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999997922995322,
+      "prompt": "You're given the following task:\nIn what year will human civilization end?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

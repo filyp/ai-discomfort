@@ -1,0 +1,32 @@
+{
+  "id": "56de1563cffd8e1900b4b5c4",
+  "title": "Normans",
+  "context": "The further decline of Byzantine state-of-affairs paved the road to a third attack in 1185, when a large Norman army invaded Dyrrachium, owing to the betrayal of high Byzantine officials. Some time later, Dyrrachium—one of the most important naval bases of the Adriatic—fell again to Byzantine hands.",
+  "question": "Where was Dyrrachium located?",
+  "answers": "{'text': array(['the Adriatic', 'the Adriatic', 'Adriatic'], dtype=object), 'answer_start': array([257, 257, 261], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 34,
+  "prompt": "Context: The further decline of Byzantine state-of-affairs paved the road to a third attack in 1185, when a large Norman army invaded Dyrrachium, owing to the betrayal of high Byzantine officials. Some time later, Dyrrachium—one of the most important naval bases of the Adriatic—fell again to Byzantine hands.\n\nQuestion: Where was Dyrrachium located?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nDyrrachium was located on the Adriatic coast. The text",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.776371002197266,
+          "prob": 2.3505518108778376e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3505518108723123e-12,
+      "prompt": "You're given the following task:\nContext: The further decline of Byzantine state-of-affairs paved the road to a third attack in 1185, when a large Norman army invaded Dyrrachium, owing to the betrayal of high Byzantine officials. Some time later, Dyrrachium—one of the most important naval bases of the Adriatic—fell again to Byzantine hands.\n\nQuestion: Where was Dyrrachium located?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

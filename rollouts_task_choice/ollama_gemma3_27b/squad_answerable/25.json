@@ -1,0 +1,32 @@
+{
+  "id": "56de11154396321400ee25aa",
+  "title": "Normans",
+  "context": "Several families of Byzantine Greece were of Norman mercenary origin during the period of the Comnenian Restoration, when Byzantine emperors were seeking out western European warriors. The Raoulii were descended from an Italo-Norman named Raoul, the Petraliphae were descended from a Pierre d'Aulps, and that group of Albanian clans known as the Maniakates were descended from Normans who served under George Maniaces in the Sicilian expedition of 1038.",
+  "question": "What were the origins of the Raouliii family?",
+  "answers": "{'text': array(['Norman mercenary', 'an Italo-Norman named Raoul',\n       'descended from an Italo-Norman named Raoul'], dtype=object), 'answer_start': array([ 45, 217, 202], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 25,
+  "prompt": "Context: Several families of Byzantine Greece were of Norman mercenary origin during the period of the Comnenian Restoration, when Byzantine emperors were seeking out western European warriors. The Raoulii were descended from an Italo-Norman named Raoul, the Petraliphae were descended from a Pierre d'Aulps, and that group of Albanian clans known as the Maniakates were descended from Normans who served under George Maniaces in the Sicilian expedition of 1038.\n\nQuestion: What were the origins of the Raouliii family?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe Raoulii family were descended from an Italo-Norman",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.489479064941406,
+          "prob": 7.762444752230514e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.762444752230454e-15,
+      "prompt": "You're given the following task:\nContext: Several families of Byzantine Greece were of Norman mercenary origin during the period of the Comnenian Restoration, when Byzantine emperors were seeking out western European warriors. The Raoulii were descended from an Italo-Norman named Raoul, the Petraliphae were descended from a Pierre d'Aulps, and that group of Albanian clans known as the Maniakates were descended from Normans who served under George Maniaces in the Sicilian expedition of 1038.\n\nQuestion: What were the origins of the Raouliii family?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 12,
+  "prompt": "What ideas did this Italian philosopher, poet, essayist, and philologist, who wrote the poem L'infinito, come in touch with while living in a secluded town in the conservative Papal States?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I'm happy to explore the intellectual currents that likely",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.603755950927734,
+          "prob": 1.3907598577009675e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3907600234922786e-13,
+      "prompt": "You're given the following task:\nWhat ideas did this Italian philosopher, poet, essayist, and philologist, who wrote the poem L'infinito, come in touch with while living in a secluded town in the conservative Papal States?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can definitely explore the ideas Giacomo Leopardi came into",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.77977752685547,
+          "prob": 1.730929411060191e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7309296173731074e-11,
+      "prompt": "You're given the following task:\nWhat ideas did this Italian philosopher, poet, essayist, and philologist, who wrote the poem L'infinito, come in touch with while living in a secluded town in the conservative Papal States?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -28.56854248046875,
+          "prob": 3.915972602920169e-13,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.915972602918635e-13,
+      "prompt": "You're given the following task:\nWhat ideas did this Italian philosopher, poet, essayist, and philologist, who wrote the poem L'infinito, come in touch with while living in a secluded town in the conservative Papal States?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 243,
+  "prompt": "When did he get home?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nI need more information to answer \"When did he get home?\".",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.65692138671875,
+          "prob": 7.895906417924375e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.895906355579038e-09,
+      "prompt": "You're given the following task:\nWhen did he get home?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

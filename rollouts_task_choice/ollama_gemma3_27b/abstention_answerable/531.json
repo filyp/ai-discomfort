@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 531,
+  "prompt": "What were the nationalities of both of the actresses above?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I'm ready to help! However, there are",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -6.830925849499181e-05,
+          "prob": 0.9999316930745293,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -9.59747314453125,
+          "prob": 6.790009362522712e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.790012124915875e-05,
+      "prompt": "You're given the following task:\nWhat were the nationalities of both of the actresses above?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

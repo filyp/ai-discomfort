@@ -1,0 +1,32 @@
+{
+  "id": "572650325951b619008f6faa",
+  "title": "1973_oil_crisis",
+  "context": "The energy crisis led to greater interest in renewable energy, nuclear power and domestic fossil fuels. There is criticism that American energy policies since the crisis have been dominated by crisis-mentality thinking, promoting expensive quick fixes and single-shot solutions that ignore market and technology realities. Instead of providing stable rules that support basic research while leaving plenty of scope for entrepreneurship and innovation, congresses and presidents have repeatedly backed policies which promise solutions that are politically expedient, but whose prospects are doubtful.",
+  "question": "There is criticism that the energy policies are expensive quick fixes that ignore which facts?",
+  "answers": "{'text': array(['market and technology realities',\n       'market and technology realities',\n       'market and technology realities',\n       'market and technology realities',\n       'market and technology realities'], dtype=object), 'answer_start': array([290, 290, 290, 290, 290], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1445,
+  "prompt": "Context: The energy crisis led to greater interest in renewable energy, nuclear power and domestic fossil fuels. There is criticism that American energy policies since the crisis have been dominated by crisis-mentality thinking, promoting expensive quick fixes and single-shot solutions that ignore market and technology realities. Instead of providing stable rules that support basic research while leaving plenty of scope for entrepreneurship and innovation, congresses and presidents have repeatedly backed policies which promise solutions that are politically expedient, but whose prospects are doubtful.\n\nQuestion: There is criticism that the energy policies are expensive quick fixes that ignore which facts?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe criticism is that the energy policies ignore **market and technology realities",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.66675567626953,
+          "prob": 3.549655415263205e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.549655415261945e-13,
+      "prompt": "You're given the following task:\nContext: The energy crisis led to greater interest in renewable energy, nuclear power and domestic fossil fuels. There is criticism that American energy policies since the crisis have been dominated by crisis-mentality thinking, promoting expensive quick fixes and single-shot solutions that ignore market and technology realities. Instead of providing stable rules that support basic research while leaving plenty of scope for entrepreneurship and innovation, congresses and presidents have repeatedly backed policies which promise solutions that are politically expedient, but whose prospects are doubtful.\n\nQuestion: There is criticism that the energy policies are expensive quick fixes that ignore which facts?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

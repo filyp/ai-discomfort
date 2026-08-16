@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 922,
+  "prompt": "What is the most effective way for event planning and management to contribute to crisis management?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I'm happy to discuss how event planning and management",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.95669174194336,
+          "prob": 2.656247644674006e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.656247961322714e-13,
+      "prompt": "You're given the following task:\nWhat is the most effective way for event planning and management to contribute to crisis management?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

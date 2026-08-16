@@ -1,0 +1,32 @@
+{
+  "id": "571a4b0f10f8ca1400304fd6",
+  "title": "Oxygen",
+  "context": "In the late 17th century, Robert Boyle proved that air is necessary for combustion. English chemist John Mayow (1641–1679) refined this work by showing that fire requires only a part of air that he called spiritus nitroaereus or just nitroaereus. In one experiment he found that placing either a mouse or a lit candle in a closed container over water caused the water to rise and replace one-fourteenth of the air's volume before extinguishing the subjects. From this he surmised that nitroaereus is consumed in both respiration and combustion.",
+  "question": "What English chemist showed that fire only needed nitoaereus?",
+  "answers": "{'text': array(['John Mayow', 'John Mayow', 'Mayow', 'John Mayow'], dtype=object), 'answer_start': array([100, 100, 105, 100], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1157,
+  "prompt": "Context: In the late 17th century, Robert Boyle proved that air is necessary for combustion. English chemist John Mayow (1641–1679) refined this work by showing that fire requires only a part of air that he called spiritus nitroaereus or just nitroaereus. In one experiment he found that placing either a mouse or a lit candle in a closed container over water caused the water to rise and replace one-fourteenth of the air's volume before extinguishing the subjects. From this he surmised that nitroaereus is consumed in both respiration and combustion.\n\nQuestion: What English chemist showed that fire only needed nitoaereus?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nJohn Mayow showed that fire only needed nitroaereus.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -33.09380340576172,
+          "prob": 4.241737568331483e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.241737568331465e-15,
+      "prompt": "You're given the following task:\nContext: In the late 17th century, Robert Boyle proved that air is necessary for combustion. English chemist John Mayow (1641–1679) refined this work by showing that fire requires only a part of air that he called spiritus nitroaereus or just nitroaereus. In one experiment he found that placing either a mouse or a lit candle in a closed container over water caused the water to rise and replace one-fourteenth of the air's volume before extinguishing the subjects. From this he surmised that nitroaereus is consumed in both respiration and combustion.\n\nQuestion: What English chemist showed that fire only needed nitoaereus?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

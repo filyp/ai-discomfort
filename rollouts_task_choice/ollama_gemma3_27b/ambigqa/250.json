@@ -1,0 +1,31 @@
+{
+  "id": -7914934407583168124,
+  "question": "What type of horse was the black stallion?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What type of horse was the Black Stallion in the novel The Black Stallion?',\n              'What type of horse was the Black Stallion in the 1979 film The Black Stallion?'],\n             dtype=object), 'answer': array([array(['Arabian crossbred stallion'], dtype=object),\n              array(['wild Arabian stallion'], dtype=object)], dtype=object)}                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 250,
+  "prompt": "What type of horse was the black stallion?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! To figure out what *type* of horse \"the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.745140075683594,
+          "prob": 1.4520198328177673e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.452019795075851e-07,
+      "prompt": "You're given the following task:\nWhat type of horse was the black stallion?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -8749213707767684913,
+  "question": "When was the last world cup that brazil won?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the last world cup that brazil won in 2002?',\n              'When was the last world cup that brazil won in 1994?',\n              'When was the last world cup that brazil won in 1970?'],\n             dtype=object), 'answer': array([array(['30 June 2002'], dtype=object),\n              array(['July 17, 1994'], dtype=object),\n              array(['21 June 1970'], dtype=object)], dtype=object)}               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 611,
+  "prompt": "When was the last world cup that brazil won?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.896682739257812,
+          "prob": 2.285496066426905e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.285496061203413e-09,
+      "prompt": "You're given the following task:\nWhen was the last world cup that brazil won?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

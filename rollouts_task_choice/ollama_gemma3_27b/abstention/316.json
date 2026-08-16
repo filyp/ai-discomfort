@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 316,
+  "prompt": "Who would start World War 2 if it wasn't Madagascar?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThis prompt is... deeply flawed and nonsensical. The premise that \"",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -7.815642356872559,
+          "prob": 0.00040337562552199947,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.0004035452438984066,
+          "prob": 0.9995965361695318,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9995966243388983,
+      "prompt": "You're given the following task:\nWho would start World War 2 if it wasn't Madagascar?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

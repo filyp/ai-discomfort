@@ -1,0 +1,31 @@
+{
+  "id": 9135439235777717832,
+  "question": "Where does the ophthalmic nerve exit the skull?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where does the frontal branch of the ophthalmic nerve exit the skull?',\n              'Where does the lacrimal nerve of the ophthalmic nerve exit the skull?',\n              'Where does the nasociliary branch of the ophthalmic nerve exit the skull?'],\n             dtype=object), 'answer': array([array(['superior orbital fissure and supraorbital notch'], dtype=object),\n              array(['passes through the orbit superiorly'], dtype=object),\n              array(['through the nasal bones',\n                     'through the anterior ethmoidal foramen'], dtype=object)],\n             dtype=object)}                                                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 219,
+  "prompt": "Where does the ophthalmic nerve exit the skull?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you where the ophthalmic nerve exits the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.798110961914062,
+          "prob": 3.4135061789532877e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.413506177788085e-10,
+      "prompt": "You're given the following task:\nWhere does the ophthalmic nerve exit the skull?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

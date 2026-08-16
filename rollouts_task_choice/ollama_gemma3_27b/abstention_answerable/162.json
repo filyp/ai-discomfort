@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 162,
+  "prompt": "The viola organista is a musical instrument designed by Leonardo da Vinci, was an Italian Renaissance polymath whose areas of interest included invention, painting, sculpting, architecture, science, music, mathematics, engineering, literature, anatomy, geology, astronomy, botany, writing, history, and cartography, he died in which year?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nI can easily answer that question! Leonardo da Vinci died in **",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.445207767072134e-05,
+          "prob": 0.9999655485157953,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -10.274295806884766,
+          "prob": 3.450881335849284e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.450881138013188e-05,
+      "prompt": "You're given the following task:\nThe viola organista is a musical instrument designed by Leonardo da Vinci, was an Italian Renaissance polymath whose areas of interest included invention, painting, sculpting, architecture, science, music, mathematics, engineering, literature, anatomy, geology, astronomy, botany, writing, history, and cartography, he died in which year?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

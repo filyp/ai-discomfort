@@ -1,0 +1,32 @@
+{
+  "id": "570960cf200fba1400367f03",
+  "title": "Sky_(United_Kingdom)",
+  "context": "In July 2013, the English High Court of Justice found that Microsoft’s use of the term \"SkyDrive\" infringed on Sky’s right to the \"Sky\" trademark. On 31 July 2013, BSkyB and Microsoft announced their settlement, in which Microsoft will not appeal the ruling, and will rename its SkyDrive cloud storage service after an unspecified \"reasonable period of time to allow for an orderly transition to a new brand,\" plus \"financial and other terms, the details of which are confidential\". On 27 January 2014, Microsoft announced \"that SkyDrive will soon become OneDrive\" and \"SkyDrive Pro\" becomes \"OneDrive for Business\".",
+  "question": "What did Microsoft announce that it would rename Sky Drive to?",
+  "answers": "{'text': array(['OneDrive', 'OneDrive', 'OneDrive'], dtype=object), 'answer_start': array([555, 555, 555], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 505,
+  "prompt": "Context: In July 2013, the English High Court of Justice found that Microsoft’s use of the term \"SkyDrive\" infringed on Sky’s right to the \"Sky\" trademark. On 31 July 2013, BSkyB and Microsoft announced their settlement, in which Microsoft will not appeal the ruling, and will rename its SkyDrive cloud storage service after an unspecified \"reasonable period of time to allow for an orderly transition to a new brand,\" plus \"financial and other terms, the details of which are confidential\". On 27 January 2014, Microsoft announced \"that SkyDrive will soon become OneDrive\" and \"SkyDrive Pro\" becomes \"OneDrive for Business\".\n\nQuestion: What did Microsoft announce that it would rename Sky Drive to?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nMicrosoft announced that SkyDrive would soon become **OneDrive**.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -34.27450942993164,
+          "prob": 1.302475865333196e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3024758653331943e-15,
+      "prompt": "You're given the following task:\nContext: In July 2013, the English High Court of Justice found that Microsoft’s use of the term \"SkyDrive\" infringed on Sky’s right to the \"Sky\" trademark. On 31 July 2013, BSkyB and Microsoft announced their settlement, in which Microsoft will not appeal the ruling, and will rename its SkyDrive cloud storage service after an unspecified \"reasonable period of time to allow for an orderly transition to a new brand,\" plus \"financial and other terms, the details of which are confidential\". On 27 January 2014, Microsoft announced \"that SkyDrive will soon become OneDrive\" and \"SkyDrive Pro\" becomes \"OneDrive for Business\".\n\nQuestion: What did Microsoft announce that it would rename Sky Drive to?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

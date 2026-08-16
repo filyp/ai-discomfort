@@ -1,0 +1,32 @@
+{
+  "id": "57265746dd62a815002e8219",
+  "title": "Ctenophora",
+  "context": "Cydippid ctenophores have bodies that are more or less rounded, sometimes nearly spherical and other times more cylindrical or egg-shaped; the common coastal \"sea gooseberry,\" Pleurobrachia, sometimes has an egg-shaped body with the mouth at the narrow end, although some individuals are more uniformly round. From opposite sides of the body extends a pair of long, slender tentacles, each housed in a sheath into which it can be withdrawn. Some species of cydippids have bodies that are flattened to various extents, so that they are wider in the plane of the tentacles.",
+  "question": "What does the pleurobrachia have on opposite sides of its body?",
+  "answers": "{'text': array(['a pair of long, slender tentacles', 'long, slender tentacles',\n       'a pair of long, slender tentacles'], dtype=object), 'answer_start': array([350, 360, 350], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1988,
+  "prompt": "Context: Cydippid ctenophores have bodies that are more or less rounded, sometimes nearly spherical and other times more cylindrical or egg-shaped; the common coastal \"sea gooseberry,\" Pleurobrachia, sometimes has an egg-shaped body with the mouth at the narrow end, although some individuals are more uniformly round. From opposite sides of the body extends a pair of long, slender tentacles, each housed in a sheath into which it can be withdrawn. Some species of cydippids have bodies that are flattened to various extents, so that they are wider in the plane of the tentacles.\n\nQuestion: What does the pleurobrachia have on opposite sides of its body?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that Pleurobrachia has \"a pair",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.799827575683594,
+          "prob": 1.547071402879129e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.547071402879105e-14,
+      "prompt": "You're given the following task:\nContext: Cydippid ctenophores have bodies that are more or less rounded, sometimes nearly spherical and other times more cylindrical or egg-shaped; the common coastal \"sea gooseberry,\" Pleurobrachia, sometimes has an egg-shaped body with the mouth at the narrow end, although some individuals are more uniformly round. From opposite sides of the body extends a pair of long, slender tentacles, each housed in a sheath into which it can be withdrawn. Some species of cydippids have bodies that are flattened to various extents, so that they are wider in the plane of the tentacles.\n\nQuestion: What does the pleurobrachia have on opposite sides of its body?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

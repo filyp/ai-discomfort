@@ -1,0 +1,31 @@
+{
+  "id": -1121123354486556129,
+  "question": "The bill of rights applies to the states through this amendment?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Fourteenth and Fifteenth'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['The bill of rights applies to the states through this 1868 amendment?',\n              'The bill of rights applies to the states through this 1870 amendment?'],\n             dtype=object), 'answer': array([array(['Amendment XIV', 'Fourteenth Amendment',\n                     'Fourteenth Amendment to the United States Constitution'],\n                    dtype=object)                                              ,\n              array(['Amendment XV', 'Fifteenth Amendment',\n                     'Fifteenth Amendment to the United States Constitution'],\n                    dtype=object)                                             ],\n             dtype=object)}                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 359,
+  "prompt": "The bill of rights applies to the states through this amendment?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.385055541992188,
+          "prob": 5.159271503056773e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.159271500394964e-10,
+      "prompt": "You're given the following task:\nThe bill of rights applies to the states through this amendment?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

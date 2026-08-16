@@ -1,0 +1,31 @@
+{
+  "id": -8488813281449550460,
+  "question": "Where was the first north american indigenous games held?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Edmonton, Alberta'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Where was the first games for indigenous people held?',\n              'Where was the first official North American Indigenous Games held?'],\n             dtype=object), 'answer': array([array(['Enoch, AB'], dtype=object),\n              array(['Edmonton, AB'], dtype=object)], dtype=object)}                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 860,
+  "prompt": "Where was the first north american indigenous games held?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.91533660888672,
+          "prob": 1.6575558454104885e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6575558179355753e-08,
+      "prompt": "You're given the following task:\nWhere was the first north american indigenous games held?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

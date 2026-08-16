@@ -1,0 +1,31 @@
+{
+  "id": 7104023322609731285,
+  "question": "Who plays beast in the movie beauty and the beast?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who plays Beast in the 1991 movie Beauty and the Beast?',\n              'Who plays Beast in the 2017 movie Beauty and the Beast?',\n              'Who plays Beast in the 1946 French Beauty and the Beast titled La Belle et la Bête?',\n              'Who plays Beast in the 1987 contemporary movie Beauty and the Beast?'],\n             dtype=object), 'answer': array([array(['Robby Benson'], dtype=object),\n              array(['Dan Stevens'], dtype=object),\n              array(['Jean Marais'], dtype=object),\n              array(['John Savage'], dtype=object)], dtype=object)}                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 463,
+  "prompt": "Who plays beast in the movie beauty and the beast?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.166336059570312,
+          "prob": 2.362014532474034e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3620145319161225e-10,
+      "prompt": "You're given the following task:\nWho plays beast in the movie beauty and the beast?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

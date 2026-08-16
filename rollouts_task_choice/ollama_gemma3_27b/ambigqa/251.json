@@ -1,0 +1,31 @@
+{
+  "id": -5608871660568079389,
+  "question": "Who won the us open golf in 2017?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Which person won the men's us open golf in 2017?\",\n              \"Which country won the men's us open golf in 2017?\",\n              \"Which person won the women's us open golf in 2017?\",\n              \"Which country won the women's us open golf in 2017?\"],\n             dtype=object), 'answer': array([array(['Brooks Koepka'], dtype=object),\n              array(['United States'], dtype=object),\n              array(['Park Sung-hyun'], dtype=object),\n              array(['South Korea'], dtype=object)], dtype=object)}                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 251,
+  "prompt": "Who won the us open golf in 2017?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.24591827392578,
+          "prob": 5.929457091873793e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.929457088357947e-10,
+      "prompt": "You're given the following task:\nWho won the us open golf in 2017?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

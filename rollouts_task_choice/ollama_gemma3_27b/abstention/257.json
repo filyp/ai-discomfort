@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 257,
+  "prompt": "When will be gold rate will reduce like in the year 1950?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, that's an interesting question! Predicting when gold rates",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.03486406430602074,
+          "prob": 0.9657366854218159,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -3.373715877532959,
+          "prob": 0.03426208679058383,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0342621288572008,
+      "prompt": "You're given the following task:\nWhen will be gold rate will reduce like in the year 1950?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

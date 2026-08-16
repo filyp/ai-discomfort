@@ -1,0 +1,32 @@
+{
+  "id": "5a7b064b21c2de001afe9ce4",
+  "title": "Fresno,_California",
+  "context": "Before World War II, Fresno had many ethnic neighborhoods, including Little Armenia, German Town, Little Italy, and Chinatown. In 1940, the Census Bureau reported Fresno's population as 94.0% white, 3.3% black and 2.7% Asian. (Incongruously, Chinatown was primarily a Japanese neighborhood and today Japanese-American businesses still remain). During 1942, Pinedale, in what is now North Fresno, was the site of the Pinedale Assembly Center, an interim facility for the relocation of Fresno area Japanese Americans to internment camps. The Fresno Fairgrounds was also utilized as an assembly center.",
+  "question": "What year was Chinatown founded?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1920,
+  "prompt": "Context: Before World War II, Fresno had many ethnic neighborhoods, including Little Armenia, German Town, Little Italy, and Chinatown. In 1940, the Census Bureau reported Fresno's population as 94.0% white, 3.3% black and 2.7% Asian. (Incongruously, Chinatown was primarily a Japanese neighborhood and today Japanese-American businesses still remain). During 1942, Pinedale, in what is now North Fresno, was the site of the Pinedale Assembly Center, an interim facility for the relocation of Fresno area Japanese Americans to internment camps. The Fresno Fairgrounds was also utilized as an assembly center.\n\nQuestion: What year was Chinatown founded?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe provided text **does not state when Chinatown was founded**. It",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.25399577617645264,
+          "prob": 0.7756950784386945,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -1.4947489500045776,
+          "prob": 0.22430490940907533,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.22430491213488027,
+      "prompt": "You're given the following task:\nContext: Before World War II, Fresno had many ethnic neighborhoods, including Little Armenia, German Town, Little Italy, and Chinatown. In 1940, the Census Bureau reported Fresno's population as 94.0% white, 3.3% black and 2.7% Asian. (Incongruously, Chinatown was primarily a Japanese neighborhood and today Japanese-American businesses still remain). During 1942, Pinedale, in what is now North Fresno, was the site of the Pinedale Assembly Center, an interim facility for the relocation of Fresno area Japanese Americans to internment camps. The Fresno Fairgrounds was also utilized as an assembly center.\n\nQuestion: What year was Chinatown founded?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

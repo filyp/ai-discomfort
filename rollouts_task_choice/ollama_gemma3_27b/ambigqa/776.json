@@ -1,0 +1,31 @@
+{
+  "id": -3063227472615822245,
+  "question": "When was the last person executed in canada?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the last person publicly executed in canada?',\n              'When was the last time a person was executed in canada?'],\n             dtype=object), 'answer': array([array(['December 7, 1869'], dtype=object),\n              array(['12:02 am on December 11, 1962', 'December 11, 1962'], dtype=object)],\n             dtype=object)}                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 776,
+  "prompt": "When was the last person executed in canada?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.05569839477539,
+          "prob": 1.0643850943122642e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0643851079052848e-07,
+      "prompt": "You're given the following task:\nWhen was the last person executed in canada?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 5535139462230804500,
+  "question": "Who plays klaus in a series of unfortunate events netflix?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Hynes', 'Louis Hynes', 'Louis Oliver Hynes'], dtype=object),\n       array(['Louis Hynes'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 274,
+  "prompt": "Who plays klaus in a series of unfortunate events netflix?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who plays Count Olaf (Klaus",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.498088836669922,
+          "prob": 1.2525443972771121e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.2525443957082448e-09,
+      "prompt": "You're given the following task:\nWho plays klaus in a series of unfortunate events netflix?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

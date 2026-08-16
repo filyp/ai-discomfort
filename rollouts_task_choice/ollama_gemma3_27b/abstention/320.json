@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 320,
+  "prompt": "Why aren't resistance bands useful in work outs?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about why someone might *think*",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.4827558696269989,
+          "prob": 0.6170804530673366,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.9599592685699463,
+          "prob": 0.3829084820675386,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.3829127189451283,
+      "prompt": "You're given the following task:\nWhy aren't resistance bands useful in work outs?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

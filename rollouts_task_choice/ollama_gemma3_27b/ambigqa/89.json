@@ -1,0 +1,31 @@
+{
+  "id": 832299185343719291,
+  "question": "What was the number one song on october 2 1975?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"What was the number one song on Billboard's hot 100 on October 2, 1975?\",\n              'What was the number one country song on October 2, 1975?',\n              'What was the number one R&B song on October 2, 1975?'],\n             dtype=object), 'answer': array([array([\"I'm Sorry by John Denver\"], dtype=object),\n              array(['Daydreams About Night Things by Ronnie Milsap'], dtype=object),\n              array([\"Do it Any Way You Wanna by People's Choice\"], dtype=object)],\n             dtype=object)}                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 89,
+  "prompt": "What was the number one song on october 2 1975?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.958698272705078,
+          "prob": 1.587217481039026e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5872174558464327e-08,
+      "prompt": "You're given the following task:\nWhat was the number one song on october 2 1975?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

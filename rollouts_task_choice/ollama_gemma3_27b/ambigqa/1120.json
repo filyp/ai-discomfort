@@ -1,0 +1,31 @@
+{
+  "id": 3783314997423605362,
+  "question": "Who's the highest paid nba player 2017?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who's the highest paid NBA player in the 2017-2018 season?\",\n              \"Who's the highest paid NBA player in the 2016-2017 season?\"],\n             dtype=object), 'answer': array([array(['Stephen Curry'], dtype=object),\n              array(['LeBron James', 'Lebron James'], dtype=object)],\n             dtype=object)}                                                             ,\n       {'question': array([\"Who's the highest paid NBA player in the 2017-2018 season?\",\n              \"Who's the highest paid NBA player in the 2016-2017 season?\"],\n             dtype=object), 'answer': array([array(['Stephen Curry'], dtype=object),\n              array(['LeBron James', 'Lebron James'], dtype=object)],\n             dtype=object)}                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1120,
+  "prompt": "Who's the highest paid nba player 2017?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.474945068359375,
+          "prob": 9.471817101664547e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.47181701194923e-09,
+      "prompt": "You're given the following task:\nWho's the highest paid nba player 2017?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

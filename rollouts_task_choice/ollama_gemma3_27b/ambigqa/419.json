@@ -1,0 +1,31 @@
+{
+  "id": -2590697142631867341,
+  "question": "Who is the actor that plays the flash?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the actor who plays the Flash in the 1990 TV show?',\n              'Who is the actor who originally played the Flash in the Arrowverse?',\n              'Who is the actor who played the Flash in the Arrowverse after Shipp?',\n              'Who is the actor who plays the Flash in the 2014 TV show?',\n              'Who is the actor who plays the Flash in Crisis on Infinite Earths and the DC Extended Universe films Batman v Superman: Dawn of Justice, Justice League, and will return in the 2022 film The Flash?'],\n             dtype=object), 'answer': array([array(['John Wesley Shipp'], dtype=object),\n              array(['John Wesley Shipp'], dtype=object),\n              array(['Grant Gustin'], dtype=object),\n              array(['Grant Gustin'], dtype=object),\n              array(['Ezra Miller'], dtype=object)], dtype=object)}                                                                                                                                                   ,\n       {'question': array(['Who is the actor that plays the flash in DC Extended Universe?',\n              'Who is the actor that plays the flash in 2014 tv series?',\n              'Who is the actor that plays the flash in 1990 tv series?'],\n             dtype=object), 'answer': array([array(['Ezra Matthew Miller', 'Ezra Miller'], dtype=object),\n              array(['Grant Gustin', 'Thomas Grant Gustin'], dtype=object),\n              array(['John Wesley Shipp'], dtype=object)], dtype=object)}                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 419,
+  "prompt": "Who is the actor that plays the flash?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! To clarify, are you asking about the current live-",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.704788208007812,
+          "prob": 1.0186493966464756e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.018649395608829e-09,
+      "prompt": "You're given the following task:\nWho is the actor that plays the flash?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

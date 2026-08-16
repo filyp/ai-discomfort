@@ -1,0 +1,31 @@
+{
+  "id": 7221976660408846788,
+  "question": "Who wrote the song fairytale of new york?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object),\n       array(['Jem Finer and Shane MacGowan'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['Who from Kent wrote the song fairytale of new york?',\n              'Who from Staffordshire wrote the song fairytale of new york?'],\n             dtype=object), 'answer': array([array(['Shane MacGowan', 'Shane Patrick Lysaght MacGowan'], dtype=object),\n              array(['Jem Finer', 'Jeremy Max Finer'], dtype=object)],\n             dtype=object)}                                                                                            ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1010,
+  "prompt": "Who wrote the song fairytale of new york?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.19751739501953,
+          "prob": 1.6917245322432358e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.691724529381304e-09,
+      "prompt": "You're given the following task:\nWho wrote the song fairytale of new york?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

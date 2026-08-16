@@ -1,0 +1,32 @@
+{
+  "id": "5ad25878d7d075001a428dc7",
+  "title": "Huguenot",
+  "context": "Approximately one million Protestants in modern France represent some 2% of its population. Most are concentrated in Alsace in northeast France and the Cévennes mountain region in the south, who still regard themselves as Huguenots to this day.[citation needed] A diaspora of French Australians still considers itself Huguenot, even after centuries of exile. Long integrated into Australian society, it is encouraged by the Huguenot Society of Australia to embrace and conserve its cultural heritage, aided by the Society's genealogical research services.",
+  "question": "How many people live in the Alsace region of France?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 756,
+  "prompt": "Context: Approximately one million Protestants in modern France represent some 2% of its population. Most are concentrated in Alsace in northeast France and the Cévennes mountain region in the south, who still regard themselves as Huguenots to this day.[citation needed] A diaspora of French Australians still considers itself Huguenot, even after centuries of exile. Long integrated into Australian society, it is encouraged by the Huguenot Society of Australia to embrace and conserve its cultural heritage, aided by the Society's genealogical research services.\n\nQuestion: How many people live in the Alsace region of France?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text *does not* state how many people live in",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -3.5332460403442383,
+          "prob": 0.029209945150630755,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.02964501455426216,
+          "prob": 0.9707900887412203,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9707900558393483,
+      "prompt": "You're given the following task:\nContext: Approximately one million Protestants in modern France represent some 2% of its population. Most are concentrated in Alsace in northeast France and the Cévennes mountain region in the south, who still regard themselves as Huguenots to this day.[citation needed] A diaspora of French Australians still considers itself Huguenot, even after centuries of exile. Long integrated into Australian society, it is encouraged by the Huguenot Society of Australia to embrace and conserve its cultural heritage, aided by the Society's genealogical research services.\n\nQuestion: How many people live in the Alsace region of France?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

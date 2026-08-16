@@ -1,0 +1,31 @@
+{
+  "id": -5167270820269508215,
+  "question": "Where did hurricane edith make landfall in 1971?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where in Nicaragua did hurricane edith make landfall in 1971?',\n              'Where did hurricane edith make landfall in 1971 (region)?',\n              'Where in the U.S. did hurricane edith make landfall in 1971?'],\n             dtype=object), 'answer': array([array(['Cape Gracias a Dios'], dtype=object),\n              array(['northeastern Central America', 'Central America'], dtype=object),\n              array(['Louisiana'], dtype=object)], dtype=object)}                          ,\n       {'question': array(['Where in Nicaragua did hurricane edith make landfall in 1971?',\n              'What region did hurricane edith make landfall in 1971?',\n              'Where in the U.S. did hurricane edith make landfall in 1971?'],\n             dtype=object), 'answer': array([array(['Cape Gracias a Dios'], dtype=object),\n              array(['Central America'], dtype=object),\n              array(['Louisiana'], dtype=object)], dtype=object)}                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1066,
+  "prompt": "Where did hurricane edith make landfall in 1971?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.763484954833984,
+          "prob": 1.929374368793678e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.929374331568824e-08,
+      "prompt": "You're given the following task:\nWhere did hurricane edith make landfall in 1971?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

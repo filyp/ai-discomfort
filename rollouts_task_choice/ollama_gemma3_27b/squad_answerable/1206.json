@@ -1,0 +1,32 @@
+{
+  "id": "571ce7f25efbb31900334e42",
+  "title": "Oxygen",
+  "context": "Oxygen is present in the atmosphere in trace quantities in the form of carbon dioxide (CO\n2). The Earth's crustal rock is composed in large part of oxides of silicon (silica SiO\n2, as found in granite and quartz), aluminium (aluminium oxide Al\n2O\n3, in bauxite and corundum), iron (iron(III) oxide Fe\n2O\n3, in hematite and rust), and calcium carbonate (in limestone). The rest of the Earth's crust is also made of oxygen compounds, in particular various complex silicates (in silicate minerals). The Earth's mantle, of much larger mass than the crust, is largely composed of silicates of magnesium and iron.",
+  "question": "Aside from oxides, what other compounds comprise a large portion of the Earth's crust?",
+  "answers": "{'text': array(['complex silicates', 'complex silicates', 'silicates', 'silicates',\n       'silicates (in silicate minerals)'], dtype=object), 'answer_start': array([454, 454, 462, 462, 462], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1206,
+  "prompt": "Context: Oxygen is present in the atmosphere in trace quantities in the form of carbon dioxide (CO\n2). The Earth's crustal rock is composed in large part of oxides of silicon (silica SiO\n2, as found in granite and quartz), aluminium (aluminium oxide Al\n2O\n3, in bauxite and corundum), iron (iron(III) oxide Fe\n2O\n3, in hematite and rust), and calcium carbonate (in limestone). The rest of the Earth's crust is also made of oxygen compounds, in particular various complex silicates (in silicate minerals). The Earth's mantle, of much larger mass than the crust, is largely composed of silicates of magnesium and iron.\n\nQuestion: Aside from oxides, what other compounds comprise a large portion of the Earth's crust?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBased on the provided text, aside from oxides (like silica,",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.486873626708984,
+          "prob": 1.1550544540425215e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1550544540411872e-12,
+      "prompt": "You're given the following task:\nContext: Oxygen is present in the atmosphere in trace quantities in the form of carbon dioxide (CO\n2). The Earth's crustal rock is composed in large part of oxides of silicon (silica SiO\n2, as found in granite and quartz), aluminium (aluminium oxide Al\n2O\n3, in bauxite and corundum), iron (iron(III) oxide Fe\n2O\n3, in hematite and rust), and calcium carbonate (in limestone). The rest of the Earth's crust is also made of oxygen compounds, in particular various complex silicates (in silicate minerals). The Earth's mantle, of much larger mass than the crust, is largely composed of silicates of magnesium and iron.\n\nQuestion: Aside from oxides, what other compounds comprise a large portion of the Earth's crust?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

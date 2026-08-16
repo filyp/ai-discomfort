@@ -1,0 +1,69 @@
+{
+  "id": -6012222686076765986,
+  "question": "When did gods not dead 3 come out?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['March 30, 2018'], dtype=object),\n       array(['March 30, 2018'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 20,
+  "prompt": "When did gods not dead 3 come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.608718872070312,
+          "prob": 1.6642536736517493e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6642535950722103e-07,
+      "prompt": "You're given the following task:\nWhen did gods not dead 3 come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To clarify, are you",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.0384995877975598e-05,
+          "prob": 0.9999796152118946,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -10.802884101867676,
+          "prob": 2.0340753925757814e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0340754821446265e-05,
+      "prompt": "You're given the following task:\nWhen did gods not dead 3 come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nGods Trigger 3 (not \"gods not dead",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -20.591594696044922,
+          "prob": 1.1407331171117606e-09,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1407331158104887e-09,
+      "prompt": "You're given the following task:\nWhen did gods not dead 3 come out?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

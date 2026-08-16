@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 279,
+  "prompt": "When will there be a cure for autism?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nHere's why: The question \"When will there be a",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -14.021920204162598,
+          "prob": 8.134997609324957e-07,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.344653679159819e-07,
+          "prob": 0.9999991655349802,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.999999186500222,
+      "prompt": "You're given the following task:\nWhen will there be a cure for autism?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

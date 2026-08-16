@@ -1,0 +1,32 @@
+{
+  "id": "57112686b654c5140001fbd4",
+  "title": "Steam_engine",
+  "context": "Steam engines are external combustion engines, where the working fluid is separate from the combustion products. Non-combustion heat sources such as solar power, nuclear power or geothermal energy may be used. The ideal thermodynamic cycle used to analyze this process is called the Rankine cycle. In the cycle, water is heated and transforms into steam within a boiler operating at a high pressure. When expanded through pistons or turbines, mechanical work is done. The reduced-pressure steam is then condensed and pumped back into the boiler.",
+  "question": "What ideal thermodynamic cycle analyzes the process by which steam engines work?",
+  "answers": "{'text': array(['Rankine', 'Rankine cycle', 'Rankine cycle', 'Rankine cycle'],\n      dtype=object), 'answer_start': array([283, 283, 283, 283], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 924,
+  "prompt": "Context: Steam engines are external combustion engines, where the working fluid is separate from the combustion products. Non-combustion heat sources such as solar power, nuclear power or geothermal energy may be used. The ideal thermodynamic cycle used to analyze this process is called the Rankine cycle. In the cycle, water is heated and transforms into steam within a boiler operating at a high pressure. When expanded through pistons or turbines, mechanical work is done. The reduced-pressure steam is then condensed and pumped back into the boiler.\n\nQuestion: What ideal thermodynamic cycle analyzes the process by which steam engines work?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nThe ideal thermodynamic cycle that analyzes the process by which steam engines",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.423614501953125,
+          "prob": 8.290927900313958e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.29092790031389e-15,
+      "prompt": "You're given the following task:\nContext: Steam engines are external combustion engines, where the working fluid is separate from the combustion products. Non-combustion heat sources such as solar power, nuclear power or geothermal energy may be used. The ideal thermodynamic cycle used to analyze this process is called the Rankine cycle. In the cycle, water is heated and transforms into steam within a boiler operating at a high pressure. When expanded through pistons or turbines, mechanical work is done. The reduced-pressure steam is then condensed and pumped back into the boiler.\n\nQuestion: What ideal thermodynamic cycle analyzes the process by which steam engines work?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

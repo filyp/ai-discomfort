@@ -1,0 +1,31 @@
+{
+  "id": 7584620952912749739,
+  "question": "Who played doc brown on back to the future?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played doc brown on the TV series back to the future in the live action segments?',\n              'Who played doc brown on the TV series back to the future in the animated segments?',\n              'Who played doc brown on the 1985 film back to the future?',\n              'Who played young Doc Brown on Back to the Future: The Game?'],\n             dtype=object), 'answer': array([array(['Christopher Lloyd', 'Christopher Allen Lloyd'], dtype=object),\n              array(['Dan Castellaneta'], dtype=object),\n              array(['Christopher Lloyd', 'Christopher Allen Lloyd'], dtype=object),\n              array(['James Arnold Taylor'], dtype=object)], dtype=object)}                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 74,
+  "prompt": "Who played doc brown on back to the future?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.296993255615234,
+          "prob": 2.0727115431979493e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0727115427683363e-10,
+      "prompt": "You're given the following task:\nWho played doc brown on back to the future?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

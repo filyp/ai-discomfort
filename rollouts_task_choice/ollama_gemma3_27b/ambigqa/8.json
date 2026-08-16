@@ -1,0 +1,69 @@
+{
+  "id": 2162316589148294435,
+  "question": "How many jimmy john's are there in the world?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"How many jimmy john's are there in the world as of October 2018?\",\n              \"How many jimmy john's are there in the world in 2010?\",\n              \"How many jimmy john's are there in the world in 2007?\",\n              \"How many jimmy john's are there plans for in the world?\"],\n             dtype=object), 'answer': array([array(['more than 2,800', 'almost 3,000'], dtype=object),\n              array(['thousand'], dtype=object),\n              array(['five-hundred'], dtype=object),\n              array(['5,000 and beyond'], dtype=object)], dtype=object)}                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 8,
+  "prompt": "How many jimmy john's are there in the world?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out how many Jimmy John's",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.06125259399414,
+          "prob": 1.0584896747759825e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0584896889177381e-07,
+      "prompt": "You're given the following task:\nHow many jimmy john's are there in the world?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, let's figure out how many Jimmy John's",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.0728841743912199e-06,
+          "prob": 0.9999989271164011,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.777493476867676,
+          "prob": 1.0387489756985593e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0387490111558654e-06,
+      "prompt": "You're given the following task:\nHow many jimmy john's are there in the world?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -21.389991760253906,
+          "prob": 5.1338669656015e-10,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.133866962965841e-10,
+      "prompt": "You're given the following task:\nHow many jimmy john's are there in the world?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

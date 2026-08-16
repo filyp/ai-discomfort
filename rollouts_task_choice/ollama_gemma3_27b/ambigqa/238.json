@@ -1,0 +1,31 @@
+{
+  "id": 2562291364376041081,
+  "question": "When did the movie inside out come out?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the 2015 movie inside out come out at Cannes?',\n              'When did the 2011 movie inside out come out?',\n              'When did the 1986 movie inside out first come out?',\n              'When did the 1975 inside out come out?',\n              'When did the 2015 movie inside out come out throughout the United States?',\n              'When did the 2015 movie inside out come out at the El Capitan Theatre?',\n              'When did the 1986 movie inside out come out in limited New York City theatres?'],\n             dtype=object), 'answer': array([array(['May 18, 2015'], dtype=object),\n              array(['September 9, 2011'], dtype=object),\n              array(['November 1 1986'], dtype=object),\n              array(['1 January 1975'], dtype=object),\n              array(['June 19, 2015'], dtype=object),\n              array(['June 19, 2015'], dtype=object),\n              array(['August 21, 1987'], dtype=object)], dtype=object)}                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 238,
+  "prompt": "When did the movie inside out come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.48841094970703,
+          "prob": 3.4378796043063718e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.437879592487356e-09,
+      "prompt": "You're given the following task:\nWhen did the movie inside out come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5ad0381a77cf76001a686e32",
+  "title": "Southern_California",
+  "context": "Southern California contains a Mediterranean climate, with infrequent rain and many sunny days. Summers are hot and dry, while winters are a bit warm or mild and wet. Serious rain can occur unusually. In the summers, temperature ranges are 90-60's while as winters are 70-50's, usually all of Southern California have Mediterranean climate. But snow is very rare in the Southwest of the state, it occurs on the Southeast of the state.",
+  "question": "Where are winter temperature ranges 90-60s?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 395,
+  "prompt": "Context: Southern California contains a Mediterranean climate, with infrequent rain and many sunny days. Summers are hot and dry, while winters are a bit warm or mild and wet. Serious rain can occur unusually. In the summers, temperature ranges are 90-60's while as winters are 70-50's, usually all of Southern California have Mediterranean climate. But snow is very rare in the Southwest of the state, it occurs on the Southeast of the state.\n\nQuestion: Where are winter temperature ranges 90-60s?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe question asks where temperatures are 90-60s",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -1.6513131856918335,
+          "prob": 0.19179787694704745,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.212943434715271,
+          "prob": 0.8082018520914208,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.8082020710830919,
+      "prompt": "You're given the following task:\nContext: Southern California contains a Mediterranean climate, with infrequent rain and many sunny days. Summers are hot and dry, while winters are a bit warm or mild and wet. Serious rain can occur unusually. In the summers, temperature ranges are 90-60's while as winters are 70-50's, usually all of Southern California have Mediterranean climate. But snow is very rare in the Southwest of the state, it occurs on the Southeast of the state.\n\nQuestion: Where are winter temperature ranges 90-60s?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -8514613244328683521,
+  "question": "Pro kabaddi 2017 how many matches per team?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Pro kabaddi 2017 how many matches per team in the league stage?',\n              'Pro kabaddi 2017 how many matches per team in the same zone?',\n              'Pro kabaddi 2017 how many matches per team in the other zone?',\n              'Pro Kabaddi 2017 how many wildcard matches per team?'],\n             dtype=object), 'answer': array([array(['22'], dtype=object), array(['15'], dtype=object),\n              array(['6'], dtype=object), array(['1'], dtype=object)],\n             dtype=object)}                                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 647,
+  "prompt": "Pro kabaddi 2017 how many matches per team?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out how many matches each team played",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.588977813720703,
+          "prob": 2.2972274292455423e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2972273764730048e-08,
+      "prompt": "You're given the following task:\nPro kabaddi 2017 how many matches per team?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

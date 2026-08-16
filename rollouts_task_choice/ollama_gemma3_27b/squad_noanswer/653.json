@@ -1,0 +1,32 @@
+{
+  "id": "5a63981168151a001a9223b8",
+  "title": "Victoria_(Australia)",
+  "context": "Rail transport in Victoria is provided by several private and public railway operators who operate over government-owned lines. Major operators include: Metro Trains Melbourne which runs an extensive, electrified, passenger system throughout Melbourne and suburbs; V/Line which is now owned by the Victorian Government, operates a concentrated service to major regional centres, as well as long distance services on other lines; Pacific National, CFCL Australia which operate freight services; Great Southern Rail which operates The Overland Melbourne—Adelaide; and NSW TrainLink which operates XPTs Melbourne—Sydney.",
+  "question": "What operator is in mainland Australia?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 653,
+  "prompt": "Context: Rail transport in Victoria is provided by several private and public railway operators who operate over government-owned lines. Major operators include: Metro Trains Melbourne which runs an extensive, electrified, passenger system throughout Melbourne and suburbs; V/Line which is now owned by the Victorian Government, operates a concentrated service to major regional centres, as well as long distance services on other lines; Pacific National, CFCL Australia which operate freight services; Great Southern Rail which operates The Overland Melbourne—Adelaide; and NSW TrainLink which operates XPTs Melbourne—Sydney.\n\nQuestion: What operator is in mainland Australia?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nOkay, based on the provided text, all of the listed",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.258342742919922,
+          "prob": 1.591891758193948e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5918917556598288e-09,
+      "prompt": "You're given the following task:\nContext: Rail transport in Victoria is provided by several private and public railway operators who operate over government-owned lines. Major operators include: Metro Trains Melbourne which runs an extensive, electrified, passenger system throughout Melbourne and suburbs; V/Line which is now owned by the Victorian Government, operates a concentrated service to major regional centres, as well as long distance services on other lines; Pacific National, CFCL Australia which operate freight services; Great Southern Rail which operates The Overland Melbourne—Adelaide; and NSW TrainLink which operates XPTs Melbourne—Sydney.\n\nQuestion: What operator is in mainland Australia?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

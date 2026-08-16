@@ -1,0 +1,31 @@
+{
+  "id": -4681336108138697281,
+  "question": "Who ran in front of the kings horse?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Emily Wilding Davison', 'Emily Davison'], dtype=object),\n       array(['Emily Wilding Davison', 'Davison', 'Emily Davison'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 619,
+  "prompt": "Who ran in front of the kings horse?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To figure out who ran",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.0665232265600935e-05,
+          "prob": 0.9999493360511956,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -9.889714241027832,
+          "prob": 5.0693430027125356e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.0693428532621095e-05,
+      "prompt": "You're given the following task:\nWho ran in front of the kings horse?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

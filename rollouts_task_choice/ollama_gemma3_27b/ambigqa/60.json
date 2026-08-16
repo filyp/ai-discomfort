@@ -1,0 +1,31 @@
+{
+  "id": 6774732418951895235,
+  "question": "When does the dispicable me 3 come out?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When does the dispicable me 3 come out at Annecy?',\n              'When does the dispicable me 3 come out in the United States?'],\n             dtype=object), 'answer': array([array(['June 14, 2017'], dtype=object),\n              array(['June 30, 2017'], dtype=object)], dtype=object)}               ,\n       {'question': array(['When does the despicable me 3 come out in Annecy?',\n              'When does the despicable me 3 come out in United States?'],\n             dtype=object), 'answer': array([array(['June 14, 2017'], dtype=object),\n              array(['June 30, 2017'], dtype=object)], dtype=object)}               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 60,
+  "prompt": "When does the dispicable me 3 come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.94451904296875,
+          "prob": 1.1895518124519274e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1895518127541938e-07,
+      "prompt": "You're given the following task:\nWhen does the dispicable me 3 come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

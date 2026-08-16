@@ -1,0 +1,32 @@
+{
+  "id": "572649d8f1498d1400e8db37",
+  "title": "1973_oil_crisis",
+  "context": "Despite being relatively unaffected by the embargo, the UK nonetheless faced an oil crisis of its own - a series of strikes by coal miners and railroad workers over the winter of 1973–74 became a major factor in the change of government. Heath asked the British to heat only one room in their houses over the winter. The UK, Germany, Italy, Switzerland and Norway banned flying, driving and boating on Sundays. Sweden rationed gasoline and heating oil. The Netherlands imposed prison sentences for those who used more than their ration of electricity.",
+  "question": "What caused UK to have an oil crisis in its own country?",
+  "answers": "{'text': array(['a series of strikes',\n       'a series of strikes by coal miners and railroad workers',\n       'a series of strikes by coal miners and railroad workers',\n       'strikes by coal miners and railroad workers',\n       'a series of strikes'], dtype=object), 'answer_start': array([104, 104, 104, 116, 104], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1427,
+  "prompt": "Context: Despite being relatively unaffected by the embargo, the UK nonetheless faced an oil crisis of its own - a series of strikes by coal miners and railroad workers over the winter of 1973–74 became a major factor in the change of government. Heath asked the British to heat only one room in their houses over the winter. The UK, Germany, Italy, Switzerland and Norway banned flying, driving and boating on Sundays. Sweden rationed gasoline and heating oil. The Netherlands imposed prison sentences for those who used more than their ration of electricity.\n\nQuestion: What caused UK to have an oil crisis in its own country?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that a series of strikes by coal miners and railroad",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.23145294189453,
+          "prob": 5.485746961412214e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.485746961409204e-13,
+      "prompt": "You're given the following task:\nContext: Despite being relatively unaffected by the embargo, the UK nonetheless faced an oil crisis of its own - a series of strikes by coal miners and railroad workers over the winter of 1973–74 became a major factor in the change of government. Heath asked the British to heat only one room in their houses over the winter. The UK, Germany, Italy, Switzerland and Norway banned flying, driving and boating on Sundays. Sweden rationed gasoline and heating oil. The Netherlands imposed prison sentences for those who used more than their ration of electricity.\n\nQuestion: What caused UK to have an oil crisis in its own country?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 4233964653136094599,
+  "question": "Where is the gum wall in seattle washington?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Post Alley under Pike Place Market'], dtype=object),\n       array(['Pike Place Market', 'Post Alley under Pike Place Market',\n              'an alleyway in Post Alley', 'Post Alley',\n              'Pike Place Market in Downtown Seattle', 'Downtown Seattle'],\n             dtype=object)                                                 ],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 135,
+  "prompt": "Where is the gum wall in seattle washington?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The Gum Wall is located in Post Alley, under Pike",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.57891082763672,
+          "prob": 1.1552941759196205e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.155294174584916e-09,
+      "prompt": "You're given the following task:\nWhere is the gum wall in seattle washington?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

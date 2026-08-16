@@ -1,0 +1,69 @@
+{
+  "id": -6301642079833452476,
+  "question": "How long do contestants get to answer on jeopardy?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How long do contestants get to answer a typical question on jeopardy?',\n              'How long do contestants get to answer a final jeopardy question on jeopardy?',\n              \"How long do contestants get to answer on jeopardy's online test?\"],\n             dtype=object), 'answer': array([array(['five seconds'], dtype=object),\n              array(['30 seconds'], dtype=object),\n              array(['15 seconds'], dtype=object)], dtype=object)}                                 ,\n       {'question': array(['How long do contestants have to answer during the first two rounds of Jeopardy!?',\n              'How long do contestants have to answer during the last round of Jeopardy!?'],\n             dtype=object), 'answer': array([array(['5 seconds'], dtype=object),\n              array(['30 seconds'], dtype=object)], dtype=object)}                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 4,
+  "prompt": "How long do contestants get to answer on jeopardy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.512588500976562,
+          "prob": 2.2610911849436956e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2610911848925707e-11,
+      "prompt": "You're given the following task:\nHow long do contestants get to answer on jeopardy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can definitely tell you how long contestants get to answer",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.623268127441406,
+          "prob": 4.0656872849589484e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.065687283305967e-10,
+      "prompt": "You're given the following task:\nHow long do contestants get to answer on jeopardy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nContestants on *Jeopardy!* don't have",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -22.985057830810547,
+          "prob": 1.0416365677365861e-10,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0416365676280855e-10,
+      "prompt": "You're given the following task:\nHow long do contestants get to answer on jeopardy?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

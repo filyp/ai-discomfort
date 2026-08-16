@@ -1,0 +1,31 @@
+{
+  "id": 5881756658805354957,
+  "question": "When did the ancient chinese civilization begin and end?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When year did the ancient chinese civilization begin?',\n              'When year did the ancient chinese civilization end?',\n              'During what dynasty did the ancient chinese civilization begin?',\n              'During what period did the ancient chinese civilization end?'],\n             dtype=object), 'answer': array([array(['2070 BC'], dtype=object), array(['221 BC'], dtype=object),\n              array(['Xia dynasty'], dtype=object),\n              array(['Warring States period'], dtype=object)], dtype=object)}                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 931,
+  "prompt": "When did the ancient chinese civilization begin and end?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.68206024169922,
+          "prob": 1.9086110550903395e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9086110550539116e-11,
+      "prompt": "You're given the following task:\nWhen did the ancient chinese civilization begin and end?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

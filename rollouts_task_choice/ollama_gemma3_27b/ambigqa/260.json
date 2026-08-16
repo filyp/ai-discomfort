@@ -1,0 +1,31 @@
+{
+  "id": -3826370281781906774,
+  "question": "When did the song staying alive come out?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"When did the Bee Gees' song staying alive get officially released?\",\n              'When did the song by Filipina singer Nina staying alive originally come out?',\n              \"When did The Ugly Organ's song a staying alive first get released?\"],\n             dtype=object), 'answer': array([array(['13 December 1977'], dtype=object),\n              array(['November 19, 2011'], dtype=object),\n              array(['March 4, 2003'], dtype=object)], dtype=object)}                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 260,
+  "prompt": "When did the song staying alive come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.27169418334961,
+          "prob": 1.1606573905685317e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.160657377097276e-08,
+      "prompt": "You're given the following task:\nWhen did the song staying alive come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

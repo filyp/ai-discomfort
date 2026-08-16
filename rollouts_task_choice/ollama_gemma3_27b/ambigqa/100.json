@@ -1,0 +1,31 @@
+{
+  "id": -4536457655385125693,
+  "question": "Where did they film places in the heart?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object),\n       array(['Waxahachie, Texas', \"Jack Davis' farm\"], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['What city did they film places in the heart?',\n              'Where did they film the family farm scenes in places in the heart?'],\n             dtype=object), 'answer': array([array(['Waxahachie, Texas', 'Waxahachie'], dtype=object),\n              array([\"Jack Davis' farm\"], dtype=object)], dtype=object)}                              ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 100,
+  "prompt": "Where did they film places in the heart?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can definitely tell you where \"Places in the Heart",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.519485473632812,
+          "prob": 1.2260288429695595e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.226028841466413e-09,
+      "prompt": "You're given the following task:\nWhere did they film places in the heart?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

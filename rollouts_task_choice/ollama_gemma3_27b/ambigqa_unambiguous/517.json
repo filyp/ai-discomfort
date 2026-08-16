@@ -1,0 +1,31 @@
+{
+  "id": -2155100006901903115,
+  "question": "Who played mama on throw momma from the train?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Anne Ramsey'], dtype=object),\n       array(['Angelina Ramsey', 'Anne Ramsey'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 517,
+  "prompt": "Who played mama on throw momma from the train?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out who played Mama on *Throw",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -9.536747711536009e-07,
+          "prob": 0.9999990463256836,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.902695655822754,
+          "prob": 9.165074363681008e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.16507470431824e-07,
+      "prompt": "You're given the following task:\nWho played mama on throw momma from the train?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

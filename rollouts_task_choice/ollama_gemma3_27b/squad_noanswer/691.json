@@ -1,0 +1,32 @@
+{
+  "id": "5a6381d868151a001a922325",
+  "title": "Victoria_(Australia)",
+  "context": "The Premier of Victoria is the leader of the political party or coalition with the most seats in the Legislative Assembly. The Premier is the public face of government and, with cabinet, sets the legislative and political agenda. Cabinet consists of representatives elected to either house of parliament. It is responsible for managing areas of government that are not exclusively the Commonwealth's, by the Australian Constitution, such as education, health and law enforcement. The current Premier of Victoria is Daniel Andrews.",
+  "question": "Who is the first Premier of Victoria?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 691,
+  "prompt": "Context: The Premier of Victoria is the leader of the political party or coalition with the most seats in the Legislative Assembly. The Premier is the public face of government and, with cabinet, sets the legislative and political agenda. Cabinet consists of representatives elected to either house of parliament. It is responsible for managing areas of government that are not exclusively the Commonwealth's, by the Australian Constitution, such as education, health and law enforcement. The current Premier of Victoria is Daniel Andrews.\n\nQuestion: Who is the first Premier of Victoria?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis question requires external knowledge *not* provided in the context.",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -7.953155994415283,
+          "prob": 0.00035155091927064003,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.000351610011421144,
+          "prob": 0.9996484517961347,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9996484490816838,
+      "prompt": "You're given the following task:\nContext: The Premier of Victoria is the leader of the political party or coalition with the most seats in the Legislative Assembly. The Premier is the public face of government and, with cabinet, sets the legislative and political agenda. Cabinet consists of representatives elected to either house of parliament. It is responsible for managing areas of government that are not exclusively the Commonwealth's, by the Australian Constitution, such as education, health and law enforcement. The current Premier of Victoria is Daniel Andrews.\n\nQuestion: Who is the first Premier of Victoria?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

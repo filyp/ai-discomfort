@@ -1,0 +1,32 @@
+{
+  "id": "56e17a7ccd28a01900c679a3",
+  "title": "Computational_complexity_theory",
+  "context": "A computational problem can be viewed as an infinite collection of instances together with a solution for every instance. The input string for a computational problem is referred to as a problem instance, and should not be confused with the problem itself. In computational complexity theory, a problem refers to the abstract question to be solved. In contrast, an instance of this problem is a rather concrete utterance, which can serve as the input for a decision problem. For example, consider the problem of primality testing. The instance is a number (e.g. 15) and the solution is \"yes\" if the number is prime and \"no\" otherwise (in this case \"no\"). Stated another way, the instance is a particular input to the problem, and the solution is the output corresponding to the given input.",
+  "question": "Is a problem instance typically characterized as abstract or concrete?",
+  "answers": "{'text': array(['concrete', 'concrete', 'abstract'], dtype=object), 'answer_start': array([402, 402, 317], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 111,
+  "prompt": "Context: A computational problem can be viewed as an infinite collection of instances together with a solution for every instance. The input string for a computational problem is referred to as a problem instance, and should not be confused with the problem itself. In computational complexity theory, a problem refers to the abstract question to be solved. In contrast, an instance of this problem is a rather concrete utterance, which can serve as the input for a decision problem. For example, consider the problem of primality testing. The instance is a number (e.g. 15) and the solution is \"yes\" if the number is prime and \"no\" otherwise (in this case \"no\"). Stated another way, the instance is a particular input to the problem, and the solution is the output corresponding to the given input.\n\nQuestion: Is a problem instance typically characterized as abstract or concrete?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nA problem instance is typically characterized as **concrete**. The provided text",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -34.77488327026367,
+          "prob": 7.896962703549056e-16,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.896962703549049e-16,
+      "prompt": "You're given the following task:\nContext: A computational problem can be viewed as an infinite collection of instances together with a solution for every instance. The input string for a computational problem is referred to as a problem instance, and should not be confused with the problem itself. In computational complexity theory, a problem refers to the abstract question to be solved. In contrast, an instance of this problem is a rather concrete utterance, which can serve as the input for a decision problem. For example, consider the problem of primality testing. The instance is a number (e.g. 15) and the solution is \"yes\" if the number is prime and \"no\" otherwise (in this case \"no\"). Stated another way, the instance is a particular input to the problem, and the solution is the output corresponding to the given input.\n\nQuestion: Is a problem instance typically characterized as abstract or concrete?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

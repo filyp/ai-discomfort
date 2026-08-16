@@ -1,0 +1,31 @@
+{
+  "id": 4673051264519512200,
+  "question": "Who provides fixed line telephone services with numbers starting with 5?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who provides fixed line telephone services with numbers starting with 5 in India?',\n              'Who provides fixed line telephone services with numbers starting with 5 in Hong kong?'],\n             dtype=object), 'answer': array([array(['Mobile TeleSystems India', 'MTS / HFCL'], dtype=object),\n              array([\"SMS / Multimedia value-added services, Mobile phone number, and  'Class 2 Service' such as voice over IP\"],\n                    dtype=object)                                                                                                ],\n             dtype=object)}                                                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 735,
+  "prompt": "Who provides fixed line telephone services with numbers starting with 5?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To give you the most",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -8.344653679159819e-07,
+          "prob": 0.9999991655349802,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.940018653869629,
+          "prob": 8.829311132107254e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.829310704185057e-07,
+      "prompt": "You're given the following task:\nWho provides fixed line telephone services with numbers starting with 5?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

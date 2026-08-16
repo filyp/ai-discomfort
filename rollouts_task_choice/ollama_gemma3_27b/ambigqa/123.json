@@ -1,0 +1,31 @@
+{
+  "id": -966202743410033352,
+  "question": "When did michael record dont matter to me?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['1983'], dtype=object), array([], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['When was the original demo of \"Dont Matter to Me\" recorded by Micheal Jackson?',\n              'When was the Drake and Micheal Jackson version of \"Don\\'t Matter to Me\" recorded?'],\n             dtype=object), 'answer': array([array(['1983'], dtype=object), array(['2018'], dtype=object)],\n             dtype=object)}                                                                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 123,
+  "prompt": "When did michael record dont matter to me?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To clarify, are you",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.5735749911982566e-05,
+          "prob": 0.9999842643738943,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -11.063309669494629,
+          "prob": 1.567709748589733e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5677098403456264e-05,
+      "prompt": "You're given the following task:\nWhen did michael record dont matter to me?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

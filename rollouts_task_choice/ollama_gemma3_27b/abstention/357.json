@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 357,
+  "prompt": "Why is mineral identification used to classify gases?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nThe question \"Why is mineral identification used to",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -15.445602416992188,
+          "prob": 1.9591157705330007e-07,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999998040884146,
+      "prompt": "You're given the following task:\nWhy is mineral identification used to classify gases?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

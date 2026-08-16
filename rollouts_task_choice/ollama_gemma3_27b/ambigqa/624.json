@@ -1,0 +1,31 @@
+{
+  "id": 7634609581781474486,
+  "question": "Who holds the record for most passing yards in a season?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who holds the NFL record for most passing yards in a season?',\n              'Who holds the NFL record for reaching 5,ooo passing yards more than once?'],\n             dtype=object), 'answer': array([array(['Peyton Manning'], dtype=object),\n              array(['Drew Brees'], dtype=object)], dtype=object)}                         ,\n       {'question': array(['Who holds the record for most passing yards in a season in 2013?',\n              'Who holds the record for most passing yards in a season in 2011?',\n              'Who holds the record for most passing yards in a season in 1984?'],\n             dtype=object), 'answer': array([array(['Peyton Manning', 'Peyton Williams Manning'], dtype=object),\n              array(['Andrew Christopher Brees', 'Drew Brees',\n                     'Andrew Christopher \"Drew\" Brees'], dtype=object),\n              array(['Dan Marino', 'Daniel Constantine Marino Jr.'], dtype=object)],\n             dtype=object)}                                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 624,
+  "prompt": "Who holds the record for most passing yards in a season?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.48324203491211,
+          "prob": 3.4556957163717715e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.4556957044299387e-09,
+      "prompt": "You're given the following task:\nWho holds the record for most passing yards in a season?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "56e1bd4acd28a01900c67afd",
+  "title": "Computational_complexity_theory",
+  "context": "Upper and lower bounds are usually stated using the big O notation, which hides constant factors and smaller terms. This makes the bounds independent of the specific details of the computational model used. For instance, if T(n) = 7n2 + 15n + 40, in big O notation one would write T(n) = O(n2).",
+  "question": "What does a big O notation hide?",
+  "answers": "{'text': array(['constant factors and smaller terms',\n       'constant factors and smaller terms',\n       'constant factors and smaller terms'], dtype=object), 'answer_start': array([80, 80, 80], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 189,
+  "prompt": "Context: Upper and lower bounds are usually stated using the big O notation, which hides constant factors and smaller terms. This makes the bounds independent of the specific details of the computational model used. For instance, if T(n) = 7n2 + 15n + 40, in big O notation one would write T(n) = O(n2).\n\nQuestion: What does a big O notation hide?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBig O notation hides **constant factors and smaller terms**. As the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.24582290649414,
+          "prob": 2.69222609345287e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.6922260934527978e-14,
+      "prompt": "You're given the following task:\nContext: Upper and lower bounds are usually stated using the big O notation, which hides constant factors and smaller terms. This makes the bounds independent of the specific details of the computational model used. For instance, if T(n) = 7n2 + 15n + 40, in big O notation one would write T(n) = O(n2).\n\nQuestion: What does a big O notation hide?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

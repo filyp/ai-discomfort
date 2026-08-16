@@ -1,0 +1,31 @@
+{
+  "id": 7453736095829480185,
+  "question": "What is it called when you mix up the letters of a word?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is it called when a word or phrase is formed by mixing up or rearranging the letters of a word?',\n              'What is the disorder characterized by mixing up or reversing the order of letters of words?'],\n             dtype=object), 'answer': array([array(['Anagram'], dtype=object),\n              array(['Dyslexia'], dtype=object)], dtype=object)}                                                                  ,\n       {'question': array(['What is the condition where you mix up the letters of words?',\n              'What is it called when you rearrange letters of a word?'],\n             dtype=object), 'answer': array([array(['Dyslexia'], dtype=object),\n              array(['anagram'], dtype=object)], dtype=object)}                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 958,
+  "prompt": "What is it called when you mix up the letters of a word?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThat's called an **anagram**! \n\nIs there",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.921226501464844,
+          "prob": 4.084541660764054e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.0845416605972196e-11,
+      "prompt": "You're given the following task:\nWhat is it called when you mix up the letters of a word?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

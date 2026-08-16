@@ -1,0 +1,31 @@
+{
+  "id": 3141319696894897223,
+  "question": "What is the current gross national product of the us?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the 2016 gross national product of the us calculated using the Atlas method in millions of US dollars?',\n              'What is the 2016 gross national product of the us calculated using the original World Bank method in millions of US dollars?',\n              'What is the 2014 gross national product of the us calculated using the nominal, Atlas method in millions of US dollars?',\n              'What is the 2013 gross national product of the us calculated using the nominal, Atlas method in millions of US dollars?'],\n             dtype=object), 'answer': array([array(['18,357,322'], dtype=object),\n              array(['18,968,714'], dtype=object),\n              array(['17,611,491'], dtype=object),\n              array(['17,001,290'], dtype=object)], dtype=object)}                                                                           ,\n       {'question': array(['What is the gross national product of the us in 2017?',\n              'What is the gross national product of the us in 2016?',\n              'What is the gross national product of the us in 2015?'],\n             dtype=object), 'answer': array([array(['19,519.4 billion US dollars'], dtype=object),\n              array(['18,715.0 billion US dollars'], dtype=object),\n              array(['18,224.8 billion US dollars'], dtype=object)], dtype=object)}               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 526,
+  "prompt": "What is the current gross national product of the us?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! The current Gross National Product",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.188140869140625,
+          "prob": 9.323516597054305e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.323516839224418e-08,
+      "prompt": "You're given the following task:\nWhat is the current gross national product of the us?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

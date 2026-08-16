@@ -1,0 +1,32 @@
+{
+  "id": "572650325951b619008f6fab",
+  "title": "1973_oil_crisis",
+  "context": "The energy crisis led to greater interest in renewable energy, nuclear power and domestic fossil fuels. There is criticism that American energy policies since the crisis have been dominated by crisis-mentality thinking, promoting expensive quick fixes and single-shot solutions that ignore market and technology realities. Instead of providing stable rules that support basic research while leaving plenty of scope for entrepreneurship and innovation, congresses and presidents have repeatedly backed policies which promise solutions that are politically expedient, but whose prospects are doubtful.",
+  "question": "Who backed policies that have solutions that sound good but have poor prospects?",
+  "answers": "{'text': array(['congresses and presidents', 'congresses and presidents',\n       'congresses and presidents', 'congresses and presidents',\n       'congresses and presidents'], dtype=object), 'answer_start': array([452, 452, 452, 452, 452], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1446,
+  "prompt": "Context: The energy crisis led to greater interest in renewable energy, nuclear power and domestic fossil fuels. There is criticism that American energy policies since the crisis have been dominated by crisis-mentality thinking, promoting expensive quick fixes and single-shot solutions that ignore market and technology realities. Instead of providing stable rules that support basic research while leaving plenty of scope for entrepreneurship and innovation, congresses and presidents have repeatedly backed policies which promise solutions that are politically expedient, but whose prospects are doubtful.\n\nQuestion: Who backed policies that have solutions that sound good but have poor prospects?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nAccording to the text, **congresses and presidents** backed policies",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.321727752685547,
+          "prob": 6.783298914859212e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.783298914858753e-14,
+      "prompt": "You're given the following task:\nContext: The energy crisis led to greater interest in renewable energy, nuclear power and domestic fossil fuels. There is criticism that American energy policies since the crisis have been dominated by crisis-mentality thinking, promoting expensive quick fixes and single-shot solutions that ignore market and technology realities. Instead of providing stable rules that support basic research while leaving plenty of scope for entrepreneurship and innovation, congresses and presidents have repeatedly backed policies which promise solutions that are politically expedient, but whose prospects are doubtful.\n\nQuestion: Who backed policies that have solutions that sound good but have poor prospects?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

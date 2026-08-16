@@ -1,0 +1,32 @@
+{
+  "id": "5a638bf768151a001a922364",
+  "title": "Victoria_(Australia)",
+  "context": "During 2003–04, the gross value of Victorian agricultural production increased by 17% to $8.7 billion. This represented 24% of national agricultural production total gross value. As of 2004, an estimated 32,463 farms occupied around 136,000 square kilometres (52,500 sq mi) of Victorian land. This comprises more than 60% of the state's total land surface. Victorian farms range from small horticultural outfits to large-scale livestock and grain productions. A quarter of farmland is used to grow consumable crops.",
+  "question": "How much did the gross agricultural product increase since 2004?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 693,
+  "prompt": "Context: During 2003–04, the gross value of Victorian agricultural production increased by 17% to $8.7 billion. This represented 24% of national agricultural production total gross value. As of 2004, an estimated 32,463 farms occupied around 136,000 square kilometres (52,500 sq mi) of Victorian land. This comprises more than 60% of the state's total land surface. Victorian farms range from small horticultural outfits to large-scale livestock and grain productions. A quarter of farmland is used to grow consumable crops.\n\nQuestion: How much did the gross agricultural product increase since 2004?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text states the gross value *increased by 17",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -2.007615089416504,
+          "prob": 0.13430860703048636,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.1442270278930664,
+          "prob": 0.8656911897010903,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.8656913656688093,
+      "prompt": "You're given the following task:\nContext: During 2003–04, the gross value of Victorian agricultural production increased by 17% to $8.7 billion. This represented 24% of national agricultural production total gross value. As of 2004, an estimated 32,463 farms occupied around 136,000 square kilometres (52,500 sq mi) of Victorian land. This comprises more than 60% of the state's total land surface. Victorian farms range from small horticultural outfits to large-scale livestock and grain productions. A quarter of farmland is used to grow consumable crops.\n\nQuestion: How much did the gross agricultural product increase since 2004?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

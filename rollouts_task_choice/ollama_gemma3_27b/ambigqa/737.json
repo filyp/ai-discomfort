@@ -1,0 +1,31 @@
+{
+  "id": 1619444018488150952,
+  "question": "When did texas become part of united states?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did texas city, texas become incorporated as part of united states?',\n              'When did texas county, Missouri become part of united states by changing its name to Texas?',\n              'When did texas county, Oklahoma become part of united states?',\n              'When did the state texas become part of united states?'],\n             dtype=object), 'answer': array([array(['1911'], dtype=object),\n              array(['February 14, 1845'], dtype=object),\n              array(['16 November 1907'], dtype=object),\n              array(['December 29, 1845'], dtype=object)], dtype=object)}                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 737,
+  "prompt": "When did texas become part of united states?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.535064697265625,
+          "prob": 1.6336001049531964e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6336001046863314e-10,
+      "prompt": "You're given the following task:\nWhen did texas become part of united states?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

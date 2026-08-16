@@ -1,0 +1,32 @@
+{
+  "id": "571caac55efbb31900334dc7",
+  "title": "Oxygen",
+  "context": "By the late 19th century scientists realized that air could be liquefied, and its components isolated, by compressing and cooling it. Using a cascade method, Swiss chemist and physicist Raoul Pierre Pictet evaporated liquid sulfur dioxide in order to liquefy carbon dioxide, which in turn was evaporated to cool oxygen gas enough to liquefy it. He sent a telegram on December 22, 1877 to the French Academy of Sciences in Paris announcing his discovery of liquid oxygen. Just two days later, French physicist Louis Paul Cailletet announced his own method of liquefying molecular oxygen. Only a few drops of the liquid were produced in either case so no meaningful analysis could be conducted. Oxygen was liquified in stable state for the first time on March 29, 1883 by Polish scientists from Jagiellonian University, Zygmunt Wróblewski and Karol Olszewski.",
+  "question": "By what means were scientists able to liquefy air?",
+  "answers": "{'text': array(['compressing and cooling', 'compressing and cooling',\n       'cascade method', 'compressing and cooling it',\n       'compressing and cooling'], dtype=object), 'answer_start': array([106, 106, 142, 106, 106], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1262,
+  "prompt": "Context: By the late 19th century scientists realized that air could be liquefied, and its components isolated, by compressing and cooling it. Using a cascade method, Swiss chemist and physicist Raoul Pierre Pictet evaporated liquid sulfur dioxide in order to liquefy carbon dioxide, which in turn was evaporated to cool oxygen gas enough to liquefy it. He sent a telegram on December 22, 1877 to the French Academy of Sciences in Paris announcing his discovery of liquid oxygen. Just two days later, French physicist Louis Paul Cailletet announced his own method of liquefying molecular oxygen. Only a few drops of the liquid were produced in either case so no meaningful analysis could be conducted. Oxygen was liquified in stable state for the first time on March 29, 1883 by Polish scientists from Jagiellonian University, Zygmunt Wróblewski and Karol Olszewski.\n\nQuestion: By what means were scientists able to liquefy air?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nScientists were able to liquefy air by **compressing and cooling",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.462203979492188,
+          "prob": 4.3553380444126563e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.35533804441076e-13,
+      "prompt": "You're given the following task:\nContext: By the late 19th century scientists realized that air could be liquefied, and its components isolated, by compressing and cooling it. Using a cascade method, Swiss chemist and physicist Raoul Pierre Pictet evaporated liquid sulfur dioxide in order to liquefy carbon dioxide, which in turn was evaporated to cool oxygen gas enough to liquefy it. He sent a telegram on December 22, 1877 to the French Academy of Sciences in Paris announcing his discovery of liquid oxygen. Just two days later, French physicist Louis Paul Cailletet announced his own method of liquefying molecular oxygen. Only a few drops of the liquid were produced in either case so no meaningful analysis could be conducted. Oxygen was liquified in stable state for the first time on March 29, 1883 by Polish scientists from Jagiellonian University, Zygmunt Wróblewski and Karol Olszewski.\n\nQuestion: By what means were scientists able to liquefy air?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

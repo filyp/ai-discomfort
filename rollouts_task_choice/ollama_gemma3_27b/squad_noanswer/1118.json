@@ -1,0 +1,32 @@
+{
+  "id": "5ad419f8604f3c001a40049d",
+  "title": "Steam_engine",
+  "context": "One of the principal advantages the Rankine cycle holds over others is that during the compression stage relatively little work is required to drive the pump, the working fluid being in its liquid phase at this point. By condensing the fluid, the work required by the pump consumes only 1% to 3% of the turbine power and contributes to a much higher efficiency for a real cycle. The benefit of this is lost somewhat due to the lower heat addition temperature. Gas turbines, for instance, have turbine entry temperatures approaching 1500 °C. Nonetheless, the efficiencies of actual large steam cycles and large modern gas turbines are fairly well matched.[citation needed]",
+  "question": "What results in the work required by the pump to consume only 0.5% of the turbine power?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1118,
+  "prompt": "Context: One of the principal advantages the Rankine cycle holds over others is that during the compression stage relatively little work is required to drive the pump, the working fluid being in its liquid phase at this point. By condensing the fluid, the work required by the pump consumes only 1% to 3% of the turbine power and contributes to a much higher efficiency for a real cycle. The benefit of this is lost somewhat due to the lower heat addition temperature. Gas turbines, for instance, have turbine entry temperatures approaching 1500 °C. Nonetheless, the efficiencies of actual large steam cycles and large modern gas turbines are fairly well matched.[citation needed]\n\nQuestion: What results in the work required by the pump to consume only 0.5% of the turbine power?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that the work required by the pump consumes only *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.928207397460938,
+          "prob": 2.214570411377963e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.214570406473641e-09,
+      "prompt": "You're given the following task:\nContext: One of the principal advantages the Rankine cycle holds over others is that during the compression stage relatively little work is required to drive the pump, the working fluid being in its liquid phase at this point. By condensing the fluid, the work required by the pump consumes only 1% to 3% of the turbine power and contributes to a much higher efficiency for a real cycle. The benefit of this is lost somewhat due to the lower heat addition temperature. Gas turbines, for instance, have turbine entry temperatures approaching 1500 °C. Nonetheless, the efficiencies of actual large steam cycles and large modern gas turbines are fairly well matched.[citation needed]\n\nQuestion: What results in the work required by the pump to consume only 0.5% of the turbine power?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

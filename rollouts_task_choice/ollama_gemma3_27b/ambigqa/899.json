@@ -1,0 +1,31 @@
+{
+  "id": 1881557756014042153,
+  "question": "When does tell me a story air on cbs?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When does the season 1 premiere of Tell Me a Story air on CBS All Access?',\n              'When does the season 2 premiere of Tell Me a Story air on CBS All Access?',\n              'When does the final episode in season 1 of Tell Me a Story air on CBS All Access?',\n              'When does the final episode in season 2 of Tell Me a Story air on CBS All Access?'],\n             dtype=object), 'answer': array([array(['October 31, 2018'], dtype=object),\n              array(['December 5, 2019'], dtype=object),\n              array(['January 3, 2019'], dtype=object),\n              array(['February 6, 2020'], dtype=object)], dtype=object)}                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 899,
+  "prompt": "When does tell me a story air on cbs?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! \"Tell Me A Story\" aired on CBS for two",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.89458465576172,
+          "prob": 4.600183013240287e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.600182801623459e-08,
+      "prompt": "You're given the following task:\nWhen does tell me a story air on cbs?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

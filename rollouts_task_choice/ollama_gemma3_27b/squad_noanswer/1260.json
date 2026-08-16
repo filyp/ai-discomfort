@@ -1,0 +1,32 @@
+{
+  "id": "5ad251d6d7d075001a428ceb",
+  "title": "Oxygen",
+  "context": "The unusually high concentration of oxygen gas on Earth is the result of the oxygen cycle. This biogeochemical cycle describes the movement of oxygen within and between its three main reservoirs on Earth: the atmosphere, the biosphere, and the lithosphere. The main driving factor of the oxygen cycle is photosynthesis, which is responsible for modern Earth's atmosphere. Photosynthesis releases oxygen into the atmosphere, while respiration and decay remove it from the atmosphere. In the present equilibrium, production and consumption occur at the same rate of roughly 1/2000th of the entire atmospheric oxygen per year.",
+  "question": "What oxygen reservoir is the driving factor of the oxygen cycle?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1260,
+  "prompt": "Context: The unusually high concentration of oxygen gas on Earth is the result of the oxygen cycle. This biogeochemical cycle describes the movement of oxygen within and between its three main reservoirs on Earth: the atmosphere, the biosphere, and the lithosphere. The main driving factor of the oxygen cycle is photosynthesis, which is responsible for modern Earth's atmosphere. Photosynthesis releases oxygen into the atmosphere, while respiration and decay remove it from the atmosphere. In the present equilibrium, production and consumption occur at the same rate of roughly 1/2000th of the entire atmospheric oxygen per year.\n\nQuestion: What oxygen reservoir is the driving factor of the oxygen cycle?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that photosynthesis is the main driving factor of the oxygen",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.30730438232422,
+          "prob": 9.313565679923462e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.313565679923375e-15,
+      "prompt": "You're given the following task:\nContext: The unusually high concentration of oxygen gas on Earth is the result of the oxygen cycle. This biogeochemical cycle describes the movement of oxygen within and between its three main reservoirs on Earth: the atmosphere, the biosphere, and the lithosphere. The main driving factor of the oxygen cycle is photosynthesis, which is responsible for modern Earth's atmosphere. Photosynthesis releases oxygen into the atmosphere, while respiration and decay remove it from the atmosphere. In the present equilibrium, production and consumption occur at the same rate of roughly 1/2000th of the entire atmospheric oxygen per year.\n\nQuestion: What oxygen reservoir is the driving factor of the oxygen cycle?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 7030752080582135428,
+  "question": "When was the first bottle of champagne made?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the method for making the first champagne created?',\n              'When was champagne first able to be bottled?'], dtype=object), 'answer': array([array(['1662'], dtype=object), array(['1663'], dtype=object)],\n             dtype=object)}                                                                                                                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 930,
+  "prompt": "When was the first bottle of champagne made?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -8.344653679159819e-07,
+          "prob": 0.9999991655349802,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.938057899475098,
+          "prob": 8.846640226207031e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.846639782114535e-07,
+      "prompt": "You're given the following task:\nWhen was the first bottle of champagne made?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

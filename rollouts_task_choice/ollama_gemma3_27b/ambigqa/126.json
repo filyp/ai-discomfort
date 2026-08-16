@@ -1,0 +1,31 @@
+{
+  "id": -8662129582734887891,
+  "question": "Who wrote the song superstar by the carpenters?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Bonnie Bramlett,Leon Russell and Delaney Bramlett'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Who were the main writers of the song \"Superstar\" by The Carpenters?',\n              'Who only has a songwriting credit for the song \"Superstar\" by The Carpenters?'],\n             dtype=object), 'answer': array([array(['Bonnie Bramlett and Leon Russell'], dtype=object),\n              array(['Delaney Bramlett'], dtype=object)], dtype=object)}                               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 126,
+  "prompt": "Who wrote the song superstar by the carpenters?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.770862579345703,
+          "prob": 9.535182230297855e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.535182221205885e-10,
+      "prompt": "You're given the following task:\nWho wrote the song superstar by the carpenters?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

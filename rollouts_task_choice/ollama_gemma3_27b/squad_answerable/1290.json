@@ -1,0 +1,32 @@
+{
+  "id": "571cc3dedd7acb1400e4c14a",
+  "title": "Oxygen",
+  "context": "In the triplet form, O\n2 molecules are paramagnetic. That is, they impart magnetic character to oxygen when it is in the presence of a magnetic field, because of the spin magnetic moments of the unpaired electrons in the molecule, and the negative exchange energy between neighboring O\n2 molecules. Liquid oxygen is attracted to a magnet to a sufficient extent that, in laboratory demonstrations, a bridge of liquid oxygen may be supported against its own weight between the poles of a powerful magnet.[c]",
+  "question": "What device is used to test the magnetic attractions involved in liquid oxygen?",
+  "answers": "{'text': array(['powerful magnet', 'a powerful magnet', 'a powerful magnet',\n       'a powerful magnet', 'magnet'], dtype=object), 'answer_start': array([486, 484, 484, 484, 495], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1290,
+  "prompt": "Context: In the triplet form, O\n2 molecules are paramagnetic. That is, they impart magnetic character to oxygen when it is in the presence of a magnetic field, because of the spin magnetic moments of the unpaired electrons in the molecule, and the negative exchange energy between neighboring O\n2 molecules. Liquid oxygen is attracted to a magnet to a sufficient extent that, in laboratory demonstrations, a bridge of liquid oxygen may be supported against its own weight between the poles of a powerful magnet.[c]\n\nQuestion: What device is used to test the magnetic attractions involved in liquid oxygen?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBased on the text provided, the device used to test the magnetic",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.287734985351562,
+          "prob": 1.0415406774767503e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.041540677465902e-11,
+      "prompt": "You're given the following task:\nContext: In the triplet form, O\n2 molecules are paramagnetic. That is, they impart magnetic character to oxygen when it is in the presence of a magnetic field, because of the spin magnetic moments of the unpaired electrons in the molecule, and the negative exchange energy between neighboring O\n2 molecules. Liquid oxygen is attracted to a magnet to a sufficient extent that, in laboratory demonstrations, a bridge of liquid oxygen may be supported against its own weight between the poles of a powerful magnet.[c]\n\nQuestion: What device is used to test the magnetic attractions involved in liquid oxygen?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

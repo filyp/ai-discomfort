@@ -1,0 +1,31 @@
+{
+  "id": -6272566291896225961,
+  "question": "Blair's mega death hot sauce with liquid fury scoville?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['550,000'], dtype=object), array([], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([\"Blair's Mega Death hot sauce with liquid fury is how many Scoville Units?\",\n              \"Blair's Mega Death hot sauce with liquid fury has less Scoville units than which of their sauces?\"],\n             dtype=object), 'answer': array([array(['550,000'], dtype=object),\n              array(['Ultra Death'], dtype=object)], dtype=object)}                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 63,
+  "prompt": "Blair's mega death hot sauce with liquid fury scoville?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThis seems like a question about a specific hot sauce (\"Blair",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.057430267333984,
+          "prob": 2.888292172348973e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.888292026748329e-07,
+      "prompt": "You're given the following task:\nBlair's mega death hot sauce with liquid fury scoville?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

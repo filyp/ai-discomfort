@@ -1,0 +1,32 @@
+{
+  "id": "5705eccb52bb8914006896b9",
+  "title": "Southern_California",
+  "context": "Many locals and tourists frequent the southern California coast for its popular beaches, and the desert city of Palm Springs is popular for its resort feel and nearby open spaces.",
+  "question": "Other than the desert city why do many locals and tourists frequent southern California?",
+  "answers": "{'text': array(['beaches', 'for its popular beaches', 'beaches'], dtype=object), 'answer_start': array([80, 64, 80], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 334,
+  "prompt": "Context: Many locals and tourists frequent the southern California coast for its popular beaches, and the desert city of Palm Springs is popular for its resort feel and nearby open spaces.\n\nQuestion: Other than the desert city why do many locals and tourists frequent southern California?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I understand the question! The context states people visit Southern",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.588809967041016,
+          "prob": 1.0431147080095286e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0431147080084405e-12,
+      "prompt": "You're given the following task:\nContext: Many locals and tourists frequent the southern California coast for its popular beaches, and the desert city of Palm Springs is popular for its resort feel and nearby open spaces.\n\nQuestion: Other than the desert city why do many locals and tourists frequent southern California?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

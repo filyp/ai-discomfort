@@ -1,0 +1,32 @@
+{
+  "id": "5a2c3a5cbfd06b001a5aea7a",
+  "title": "Sky_(United_Kingdom)",
+  "context": "BSkyB utilises the VideoGuard pay-TV scrambling system owned by NDS, a Cisco Systems company. There are tight controls over use of VideoGuard decoders; they are not available as stand-alone DVB CAMs (conditional-access modules). BSkyB has design authority over all digital satellite receivers capable of receiving their service. The receivers, though designed and built by different manufacturers, must conform to the same user interface look-and-feel as all the others. This extends to the Personal video recorder (PVR) offering (branded Sky+).",
+  "question": "Whose digital receivers are only built by one manufacturer?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 499,
+  "prompt": "Context: BSkyB utilises the VideoGuard pay-TV scrambling system owned by NDS, a Cisco Systems company. There are tight controls over use of VideoGuard decoders; they are not available as stand-alone DVB CAMs (conditional-access modules). BSkyB has design authority over all digital satellite receivers capable of receiving their service. The receivers, though designed and built by different manufacturers, must conform to the same user interface look-and-feel as all the others. This extends to the Personal video recorder (PVR) offering (branded Sky+).\n\nQuestion: Whose digital receivers are only built by one manufacturer?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states BSkyB has design authority over *all*",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.172333774477011e-06,
+          "prob": 0.9999958276749297,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.396663665771484,
+          "prob": 4.132352643792325e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.132352808972494e-06,
+      "prompt": "You're given the following task:\nContext: BSkyB utilises the VideoGuard pay-TV scrambling system owned by NDS, a Cisco Systems company. There are tight controls over use of VideoGuard decoders; they are not available as stand-alone DVB CAMs (conditional-access modules). BSkyB has design authority over all digital satellite receivers capable of receiving their service. The receivers, though designed and built by different manufacturers, must conform to the same user interface look-and-feel as all the others. This extends to the Personal video recorder (PVR) offering (branded Sky+).\n\nQuestion: Whose digital receivers are only built by one manufacturer?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5705eee952bb8914006896e1",
+  "title": "Southern_California",
+  "context": "Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Mexico ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.",
+  "question": "What was the name of the legislation passed in 1850?",
+  "answers": "{'text': array(['the Missouri Compromise', 'the Compromise of 1850',\n       'Compromise of 1850'], dtype=object), 'answer_start': array([523, 572, 576], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 345,
+  "prompt": "Context: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Mexico ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.\n\nQuestion: What was the name of the legislation passed in 1850?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe name of the legislation passed in 1850 was",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -33.35392761230469,
+          "prob": 3.2701922741212354e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.2701922741212243e-15,
+      "prompt": "You're given the following task:\nContext: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Mexico ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.\n\nQuestion: What was the name of the legislation passed in 1850?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

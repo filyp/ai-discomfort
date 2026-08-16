@@ -1,0 +1,31 @@
+{
+  "id": 7133553793803549181,
+  "question": "In 1789 the 1st 2nd and 3rd estates of france met on a tennis court and swore an oath known as the?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['In 1789 the 1st 2nd and 3rd estates of france met on a tennis court and swore an oath and the eent was known as the?',\n              'In 1789 the 1st 2nd and 3rd estates of france met on a tennis court and swore an oath and the oath was known as the?'],\n             dtype=object), 'answer': array([array(['Estates General of 1789', 'Estates General'], dtype=object),\n              array(['Tennis Court Oath', 'Serment du Jeu de Paume'], dtype=object)],\n             dtype=object)}                                                                                                                       ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 809,
+  "prompt": "In 1789 the 1st 2nd and 3rd estates of france met on a tennis court and swore an oath known as the?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The event you're referring to is known as the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.474143981933594,
+          "prob": 4.719519284973575e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.719519282746188e-10,
+      "prompt": "You're given the following task:\nIn 1789 the 1st 2nd and 3rd estates of france met on a tennis court and swore an oath known as the?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 4105062653900974014,
+  "question": "Where is the strongest bone in the body located?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['in the thigh', 'proximal bone of the hindlimb', 'thigh',\n              'thigh bone'], dtype=object)                             ,\n       array(['thigh'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 116,
+  "prompt": "Where is the strongest bone in the body located?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.568153381347656,
+          "prob": 4.296056670569055e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.2960566687234446e-10,
+      "prompt": "You're given the following task:\nWhere is the strongest bone in the body located?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

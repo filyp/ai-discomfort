@@ -1,0 +1,32 @@
+{
+  "id": "57094d489928a8140047150a",
+  "title": "Sky_(United_Kingdom)",
+  "context": "BSkyB utilises the VideoGuard pay-TV scrambling system owned by NDS, a Cisco Systems company. There are tight controls over use of VideoGuard decoders; they are not available as stand-alone DVB CAMs (conditional-access modules). BSkyB has design authority over all digital satellite receivers capable of receiving their service. The receivers, though designed and built by different manufacturers, must conform to the same user interface look-and-feel as all the others. This extends to the Personal video recorder (PVR) offering (branded Sky+).",
+  "question": "What is the name of the TV scrambling system BSkyB uses?",
+  "answers": "{'text': array(['VideoGuard', 'VideoGuard pay-TV', 'VideoGuard'], dtype=object), 'answer_start': array([19, 19, 19], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 493,
+  "prompt": "Context: BSkyB utilises the VideoGuard pay-TV scrambling system owned by NDS, a Cisco Systems company. There are tight controls over use of VideoGuard decoders; they are not available as stand-alone DVB CAMs (conditional-access modules). BSkyB has design authority over all digital satellite receivers capable of receiving their service. The receivers, though designed and built by different manufacturers, must conform to the same user interface look-and-feel as all the others. This extends to the Personal video recorder (PVR) offering (branded Sky+).\n\nQuestion: What is the name of the TV scrambling system BSkyB uses?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe name of the TV scrambling system BSkyB uses is **",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.504615783691406,
+          "prob": 4.1744826114873757e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.174482611485633e-13,
+      "prompt": "You're given the following task:\nContext: BSkyB utilises the VideoGuard pay-TV scrambling system owned by NDS, a Cisco Systems company. There are tight controls over use of VideoGuard decoders; they are not available as stand-alone DVB CAMs (conditional-access modules). BSkyB has design authority over all digital satellite receivers capable of receiving their service. The receivers, though designed and built by different manufacturers, must conform to the same user interface look-and-feel as all the others. This extends to the Personal video recorder (PVR) offering (branded Sky+).\n\nQuestion: What is the name of the TV scrambling system BSkyB uses?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

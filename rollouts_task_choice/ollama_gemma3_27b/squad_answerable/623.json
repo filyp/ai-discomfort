@@ -1,0 +1,32 @@
+{
+  "id": "570d2f5bfed7b91900d45cd0",
+  "title": "Victoria_(Australia)",
+  "context": "Victoria has a written constitution enacted in 1975, but based on the 1855 colonial constitution, passed by the United Kingdom Parliament as the Victoria Constitution Act 1855, which establishes the Parliament as the state's law-making body for matters coming under state responsibility. The Victorian Constitution can be amended by the Parliament of Victoria, except for certain \"entrenched\" provisions that require either an absolute majority in both houses, a three-fifths majority in both houses, or the approval of the Victorian people in a referendum, depending on the provision.",
+  "question": "On what is Victoria's constitution based ?",
+  "answers": "{'text': array(['1855 colonial constitution', 'the 1855 colonial constitution',\n       '1855 colonial constitution'], dtype=object), 'answer_start': array([70, 66, 70], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 623,
+  "prompt": "Context: Victoria has a written constitution enacted in 1975, but based on the 1855 colonial constitution, passed by the United Kingdom Parliament as the Victoria Constitution Act 1855, which establishes the Parliament as the state's law-making body for matters coming under state responsibility. The Victorian Constitution can be amended by the Parliament of Victoria, except for certain \"entrenched\" provisions that require either an absolute majority in both houses, a three-fifths majority in both houses, or the approval of the Victorian people in a referendum, depending on the provision.\n\nQuestion: On what is Victoria's constitution based ?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nVictoria’s constitution is based on the 1855",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.75844955444336,
+          "prob": 1.1914328452857889e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1914328452856468e-13,
+      "prompt": "You're given the following task:\nContext: Victoria has a written constitution enacted in 1975, but based on the 1855 colonial constitution, passed by the United Kingdom Parliament as the Victoria Constitution Act 1855, which establishes the Parliament as the state's law-making body for matters coming under state responsibility. The Victorian Constitution can be amended by the Parliament of Victoria, except for certain \"entrenched\" provisions that require either an absolute majority in both houses, a three-fifths majority in both houses, or the approval of the Victorian people in a referendum, depending on the provision.\n\nQuestion: On what is Victoria's constitution based ?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

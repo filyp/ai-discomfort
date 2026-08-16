@@ -1,0 +1,69 @@
+{
+  "id": -3766268167311659635,
+  "question": "When is episode 113 of dragon ball super coming out?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When is episode 113 of dragon ball super coming out for its original airdate?',\n              'When is episode 113 of dragon ball super coming out for its american airdate?'],\n             dtype=object), 'answer': array([array(['October 29, 2017'], dtype=object),\n              array(['June 1, 2019'], dtype=object)], dtype=object)}                                       ,\n       {'question': array(['When is episode 113 of dragon ball super coming out originally?',\n              'When is episode 113 of dragon ball super coming out in America?'],\n             dtype=object), 'answer': array([array(['October 29, 2017'], dtype=object),\n              array(['June 1, 2019'], dtype=object)], dtype=object)}                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 10,
+  "prompt": "When is episode 113 of dragon ball super coming out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Episode 113 of Dragon Ball Super *already",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.4424427718040533e-05,
+          "prob": 0.9999855756763135,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -11.144270896911621,
+          "prob": 1.445788096017907e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.4457880475012017e-05,
+      "prompt": "You're given the following task:\nWhen is episode 113 of dragon ball super coming out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay! Episode 113 of Dragon Ball Super is already",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.001817386713810265,
+          "prob": 0.9981842637334385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -6.31137228012085,
+          "prob": 0.001815540099371427,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.0018155404555208964,
+      "prompt": "You're given the following task:\nWhen is episode 113 of dragon ball super coming out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nEpisode 113 of *Dragon Ball Super* already aired",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.768372718899627e-07,
+          "prob": 0.9999995231628418,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -14.652276039123535,
+          "prob": 4.331091599896187e-07,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.3310917892861606e-07,
+      "prompt": "You're given the following task:\nWhen is episode 113 of dragon ball super coming out?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

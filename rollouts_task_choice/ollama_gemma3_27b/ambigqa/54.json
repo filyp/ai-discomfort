@@ -1,0 +1,31 @@
+{
+  "id": 4866079315838169410,
+  "question": "When did england win the world cup in soccer?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Which fifa world cup did england win in men's soccer?\",\n              \"On what date did england win the fifa world cup in men's soccer?\"],\n             dtype=object), 'answer': array([array(['1966', '1966 FIFA World Cup Final'], dtype=object),\n              array(['30 July 1966'], dtype=object)], dtype=object)}                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 54,
+  "prompt": "When did england win the world cup in soccer?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.07038116455078,
+          "prob": 1.0488711456006469e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0488711606227557e-07,
+      "prompt": "You're given the following task:\nWhen did england win the world cup in soccer?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

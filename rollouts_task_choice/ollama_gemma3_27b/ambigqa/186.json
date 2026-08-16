@@ -1,0 +1,31 @@
+{
+  "id": -2497336626257703367,
+  "question": "Who lit the torch at the 2012 olympics?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who lit the torch at the 2012 Winter Youth Olympics?',\n              'Who lit the torch at the 2012 Summer Olympics?'], dtype=object), 'answer': array([array(['Egon Zimmermann', 'Franz Klammer'], dtype=object),\n              array(['Desiree Henry', 'Jordan Duckitt', 'Adelle Tracey', 'Katie Kirk',\n                     'Aidan Reynolds', 'Cameron MacRitchie', 'Callum Airlie'],\n                    dtype=object)                                                     ],\n             dtype=object)}                                                                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 186,
+  "prompt": "Who lit the torch at the 2012 olympics?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.501174926757812,
+          "prob": 6.817588501657172e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.817588849581893e-08,
+      "prompt": "You're given the following task:\nWho lit the torch at the 2012 olympics?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 404,
+  "prompt": "Will there be no impact of liability on nonprofits in the near future?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThis is a complex question requiring nuance and likely further clarification of \"",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.4690503525780514e-05,
+          "prob": 0.9999653100981828,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -10.272624969482422,
+          "prob": 3.456652017048763e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.456652443536233e-05,
+      "prompt": "You're given the following task:\nWill there be no impact of liability on nonprofits in the near future?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5a638bf768151a001a922367",
+  "title": "Victoria_(Australia)",
+  "context": "During 2003–04, the gross value of Victorian agricultural production increased by 17% to $8.7 billion. This represented 24% of national agricultural production total gross value. As of 2004, an estimated 32,463 farms occupied around 136,000 square kilometres (52,500 sq mi) of Victorian land. This comprises more than 60% of the state's total land surface. Victorian farms range from small horticultural outfits to large-scale livestock and grain productions. A quarter of farmland is used to grow consumable crops.",
+  "question": "How much land do farms crop rotate each year in Victoria?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 696,
+  "prompt": "Context: During 2003–04, the gross value of Victorian agricultural production increased by 17% to $8.7 billion. This represented 24% of national agricultural production total gross value. As of 2004, an estimated 32,463 farms occupied around 136,000 square kilometres (52,500 sq mi) of Victorian land. This comprises more than 60% of the state's total land surface. Victorian farms range from small horticultural outfits to large-scale livestock and grain productions. A quarter of farmland is used to grow consumable crops.\n\nQuestion: How much land do farms crop rotate each year in Victoria?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text *does not contain* information about crop rotation practices",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -3.2040352821350098,
+          "prob": 0.040598048414627774,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.041445329785346985,
+          "prob": 0.959401784609256,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9594019448064667,
+      "prompt": "You're given the following task:\nContext: During 2003–04, the gross value of Victorian agricultural production increased by 17% to $8.7 billion. This represented 24% of national agricultural production total gross value. As of 2004, an estimated 32,463 farms occupied around 136,000 square kilometres (52,500 sq mi) of Victorian land. This comprises more than 60% of the state's total land surface. Victorian farms range from small horticultural outfits to large-scale livestock and grain productions. A quarter of farmland is used to grow consumable crops.\n\nQuestion: How much land do farms crop rotate each year in Victoria?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

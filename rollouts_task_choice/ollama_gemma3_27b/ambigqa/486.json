@@ -1,0 +1,31 @@
+{
+  "id": -2364382861908198627,
+  "question": "Where is john wayne star on the hollywood walk of fame?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"What is the address of John Wayne's star on the Hollywood walk of fame?\",\n              \"Where is John Wayne's star on the Hollywood walk of fame, in relation to other stars?\"],\n             dtype=object), 'answer': array([array(['1595 Vine St.'], dtype=object),\n              array(['Between Ricky Nelson and Shirley Jones'], dtype=object)],\n             dtype=object)}                                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 486,
+  "prompt": "Where is john wayne star on the hollywood walk of fame?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.556671142578125,
+          "prob": 1.1812753907011733e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1812753893057618e-09,
+      "prompt": "You're given the following task:\nWhere is john wayne star on the hollywood walk of fame?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

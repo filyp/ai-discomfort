@@ -1,0 +1,31 @@
+{
+  "id": 8566474544822411080,
+  "question": "What part of florida is st. petersburg in?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What county in Florida is St. Petersburg in?',\n              'What part of Florida is St. Petersburg located in?'], dtype=object), 'answer': array([array(['Pinellas'], dtype=object),\n              array(['on the Pinellas peninsula',\n                     'between Tampa Bay and the Gulf of Mexico'], dtype=object)],\n             dtype=object)}                                                                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 282,
+  "prompt": "What part of florida is st. petersburg in?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.055618286132812,
+          "prob": 4.8326879767688645e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.83268797674551e-12,
+      "prompt": "You're given the following task:\nWhat part of florida is st. petersburg in?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

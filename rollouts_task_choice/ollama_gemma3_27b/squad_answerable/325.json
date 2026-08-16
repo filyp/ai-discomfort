@@ -1,0 +1,32 @@
+{
+  "id": "5705eb3375f01819005e7766",
+  "title": "Southern_California",
+  "context": "The motion picture, television, and music industry is centered on the Los Angeles in southern California. Hollywood, a district within Los Angeles, is also a name associated with the motion picture industry. Headquartered in southern California are The Walt Disney Company (which also owns ABC), Sony Pictures, Universal, MGM, Paramount Pictures, 20th Century Fox, and Warner Brothers. Universal, Warner Brothers, and Sony also run major record companies as well.",
+  "question": "Which company owns ABC?",
+  "answers": "{'text': array(['The Walt Disney Company', 'The Walt Disney Company',\n       'The Walt Disney Company'], dtype=object), 'answer_start': array([249, 249, 249], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 325,
+  "prompt": "Context: The motion picture, television, and music industry is centered on the Los Angeles in southern California. Hollywood, a district within Los Angeles, is also a name associated with the motion picture industry. Headquartered in southern California are The Walt Disney Company (which also owns ABC), Sony Pictures, Universal, MGM, Paramount Pictures, 20th Century Fox, and Warner Brothers. Universal, Warner Brothers, and Sony also run major record companies as well.\n\nQuestion: Which company owns ABC?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that The Walt Disney Company also owns ABC. So",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.783451080322266,
+          "prob": 1.5726156018720225e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5726156018719976e-14,
+      "prompt": "You're given the following task:\nContext: The motion picture, television, and music industry is centered on the Los Angeles in southern California. Hollywood, a district within Los Angeles, is also a name associated with the motion picture industry. Headquartered in southern California are The Walt Disney Company (which also owns ABC), Sony Pictures, Universal, MGM, Paramount Pictures, 20th Century Fox, and Warner Brothers. Universal, Warner Brothers, and Sony also run major record companies as well.\n\nQuestion: Which company owns ABC?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

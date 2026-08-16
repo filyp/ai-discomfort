@@ -1,0 +1,32 @@
+{
+  "id": "5ad3f03c604f3c001a3ff82d",
+  "title": "Steam_engine",
+  "context": "In most reciprocating piston engines, the steam reverses its direction of flow at each stroke (counterflow), entering and exhausting from the cylinder by the same port. The complete engine cycle occupies one rotation of the crank and two piston strokes; the cycle also comprises four events – admission, expansion, exhaust, compression. These events are controlled by valves often working inside a steam chest adjacent to the cylinder; the valves distribute the steam by opening and closing steam ports communicating with the cylinder end(s) and are driven by valve gear, of which there are many types.[citation needed]",
+  "question": "What, along with admission, exhaust, and compression, is an event in the steam cycle?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 983,
+  "prompt": "Context: In most reciprocating piston engines, the steam reverses its direction of flow at each stroke (counterflow), entering and exhausting from the cylinder by the same port. The complete engine cycle occupies one rotation of the crank and two piston strokes; the cycle also comprises four events – admission, expansion, exhaust, compression. These events are controlled by valves often working inside a steam chest adjacent to the cylinder; the valves distribute the steam by opening and closing steam ports communicating with the cylinder end(s) and are driven by valve gear, of which there are many types.[citation needed]\n\nQuestion: What, along with admission, exhaust, and compression, is an event in the steam cycle?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe fourth event in the steam cycle, along with admission, exhaust",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.811946868896484,
+          "prob": 5.622798681671309e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.6227986816712776e-15,
+      "prompt": "You're given the following task:\nContext: In most reciprocating piston engines, the steam reverses its direction of flow at each stroke (counterflow), entering and exhausting from the cylinder by the same port. The complete engine cycle occupies one rotation of the crank and two piston strokes; the cycle also comprises four events – admission, expansion, exhaust, compression. These events are controlled by valves often working inside a steam chest adjacent to the cylinder; the valves distribute the steam by opening and closing steam ports communicating with the cylinder end(s) and are driven by valve gear, of which there are many types.[citation needed]\n\nQuestion: What, along with admission, exhaust, and compression, is an event in the steam cycle?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

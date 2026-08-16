@@ -1,0 +1,32 @@
+{
+  "id": "5705fb7f52bb891400689752",
+  "title": "Southern_California",
+  "context": "Traveling south on Interstate 5, the main gap to continued urbanization is Camp Pendleton. The cities and communities along Interstate 15 and Interstate 215 are so inter-related that Temecula and Murrieta have as much connection with the San Diego metropolitan area as they do with the Inland Empire. To the east, the United States Census Bureau considers the San Bernardino and Riverside County areas, Riverside-San Bernardino area as a separate metropolitan area from Los Angeles County. While many commute to L.A. and Orange Counties, there are some differences in development, as most of San Bernardino and Riverside Counties (the non-desert portions) were developed in the 1980s and 1990s. Newly developed exurbs formed in the Antelope Valley north of Los Angeles, the Victor Valley and the Coachella Valley with the Imperial Valley. Also, population growth was high in the Bakersfield-Kern County, Santa Maria and San Luis Obispo areas.",
+  "question": "Who considers Los Angeles County to be a separate metropolitan area?",
+  "answers": "{'text': array(['United States Census Bureau', 'the United States Census Bureau',\n       'United States Census Bureau'], dtype=object), 'answer_start': array([318, 314, 318], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 369,
+  "prompt": "Context: Traveling south on Interstate 5, the main gap to continued urbanization is Camp Pendleton. The cities and communities along Interstate 15 and Interstate 215 are so inter-related that Temecula and Murrieta have as much connection with the San Diego metropolitan area as they do with the Inland Empire. To the east, the United States Census Bureau considers the San Bernardino and Riverside County areas, Riverside-San Bernardino area as a separate metropolitan area from Los Angeles County. While many commute to L.A. and Orange Counties, there are some differences in development, as most of San Bernardino and Riverside Counties (the non-desert portions) were developed in the 1980s and 1990s. Newly developed exurbs formed in the Antelope Valley north of Los Angeles, the Victor Valley and the Coachella Valley with the Imperial Valley. Also, population growth was high in the Bakersfield-Kern County, Santa Maria and San Luis Obispo areas.\n\nQuestion: Who considers Los Angeles County to be a separate metropolitan area?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe United States Census Bureau considers Riverside-San Bernardino area (which",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -28.62305450439453,
+          "prob": 3.708218989171414e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.7082189891700385e-13,
+      "prompt": "You're given the following task:\nContext: Traveling south on Interstate 5, the main gap to continued urbanization is Camp Pendleton. The cities and communities along Interstate 15 and Interstate 215 are so inter-related that Temecula and Murrieta have as much connection with the San Diego metropolitan area as they do with the Inland Empire. To the east, the United States Census Bureau considers the San Bernardino and Riverside County areas, Riverside-San Bernardino area as a separate metropolitan area from Los Angeles County. While many commute to L.A. and Orange Counties, there are some differences in development, as most of San Bernardino and Riverside Counties (the non-desert portions) were developed in the 1980s and 1990s. Newly developed exurbs formed in the Antelope Valley north of Los Angeles, the Victor Valley and the Coachella Valley with the Imperial Valley. Also, population growth was high in the Bakersfield-Kern County, Santa Maria and San Luis Obispo areas.\n\nQuestion: Who considers Los Angeles County to be a separate metropolitan area?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

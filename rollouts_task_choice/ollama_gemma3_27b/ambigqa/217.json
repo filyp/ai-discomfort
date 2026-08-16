@@ -1,0 +1,31 @@
+{
+  "id": -3298707258919525200,
+  "question": "Who sings vocals on one of these nights?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sings lead vocals on one of these nights, the song?',\n              'Who sings backing vocals with piano on one of these nights, the song?',\n              'Who sings backing vocals with bass guitar on one of these nights, the song?',\n              'Who sings backing vocals with rhythm guitar on one of these nights, the song?',\n              'Who sings lead on most of the Eagles\\' album \"One of These Nights\"?',\n              'Who sings lead on the song \"Visions\" on the Eagles\\' album \"One of These Nights\"?',\n              'Who sings lead on the song \"Lyin\\' Eyes\" and shares it on \"After the Thrill Is Gone\" on the Eagles\\' album \"One of These Nights\"?'],\n             dtype=object), 'answer': array([array(['Don Henley', 'Donald Hugh Henley'], dtype=object),\n              array(['Glenn Frey', 'Glenn Lewis Frey'], dtype=object),\n              array(['Randy Meisner', 'Randall Herman Meisner'], dtype=object),\n              array(['Bernie Leadon', 'Bernard Mathew Leadon III'], dtype=object),\n              array(['Don Henley'], dtype=object),\n              array(['Don Felder'], dtype=object),\n              array(['Glenn Frey'], dtype=object)], dtype=object)}                                                                                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 217,
+  "prompt": "Who sings vocals on one of these nights?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -7.152559646783629e-07,
+          "prob": 0.9999992847442911,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.18709659576416,
+          "prob": 6.896396681967593e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.896396858625976e-07,
+      "prompt": "You're given the following task:\nWho sings vocals on one of these nights?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

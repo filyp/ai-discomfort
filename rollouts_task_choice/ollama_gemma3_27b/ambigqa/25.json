@@ -1,0 +1,31 @@
+{
+  "id": 119349441803496022,
+  "question": "Who made the song these boots are made for walking?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who wrote the song \"These Boots Are Made for Walkin\\'\"?',\n              'Who sang the original song \"These Boots Are Made for Walkin\\'\"?',\n              'Who produced the original song \"These Boots Are Made for Walkin\\'\"?'],\n             dtype=object), 'answer': array([array(['Lee Hazlewood'], dtype=object),\n              array(['Nancy Sinatra'], dtype=object),\n              array(['Lee Hazlewood'], dtype=object)], dtype=object)}                ,\n       {'question': array(['Who first recorded the song \"These Boots Are Made For Walking\"?',\n              'Who wrote the song \"These Boots Are Made For Walking\"?',\n              'Who first produced the song \"These Boots Are Made For Walking\"?'],\n             dtype=object), 'answer': array([array(['Nancy Sinatra'], dtype=object),\n              array(['Lee Hazlewood'], dtype=object),\n              array(['Lee Hazlewood'], dtype=object)], dtype=object)}                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 25,
+  "prompt": "Who made the song these boots are made for walking?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.695045471191406,
+          "prob": 1.028622332584696e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.028622331526632e-09,
+      "prompt": "You're given the following task:\nWho made the song these boots are made for walking?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -2235113531332863644,
+  "question": "Who does seth curry's brother play for?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who does Seth Curry's brother play for in the NBA?\",\n              \"Who does Seth Curry's brother play for in college?\",\n              \"Who does Seth Curry's brother play for in high school?\"],\n             dtype=object), 'answer': array([array(['Golden State Warriors'], dtype=object),\n              array(['Davidson'], dtype=object),\n              array(['Charlotte Christian'], dtype=object)], dtype=object)}                 ,\n       {'question': array([\"Who does seth curry's brother play for from 2009 to 2020?\",\n              \"Who does seth curry's brother play for from 2006 to 2009?\",\n              \"Who does seth curry's brother play for before 2006?\"],\n             dtype=object), 'answer': array([array(['Golden State Warriors'], dtype=object),\n              array(['Davidson'], dtype=object),\n              array(['Charlotte Christian School'], dtype=object)], dtype=object)}          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 674,
+  "prompt": "Who does seth curry's brother play for?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.365516662597656,
+          "prob": 1.4301068680031e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.4301068659578943e-09,
+      "prompt": "You're given the following task:\nWho does seth curry's brother play for?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

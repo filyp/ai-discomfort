@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 212,
+  "prompt": "What will be the value of Bitcoin one year from now?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nPredicting the price of Bitcoin (or any cryptocurrency) is highly",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -9.856032371520996,
+          "prob": 5.242996014581395e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -5.245346255833283e-05,
+          "prob": 0.9999475479131005,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999475700386942,
+      "prompt": "You're given the following task:\nWhat will be the value of Bitcoin one year from now?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "56de4c324396321400ee27ac",
+  "title": "Normans",
+  "context": "By far the most famous work of Norman art is the Bayeux Tapestry, which is not a tapestry but a work of embroidery. It was commissioned by Odo, the Bishop of Bayeux and first Earl of Kent, employing natives from Kent who were learned in the Nordic traditions imported in the previous half century by the Danish Vikings.",
+  "question": "What is Norman art's most well known piece?",
+  "answers": "{'text': array(['Bayeux Tapestry', 'the Bayeux Tapestry', 'the Bayeux Tapestry'],\n      dtype=object), 'answer_start': array([49, 45, 45], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 88,
+  "prompt": "Context: By far the most famous work of Norman art is the Bayeux Tapestry, which is not a tapestry but a work of embroidery. It was commissioned by Odo, the Bishop of Bayeux and first Earl of Kent, employing natives from Kent who were learned in the Nordic traditions imported in the previous half century by the Danish Vikings.\n\nQuestion: What is Norman art's most well known piece?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe Bayeux Tapestry (though technically embroidery!) is Norman art",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.534767150878906,
+          "prob": 5.481748673368748e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.4817486733684476e-14,
+      "prompt": "You're given the following task:\nContext: By far the most famous work of Norman art is the Bayeux Tapestry, which is not a tapestry but a work of embroidery. It was commissioned by Odo, the Bishop of Bayeux and first Earl of Kent, employing natives from Kent who were learned in the Nordic traditions imported in the previous half century by the Danish Vikings.\n\nQuestion: What is Norman art's most well known piece?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

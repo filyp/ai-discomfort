@@ -1,0 +1,31 @@
+{
+  "id": -7995939908988030265,
+  "question": "The voting rights act of 1965 was an effort to ensure voting rights for?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['racial minorities'], dtype=object),\n       array(['racial minorities'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 97,
+  "prompt": "The voting rights act of 1965 was an effort to ensure voting rights for?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.660934448242188,
+          "prob": 1.949360898881206e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.949360898843206e-11,
+      "prompt": "You're given the following task:\nThe voting rights act of 1965 was an effort to ensure voting rights for?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

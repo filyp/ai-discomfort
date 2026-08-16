@@ -1,0 +1,31 @@
+{
+  "id": 1677327668044258189,
+  "question": "What is the newest generation of the ipad?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the current generation of iPad called?|What is the newest generation of iPad?|What generation is the iPad in 2020 called?|What is the newest generation of the full size iPad?|What generation iPad was released in September 2019?',\n              'What is the newest generation of the iPad Air?',\n              'What is the newest generation of the iPad Pro?',\n              'What generation iPad Mini was released in March 2019?'],\n             dtype=object), 'answer': array([array(['Seventh-generation', '7th generation', '7th',\n                     'Seventh-generation iPad', 'Seventh', 'iPad Educational'],\n                    dtype=object)                                              ,\n              array(['3rd'], dtype=object), array(['3rd'], dtype=object),\n              array(['5th'], dtype=object)], dtype=object)}                                                                                                                                                                                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1095,
+  "prompt": "What is the newest generation of the ipad?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! To give you the *most* accurate answer, could",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.853870391845703,
+          "prob": 1.7626358876473444e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.762635856578492e-08,
+      "prompt": "You're given the following task:\nWhat is the newest generation of the ipad?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

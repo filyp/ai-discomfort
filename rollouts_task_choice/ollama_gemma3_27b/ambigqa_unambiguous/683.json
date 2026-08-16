@@ -1,0 +1,31 @@
+{
+  "id": -7043035731851718443,
+  "question": "Who sings with nickelback in she keeps me up?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Alexandra Tamposi', 'Ali Tamposi'], dtype=object),\n       array(['Ali Tamposi'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 683,
+  "prompt": "Who sings with nickelback in she keeps me up?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! Nickelback performs \"She",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -7.152559646783629e-07,
+          "prob": 0.9999992847442911,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.233185768127441,
+          "prob": 6.585760925141354e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.585761298419777e-07,
+      "prompt": "You're given the following task:\nWho sings with nickelback in she keeps me up?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -3841584058937043273,
+  "question": "What kind of money do they use in russia?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What kind of money did they use in Russia until 1992?',\n              'What kind of money did they use in Russia starting in 1992?'],\n             dtype=object), 'answer': array([array(['Soviet Ruble', 'SUR'], dtype=object),\n              array(['RUB', 'Russian Ruble', 'RUR'], dtype=object)], dtype=object)}       ,\n       {'question': array(['What kind of money do they use in russia from 1991 to 2020?',\n              'What kind of money do they use in russia from 1917 to 1991?',\n              'What kind of money do they use in russia from the start of 1917 to October 1917?'],\n             dtype=object), 'answer': array([array(['Russian ruble', 'rouble'], dtype=object),\n              array(['Soviet ruble'], dtype=object),\n              array(['Kerensky rubles', 'Kerenski'], dtype=object)], dtype=object)}               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 658,
+  "prompt": "What kind of money do they use in russia?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.98894500732422,
+          "prob": 1.0375954019855437e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0375954018778834e-10,
+      "prompt": "You're given the following task:\nWhat kind of money do they use in russia?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

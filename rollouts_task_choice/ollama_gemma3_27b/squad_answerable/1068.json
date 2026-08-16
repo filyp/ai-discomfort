@@ -1,0 +1,32 @@
+{
+  "id": "57115e532419e314009555b0",
+  "title": "Steam_engine",
+  "context": "The adoption of compounding was common for industrial units, for road engines and almost universal for marine engines after 1880; it was not universally popular in railway locomotives where it was often perceived as complicated. This is partly due to the harsh railway operating environment and limited space afforded by the loading gauge (particularly in Britain, where compounding was never common and not employed after 1930). However, although never in the majority, it was popular in many other countries.",
+  "question": "Compounding was not popular in the construction of what machines?",
+  "answers": "{'text': array(['railway locomotives', 'railway locomotives',\n       'railway locomotives'], dtype=object), 'answer_start': array([164, 164, 164], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1068,
+  "prompt": "Context: The adoption of compounding was common for industrial units, for road engines and almost universal for marine engines after 1880; it was not universally popular in railway locomotives where it was often perceived as complicated. This is partly due to the harsh railway operating environment and limited space afforded by the loading gauge (particularly in Britain, where compounding was never common and not employed after 1930). However, although never in the majority, it was popular in many other countries.\n\nQuestion: Compounding was not popular in the construction of what machines?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nBased on the provided text, compounding was *not* popular",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.971786499023438,
+          "prob": 5.255286996924661e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.2552869968970426e-12,
+      "prompt": "You're given the following task:\nContext: The adoption of compounding was common for industrial units, for road engines and almost universal for marine engines after 1880; it was not universally popular in railway locomotives where it was often perceived as complicated. This is partly due to the harsh railway operating environment and limited space afforded by the loading gauge (particularly in Britain, where compounding was never common and not employed after 1930). However, although never in the majority, it was popular in many other countries.\n\nQuestion: Compounding was not popular in the construction of what machines?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

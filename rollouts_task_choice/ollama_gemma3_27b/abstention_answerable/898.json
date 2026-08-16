@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 898,
+  "prompt": "According to a global study of wind power in 2005 what extent of the world's total energy usage could be satisfied if all viable wind power locations were exploited?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.2053962311474606e-05,
+          "prob": 0.9999779462808753,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -10.722296714782715,
+          "prob": 2.2047822477942334e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.2047822607950555e-05,
+      "prompt": "You're given the following task:\nAccording to a global study of wind power in 2005 what extent of the world's total energy usage could be satisfied if all viable wind power locations were exploited?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

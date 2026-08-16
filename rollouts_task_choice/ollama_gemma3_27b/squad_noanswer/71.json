@@ -1,0 +1,32 @@
+{
+  "id": "5ad3fb01604f3c001a3ffb36",
+  "title": "Normans",
+  "context": "Even before the Norman Conquest of England, the Normans had come into contact with Wales. Edward the Confessor had set up the aforementioned Ralph as earl of Hereford and charged him with defending the Marches and warring with the Welsh. In these original ventures, the Normans failed to make any headway into Wales.",
+  "question": "Who made Edward the Confessor Earl?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 71,
+  "prompt": "Context: Even before the Norman Conquest of England, the Normans had come into contact with Wales. Edward the Confessor had set up the aforementioned Ralph as earl of Hereford and charged him with defending the Marches and warring with the Welsh. In these original ventures, the Normans failed to make any headway into Wales.\n\nQuestion: Who made Edward the Confessor Earl?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe question is asking who *made* Edward the Confessor Earl",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -0.36221742630004883,
+          "prob": 0.6961309941996437,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -1.1911587715148926,
+          "prob": 0.30386894529957775,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.3038689636838866,
+      "prompt": "You're given the following task:\nContext: Even before the Norman Conquest of England, the Normans had come into contact with Wales. Edward the Confessor had set up the aforementioned Ralph as earl of Hereford and charged him with defending the Marches and warring with the Welsh. In these original ventures, the Normans failed to make any headway into Wales.\n\nQuestion: Who made Edward the Confessor Earl?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

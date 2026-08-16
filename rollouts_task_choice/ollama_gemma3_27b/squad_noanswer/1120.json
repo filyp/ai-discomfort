@@ -1,0 +1,32 @@
+{
+  "id": "5ad3d560604f3c001a3ff2c6",
+  "title": "Steam_engine",
+  "context": "Other components are often present; pumps (such as an injector) to supply water to the boiler during operation, condensers to recirculate the water and recover the latent heat of vaporisation, and superheaters to raise the temperature of the steam above its saturated vapour point, and various mechanisms to increase the draft for fireboxes. When coal is used, a chain or screw stoking mechanism and its drive engine or motor may be included to move the fuel from a supply bin (bunker) to the firebox. See: Mechanical stoker",
+  "question": "IN addition to recirculating water, what do bunkers do?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1120,
+  "prompt": "Context: Other components are often present; pumps (such as an injector) to supply water to the boiler during operation, condensers to recirculate the water and recover the latent heat of vaporisation, and superheaters to raise the temperature of the steam above its saturated vapour point, and various mechanisms to increase the draft for fireboxes. When coal is used, a chain or screw stoking mechanism and its drive engine or motor may be included to move the fuel from a supply bin (bunker) to the firebox. See: Mechanical stoker\n\nQuestion: IN addition to recirculating water, what do bunkers do?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBunkers supply fuel (specifically coal when using a mechanical st",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.163494110107422,
+          "prob": 6.438894216321476e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.438894212175541e-10,
+      "prompt": "You're given the following task:\nContext: Other components are often present; pumps (such as an injector) to supply water to the boiler during operation, condensers to recirculate the water and recover the latent heat of vaporisation, and superheaters to raise the temperature of the steam above its saturated vapour point, and various mechanisms to increase the draft for fireboxes. When coal is used, a chain or screw stoking mechanism and its drive engine or motor may be included to move the fuel from a supply bin (bunker) to the firebox. See: Mechanical stoker\n\nQuestion: IN addition to recirculating water, what do bunkers do?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

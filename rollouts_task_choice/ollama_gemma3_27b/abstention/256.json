@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 256,
+  "prompt": "When will all products be deliverd packaged in a gel bubble for protection when dropped from the sky?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThis is a nonsensical request. While amusing, it's",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -7.486843109130859,
+          "prob": 0.0005604093219787958,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.0005606195772998035,
+          "prob": 0.999439537540493,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9994395906482425,
+      "prompt": "You're given the following task:\nWhen will all products be deliverd packaged in a gel bubble for protection when dropped from the sky?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1144392089980726106,
+  "question": "When does game of thrones season 7 come on hbo?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['July 16, 2017'], dtype=object), array([], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['When does game of thrones season 7 order come out for hbo?',\n              'When does game of thrones season 7 premier come on hbo?'],\n             dtype=object), 'answer': array([array(['April 21, 2016'], dtype=object),\n              array(['July 16, 2017'], dtype=object)], dtype=object)}                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 311,
+  "prompt": "When does game of thrones season 7 come on hbo?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Game of Thrones Season 7 premiered on **July",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.625640869140625,
+          "prob": 1.6363281222906794e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6363280495992115e-07,
+      "prompt": "You're given the following task:\nWhen does game of thrones season 7 come on hbo?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

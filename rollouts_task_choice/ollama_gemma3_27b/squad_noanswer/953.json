@@ -1,0 +1,32 @@
+{
+  "id": "5ad3c46a604f3c001a3fefb5",
+  "title": "Steam_engine",
+  "context": "The history of the steam engine stretches back as far as the first century AD; the first recorded rudimentary steam engine being the aeolipile described by Greek mathematician Hero of Alexandria. In the following centuries, the few steam-powered \"engines\" known were, like the aeolipile, essentially experimental devices used by inventors to demonstrate the properties of steam. A rudimentary steam turbine device was described by Taqi al-Din in 1551 and by Giovanni Branca in 1629. Jerónimo de Ayanz y Beaumont received patents in 1606 for fifty steam powered inventions, including a water pump for draining inundated mines. Denis Papin, a Huguenot refugee, did some useful work on the steam digester in 1679, and first used a piston to raise weights in 1690.",
+  "question": "In what year did Jeronimo de Ayanz y Beaumont patent a water pump for draining patients?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 953,
+  "prompt": "Context: The history of the steam engine stretches back as far as the first century AD; the first recorded rudimentary steam engine being the aeolipile described by Greek mathematician Hero of Alexandria. In the following centuries, the few steam-powered \"engines\" known were, like the aeolipile, essentially experimental devices used by inventors to demonstrate the properties of steam. A rudimentary steam turbine device was described by Taqi al-Din in 1551 and by Giovanni Branca in 1629. Jerónimo de Ayanz y Beaumont received patents in 1606 for fifty steam powered inventions, including a water pump for draining inundated mines. Denis Papin, a Huguenot refugee, did some useful work on the steam digester in 1679, and first used a piston to raise weights in 1690.\n\nQuestion: In what year did Jeronimo de Ayanz y Beaumont patent a water pump for draining patients?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe question asks about a water pump for *patients*, but the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.69304656982422,
+          "prob": 5.627324876778581e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.6273245601107465e-08,
+      "prompt": "You're given the following task:\nContext: The history of the steam engine stretches back as far as the first century AD; the first recorded rudimentary steam engine being the aeolipile described by Greek mathematician Hero of Alexandria. In the following centuries, the few steam-powered \"engines\" known were, like the aeolipile, essentially experimental devices used by inventors to demonstrate the properties of steam. A rudimentary steam turbine device was described by Taqi al-Din in 1551 and by Giovanni Branca in 1629. Jerónimo de Ayanz y Beaumont received patents in 1606 for fifty steam powered inventions, including a water pump for draining inundated mines. Denis Papin, a Huguenot refugee, did some useful work on the steam digester in 1679, and first used a piston to raise weights in 1690.\n\nQuestion: In what year did Jeronimo de Ayanz y Beaumont patent a water pump for draining patients?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

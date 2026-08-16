@@ -1,0 +1,31 @@
+{
+  "id": -4720743125318207992,
+  "question": "What was the 50th state in the united states?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Hawaii'], dtype=object), array(['Hawaii'], dtype=object),\n       array(['Hawaiʻi', 'The state of Hawaiʻi', 'Hawaiian archipelago',\n              'Hawaii'], dtype=object)                                  ],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 729,
+  "prompt": "What was the 50th state in the united states?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.788650512695312,
+          "prob": 1.2676951602888907e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.2676951601281856e-10,
+      "prompt": "You're given the following task:\nWhat was the 50th state in the united states?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

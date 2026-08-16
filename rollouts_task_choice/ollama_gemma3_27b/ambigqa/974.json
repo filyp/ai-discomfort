@@ -1,0 +1,31 @@
+{
+  "id": 1427536842098262705,
+  "question": "When do you buy a rosca de reyes?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When and for what do you buy a rosca de reyes?',\n              'When do you buy and eat a rosca de reyes?'], dtype=object), 'answer': array([array(['Día de Reyes', 'to celebrate Epiphany', \"Kings' Day\"],\n                    dtype=object)                                           ,\n              array(['January 6'], dtype=object)], dtype=object)}                                                                                         ,\n       {'question': array(['During what celebration do you buy a rosca de reyes?',\n              'On what date do you buy a rosca de reyes?'], dtype=object), 'answer': array([array(['Epiphany'], dtype=object),\n              array(['January 6'], dtype=object)], dtype=object)}                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 974,
+  "prompt": "When do you buy a rosca de reyes?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can definitely help explain when to buy a Rosca",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.046958923339844,
+          "prob": 1.3250856509755435e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3250856509579848e-11,
+      "prompt": "You're given the following task:\nWhen do you buy a rosca de reyes?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

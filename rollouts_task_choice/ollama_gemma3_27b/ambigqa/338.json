@@ -1,0 +1,31 @@
+{
+  "id": -9062793606838911077,
+  "question": "Which type of url is associated with non-profit organizations .gov .edu .org .com?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Which type of url is associated with educational institutions, including non-profit organizations .gov .edu .org .com?',\n              'Which type of url is associated with public interest organizations, including non-profit organizations .gov .edu .org .com?'],\n             dtype=object), 'answer': array([array(['.edu'], dtype=object), array(['.org'], dtype=object)],\n             dtype=object)}                                                                                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 338,
+  "prompt": "Which type of url is associated with non-profit organizations .gov .edu .org .com?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.238662719726562,
+          "prob": 1.093926266018609e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0939262660066424e-11,
+      "prompt": "You're given the following task:\nWhich type of url is associated with non-profit organizations .gov .edu .org .com?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

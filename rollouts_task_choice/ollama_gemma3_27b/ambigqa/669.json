@@ -1,0 +1,31 @@
+{
+  "id": 8487108135056844837,
+  "question": "Who is buried in santa croce in florence?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the Italian sculptor and artist buried in santa croce in florence?',\n              'Who is the Italian astronomer and physicist  buried in santa croce in florence?',\n              'Who is the Italian diplomat and philosopher  buried in santa croce in florence?',\n              'Who is the Italian poet buried in santa croce in florence?',\n              'Who is the Italian philosopher buried in santa croce in florence?',\n              'Who is the Italian composer buried in santa croce in florence?'],\n             dtype=object), 'answer': array([array(['Michelangelo'], dtype=object),\n              array(['Galileo'], dtype=object),\n              array(['Machiavelli'], dtype=object),\n              array(['Foscolo'], dtype=object), array(['Gentile'], dtype=object),\n              array(['Rossini'], dtype=object)], dtype=object)}                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 669,
+  "prompt": "Who is buried in santa croce in florence?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who is buried in Santa Croce in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.00564193725586,
+          "prob": 3.75389544322487e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.7538954430839533e-11,
+      "prompt": "You're given the following task:\nWho is buried in santa croce in florence?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

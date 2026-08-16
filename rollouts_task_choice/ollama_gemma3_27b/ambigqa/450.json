@@ -1,0 +1,31 @@
+{
+  "id": 7828496415480409345,
+  "question": "Who does jason sudeikis play on the cleveland show?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Holt Ritcher and Terry Kimple'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([\"Which one of Cleveland's neighbors does jason sudeikis play on the cleveland show?\",\n              \"Which one of Cleveland's high school buddies does jason sudeikis play on the cleveland show?\"],\n             dtype=object), 'answer': array([array(['Holt Richter'], dtype=object),\n              array(['Terry Kimple'], dtype=object)], dtype=object)}                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 450,
+  "prompt": "Who does jason sudeikis play on the cleveland show?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.823646545410156,
+          "prob": 1.3423866415988886e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3423866214236478e-07,
+      "prompt": "You're given the following task:\nWho does jason sudeikis play on the cleveland show?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

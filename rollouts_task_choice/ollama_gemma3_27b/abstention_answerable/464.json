@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 464,
+  "prompt": "Are Kourtney Kardashian and David Hedison in the same industry?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -5.960466182841628e-07,
+          "prob": 0.9999994039535594,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.364853858947754,
+          "prob": 5.773288171866228e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.773288279928464e-07,
+      "prompt": "You're given the following task:\nAre Kourtney Kardashian and David Hedison in the same industry?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

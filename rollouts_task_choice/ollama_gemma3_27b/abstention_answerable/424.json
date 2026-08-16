@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 424,
+  "prompt": "Avengers: Infinity War will feature an actor known for his role as J.A.R.V.I.S. and what other character in the Marvel Cinematic Universe?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I'm ready to help figure out which other MCU",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.012855529785156,
+          "prob": 1.503544339952472e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5035443173460166e-08,
+      "prompt": "You're given the following task:\nAvengers: Infinity War will feature an actor known for his role as J.A.R.V.I.S. and what other character in the Marvel Cinematic Universe?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

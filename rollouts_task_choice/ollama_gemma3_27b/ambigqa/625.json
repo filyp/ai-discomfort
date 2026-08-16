@@ -1,0 +1,31 @@
+{
+  "id": 2774258496863291825,
+  "question": "What percentage of australia's population is foreign born?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"What percentage of australia's population is foreign born as of 2018?\",\n              \"What percentage of australia's population is foreign born in 2015?\",\n              \"What percentage of australia's population is foreign born in 2005?\"],\n             dtype=object), 'answer': array([array(['29%'], dtype=object), array(['33.3'], dtype=object),\n              array(['19.93'], dtype=object)], dtype=object)}                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 625,
+  "prompt": "What percentage of australia's population is foreign born?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.612651824951172,
+          "prob": 3.0362220989976394e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.036222089778995e-09,
+      "prompt": "You're given the following task:\nWhat percentage of australia's population is foreign born?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

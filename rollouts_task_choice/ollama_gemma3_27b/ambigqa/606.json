@@ -1,0 +1,31 @@
+{
+  "id": -3211839191682699435,
+  "question": "What kind of series is game of thrones?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What kind of series is the Game of Thrones novels?',\n              'What kind of series is the Game of Thrones television show?',\n              'What kind of series is the Game of Thrones video games?',\n              'What kind of series is game of thrones in relation to book?'],\n             dtype=object), 'answer': array([array(['political', 'epic fantasy'], dtype=object),\n              array(['fantasy', 'serial drama'], dtype=object),\n              array(['episodic point-and-click graphic adventure fantasy drama'],\n                    dtype=object)                                                ,\n              array(['novel adaptation'], dtype=object)], dtype=object)}                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 606,
+  "prompt": "What kind of series is game of thrones?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's talk about *Game of Thrones*. To",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.63135528564453,
+          "prob": 2.0078826066363687e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0078826065960527e-11,
+      "prompt": "You're given the following task:\nWhat kind of series is game of thrones?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

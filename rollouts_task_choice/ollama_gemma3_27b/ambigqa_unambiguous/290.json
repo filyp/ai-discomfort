@@ -1,0 +1,31 @@
+{
+  "id": -8784686431735479035,
+  "question": "Who became the first english woman to qualify as a doctor?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Anderson', 'Elizabeth Garrett Anderson'], dtype=object),\n       array(['Elizabeth Garrett Anderson'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 290,
+  "prompt": "Who became the first english woman to qualify as a doctor?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.27783203125,
+          "prob": 1.5611672922223297e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5611672897850865e-09,
+      "prompt": "You're given the following task:\nWho became the first english woman to qualify as a doctor?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "571cb010dd7acb1400e4c129",
+  "title": "Oxygen",
+  "context": "Singlet oxygen is a name given to several higher-energy species of molecular O\n2 in which all the electron spins are paired. It is much more reactive towards common organic molecules than is molecular oxygen per se. In nature, singlet oxygen is commonly formed from water during photosynthesis, using the energy of sunlight. It is also produced in the troposphere by the photolysis of ozone by light of short wavelength, and by the immune system as a source of active oxygen. Carotenoids in photosynthetic organisms (and possibly also in animals) play a major role in absorbing energy from singlet oxygen and converting it to the unexcited ground state before it can cause harm to tissues.",
+  "question": "To what is singlet oxygen more reactive?",
+  "answers": "{'text': array(['organic molecules', 'common organic molecules',\n       'common organic molecules', 'common organic molecules',\n       'common organic molecules'], dtype=object), 'answer_start': array([165, 158, 158, 158, 158], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1272,
+  "prompt": "Context: Singlet oxygen is a name given to several higher-energy species of molecular O\n2 in which all the electron spins are paired. It is much more reactive towards common organic molecules than is molecular oxygen per se. In nature, singlet oxygen is commonly formed from water during photosynthesis, using the energy of sunlight. It is also produced in the troposphere by the photolysis of ozone by light of short wavelength, and by the immune system as a source of active oxygen. Carotenoids in photosynthetic organisms (and possibly also in animals) play a major role in absorbing energy from singlet oxygen and converting it to the unexcited ground state before it can cause harm to tissues.\n\nQuestion: To what is singlet oxygen more reactive?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nSinglet oxygen is more reactive to **common organic molecules** than",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.47693634033203,
+          "prob": 5.80810851804653e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.808108518046192e-14,
+      "prompt": "You're given the following task:\nContext: Singlet oxygen is a name given to several higher-energy species of molecular O\n2 in which all the electron spins are paired. It is much more reactive towards common organic molecules than is molecular oxygen per se. In nature, singlet oxygen is commonly formed from water during photosynthesis, using the energy of sunlight. It is also produced in the troposphere by the photolysis of ozone by light of short wavelength, and by the immune system as a source of active oxygen. Carotenoids in photosynthetic organisms (and possibly also in animals) play a major role in absorbing energy from singlet oxygen and converting it to the unexcited ground state before it can cause harm to tissues.\n\nQuestion: To what is singlet oxygen more reactive?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1058745321400687717,
+  "question": "Which is the largest zone of indian railway?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Which is the largest zone of Indian Railway by length?',\n              'Which is the largest zone of Indian Railway by number of stations?',\n              'Which is the largest zone of Indian Railway by passengers carried?',\n              'Which is the largest zone of Indian Railway by revenue?'],\n             dtype=object), 'answer': array([array(['Northern Railway'], dtype=object),\n              array(['Northern Railway'], dtype=object),\n              array(['Central Railway'], dtype=object),\n              array(['South Coast Railway'], dtype=object)], dtype=object)}            ,\n       {'question': array(['Which is the largest zone of indian railway in terms of length?',\n              'Which is the largest zone of indian railway in terms of passengers carried?',\n              'Which is the largest zone of indian railway in terms of Number of stations?'],\n             dtype=object), 'answer': array([array(['NR', 'Northern Railway'], dtype=object),\n              array(['Central Railway', 'CR'], dtype=object),\n              array(['NR', 'Northern Railway'], dtype=object)], dtype=object)}               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 968,
+  "prompt": "Which is the largest zone of indian railway?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To confirm, you'",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.707992553710938,
+          "prob": 2.0394663698725823e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.039466571401694e-08,
+      "prompt": "You're given the following task:\nWhich is the largest zone of indian railway?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

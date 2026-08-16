@@ -1,0 +1,32 @@
+{
+  "id": "5ad0461477cf76001a686f7a",
+  "title": "Southern_California",
+  "context": "Southern California is home to many major business districts. Central business districts (CBD) include Downtown Los Angeles, Downtown San Diego, Downtown San Bernardino, Downtown Bakersfield, South Coast Metro and Downtown Riverside.",
+  "question": "What does CDB stand for?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 434,
+  "prompt": "Context: Southern California is home to many major business districts. Central business districts (CBD) include Downtown Los Angeles, Downtown San Diego, Downtown San Bernardino, Downtown Bakersfield, South Coast Metro and Downtown Riverside.\n\nQuestion: What does CDB stand for?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBased on the provided text, CBD stands for **Central Business District",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.635040283203125,
+          "prob": 1.3479243971533482e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3479243971531665e-13,
+      "prompt": "You're given the following task:\nContext: Southern California is home to many major business districts. Central business districts (CBD) include Downtown Los Angeles, Downtown San Diego, Downtown San Bernardino, Downtown Bakersfield, South Coast Metro and Downtown Riverside.\n\nQuestion: What does CDB stand for?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

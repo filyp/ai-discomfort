@@ -1,0 +1,32 @@
+{
+  "id": "57096b66200fba1400367fa9",
+  "title": "Sky_(United_Kingdom)",
+  "context": "On 8 February 2007, BSkyB announced its intention to replace its three free-to-air digital terrestrial channels with four subscription channels. It was proposed that these channels would offer a range of content from the BSkyB portfolio including sport (including English Premier League Football), films, entertainment and news. The announcement came a day after Setanta Sports confirmed that it would launch in March as a subscription service on the digital terrestrial platform, and on the same day that NTL's services re-branded as Virgin Media. However, industry sources believe BSkyB will be forced to shelve plans to withdraw its channels from Freeview and replace them with subscription channels, due to possible lost advertising revenue.",
+  "question": "What platform was Sentanta Sports planning on launching on?",
+  "answers": "{'text': array(['digital terrestrial', 'digital terrestrial',\n       'digital terrestrial'], dtype=object), 'answer_start': array([451, 451, 451], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 539,
+  "prompt": "Context: On 8 February 2007, BSkyB announced its intention to replace its three free-to-air digital terrestrial channels with four subscription channels. It was proposed that these channels would offer a range of content from the BSkyB portfolio including sport (including English Premier League Football), films, entertainment and news. The announcement came a day after Setanta Sports confirmed that it would launch in March as a subscription service on the digital terrestrial platform, and on the same day that NTL's services re-branded as Virgin Media. However, industry sources believe BSkyB will be forced to shelve plans to withdraw its channels from Freeview and replace them with subscription channels, due to possible lost advertising revenue.\n\nQuestion: What platform was Sentanta Sports planning on launching on?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nSetanta Sports was planning on launching on the **digital terrestrial platform",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.724822998046875,
+          "prob": 9.10463123399141e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.104631233983123e-13,
+      "prompt": "You're given the following task:\nContext: On 8 February 2007, BSkyB announced its intention to replace its three free-to-air digital terrestrial channels with four subscription channels. It was proposed that these channels would offer a range of content from the BSkyB portfolio including sport (including English Premier League Football), films, entertainment and news. The announcement came a day after Setanta Sports confirmed that it would launch in March as a subscription service on the digital terrestrial platform, and on the same day that NTL's services re-branded as Virgin Media. However, industry sources believe BSkyB will be forced to shelve plans to withdraw its channels from Freeview and replace them with subscription channels, due to possible lost advertising revenue.\n\nQuestion: What platform was Sentanta Sports planning on launching on?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

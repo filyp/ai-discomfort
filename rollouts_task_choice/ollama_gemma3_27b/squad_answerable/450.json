@@ -1,0 +1,32 @@
+{
+  "id": "570611c475f01819005e793e",
+  "title": "Southern_California",
+  "context": "Southern California is also home to the Port of Los Angeles, the United States' busiest commercial port; the adjacent Port of Long Beach, the United States' second busiest container port; and the Port of San Diego.",
+  "question": "The Port of Long Beach belongs to which region of California?",
+  "answers": "{'text': array(['Southern', 'Southern California', 'Southern'], dtype=object), 'answer_start': array([0, 0, 0], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 450,
+  "prompt": "Context: Southern California is also home to the Port of Los Angeles, the United States' busiest commercial port; the adjacent Port of Long Beach, the United States' second busiest container port; and the Port of San Diego.\n\nQuestion: The Port of Long Beach belongs to which region of California?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nThe Port of Long Beach belongs to **Southern California**. The",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -29.28156280517578,
+          "prob": 1.9194590542157262e-13,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.919459054215358e-13,
+      "prompt": "You're given the following task:\nContext: Southern California is also home to the Port of Los Angeles, the United States' busiest commercial port; the adjacent Port of Long Beach, the United States' second busiest container port; and the Port of San Diego.\n\nQuestion: The Port of Long Beach belongs to which region of California?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

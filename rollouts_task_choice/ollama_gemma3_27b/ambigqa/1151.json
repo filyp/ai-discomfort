@@ -1,0 +1,31 @@
+{
+  "id": 7080973364954686043,
+  "question": "Who sings i want to rock with you?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sings rock with you since 2005?',\n              \"Who sings rock with you since 1979?|Who sings 'Rock With You' in 1979?\",\n              'Who sings rock with you since 2003?|Who sings \"Rock With You\" (2003)?',\n              \"Who sings 'Rock with U' in 2008?\"], dtype=object), 'answer': array([array(['Jef \"Basto!\" Martens.',\n                     'Belgian DJ/producer Jef \"Basto!\" Martens', 'Basto!'], dtype=object),\n              array(['Michael Jackson'], dtype=object),\n              array(['BoA'], dtype=object),\n              array(['Janet Jackson'], dtype=object)], dtype=object)}                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1151,
+  "prompt": "Who sings i want to rock with you?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.772613525390625,
+          "prob": 7.033273970435041e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.0332739209680984e-09,
+      "prompt": "You're given the following task:\nWho sings i want to rock with you?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 8076533896253127762,
+  "question": "When was i can only imagine first sang?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object), array(['October 14, 1999'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['When was the Christian Rock song i can only imagine first released?',\n              \"When was David Guetta's i can only imagine first performed?\",\n              \"When was David Guetta's i can only imagine first released as a single?\",\n              'When was the Christian Rock song i can only imagine first debuted on the Christian AC Chart?'],\n             dtype=object), 'answer': array([array(['October 12, 2001'], dtype=object),\n              array(['February 12, 2012'], dtype=object),\n              array(['April 23, 2012'], dtype=object),\n              array(['November 2, 2001'], dtype=object)], dtype=object)}                                      ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 555,
+  "prompt": "When was i can only imagine first sang?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.3841860752327193e-07,
+          "prob": 0.9999997615814209,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.12337875366211,
+          "prob": 2.7039587348831645e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.703958648417883e-07,
+      "prompt": "You're given the following task:\nWhen was i can only imagine first sang?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

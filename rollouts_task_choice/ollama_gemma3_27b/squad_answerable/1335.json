@@ -1,0 +1,32 @@
+{
+  "id": "571cd5b1dd7acb1400e4c178",
+  "title": "Oxygen",
+  "context": "Uptake of O\n2 from the air is the essential purpose of respiration, so oxygen supplementation is used in medicine. Treatment not only increases oxygen levels in the patient's blood, but has the secondary effect of decreasing resistance to blood flow in many types of diseased lungs, easing work load on the heart. Oxygen therapy is used to treat emphysema, pneumonia, some heart disorders (congestive heart failure), some disorders that cause increased pulmonary artery pressure, and any disease that impairs the body's ability to take up and use gaseous oxygen.",
+  "question": "In what process is the uptake from oxygen necessary?",
+  "answers": "{'text': array(['respiration', 'respiration', 'respiration', 'respiration',\n       'respiration'], dtype=object), 'answer_start': array([55, 55, 55, 55, 55], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1335,
+  "prompt": "Context: Uptake of O\n2 from the air is the essential purpose of respiration, so oxygen supplementation is used in medicine. Treatment not only increases oxygen levels in the patient's blood, but has the secondary effect of decreasing resistance to blood flow in many types of diseased lungs, easing work load on the heart. Oxygen therapy is used to treat emphysema, pneumonia, some heart disorders (congestive heart failure), some disorders that cause increased pulmonary artery pressure, and any disease that impairs the body's ability to take up and use gaseous oxygen.\n\nQuestion: In what process is the uptake from oxygen necessary?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that the uptake of oxygen is essential for **res",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.059085845947266,
+          "prob": 1.1937569752885355e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1937569752885211e-14,
+      "prompt": "You're given the following task:\nContext: Uptake of O\n2 from the air is the essential purpose of respiration, so oxygen supplementation is used in medicine. Treatment not only increases oxygen levels in the patient's blood, but has the secondary effect of decreasing resistance to blood flow in many types of diseased lungs, easing work load on the heart. Oxygen therapy is used to treat emphysema, pneumonia, some heart disorders (congestive heart failure), some disorders that cause increased pulmonary artery pressure, and any disease that impairs the body's ability to take up and use gaseous oxygen.\n\nQuestion: In what process is the uptake from oxygen necessary?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

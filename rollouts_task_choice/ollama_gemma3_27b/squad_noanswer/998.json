@@ -1,0 +1,32 @@
+{
+  "id": "5ad415fd604f3c001a40032b",
+  "title": "Steam_engine",
+  "context": "The working fluid in a Rankine cycle can operate as a closed loop system, where the working fluid is recycled continuously, or may be an \"open loop\" system, where the exhaust steam is directly released to the atmosphere, and a separate source of water feeding the boiler is supplied. Normally water is the fluid of choice due to its favourable properties, such as non-toxic and unreactive chemistry, abundance, low cost, and its thermodynamic properties. Mercury is the working fluid in the mercury vapor turbine. Low boiling hydrocarbons can be used in a binary cycle.",
+  "question": "What can the working fluid in a boiler cycle operate as?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 998,
+  "prompt": "Context: The working fluid in a Rankine cycle can operate as a closed loop system, where the working fluid is recycled continuously, or may be an \"open loop\" system, where the exhaust steam is directly released to the atmosphere, and a separate source of water feeding the boiler is supplied. Normally water is the fluid of choice due to its favourable properties, such as non-toxic and unreactive chemistry, abundance, low cost, and its thermodynamic properties. Mercury is the working fluid in the mercury vapor turbine. Low boiling hydrocarbons can be used in a binary cycle.\n\nQuestion: What can the working fluid in a boiler cycle operate as?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states the working fluid in a boiler (Rankine)",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.98122787475586,
+          "prob": 1.915144814979532e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.915144814975864e-12,
+      "prompt": "You're given the following task:\nContext: The working fluid in a Rankine cycle can operate as a closed loop system, where the working fluid is recycled continuously, or may be an \"open loop\" system, where the exhaust steam is directly released to the atmosphere, and a separate source of water feeding the boiler is supplied. Normally water is the fluid of choice due to its favourable properties, such as non-toxic and unreactive chemistry, abundance, low cost, and its thermodynamic properties. Mercury is the working fluid in the mercury vapor turbine. Low boiling hydrocarbons can be used in a binary cycle.\n\nQuestion: What can the working fluid in a boiler cycle operate as?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

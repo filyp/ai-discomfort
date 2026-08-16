@@ -1,0 +1,31 @@
+{
+  "id": 7131267388077940814,
+  "question": "How many levels are there in pac man?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How many levels are there in pac man original?',\n              'How many levels are there in ms. pac man?',\n              'How many levels are there in pac man world 2?'], dtype=object), 'answer': array([array(['256'], dtype=object), array(['32'], dtype=object),\n              array(['25'], dtype=object)], dtype=object)}                                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 848,
+  "prompt": "How many levels are there in pac man?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, that's a deceptively tricky question! While most",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.00017316648154519498,
+          "prob": 0.9998268485109045,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.661031723022461,
+          "prob": 0.00017320551457028268,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.00017320550521277304,
+      "prompt": "You're given the following task:\nHow many levels are there in pac man?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

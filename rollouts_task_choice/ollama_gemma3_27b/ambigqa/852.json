@@ -1,0 +1,31 @@
+{
+  "id": 4387179522185827026,
+  "question": "When is ariana grande album sweetener coming out?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object), array(['August 17, 2018'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['When is ariana grande album sweetener coming out on CD, digital download, and streaming?',\n              'When is ariana grande album sweetener coming out on cassette in the United Kingdom?',\n              'When is ariana grande album sweetener coming out on cassette globally?',\n              'When is ariana grande album sweetener coming out on LP?'],\n             dtype=object), 'answer': array([array(['August 17, 2018'], dtype=object),\n              array(['August 21, 2018'], dtype=object),\n              array(['October 15, 2018'], dtype=object),\n              array(['November 2018'], dtype=object)], dtype=object)}                                                 ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 852,
+  "prompt": "When is ariana grande album sweetener coming out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Ariana Grande's album *Sweetener* actually came",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.768372718899627e-07,
+          "prob": 0.9999995231628418,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.563408851623535,
+          "prob": 4.7336037251289907e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.7336037415867164e-07,
+      "prompt": "You're given the following task:\nWhen is ariana grande album sweetener coming out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

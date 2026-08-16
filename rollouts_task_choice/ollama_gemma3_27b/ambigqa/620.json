@@ -1,0 +1,31 @@
+{
+  "id": -3243271997177308524,
+  "question": "What are the 3 types of enzymes in digestion?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What are the types of enzymes in digestion that split fatty acids?',\n              'What are the types of enzymes in digestion that split proteins?',\n              'What are the types of enzymes in digestion that split carbohydrates?',\n              'What are the types of enzymes in digestion that split nucleic acids?'],\n             dtype=object), 'answer': array([array(['Lipases'], dtype=object),\n              array(['Proteases', 'peptidases', 'proteinase'], dtype=object),\n              array(['Amylases'], dtype=object),\n              array(['nucleodepolymerase', 'polynucleotidase', 'Nucleases'],\n                    dtype=object)                                           ],\n             dtype=object)}                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 620,
+  "prompt": "What are the 3 types of enzymes in digestion?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -24.71118927001953,
+          "prob": 1.8538169928528582e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.853816992818492e-11,
+      "prompt": "You're given the following task:\nWhat are the 3 types of enzymes in digestion?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": -7824075627194227170,
+  "question": "When was the commission fir sc/st established?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object), array(['August 1978'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['When was the first commission of any type for sc/st established?',\n              'When was the first national commission for sc/st?'], dtype=object), 'answer': array([array(['August 1978'], dtype=object),\n              array(['2004'], dtype=object)], dtype=object)}                                                                             ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 14,
+  "prompt": "When was the commission fir sc/st established?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To give you the *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.673065185546875,
+          "prob": 5.740897508104852e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.740897178525829e-08,
+      "prompt": "You're given the following task:\nWhen was the commission fir sc/st established?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To clarify, are you",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.695494797284482e-06,
+          "prob": 0.999996304512031,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.52078628540039,
+          "prob": 3.64998943315391e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.6499895992230927e-06,
+      "prompt": "You're given the following task:\nWhen was the commission fir sc/st established?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nThe First Backward Classes Commission, also known as the Kaka Kal",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -20.85265350341797,
+          "prob": 8.78633282849665e-10,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.786332820776686e-10,
+      "prompt": "You're given the following task:\nWhen was the commission fir sc/st established?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "570953a7efce8f15003a7e02",
+  "title": "Sky_(United_Kingdom)",
+  "context": "In 2007, BSkyB and Virgin Media became involved in a dispute over the carriage of Sky channels on cable TV. The failure to renew the existing carriage agreements negotiated with NTL and Telewest resulted in Virgin Media removing the basic channels from the network on 1 March 2007. Virgin Media claimed that BSkyB had substantially increased the asking price for the channels, a claim which BSkyB denied, on the basis that their new deal offered \"substantially more value\" by including HD channels and Video On Demand content which was not previously carried by cable.",
+  "question": "What additional srevice did BSkyB offer besides Video on Demand that they claimed offered \"substantially more value\"?",
+  "answers": "{'text': array(['HD channels', 'HD channels', 'HD channels'], dtype=object), 'answer_start': array([486, 486, 486], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 502,
+  "prompt": "Context: In 2007, BSkyB and Virgin Media became involved in a dispute over the carriage of Sky channels on cable TV. The failure to renew the existing carriage agreements negotiated with NTL and Telewest resulted in Virgin Media removing the basic channels from the network on 1 March 2007. Virgin Media claimed that BSkyB had substantially increased the asking price for the channels, a claim which BSkyB denied, on the basis that their new deal offered \"substantially more value\" by including HD channels and Video On Demand content which was not previously carried by cable.\n\nQuestion: What additional srevice did BSkyB offer besides Video on Demand that they claimed offered \"substantially more value\"?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBSkyB also offered **HD channels** as part of their",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.535091400146484,
+          "prob": 2.015968856187605e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0159688561875642e-14,
+      "prompt": "You're given the following task:\nContext: In 2007, BSkyB and Virgin Media became involved in a dispute over the carriage of Sky channels on cable TV. The failure to renew the existing carriage agreements negotiated with NTL and Telewest resulted in Virgin Media removing the basic channels from the network on 1 March 2007. Virgin Media claimed that BSkyB had substantially increased the asking price for the channels, a claim which BSkyB denied, on the basis that their new deal offered \"substantially more value\" by including HD channels and Video On Demand content which was not previously carried by cable.\n\nQuestion: What additional srevice did BSkyB offer besides Video on Demand that they claimed offered \"substantially more value\"?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

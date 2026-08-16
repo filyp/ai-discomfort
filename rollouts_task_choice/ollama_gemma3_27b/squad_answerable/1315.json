@@ -1,0 +1,32 @@
+{
+  "id": "571ccc00dd7acb1400e4c15e",
+  "title": "Oxygen",
+  "context": "The unusually high concentration of oxygen gas on Earth is the result of the oxygen cycle. This biogeochemical cycle describes the movement of oxygen within and between its three main reservoirs on Earth: the atmosphere, the biosphere, and the lithosphere. The main driving factor of the oxygen cycle is photosynthesis, which is responsible for modern Earth's atmosphere. Photosynthesis releases oxygen into the atmosphere, while respiration and decay remove it from the atmosphere. In the present equilibrium, production and consumption occur at the same rate of roughly 1/2000th of the entire atmospheric oxygen per year.",
+  "question": "What does photosynthesis release into the Earth's atmosphere?",
+  "answers": "{'text': array(['oxygen', 'oxygen', 'oxygen', 'oxygen', 'oxygen'], dtype=object), 'answer_start': array([396, 288, 396, 396, 396], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1315,
+  "prompt": "Context: The unusually high concentration of oxygen gas on Earth is the result of the oxygen cycle. This biogeochemical cycle describes the movement of oxygen within and between its three main reservoirs on Earth: the atmosphere, the biosphere, and the lithosphere. The main driving factor of the oxygen cycle is photosynthesis, which is responsible for modern Earth's atmosphere. Photosynthesis releases oxygen into the atmosphere, while respiration and decay remove it from the atmosphere. In the present equilibrium, production and consumption occur at the same rate of roughly 1/2000th of the entire atmospheric oxygen per year.\n\nQuestion: What does photosynthesis release into the Earth's atmosphere?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nPhotosynthesis releases oxygen into the Earth’s atmosphere. Is there",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -35.575531005859375,
+          "prob": 3.546036433185947e-16,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.5460364331859457e-16,
+      "prompt": "You're given the following task:\nContext: The unusually high concentration of oxygen gas on Earth is the result of the oxygen cycle. This biogeochemical cycle describes the movement of oxygen within and between its three main reservoirs on Earth: the atmosphere, the biosphere, and the lithosphere. The main driving factor of the oxygen cycle is photosynthesis, which is responsible for modern Earth's atmosphere. Photosynthesis releases oxygen into the atmosphere, while respiration and decay remove it from the atmosphere. In the present equilibrium, production and consumption occur at the same rate of roughly 1/2000th of the entire atmospheric oxygen per year.\n\nQuestion: What does photosynthesis release into the Earth's atmosphere?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

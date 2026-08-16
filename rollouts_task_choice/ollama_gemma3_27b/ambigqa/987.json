@@ -1,0 +1,31 @@
+{
+  "id": -6718380779014845536,
+  "question": "When did the original willy wonka come out?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the original willy wonka novel come out in the US?',\n              'When did the original willy wonka novel come out in the UK?',\n              'When did the original willy wonka 1971 film come out?',\n              \"When did the original willy wonka 2005 film come out in Grauman's Chinese Theatre?\",\n              'When did the original willy wonka 2005 film come out in United States?',\n              'When did the original willy wonka 2005 film come out in United Kingdom?',\n              'When did the original willy wonka 2013 musical come out?',\n              'When did the original willy wonka 2017 musical come out?'],\n             dtype=object), 'answer': array([array(['17 January 1964'], dtype=object),\n              array(['23 November 1964'], dtype=object),\n              array(['June 30, 1971'], dtype=object),\n              array(['July 10, 2005'], dtype=object),\n              array(['July 15, 2005'], dtype=object),\n              array(['July 29, 2005'], dtype=object),\n              array(['June 25,2013'], dtype=object),\n              array(['March 23, 2017'], dtype=object)], dtype=object)}                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 987,
+  "prompt": "When did the original willy wonka come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The original *Willy Wonka & the Chocolate Factory",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.190696716308594,
+          "prob": 1.2585799072823141e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.2585798914420805e-08,
+      "prompt": "You're given the following task:\nWhen did the original willy wonka come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

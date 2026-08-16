@@ -1,0 +1,31 @@
+{
+  "id": 8686216144939155905,
+  "question": "What is the name of the time zone for london?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the name of the time zone for London during the summer?|What is the name of the time zone for London in the summer?',\n              'What is the name of the time zone for London adopted in 1880?|What is the name of the time zone  adopted in 1880 for London?|What is the name of the time zone for london england?',\n              'What is the name of the time zone for London using the UTC code?',\n              'What is the name of the summer time zone for London using the UTC code?',\n              'What is the name of the time zone for london ontario canada?'],\n             dtype=object), 'answer': array([array(['Western European Summer Time', 'British Summer Time'],\n                    dtype=object)                                           ,\n              array(['Greenwich Mean Time', 'Greenwich Mean Time (GMT)',\n                     'Western European Time (UTC)', 'Western European Time'],\n                    dtype=object)                                            ,\n              array(['UTC±00:00 (GMT)'], dtype=object),\n              array(['UTC+01:00 (BST)'], dtype=object),\n              array(['Eastern Time Zone'], dtype=object)], dtype=object)}                                                                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1165,
+  "prompt": "What is the name of the time zone for london?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you the time zone for London! It",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.171554565429688,
+          "prob": 6.387202406798435e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.3872024027188e-10,
+      "prompt": "You're given the following task:\nWhat is the name of the time zone for london?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

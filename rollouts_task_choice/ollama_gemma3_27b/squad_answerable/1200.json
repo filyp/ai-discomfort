@@ -1,0 +1,32 @@
+{
+  "id": "571a53d410f8ca1400304fe6",
+  "title": "Oxygen",
+  "context": "Oxygen is present in the atmosphere in trace quantities in the form of carbon dioxide (CO\n2). The Earth's crustal rock is composed in large part of oxides of silicon (silica SiO\n2, as found in granite and quartz), aluminium (aluminium oxide Al\n2O\n3, in bauxite and corundum), iron (iron(III) oxide Fe\n2O\n3, in hematite and rust), and calcium carbonate (in limestone). The rest of the Earth's crust is also made of oxygen compounds, in particular various complex silicates (in silicate minerals). The Earth's mantle, of much larger mass than the crust, is largely composed of silicates of magnesium and iron.",
+  "question": "Granite is made up largely of what chemical compound?",
+  "answers": "{'text': array(['oxides of silicon', 'silicon', 'silicon'], dtype=object), 'answer_start': array([148, 158, 158], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 1200,
+  "prompt": "Context: Oxygen is present in the atmosphere in trace quantities in the form of carbon dioxide (CO\n2). The Earth's crustal rock is composed in large part of oxides of silicon (silica SiO\n2, as found in granite and quartz), aluminium (aluminium oxide Al\n2O\n3, in bauxite and corundum), iron (iron(III) oxide Fe\n2O\n3, in hematite and rust), and calcium carbonate (in limestone). The rest of the Earth's crust is also made of oxygen compounds, in particular various complex silicates (in silicate minerals). The Earth's mantle, of much larger mass than the crust, is largely composed of silicates of magnesium and iron.\n\nQuestion: Granite is made up largely of what chemical compound?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBased on the provided text, granite is made up largely of **",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.411312103271484,
+          "prob": 6.202045758319503e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 6.20204575831912e-14,
+      "prompt": "You're given the following task:\nContext: Oxygen is present in the atmosphere in trace quantities in the form of carbon dioxide (CO\n2). The Earth's crustal rock is composed in large part of oxides of silicon (silica SiO\n2, as found in granite and quartz), aluminium (aluminium oxide Al\n2O\n3, in bauxite and corundum), iron (iron(III) oxide Fe\n2O\n3, in hematite and rust), and calcium carbonate (in limestone). The rest of the Earth's crust is also made of oxygen compounds, in particular various complex silicates (in silicate minerals). The Earth's mantle, of much larger mass than the crust, is largely composed of silicates of magnesium and iron.\n\nQuestion: Granite is made up largely of what chemical compound?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

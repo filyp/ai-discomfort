@@ -1,0 +1,31 @@
+{
+  "id": -1063384813869018084,
+  "question": "Names of the rivers in the garden of eden?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object),\n       array(['Pishon, Gihon, Tigris, and Euphrates'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['Names of the first river in the garden of eden according to the Book of Genesis?',\n              'Names of the second river in the garden of eden according to the Book of Genesis?',\n              'Names of the third river in the garden of eden according to the Book of Genesis?',\n              'Names of the fourth river in the garden of eden according to the Book of Genesis?'],\n             dtype=object), 'answer': array([array(['Pishon'], dtype=object), array(['Gihon'], dtype=object),\n              array(['Chidekel'], dtype=object),\n              array(['Phirath'], dtype=object)], dtype=object)}                                               ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 951,
+  "prompt": "Names of the rivers in the garden of eden?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! The Book of Genesis (",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -4.768372718899627e-07,
+          "prob": 0.9999995231628418,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.457459449768066,
+          "prob": 5.262657888849971e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.26265762872401e-07,
+      "prompt": "You're given the following task:\nNames of the rivers in the garden of eden?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

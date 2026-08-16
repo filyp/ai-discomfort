@@ -1,0 +1,31 @@
+{
+  "id": -4432288713937113613,
+  "question": "The sahara mostly consists of two types of climates desert and?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['The sahara mostly consists of two types of climates desert and what climate to the south?',\n              'The sahara mostly consists of two types of climates desert and what climate to the north?'],\n             dtype=object), 'answer': array([array(['semi-arid tropcial savanna', 'semi-arid tropical'], dtype=object),\n              array(['Mediterranean'], dtype=object)], dtype=object)}                                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 78,
+  "prompt": "The sahara mostly consists of two types of climates desert and?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The Sahara mostly consists of two types of climates: desert",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.54686737060547,
+          "prob": 1.192913299758205e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1929132983351627e-09,
+      "prompt": "You're given the following task:\nThe sahara mostly consists of two types of climates desert and?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

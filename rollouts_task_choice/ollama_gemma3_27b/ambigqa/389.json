@@ -1,0 +1,31 @@
+{
+  "id": -7552544848676354758,
+  "question": "Where does raymond live in everybody loves raymond?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What is the city and state where Raymond lives in Everybody Loves Raymond?',\n              'Where does Raymond live in Everybody Loves Raymond, in relation to other people?'],\n             dtype=object), 'answer': array([array(['Lynbrook, Long Island'], dtype=object),\n              array(['across the street from his parents'], dtype=object)],\n             dtype=object)}                                                                             ,\n       {'question': array(['In what region does Raymond live in Everybody Loves Raymond?',\n              'In what city does Raymond live in Everybody Loves Raymond?',\n              'Where does Raymond live in Everybody Loves Raymond, in terms of other people?'],\n             dtype=object), 'answer': array([array(['Long Island'], dtype=object),\n              array(['Lynbrook, NY'], dtype=object),\n              array(['across the street from his parents'], dtype=object)],\n             dtype=object)}                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 389,
+  "prompt": "Where does raymond live in everybody loves raymond?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about where Raymond Barone lives in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -21.667587280273438,
+          "prob": 3.889434015201271e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.889434013688501e-10,
+      "prompt": "You're given the following task:\nWhere does raymond live in everybody loves raymond?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

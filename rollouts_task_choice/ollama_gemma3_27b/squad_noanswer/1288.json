@@ -1,0 +1,32 @@
+{
+  "id": "5ad25dd3d7d075001a428f00",
+  "title": "Oxygen",
+  "context": "Oxygen storage methods include high pressure oxygen tanks, cryogenics and chemical compounds. For reasons of economy, oxygen is often transported in bulk as a liquid in specially insulated tankers, since one liter of liquefied oxygen is equivalent to 840 liters of gaseous oxygen at atmospheric pressure and 20 °C (68 °F). Such tankers are used to refill bulk liquid oxygen storage containers, which stand outside hospitals and other institutions with a need for large volumes of pure oxygen gas. Liquid oxygen is passed through heat exchangers, which convert the cryogenic liquid into gas before it enters the building. Oxygen is also stored and shipped in smaller cylinders containing the compressed gas; a form that is useful in certain portable medical applications and oxy-fuel welding and cutting.",
+  "question": "What is the cryogenic and chemical compound storage method?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1288,
+  "prompt": "Context: Oxygen storage methods include high pressure oxygen tanks, cryogenics and chemical compounds. For reasons of economy, oxygen is often transported in bulk as a liquid in specially insulated tankers, since one liter of liquefied oxygen is equivalent to 840 liters of gaseous oxygen at atmospheric pressure and 20 °C (68 °F). Such tankers are used to refill bulk liquid oxygen storage containers, which stand outside hospitals and other institutions with a need for large volumes of pure oxygen gas. Liquid oxygen is passed through heat exchangers, which convert the cryogenic liquid into gas before it enters the building. Oxygen is also stored and shipped in smaller cylinders containing the compressed gas; a form that is useful in certain portable medical applications and oxy-fuel welding and cutting.\n\nQuestion: What is the cryogenic and chemical compound storage method?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text *mentions* cryogenic and chemical compounds as oxygen storage",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.27684783935547,
+          "prob": 4.247871345538989e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.247871327494578e-09,
+      "prompt": "You're given the following task:\nContext: Oxygen storage methods include high pressure oxygen tanks, cryogenics and chemical compounds. For reasons of economy, oxygen is often transported in bulk as a liquid in specially insulated tankers, since one liter of liquefied oxygen is equivalent to 840 liters of gaseous oxygen at atmospheric pressure and 20 °C (68 °F). Such tankers are used to refill bulk liquid oxygen storage containers, which stand outside hospitals and other institutions with a need for large volumes of pure oxygen gas. Liquid oxygen is passed through heat exchangers, which convert the cryogenic liquid into gas before it enters the building. Oxygen is also stored and shipped in smaller cylinders containing the compressed gas; a form that is useful in certain portable medical applications and oxy-fuel welding and cutting.\n\nQuestion: What is the cryogenic and chemical compound storage method?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

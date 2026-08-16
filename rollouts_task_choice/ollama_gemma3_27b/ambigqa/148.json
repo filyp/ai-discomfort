@@ -1,0 +1,31 @@
+{
+  "id": 3658847669702107248,
+  "question": "Who was england's prime minister during ww1?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who was england's prime minister at the start of ww1?\",\n              \"Who was england's prime minister at the end of ww1?\"],\n             dtype=object), 'answer': array([array(['Asquith', '1st Earl of Oxford and Asquith', 'H. H. Asquith',\n                     'Herbert Henry Asquith'], dtype=object)                      ,\n              array(['1st Earl Lloyd-George of Dwyfor', 'Lloyd George',\n                     'David Lloyd George'], dtype=object)              ],\n             dtype=object)}                                                                                      ,\n       {'question': array([\"Who was England's prime minister at the beginning of WWI?\",\n              \"Who was England's prime minister at the end of WWI?\"],\n             dtype=object), 'answer': array([array(['H. H. Asquith'], dtype=object),\n              array(['David Lloyd George'], dtype=object)], dtype=object)}             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 148,
+  "prompt": "Who was england's prime minister during ww1?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.936920166015625,
+          "prob": 1.0930049783316978e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0930049782122318e-10,
+      "prompt": "You're given the following task:\nWho was england's prime minister during ww1?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

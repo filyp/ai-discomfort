@@ -1,0 +1,31 @@
+{
+  "id": 2470165841337520099,
+  "question": "When did the song angel first come out?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the song angel by Shaggy first come out?',\n              'When did the song angel by Madonna first come out?',\n              'When did the song angel by Sarah McLachlan first come out?'],\n             dtype=object), 'answer': array([array(['November 14, 2000'], dtype=object),\n              array(['April 10, 1985'], dtype=object),\n              array(['November 1998'], dtype=object)], dtype=object)}                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 608,
+  "prompt": "When did the song angel first come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, \"Angel\" is a pretty common song title! To",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.84646224975586,
+          "prob": 3.5666736159764346e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.5666736194022244e-07,
+      "prompt": "You're given the following task:\nWhen did the song angel first come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

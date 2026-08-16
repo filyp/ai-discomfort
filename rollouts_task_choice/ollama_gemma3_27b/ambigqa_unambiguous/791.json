@@ -1,0 +1,31 @@
+{
+  "id": 2974068520643117096,
+  "question": "Who killed king geoffrey in game of thrones?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Lady Olenna Tyrell and Lord Petyr Baelish'], dtype=object),\n       array(['Olenna Tyrell and Petyr Baelish',\n              'Lady Olenna Tyrell and Lord Petyr Baelish'], dtype=object),\n       array(['Lady Olenna Tyrell and Lord Petyr Baelish'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 791,
+  "prompt": "Who killed king geoffrey in game of thrones?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.703899383544922,
+          "prob": 7.533550566093594e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.53355050933921e-09,
+      "prompt": "You're given the following task:\nWho killed king geoffrey in game of thrones?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

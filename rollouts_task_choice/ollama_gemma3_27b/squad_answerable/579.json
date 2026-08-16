@@ -1,0 +1,32 @@
+{
+  "id": "57097d63ed30961900e841fe",
+  "title": "Sky_(United_Kingdom)",
+  "context": "The agreements include fixed annual carriage fees of £30m for the channels with both channel suppliers able to secure additional capped payments if their channels meet certain performance-related targets. Currently there is no indication as to whether the new deal includes the additional Video On Demand and High Definition content which had previously been offered by BSkyB. As part of the agreements, both BSkyB and Virgin Media agreed to terminate all High Court proceedings against each other relating to the carriage of their respective basic channels.",
+  "question": "What company agreed to terminate high court proceedings with BSkyB?",
+  "answers": "{'text': array(['Virgin Media', 'Virgin Media', 'Virgin Media'], dtype=object), 'answer_start': array([419, 419, 419], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 579,
+  "prompt": "Context: The agreements include fixed annual carriage fees of £30m for the channels with both channel suppliers able to secure additional capped payments if their channels meet certain performance-related targets. Currently there is no indication as to whether the new deal includes the additional Video On Demand and High Definition content which had previously been offered by BSkyB. As part of the agreements, both BSkyB and Virgin Media agreed to terminate all High Court proceedings against each other relating to the carriage of their respective basic channels.\n\nQuestion: What company agreed to terminate high court proceedings with BSkyB?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nVirgin Media agreed to terminate High Court proceedings with BSkyB.",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -30.480796813964844,
+          "prob": 5.785729692482218e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.785729692481882e-14,
+      "prompt": "You're given the following task:\nContext: The agreements include fixed annual carriage fees of £30m for the channels with both channel suppliers able to secure additional capped payments if their channels meet certain performance-related targets. Currently there is no indication as to whether the new deal includes the additional Video On Demand and High Definition content which had previously been offered by BSkyB. As part of the agreements, both BSkyB and Virgin Media agreed to terminate all High Court proceedings against each other relating to the carriage of their respective basic channels.\n\nQuestion: What company agreed to terminate high court proceedings with BSkyB?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

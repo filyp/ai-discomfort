@@ -1,0 +1,32 @@
+{
+  "id": "5a2c3595bfd06b001a5aea5f",
+  "title": "Sky_(United_Kingdom)",
+  "context": "When Sky Digital was launched in 1998 the new service used the Astra 2A satellite which was located at the 28.5°E orbital position, unlike the analogue service which was broadcast from 19.2°E. This was subsequently followed by more Astra satellites as well as Eutelsat's Eurobird 1 (now Eutelsat 33C) at 28.5°E), enabled the company to launch a new all-digital service, Sky, with the potential to carry hundreds of television and radio channels. The old position was shared with broadcasters from several European countries, while the new position at 28.5°E came to be used almost exclusively for channels that broadcast to the United Kingdom.",
+  "question": "What service used Astra 2A in 1995?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 531,
+  "prompt": "Context: When Sky Digital was launched in 1998 the new service used the Astra 2A satellite which was located at the 28.5°E orbital position, unlike the analogue service which was broadcast from 19.2°E. This was subsequently followed by more Astra satellites as well as Eutelsat's Eurobird 1 (now Eutelsat 33C) at 28.5°E), enabled the company to launch a new all-digital service, Sky, with the potential to carry hundreds of television and radio channels. The old position was shared with broadcasters from several European countries, while the new position at 28.5°E came to be used almost exclusively for channels that broadcast to the United Kingdom.\n\nQuestion: What service used Astra 2A in 1995?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text states Sky Digital launched in *1998",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -6.739381313323975,
+          "prob": 0.0011833790710433162,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.0011840913211926818,
+          "prob": 0.9988166094383207,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9988166209153589,
+      "prompt": "You're given the following task:\nContext: When Sky Digital was launched in 1998 the new service used the Astra 2A satellite which was located at the 28.5°E orbital position, unlike the analogue service which was broadcast from 19.2°E. This was subsequently followed by more Astra satellites as well as Eutelsat's Eurobird 1 (now Eutelsat 33C) at 28.5°E), enabled the company to launch a new all-digital service, Sky, with the potential to carry hundreds of television and radio channels. The old position was shared with broadcasters from several European countries, while the new position at 28.5°E came to be used almost exclusively for channels that broadcast to the United Kingdom.\n\nQuestion: What service used Astra 2A in 1995?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

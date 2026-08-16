@@ -1,0 +1,31 @@
+{
+  "id": 7089015503030534342,
+  "question": "Who is the original artist of sound of silence?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the original artist of sound of silence, the song, released in 1964?',\n              'Who is the original artist of sound of silence, the album?',\n              'Who is the original artist of sound of silence, the song, released in 2016?'],\n             dtype=object), 'answer': array([array(['Simon & Garfunkel', 'Paul Simon and Art Garfunkel',\n                     'Art Garfunkel', 'Paul Simon'], dtype=object)       ,\n              array(['Simon & Garfunkel', 'Paul Simon and Art Garfunkel',\n                     'Art Garfunkel', 'Paul Simon'], dtype=object)       ,\n              array(['Dami Im'], dtype=object)], dtype=object)}                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 62,
+  "prompt": "Who is the original artist of sound of silence?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.60345458984375,
+          "prob": 5.6124168234919454e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.612416823176953e-11,
+      "prompt": "You're given the following task:\nWho is the original artist of sound of silence?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

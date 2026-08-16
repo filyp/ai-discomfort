@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 492,
+  "prompt": "Who did Brault seek approval from before starting the Green Bay Packers Hall of Fame?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nOkay, I can help determine who Brault sought approval from",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.678749084472656,
+          "prob": 1.5516929589884795e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.551692903189582e-07,
+      "prompt": "You're given the following task:\nWho did Brault seek approval from before starting the Green Bay Packers Hall of Fame?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

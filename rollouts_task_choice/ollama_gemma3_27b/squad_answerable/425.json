@@ -1,0 +1,32 @@
+{
+  "id": "57060cc352bb891400689810",
+  "title": "Southern_California",
+  "context": "Within the Los Angeles Area are the major business districts of Downtown Burbank, Downtown Santa Monica, Downtown Glendale and Downtown Long Beach. Los Angeles itself has many business districts including the Downtown Los Angeles central business district as well as those lining the Wilshire Boulevard Miracle Mile including Century City, Westwood and Warner Center in the San Fernando Valley.",
+  "question": "Warner Center is located in which area?",
+  "answers": "{'text': array(['San Fernando Valley', 'the San Fernando Valley',\n       'San Fernando Valley'], dtype=object), 'answer_start': array([374, 370, 374], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 425,
+  "prompt": "Context: Within the Los Angeles Area are the major business districts of Downtown Burbank, Downtown Santa Monica, Downtown Glendale and Downtown Long Beach. Los Angeles itself has many business districts including the Downtown Los Angeles central business district as well as those lining the Wilshire Boulevard Miracle Mile including Century City, Westwood and Warner Center in the San Fernando Valley.\n\nQuestion: Warner Center is located in which area?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, based on the provided text, Warner Center is located in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.452117919921875,
+          "prob": 3.2508067490246152e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.2508067490140477e-12,
+      "prompt": "You're given the following task:\nContext: Within the Los Angeles Area are the major business districts of Downtown Burbank, Downtown Santa Monica, Downtown Glendale and Downtown Long Beach. Los Angeles itself has many business districts including the Downtown Los Angeles central business district as well as those lining the Wilshire Boulevard Miracle Mile including Century City, Westwood and Warner Center in the San Fernando Valley.\n\nQuestion: Warner Center is located in which area?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

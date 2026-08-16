@@ -1,0 +1,31 @@
+{
+  "id": -5942352520455511076,
+  "question": "Where can adipose tissue be found in the body?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['Adipose depots',\n              'beneath the skin, around internal organs, in bone marrow, intermuscular and in the breast'],\n             dtype=object)                                                                                 ,\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['In which body parts is adipose tissue found in the body?',\n              'What are the areas where adipose tissue can be found, called?'],\n             dtype=object), 'answer': array([array(['beneath the skin, around internal organs, in bone marrow, intermuscular, and in the breast'],\n                    dtype=object)                                                                                  ,\n              array(['adipose depots'], dtype=object)], dtype=object)}                                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 990,
+  "prompt": "Where can adipose tissue be found in the body?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -26.89759063720703,
+          "prob": 2.082211351483644e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.0822113514793086e-12,
+      "prompt": "You're given the following task:\nWhere can adipose tissue be found in the body?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

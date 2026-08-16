@@ -1,0 +1,31 @@
+{
+  "id": 216821537911459918,
+  "question": "Where was the opening of three's company filmed?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Where was the opening scene where the trio are frolicking on a boardwalk and riding bumper-cars  of three's company filmed?\",\n              \"Where was the opening when Priscilla Barnes joined the show featured the new threesome and the other cast members of three's company filmed?\",\n              \"Where was the opening of exterior shots of the apartment building in three's company filmed?\"],\n             dtype=object), 'answer': array([array(['Santa Monica Pier'], dtype=object),\n              array(['Los Angeles Zoo in Griffith Park'], dtype=object),\n              array(['2912 4th Street in Santa Monica'], dtype=object)],\n             dtype=object)}                                                                                                                                  ,\n       {'question': array([\"Where was the boardwalk portion of the earlier Three's Company opening filmed?\",\n              \"Where was the zoo portion of the later Three's Company opening filmed?\",\n              \"Where were the exterior shots of the apartment building in the opening of Three's Company filmed?\"],\n             dtype=object), 'answer': array([array(['Santa Monica Pier'], dtype=object),\n              array(['Los Angeles Zoo', 'Griffith Park'], dtype=object),\n              array(['Santa Monica', '2912 4th Street in Santa Monica'], dtype=object)],\n             dtype=object)}                                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 904,
+  "prompt": "Where was the opening of three's company filmed?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out where *Three's Company",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.440391540527344,
+          "prob": 9.80482191115462e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.80482181502009e-09,
+      "prompt": "You're given the following task:\nWhere was the opening of three's company filmed?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

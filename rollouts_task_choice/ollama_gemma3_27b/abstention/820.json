@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 820,
+  "prompt": "WHAT IS THE EXTACT TAXATION",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with understanding \"exact taxation.\" However,",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.00016344929463230073,
+          "prob": 0.9998365640624759,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.721186637878418,
+          "prob": 0.00016309354307365886,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.00016309359891600203,
+      "prompt": "You're given the following task:\nWHAT IS THE EXTACT TAXATION\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -169124477138800528,
+  "question": "Who was in the video don't worry be happy?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who was in the 1998 music video don't worry, be happy?\",\n              \"Who was in the 2011 music video don't worry, be happy?\"],\n             dtype=object), 'answer': array([array(['Bobby McFerrin, Robin Williams, and Bill Irwin', 'Robin Williams',\n                     'Bobby McFerrin', 'Bill Irwin'], dtype=object)                     ,\n              array(['Guy Sebastian, ill young girl, and her father'], dtype=object)],\n             dtype=object)}                                                                                            ,\n       {'question': array([\"Who was in the video don't worry be happy by Guy Sebastian?\",\n              \"Who was in the video don't worry be happy by Bobby McFerrin?\"],\n             dtype=object), 'answer': array([array(['Guy Sebastian', 'her father', 'young girl'], dtype=object),\n              array(['Robin Williams', 'Bobby McFerrin', 'Bill Irwin'], dtype=object)],\n             dtype=object)}                                                                                     ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 436,
+  "prompt": "Who was in the video don't worry be happy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who was in the \"Don'",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.589027404785156,
+          "prob": 8.45060834409118e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.450608272678398e-09,
+      "prompt": "You're given the following task:\nWho was in the video don't worry be happy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

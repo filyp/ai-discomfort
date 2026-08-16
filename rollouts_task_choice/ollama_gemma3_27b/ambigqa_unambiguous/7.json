@@ -1,0 +1,69 @@
+{
+  "id": -2679834896038341541,
+  "question": "When was the last time the us had a budget surplus?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['2001', 'fiscal year 2001'], dtype=object),\n       array(['2001 fiscal year'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 7,
+  "prompt": "When was the last time the us had a budget surplus?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To give you the *",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.18494415283203,
+          "prob": 4.656768180841562e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.656768159156073e-09,
+      "prompt": "You're given the following task:\nWhen was the last time the us had a budget surplus?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE\n\nOkay! I can definitely help you find out when the US last",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.337865791763761e-06,
+          "prob": 0.9999966621397789,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.624683380126953,
+          "prob": 3.2898013329660407e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.289801491070242e-06,
+      "prompt": "You're given the following task:\nWhen was the last time the us had a budget surplus?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -24.339637756347656,
+          "prob": 2.6880022684738924e-11,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.6880022684016388e-11,
+      "prompt": "You're given the following task:\nWhen was the last time the us had a budget surplus?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

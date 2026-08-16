@@ -1,0 +1,31 @@
+{
+  "id": -1474157532052413569,
+  "question": "Who did meg's voice first on family guy?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"Who did Meg's voice on the original pilot of Family Guy?\",\n              \"Who did Meg's voice on the first season of Family Guy?\"],\n             dtype=object), 'answer': array([array(['Rachael MacFarlane'], dtype=object),\n              array(['Lacey Chabert'], dtype=object)], dtype=object)}                    ,\n       {'question': array([\"Who did Meg's voice first on family guy, for the pilot?\",\n              \"Who did Meg's voice first on family guy, in regular episodes of the first season?\"],\n             dtype=object), 'answer': array([array(['Rachael MacFarlane'], dtype=object),\n              array(['Lacey Chabert'], dtype=object)], dtype=object)}                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1000,
+  "prompt": "Who did meg's voice first on family guy?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who originally voiced Meg Griffin on Family",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.018463134765625,
+          "prob": 3.003062244401153e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.003062416541607e-07,
+      "prompt": "You're given the following task:\nWho did meg's voice first on family guy?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

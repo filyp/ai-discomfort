@@ -1,0 +1,32 @@
+{
+  "id": "5a7b05cd21c2de001afe9cd8",
+  "title": "Fresno,_California",
+  "context": "In 1872, the Central Pacific Railroad established a station near Easterby's—by now a hugely productive wheat farm—for its new Southern Pacific line. Soon there was a store around the station and the store grew the town of Fresno Station, later called Fresno. Many Millerton residents, drawn by the convenience of the railroad and worried about flooding, moved to the new community. Fresno became an incorporated city in 1885. By 1931 the Fresno Traction Company operated 47 streetcars over 49 miles of track.",
+  "question": "When was the Central Pacific Railroad founded?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1913,
+  "prompt": "Context: In 1872, the Central Pacific Railroad established a station near Easterby's—by now a hugely productive wheat farm—for its new Southern Pacific line. Soon there was a store around the station and the store grew the town of Fresno Station, later called Fresno. Many Millerton residents, drawn by the convenience of the railroad and worried about flooding, moved to the new community. Fresno became an incorporated city in 1885. By 1931 the Fresno Traction Company operated 47 streetcars over 49 miles of track.\n\nQuestion: When was the Central Pacific Railroad founded?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text does *not* state when the Central Pacific Railroad",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -3.85150146484375,
+          "prob": 0.02124780963671379,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.021476788446307182,
+          "prob": 0.9787521955646248,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9787521904738034,
+      "prompt": "You're given the following task:\nContext: In 1872, the Central Pacific Railroad established a station near Easterby's—by now a hugely productive wheat farm—for its new Southern Pacific line. Soon there was a store around the station and the store grew the town of Fresno Station, later called Fresno. Many Millerton residents, drawn by the convenience of the railroad and worried about flooding, moved to the new community. Fresno became an incorporated city in 1885. By 1931 the Fresno Traction Company operated 47 streetcars over 49 miles of track.\n\nQuestion: When was the Central Pacific Railroad founded?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -8329743888768869377,
+  "question": "When was the last time adelaide was in a grand final?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['2017', '30 September 2017'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['When was the last time Adelaide won the AFL Grand Final?',\n              'When was the last time Adelaide was in the A-League Grand Final?',\n              'When was the last time Adelaide was in the AFL Grand Final?'],\n             dtype=object), 'answer': array([array(['1998'], dtype=object), array(['2016'], dtype=object),\n              array(['2017', '30 September 2017'], dtype=object)], dtype=object)}                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1085,
+  "prompt": "When was the last time adelaide was in a grand final?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! To clarify, are you",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.954059600830078,
+          "prob": 1.1782567906354972e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1782567922657372e-07,
+      "prompt": "You're given the following task:\nWhen was the last time adelaide was in a grand final?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

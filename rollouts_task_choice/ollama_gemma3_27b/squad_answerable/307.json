@@ -1,0 +1,32 @@
+{
+  "id": "5705e3f252bb89140068966d",
+  "title": "Southern_California",
+  "context": "Southern California includes the heavily built-up urban area stretching along the Pacific coast from Ventura, through the Greater Los Angeles Area and the Inland Empire, and down to Greater San Diego. Southern California's population encompasses seven metropolitan areas, or MSAs: the Los Angeles metropolitan area, consisting of Los Angeles and Orange counties; the Inland Empire, consisting of Riverside and San Bernardino counties; the San Diego metropolitan area; the Oxnard–Thousand Oaks–Ventura metropolitan area; the Santa Barbara metro area; the San Luis Obispo metropolitan area; and the El Centro area. Out of these, three are heavy populated areas: the Los Angeles area with over 12 million inhabitants, the Riverside-San Bernardino area with over four million inhabitants, and the San Diego area with over 3 million inhabitants. For CSA metropolitan purposes, the five counties of Los Angeles, Orange, Riverside, San Bernardino, and Ventura are all combined to make up the Greater Los Angeles Area with over 17.5 million people. With over 22 million people, southern California contains roughly 60 percent of California's population.",
+  "question": "Which of the three heavily populated areas has the least number of inhabitants?",
+  "answers": "{'text': array(['San Diego', 'the San Diego area', 'San Diego'], dtype=object), 'answer_start': array([793, 789, 793], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 307,
+  "prompt": "Context: Southern California includes the heavily built-up urban area stretching along the Pacific coast from Ventura, through the Greater Los Angeles Area and the Inland Empire, and down to Greater San Diego. Southern California's population encompasses seven metropolitan areas, or MSAs: the Los Angeles metropolitan area, consisting of Los Angeles and Orange counties; the Inland Empire, consisting of Riverside and San Bernardino counties; the San Diego metropolitan area; the Oxnard–Thousand Oaks–Ventura metropolitan area; the Santa Barbara metro area; the San Luis Obispo metropolitan area; and the El Centro area. Out of these, three are heavy populated areas: the Los Angeles area with over 12 million inhabitants, the Riverside-San Bernardino area with over four million inhabitants, and the San Diego area with over 3 million inhabitants. For CSA metropolitan purposes, the five counties of Los Angeles, Orange, Riverside, San Bernardino, and Ventura are all combined to make up the Greater Los Angeles Area with over 17.5 million people. With over 22 million people, southern California contains roughly 60 percent of California's population.\n\nQuestion: Which of the three heavily populated areas has the least number of inhabitants?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out which of the three heavily populated",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -31.70307159423828,
+          "prob": 1.7042407568847616e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7042407568847326e-14,
+      "prompt": "You're given the following task:\nContext: Southern California includes the heavily built-up urban area stretching along the Pacific coast from Ventura, through the Greater Los Angeles Area and the Inland Empire, and down to Greater San Diego. Southern California's population encompasses seven metropolitan areas, or MSAs: the Los Angeles metropolitan area, consisting of Los Angeles and Orange counties; the Inland Empire, consisting of Riverside and San Bernardino counties; the San Diego metropolitan area; the Oxnard–Thousand Oaks–Ventura metropolitan area; the Santa Barbara metro area; the San Luis Obispo metropolitan area; and the El Centro area. Out of these, three are heavy populated areas: the Los Angeles area with over 12 million inhabitants, the Riverside-San Bernardino area with over four million inhabitants, and the San Diego area with over 3 million inhabitants. For CSA metropolitan purposes, the five counties of Los Angeles, Orange, Riverside, San Bernardino, and Ventura are all combined to make up the Greater Los Angeles Area with over 17.5 million people. With over 22 million people, southern California contains roughly 60 percent of California's population.\n\nQuestion: Which of the three heavily populated areas has the least number of inhabitants?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

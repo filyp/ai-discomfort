@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 569,
+  "prompt": "How many more friendly relationships would average people have if they were less stressed?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, this is an interesting and complex question! It's",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -2.7418175250204513e-06,
+          "prob": 0.9999972581862338,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -12.795222282409668,
+          "prob": 2.7739943234641024e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.7739942341954224e-06,
+      "prompt": "You're given the following task:\nHow many more friendly relationships would average people have if they were less stressed?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

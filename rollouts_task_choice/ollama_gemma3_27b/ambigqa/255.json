@@ -1,0 +1,31 @@
+{
+  "id": 3880667713687536806,
+  "question": "Who was the first person who discovered electricity?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who was the first person who discovered shocks from electric fish?',\n              'Who was the first person who made a careful study of electricity and magnetism?'],\n             dtype=object), 'answer': array([array(['Ancient Egyptian'], dtype=object),\n              array(['William Gilbert', 'Gilberd'], dtype=object)], dtype=object)}               ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 255,
+  "prompt": "Who was the first person who discovered electricity?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! That's a surprisingly complex question. It’s",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.5735749911982566e-05,
+          "prob": 0.9999842643738943,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -11.061103820800781,
+          "prob": 1.5711716959532744e-05,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.571171733518649e-05,
+      "prompt": "You're given the following task:\nWho was the first person who discovered electricity?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

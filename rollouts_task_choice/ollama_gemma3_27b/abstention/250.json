@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 250,
+  "prompt": "When will American economy collapse?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nWhile I can *process* the question \"When will the American",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -11.101105690002441,
+          "prob": 1.5095623508878614e-05,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -1.6212594346143305e-05,
+          "prob": 0.9999837875370773,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999849043596317,
+      "prompt": "You're given the following task:\nWhen will American economy collapse?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

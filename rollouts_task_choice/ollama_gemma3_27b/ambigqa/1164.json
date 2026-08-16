@@ -1,0 +1,31 @@
+{
+  "id": 8600106434646244524,
+  "question": "When was the last refinery built in the united states?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the last oil refinery built from the ground up in the United States?',\n              'When was the last oil refinery built in the United States?'],\n             dtype=object), 'answer': array([array(['1971'], dtype=object), array(['2019'], dtype=object)],\n             dtype=object)}                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1164,
+  "prompt": "When was the last refinery built in the united states?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! Finding the *last*",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.744857788085938,
+          "prob": 5.3431905502232765e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 5.343190264726439e-08,
+      "prompt": "You're given the following task:\nWhen was the last refinery built in the united states?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

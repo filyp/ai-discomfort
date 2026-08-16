@@ -1,0 +1,31 @@
+{
+  "id": -4355648844652541923,
+  "question": "Who plays young ethan in a dogs purpose?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who plays young ethan, as a teenager, in a dogs purpose?',\n              'Who plays young ethan, as an eight-year-old, in a dogs purpose?'],\n             dtype=object), 'answer': array([array(['Apa', 'Keneti James Fitzgerald Apa', 'KJ Apa'], dtype=object),\n              array(['Bryce Gheisar'], dtype=object)], dtype=object)}                                              ,\n       {'question': array([\"Who plays teenage Ethan in A Dog's Purpose?\",\n              \"Who plays eight-year-old Ethan in A Dog's Purpose?\"], dtype=object), 'answer': array([array(['KJ Apa'], dtype=object),\n              array(['Bryce Gheisar'], dtype=object)], dtype=object)}                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 520,
+  "prompt": "Who plays young ethan in a dogs purpose?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.287582397460938,
+          "prob": 4.202516193040488e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.202516175379346e-09,
+      "prompt": "You're given the following task:\nWho plays young ethan in a dogs purpose?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

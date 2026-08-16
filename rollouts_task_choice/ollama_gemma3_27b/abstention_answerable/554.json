@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 554,
+  "prompt": "Charles Elliott Perry was born in a city that is located on the large natural bay of Port Philip, and had a population of what as of 2016?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.522300720214844,
+          "prob": 3.3233227698889628e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.3233227588444886e-09,
+      "prompt": "You're given the following task:\nCharles Elliott Perry was born in a city that is located on the large natural bay of Port Philip, and had a population of what as of 2016?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

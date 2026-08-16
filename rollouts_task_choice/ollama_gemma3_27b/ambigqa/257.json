@@ -1,0 +1,31 @@
+{
+  "id": 8902104855469910963,
+  "question": "Who got stuck in the belly of a whale?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who was the prophet in the 8th century BCE that got stuck in the belly of a whale?',\n              'Who got stuck in the belly of a whale in a late nineteenth-century story?',\n              'Who got stuck in the belly of a whale in the film Mind Game?',\n              'Who got stuck in the belly of a whale in Pinocchio?'],\n             dtype=object), 'answer': array([array(['Jonas', 'Jonah'], dtype=object),\n              array(['James Bartley'], dtype=object),\n              array(['Yan', 'old man', 'Nishi', 'Myon'], dtype=object),\n              array(['Geppetto', 'Pinocchio'], dtype=object)], dtype=object)}                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 257,
+  "prompt": "Who got stuck in the belly of a whale?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.36585235595703,
+          "prob": 2.8714823307762267e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.871482248322121e-08,
+      "prompt": "You're given the following task:\nWho got stuck in the belly of a whale?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

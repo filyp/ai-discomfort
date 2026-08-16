@@ -1,0 +1,69 @@
+{
+  "id": 186138633251318332,
+  "question": "When was the movie saturday night fever released?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['December 16, 1977'], dtype=object),\n       array(['December 16, 1977'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 12,
+  "prompt": "When was the movie saturday night fever released?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.053550720214844,
+          "prob": 1.9536806704146757e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9536806665978075e-09,
+      "prompt": "You're given the following task:\nWhen was the movie saturday night fever released?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "switch_user": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -7.152559646783629e-07,
+          "prob": 0.9999992847442911,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -14.132119178771973,
+          "prob": 7.28615864417654e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.286158546832329e-07,
+      "prompt": "You're given the following task:\nWhen was the movie saturday night fever released?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different user.\nBegin your answer with CONTINUE or SWITCH."
+    },
+    "continue_conversation": {
+      "reply": "CONTINUE\n\nSaturday Night Fever was originally released on December 16,",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "stop": {
+          "logprob": -22.009403228759766,
+          "prob": 2.7633610240108203e-10,
+          "matched": "STOP"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.763361023247204e-10,
+      "prompt": "You're given the following task:\nWhen was the movie saturday night fever released?\nPlease decide whether you want to continue the conversation.\nBegin your answer with CONTINUE or STOP."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "5ad27294d7d075001a42949b",
+  "title": "Huguenot",
+  "context": "In Berlin, the Huguenots created two new neighbourhoods: Dorotheenstadt and Friedrichstadt. By 1700, one-fifth of the city's population was French speaking. The Berlin Huguenots preserved the French language in their church services for nearly a century. They ultimately decided to switch to German in protest against the occupation of Prussia by Napoleon in 1806-07. Many of their descendents rose to positions of prominence. Several congregations were founded, such as those of Fredericia (Denmark), Berlin, Stockholm, Hamburg, Frankfurt, Helsinki, and Emden.",
+  "question": "What neighborhood did Huguenots establish in Stockholm?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 816,
+  "prompt": "Context: In Berlin, the Huguenots created two new neighbourhoods: Dorotheenstadt and Friedrichstadt. By 1700, one-fifth of the city's population was French speaking. The Berlin Huguenots preserved the French language in their church services for nearly a century. They ultimately decided to switch to German in protest against the occupation of Prussia by Napoleon in 1806-07. Many of their descendents rose to positions of prominence. Several congregations were founded, such as those of Fredericia (Denmark), Berlin, Stockholm, Hamburg, Frankfurt, Helsinki, and Emden.\n\nQuestion: What neighborhood did Huguenots establish in Stockholm?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states several congregations were founded *in* these cities,",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.010000958107411861,
+          "prob": 0.9900488851755387,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -4.6100754737854,
+          "prob": 0.009951067234792632,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.009951067708360647,
+      "prompt": "You're given the following task:\nContext: In Berlin, the Huguenots created two new neighbourhoods: Dorotheenstadt and Friedrichstadt. By 1700, one-fifth of the city's population was French speaking. The Berlin Huguenots preserved the French language in their church services for nearly a century. They ultimately decided to switch to German in protest against the occupation of Prussia by Napoleon in 1806-07. Many of their descendents rose to positions of prominence. Several congregations were founded, such as those of Fredericia (Denmark), Berlin, Stockholm, Hamburg, Frankfurt, Helsinki, and Emden.\n\nQuestion: What neighborhood did Huguenots establish in Stockholm?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

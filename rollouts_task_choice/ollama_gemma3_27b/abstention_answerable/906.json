@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 906,
+  "prompt": "What 'white-tail' species grew in such numbers in US Washington DC parklands as to prompt radical control measures in 2012?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.657737731933594,
+          "prob": 1.4450056014702226e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.4450056012614184e-10,
+      "prompt": "You're given the following task:\nWhat 'white-tail' species grew in such numbers in US Washington DC parklands as to prompt radical control measures in 2012?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

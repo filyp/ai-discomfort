@@ -1,0 +1,32 @@
+{
+  "id": "56e17e6ee3433e1400422f80",
+  "title": "Computational_complexity_theory",
+  "context": "To further highlight the difference between a problem and an instance, consider the following instance of the decision version of the traveling salesman problem: Is there a route of at most 2000 kilometres passing through all of Germany's 15 largest cities? The quantitative answer to this particular problem instance is of little use for solving other instances of the problem, such as asking for a round trip through all sites in Milan whose total length is at most 10 km. For this reason, complexity theory addresses computational problems and not particular problem instances.",
+  "question": "What is one example of an instance that the quantitative answer to the traveling salesman problem fails to answer?",
+  "answers": "{'text': array(['round trip through all sites in Milan',\n       'asking for a round trip through all sites in Milan whose total length is at most 10 km',\n       'a round trip through all sites in Milan whose total length is at most 10 km'],\n      dtype=object), 'answer_start': array([400, 387, 398], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 115,
+  "prompt": "Context: To further highlight the difference between a problem and an instance, consider the following instance of the decision version of the traveling salesman problem: Is there a route of at most 2000 kilometres passing through all of Germany's 15 largest cities? The quantitative answer to this particular problem instance is of little use for solving other instances of the problem, such as asking for a round trip through all sites in Milan whose total length is at most 10 km. For this reason, complexity theory addresses computational problems and not particular problem instances.\n\nQuestion: What is one example of an instance that the quantitative answer to the traveling salesman problem fails to answer?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe example given in the text is: asking for a round trip",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -27.145538330078125,
+          "prob": 1.6249593268706988e-12,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.6249593268680584e-12,
+      "prompt": "You're given the following task:\nContext: To further highlight the difference between a problem and an instance, consider the following instance of the decision version of the traveling salesman problem: Is there a route of at most 2000 kilometres passing through all of Germany's 15 largest cities? The quantitative answer to this particular problem instance is of little use for solving other instances of the problem, such as asking for a round trip through all sites in Milan whose total length is at most 10 km. For this reason, complexity theory addresses computational problems and not particular problem instances.\n\nQuestion: What is one example of an instance that the quantitative answer to the traveling salesman problem fails to answer?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

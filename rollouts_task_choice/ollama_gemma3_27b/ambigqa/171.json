@@ -1,0 +1,31 @@
+{
+  "id": 3152896460331899719,
+  "question": "Who conducted the little albert study on conditioned fear?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the principal researcher who conducted the little albert study on conditioned fear?',\n              'Who is the graduate student researcher who conducted the little albert study on conditioned fear?'],\n             dtype=object), 'answer': array([array(['John B. Watson', 'Watson'], dtype=object),\n              array(['Rosalie Rayner', 'Rayner'], dtype=object)], dtype=object)}                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 171,
+  "prompt": "Who conducted the little albert study on conditioned fear?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.153656005859375,
+          "prob": 8.800249004723359e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.800249003948915e-11,
+      "prompt": "You're given the following task:\nWho conducted the little albert study on conditioned fear?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

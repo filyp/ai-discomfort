@@ -1,0 +1,31 @@
+{
+  "id": -4987820108166503921,
+  "question": "What animals are on the michigan state flag?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What bird are on the michigan state flag?',\n              'What animals from the deer family are on the michigan state flag?'],\n             dtype=object), 'answer': array([array(['bald eagle'], dtype=object),\n              array(['elk and moose'], dtype=object)], dtype=object)}              ,\n       {'question': array([\"What animal are on the michigan state flag's left side?\",\n              \"What animal are on the michigan state flag's right side?\",\n              \"What animal are on the michigan state flag's top side?\"],\n             dtype=object), 'answer': array([array(['Elk'], dtype=object), array(['Moose'], dtype=object),\n              array(['Eagle'], dtype=object)], dtype=object)}                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 294,
+  "prompt": "What animals are on the michigan state flag?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.558250427246094,
+          "prob": 1.1794112929459358e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.179411291554925e-09,
+      "prompt": "You're given the following task:\nWhat animals are on the michigan state flag?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

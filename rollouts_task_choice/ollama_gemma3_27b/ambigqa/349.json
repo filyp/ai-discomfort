@@ -1,0 +1,31 @@
+{
+  "id": -667030836762107808,
+  "question": "Who is the most payed player in the nba?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the most payed player in the nba in the 2016-2017 season?',\n              'Who is the most payed player in the nba in the 2015-2016 season?',\n              'Who is the most payed player in the nba in the 2014-2015 season?'],\n             dtype=object), 'answer': array([array(['LeBron James', 'LeBron Raymone James Sr.'], dtype=object),\n              array(['Kobe Bean Bryant', 'Kobe Bryant'], dtype=object),\n              array(['Kobe Bean Bryant', 'Kobe Bryant'], dtype=object)],\n             dtype=object)}                                                                                    ,\n       {'question': array(['Who was the highest paid NBA player from 2017-2018?',\n              'Who was the highest paid NBA player from 2016-2017?',\n              'Who was the highest paid NBA player from 2015-2016?'],\n             dtype=object), 'answer': array([array(['Stephen Curry'], dtype=object),\n              array(['LeBron James'], dtype=object),\n              array(['Kobe Bryant'], dtype=object)], dtype=object)}                 ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 349,
+  "prompt": "Who is the most payed player in the nba?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.48831558227539,
+          "prob": 2.540510796196079e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.5405107316541294e-08,
+      "prompt": "You're given the following task:\nWho is the most payed player in the nba?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

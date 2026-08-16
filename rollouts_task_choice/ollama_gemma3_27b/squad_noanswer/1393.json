@@ -1,0 +1,32 @@
+{
+  "id": "5a38baa2a4b263001a8c18da",
+  "title": "1973_oil_crisis",
+  "context": "Despite being relatively unaffected by the embargo, the UK nonetheless faced an oil crisis of its own - a series of strikes by coal miners and railroad workers over the winter of 1973–74 became a major factor in the change of government. Heath asked the British to heat only one room in their houses over the winter. The UK, Germany, Italy, Switzerland and Norway banned flying, driving and boating on Sundays. Sweden rationed gasoline and heating oil. The Netherlands imposed prison sentences for those who used more than their ration of electricity.",
+  "question": "What was rationed by railroad workers?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1393,
+  "prompt": "Context: Despite being relatively unaffected by the embargo, the UK nonetheless faced an oil crisis of its own - a series of strikes by coal miners and railroad workers over the winter of 1973–74 became a major factor in the change of government. Heath asked the British to heat only one room in their houses over the winter. The UK, Germany, Italy, Switzerland and Norway banned flying, driving and boating on Sundays. Sweden rationed gasoline and heating oil. The Netherlands imposed prison sentences for those who used more than their ration of electricity.\n\nQuestion: What was rationed by railroad workers?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe question is tricky! The text states railroad *workers* were",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.23394125699996948,
+          "prob": 0.7914083042281779,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -1.5673762559890747,
+          "prob": 0.20859175637983826,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.2085917437375065,
+      "prompt": "You're given the following task:\nContext: Despite being relatively unaffected by the embargo, the UK nonetheless faced an oil crisis of its own - a series of strikes by coal miners and railroad workers over the winter of 1973–74 became a major factor in the change of government. Heath asked the British to heat only one room in their houses over the winter. The UK, Germany, Italy, Switzerland and Norway banned flying, driving and boating on Sundays. Sweden rationed gasoline and heating oil. The Netherlands imposed prison sentences for those who used more than their ration of electricity.\n\nQuestion: What was rationed by railroad workers?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

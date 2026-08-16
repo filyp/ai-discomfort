@@ -1,0 +1,31 @@
+{
+  "id": -119069581933917963,
+  "question": "How much does it cost to raise the costa concordia?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([\"What was the total cost of the Italian cruise ship 'Costa Concordia' disaster including victims' compensation, refloating, towing and scrapping costs?\",\n              \"What was the initial estimated cost to salvage the Italian cruise ship 'Costa Concordia'?\",\n              \"What was the final cost of the salvage for the Italian cruise ship 'Costa Concordia'?\"],\n             dtype=object), 'answer': array([array(['$2 Billion USD'], dtype=object),\n              array(['$300 Million USD'], dtype=object),\n              array(['$1.2 Billion USD'], dtype=object)], dtype=object)}                                                                                                            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1027,
+  "prompt": "How much does it cost to raise the costa concordia?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out the cost to raise the Costa",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.562450408935547,
+          "prob": 1.743065320994122e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7430652249560222e-07,
+      "prompt": "You're given the following task:\nHow much does it cost to raise the costa concordia?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

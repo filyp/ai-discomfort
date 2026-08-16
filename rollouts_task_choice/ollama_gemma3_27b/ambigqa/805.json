@@ -1,0 +1,31 @@
+{
+  "id": 7813254335895169912,
+  "question": "Who is fruma sarah in fiddler on the roof?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who played fruma sarah in the 1971 film, Fiddler on the Roof?',\n              'Who played Fruma Sarah in the original 1964 Broadway cast of Fiddler on the Roof?',\n              'Who is the character of Fruma Sarah in Fiddler on the Roof?',\n              'Who played Fruma Sarah in the 2015-2016 Broadway Revival of Fiddler on the Roof?'],\n             dtype=object), 'answer': array([array(['Ruth Madoc'], dtype=object),\n              array(['Carol Sawyer Yussel'], dtype=object),\n              array(['a ghostly depiction of the late wife of Lazar Wolf'], dtype=object),\n              array(['Jessica Vosk'], dtype=object)], dtype=object)}                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 805,
+  "prompt": "Who is fruma sarah in fiddler on the roof?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -25.02646255493164,
+          "prob": 1.3525253410349474e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3525253410166543e-11,
+      "prompt": "You're given the following task:\nWho is fruma sarah in fiddler on the roof?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

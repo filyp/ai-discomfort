@@ -1,0 +1,31 @@
+{
+  "id": 4129054433505407523,
+  "question": "When did the first cassette tape come out?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the first compact cassette tape invented and introduced in Europe?',\n              'When did the first large cassette tape that failed come out?',\n              'When did the first compact cassette tape get introduced to the United States?'],\n             dtype=object), 'answer': array([array(['30 August 1963', 'September 1963'], dtype=object),\n              array(['1958'], dtype=object),\n              array(['November 1964'], dtype=object)], dtype=object)}                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 622,
+  "prompt": "When did the first cassette tape come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.45068359375,
+          "prob": 9.704427679790629e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 9.704427585614713e-09,
+      "prompt": "You're given the following task:\nWhen did the first cassette tape come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

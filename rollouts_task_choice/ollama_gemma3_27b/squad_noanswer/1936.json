@@ -1,0 +1,32 @@
+{
+  "id": "5a7b086921c2de001afe9d03",
+  "title": "Fresno,_California",
+  "context": "Fresno has three large public parks, two in the city limits and one in county land to the southwest. Woodward Park, which features the Shinzen Japanese Gardens, numerous picnic areas and several miles of trails, is in North Fresno and is adjacent to the San Joaquin River Parkway. Roeding Park, near Downtown Fresno, is home to the Fresno Chaffee Zoo, and Rotary Storyland and Playland. Kearney Park is the largest of the Fresno region's park system and is home to historic Kearney Mansion and plays host to the annual Civil War Revisited, the largest reenactment of the Civil War in the west coast of the U.S.",
+  "question": "How long are the trails in Roeding Park?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 1936,
+  "prompt": "Context: Fresno has three large public parks, two in the city limits and one in county land to the southwest. Woodward Park, which features the Shinzen Japanese Gardens, numerous picnic areas and several miles of trails, is in North Fresno and is adjacent to the San Joaquin River Parkway. Roeding Park, near Downtown Fresno, is home to the Fresno Chaffee Zoo, and Rotary Storyland and Playland. Kearney Park is the largest of the Fresno region's park system and is home to historic Kearney Mansion and plays host to the annual Civil War Revisited, the largest reenactment of the Civil War in the west coast of the U.S.\n\nQuestion: How long are the trails in Roeding Park?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH.\n\nThe provided text *does not* state how long the trails are",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -5.908801078796387,
+          "prob": 0.0027154405357983926,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.002719162032008171,
+          "prob": 0.9972845315405041,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9972845593883765,
+      "prompt": "You're given the following task:\nContext: Fresno has three large public parks, two in the city limits and one in county land to the southwest. Woodward Park, which features the Shinzen Japanese Gardens, numerous picnic areas and several miles of trails, is in North Fresno and is adjacent to the San Joaquin River Parkway. Roeding Park, near Downtown Fresno, is home to the Fresno Chaffee Zoo, and Rotary Storyland and Playland. Kearney Park is the largest of the Fresno region's park system and is home to historic Kearney Mansion and plays host to the annual Civil War Revisited, the largest reenactment of the Civil War in the west coast of the U.S.\n\nQuestion: How long are the trails in Roeding Park?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

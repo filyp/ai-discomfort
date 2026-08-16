@@ -1,0 +1,32 @@
+{
+  "id": "56e1fc57e3433e1400423230",
+  "title": "Computational_complexity_theory",
+  "context": "Problems that can be solved in theory (e.g., given large but finite time), but which in practice take too long for their solutions to be useful, are known as intractable problems. In complexity theory, problems that lack polynomial-time solutions are considered to be intractable for more than the smallest inputs. In fact, the Cobham–Edmonds thesis states that only those problems that can be solved in polynomial time can be feasibly computed on some computational device. Problems that are known to be intractable in this sense include those that are EXPTIME-hard. If NP is not the same as P, then the NP-complete problems are also intractable in this sense. To see why exponential-time algorithms might be unusable in practice, consider a program that makes 2n operations before halting. For small n, say 100, and assuming for the sake of example that the computer does 1012 operations each second, the program would run for about 4 × 1010 years, which is the same order of magnitude as the age of the universe. Even with a much faster computer, the program would only be useful for very small instances and in that sense the intractability of a problem is somewhat independent of technological progress. Nevertheless, a polynomial time algorithm is not always practical. If its running time is, say, n15, it is unreasonable to consider it efficient and it is still useless except on small instances.",
+  "question": "If NP is not equal to P, viewed through this lens, what type of problems can also be considered intractable?",
+  "answers": "{'text': array(['NP-complete problems', 'NP-complete', 'NP-complete',\n       'NP-complete'], dtype=object), 'answer_start': array([605, 605, 605, 605], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 269,
+  "prompt": "Context: Problems that can be solved in theory (e.g., given large but finite time), but which in practice take too long for their solutions to be useful, are known as intractable problems. In complexity theory, problems that lack polynomial-time solutions are considered to be intractable for more than the smallest inputs. In fact, the Cobham–Edmonds thesis states that only those problems that can be solved in polynomial time can be feasibly computed on some computational device. Problems that are known to be intractable in this sense include those that are EXPTIME-hard. If NP is not the same as P, then the NP-complete problems are also intractable in this sense. To see why exponential-time algorithms might be unusable in practice, consider a program that makes 2n operations before halting. For small n, say 100, and assuming for the sake of example that the computer does 1012 operations each second, the program would run for about 4 × 1010 years, which is the same order of magnitude as the age of the universe. Even with a much faster computer, the program would only be useful for very small instances and in that sense the intractability of a problem is somewhat independent of technological progress. Nevertheless, a polynomial time algorithm is not always practical. If its running time is, say, n15, it is unreasonable to consider it efficient and it is still useless except on small instances.\n\nQuestion: If NP is not equal to P, viewed through this lens, what type of problems can also be considered intractable?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nBased on the provided text, if NP is not equal to P",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -32.13606262207031,
+          "prob": 1.1053131404499311e-14,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1053131404499188e-14,
+      "prompt": "You're given the following task:\nContext: Problems that can be solved in theory (e.g., given large but finite time), but which in practice take too long for their solutions to be useful, are known as intractable problems. In complexity theory, problems that lack polynomial-time solutions are considered to be intractable for more than the smallest inputs. In fact, the Cobham–Edmonds thesis states that only those problems that can be solved in polynomial time can be feasibly computed on some computational device. Problems that are known to be intractable in this sense include those that are EXPTIME-hard. If NP is not the same as P, then the NP-complete problems are also intractable in this sense. To see why exponential-time algorithms might be unusable in practice, consider a program that makes 2n operations before halting. For small n, say 100, and assuming for the sake of example that the computer does 1012 operations each second, the program would run for about 4 × 1010 years, which is the same order of magnitude as the age of the universe. Even with a much faster computer, the program would only be useful for very small instances and in that sense the intractability of a problem is somewhat independent of technological progress. Nevertheless, a polynomial time algorithm is not always practical. If its running time is, say, n15, it is unreasonable to consider it efficient and it is still useless except on small instances.\n\nQuestion: If NP is not equal to P, viewed through this lens, what type of problems can also be considered intractable?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": -1218749036799778837,
+  "question": "Who did the music for the new blade runner film?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who composed the music for the new blade runner film?',\n              'Who did the additional music tracks for the new blade runner film?',\n              'Who did the music themes for the new blade runner film?',\n              'Who produced the music for the new blade runner film?'],\n             dtype=object), 'answer': array([array(['Benjamin Wallfisch', 'Hans Zimmer and Benjamin Wallfisch',\n                     'Hans Zimmer'], dtype=object)                              ,\n              array(['Elvis Presley, Frank Sinatra and Lauren Daigle'], dtype=object),\n              array(['Vangelis'], dtype=object),\n              array(['Michael Hodges, Kayla Morrison and Ashley Culp'], dtype=object)],\n             dtype=object)}                                                                                    ,\n       {'question': array(['Who composed the music in Blade Runner 2049?',\n              'Who was in the additional music tracks for the new blade runner film?',\n              'Who produced the music for the new blade runner film?'],\n             dtype=object), 'answer': array([array(['Benjamin Wallfisch', 'Hans Zimmer and Benjamin Wallfisch',\n                     'Hans Zimmer'], dtype=object)                              ,\n              array(['Elvis Presley, Frank Sinatra and Lauren Daigle'], dtype=object),\n              array(['Michael Hodges, Kayla Morrison and Ashley Culp'], dtype=object)],\n             dtype=object)}                                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1028,
+  "prompt": "Who did the music for the new blade runner film?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! The music for *Blade Runner 2049",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.187294006347656,
+          "prob": 1.7091083992668543e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7091083963458029e-09,
+      "prompt": "You're given the following task:\nWho did the music for the new blade runner film?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

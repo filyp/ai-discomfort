@@ -1,0 +1,28 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "dataset": "abstention_answerable",
+  "question_num": 505,
+  "prompt": " Ethan Hardy is a fictional character from the BBC medical drama \"Casualty\" who has had romantic storeis alongside a character played by an English actress best known for playing Janeece Bryant in what school drama series?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE.\n\nLet's figure this out! I need to identify the",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.318359375,
+          "prob": 1.1077394075844128e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.1077393953135469e-08,
+      "prompt": "You're given the following task:\n Ethan Hardy is a fictional character from the BBC medical drama \"Casualty\" who has had romantic storeis alongside a character played by an English actress best known for playing Janeece Bryant in what school drama series?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

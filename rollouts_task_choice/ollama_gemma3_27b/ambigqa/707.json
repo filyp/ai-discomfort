@@ -1,0 +1,31 @@
+{
+  "id": -6491913195208307840,
+  "question": "When was crude oil first discovered in nigeria?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was non-commercial amounts of crude oil first discovered in nigeria?',\n              'When was commerical amounts of crude oil first discovered in nigeria?'],\n             dtype=object), 'answer': array([array(['1953'], dtype=object), array(['1956'], dtype=object)],\n             dtype=object)}                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 707,
+  "prompt": "When was crude oil first discovered in nigeria?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.664165496826172,
+          "prob": 7.838914280326812e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.838914218878236e-09,
+      "prompt": "You're given the following task:\nWhen was crude oil first discovered in nigeria?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 7994278059308814702,
+  "question": "Who is the mayor of warner robins ga?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who began their term of mayor of warner robins ga in 2014?',\n              'Who began their term of mayor of warner robins ga in 2010?',\n              'Who began their term of mayor of warner robins ga in 2009?'],\n             dtype=object), 'answer': array([array(['Randy Toms'], dtype=object),\n              array(['Chuck Shaheen'], dtype=object),\n              array(['John Havrilla'], dtype=object)], dtype=object)}                   ,\n       {'question': array(['Who is the mayor of Warner Robins, GA in 2014?',\n              'Who is the mayor of Warner Robins, GA in 2010?',\n              'Who is the mayor of Warner Robins, GA in December 2009?'],\n             dtype=object), 'answer': array([array(['Randy Toms'], dtype=object),\n              array(['Chuck Shaheen'], dtype=object),\n              array(['John Havrilla'], dtype=object)], dtype=object)}            ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 259,
+  "prompt": "Who is the mayor of warner robins ga?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.113296508789062,
+          "prob": 2.490676651502753e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.4906766508824057e-10,
+      "prompt": "You're given the following task:\nWho is the mayor of warner robins ga?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

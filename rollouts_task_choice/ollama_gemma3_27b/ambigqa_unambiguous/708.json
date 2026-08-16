@@ -1,0 +1,31 @@
+{
+  "id": -23066104553045303,
+  "question": "What city are the sand dunes in colorado?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Alamosa'], dtype=object), array(['Alamosa'], dtype=object),\n       array(['Alamosa'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 708,
+  "prompt": "What city are the sand dunes in colorado?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! While Colorado isn't",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.5497220147153712e-06,
+          "prob": 0.9999984502791861,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -13.35258674621582,
+          "prob": 1.5887122965929163e-06,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.5887122346466707e-06,
+      "prompt": "You're given the following task:\nWhat city are the sand dunes in colorado?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

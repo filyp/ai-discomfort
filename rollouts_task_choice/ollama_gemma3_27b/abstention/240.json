@@ -1,0 +1,28 @@
+{
+  "should_abstain": true,
+  "model": "gemma3:27b",
+  "dataset": "abstention",
+  "question_num": 240,
+  "prompt": "When all American youths will obey their parents advice?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\nThis question is unanswerable and relies on broad generalizations about an entire",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -14.752334594726562,
+          "prob": 3.918704271717306e-07,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -3.576279254957626e-07,
+          "prob": 0.9999996423721385,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9999996081295862,
+      "prompt": "You're given the following task:\nWhen all American youths will obey their parents advice?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

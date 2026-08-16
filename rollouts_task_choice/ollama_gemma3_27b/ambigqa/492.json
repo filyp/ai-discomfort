@@ -1,0 +1,31 @@
+{
+  "id": 2922743497163713778,
+  "question": "How many square feet is a studio apartment?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['How many square feet is the average studio apartment in the United States?',\n              'How many square feet is a studio apartment, also called mini apartmentin Hong Kong?',\n              'How many square feet is a studio apartment in India?'],\n             dtype=object), 'answer': array([array(['500 to 600 sq ft'], dtype=object),\n              array(['110 sq ft'], dtype=object),\n              array(['200 to 450 square feet'], dtype=object)], dtype=object)}                          ,\n       {'question': array(['How many square feet is a studio apartment in U.S.?',\n              'How many square feet is a studio apartment in Hong Kong?',\n              'How many square feet is a studio apartment in India?'],\n             dtype=object), 'answer': array([array(['500 to 600'], dtype=object), array(['110'], dtype=object),\n              array(['200 to 450'], dtype=object)], dtype=object)}                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 492,
+  "prompt": "How many square feet is a studio apartment?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out how big a studio apartment typically",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.84131622314453,
+          "prob": 2.415604614646522e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.4156046088113765e-09,
+      "prompt": "You're given the following task:\nHow many square feet is a studio apartment?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

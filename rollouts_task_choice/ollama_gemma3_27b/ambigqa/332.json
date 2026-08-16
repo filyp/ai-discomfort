@@ -1,0 +1,31 @@
+{
+  "id": -5298386254612370574,
+  "question": "Who won 1st medal in asian games 2018 for india?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who won the very first medal in asian games 2018 for india?',\n              'Who won 1st gold medal in asian games 2018 for india?',\n              'Who won 1st silver medal in asian games 2018 for india?',\n              'Who won 1st bronze medal in asian games 2018 for india?'],\n             dtype=object), 'answer': array([array(['Punia', 'Bajrang Punia'], dtype=object),\n              array(['Punia', 'Bajrang Punia'], dtype=object),\n              array(['Deepak Kumar', 'Kumar'], dtype=object),\n              array(['Ravi Kumar and Apurvi Chandela', 'Ravi Kumar', 'Apurvi Chandela'],\n                    dtype=object)                                                       ],\n             dtype=object)}                                                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 332,
+  "prompt": "Who won 1st medal in asian games 2018 for india?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you who won India's first medal",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.98114013671875,
+          "prob": 7.726923536074632e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.726923530104098e-10,
+      "prompt": "You're given the following task:\nWho won 1st medal in asian games 2018 for india?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

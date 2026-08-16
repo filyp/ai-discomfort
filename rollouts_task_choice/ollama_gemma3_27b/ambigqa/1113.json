@@ -1,0 +1,31 @@
+{
+  "id": 3243815325313203353,
+  "question": "When was my big fat greek wedding filmed?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was My Big Fat Greek Wedding pre-production in Toronto?',\n              'When was My Big Fat Greek Wedding 2 filmed?',\n              'When was My Big Fat Greek Wedding 2 released?',\n              'When was My Big Fat Greek Wedding released in the US?',\n              'When was My Big Fat Greek Wedding released in Canada?',\n              'When was the premiere of My Big Fat Greek Wedding?'], dtype=object), 'answer': array([array(['2000'], dtype=object), array(['2015'], dtype=object),\n              array(['March 25, 2016'], dtype=object),\n              array(['April 19, 2002'], dtype=object),\n              array(['August 16, 2002'], dtype=object),\n              array(['February 2002'], dtype=object)], dtype=object)}                                                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 1113,
+  "prompt": "When was my big fat greek wedding filmed?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! \"My Big Fat Greek Wedding\" was primarily filmed in",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.84558868408203,
+          "prob": 4.8311863560282035e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.831186122624598e-08,
+      "prompt": "You're given the following task:\nWhen was my big fat greek wedding filmed?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

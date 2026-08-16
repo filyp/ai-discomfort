@@ -1,0 +1,31 @@
+{
+  "id": 7308933918215095839,
+  "question": "Who sang the song the look of love?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who sang the 1987 song the look of love?',\n              'Which band originated the 1982 song the look of love?',\n              'Who sang lead in the 1982 song the look of love?',\n              'Who sang the 1967 song the look of love?'], dtype=object), 'answer': array([array(['Madonna'], dtype=object), array(['ABC'], dtype=object),\n              array(['Martin Fry'], dtype=object),\n              array(['Dusty Springfield'], dtype=object)], dtype=object)}                                                                                 ,\n       {'question': array(['Who sang the 1967 song The Look of Love?',\n              'Who sang the 1982 song The Look of Love?',\n              'Who sang the dance version of The Look of Love in 1996?',\n              'Who sang the 1987 version of The Look of Love?'], dtype=object), 'answer': array([array(['Dusty Springfield'], dtype=object),\n              array(['ABC'], dtype=object), array(['Eclipse'], dtype=object),\n              array(['Madonna'], dtype=object)], dtype=object)}                                                                             ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 107,
+  "prompt": "Who sang the song the look of love?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -17.637527465820312,
+          "prob": 2.188361911064289e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.1883618631750117e-08,
+      "prompt": "You're given the following task:\nWho sang the song the look of love?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

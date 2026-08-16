@@ -1,0 +1,31 @@
+{
+  "id": 4474597907223412132,
+  "question": "Who were the two astronauts who stayed a year on the iss?",
+  "annotations": "{'type': array(['multipleQAs', 'singleAnswer'], dtype=object), 'answer': array([array([], dtype=object),\n       array(['Scott Kelly and Mikhail Korniyenko'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array(['Who was the astronaut from the United States who stayed a year on the iss?',\n              'Who was the astronaut from the Russia who stayed a year on the iss?'],\n             dtype=object), 'answer': array([array(['Scott Kelly', 'Scott Joseph Kelly'], dtype=object),\n              array(['Mikhail Borisovich Kornienko', 'Mikhail Kornienko'], dtype=object)],\n             dtype=object)}                                                                             ,\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 820,
+  "prompt": "Who were the two astronauts who stayed a year on the iss?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! I can tell you about the astronauts who stayed a year",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.630382537841797,
+          "prob": 2.9828621694096384e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.9828621605121715e-09,
+      "prompt": "You're given the following task:\nWho were the two astronauts who stayed a year on the iss?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

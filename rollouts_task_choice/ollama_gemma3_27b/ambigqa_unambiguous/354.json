@@ -1,0 +1,31 @@
+{
+  "id": -1562606920471895787,
+  "question": "Who plays tom riddle in harry potter chamber of secrets?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Christian Peter Coulson'], dtype=object),\n       array(['Christian Peter Coulson', 'Christian Coulson'], dtype=object)],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 354,
+  "prompt": "Who plays tom riddle in harry potter chamber of secrets?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.06909942626953,
+          "prob": 2.60322615236872e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.6032261516910415e-10,
+      "prompt": "You're given the following task:\nWho plays tom riddle in harry potter chamber of secrets?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

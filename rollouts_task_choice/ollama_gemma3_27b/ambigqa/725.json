@@ -1,0 +1,31 @@
+{
+  "id": 2615043124809107327,
+  "question": "Where do most jamaicans live in the us?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where do the majority of jamaicans live in the us?',\n              'Where are there jamaican communities in the us?'], dtype=object), 'answer': array([array(['South Florida and New York City'], dtype=object),\n              array(['Connecticut, Los Angeles, Tampa, Orlando, Baltimore, Washington, D.C., Atlanta, Cleveland, Detroit, Western New York, Rhode Island, Philadelphia, Delaware and New Jersey'],\n                    dtype=object)                                                                                                                                                                 ],\n             dtype=object)}                                                                                                                                                                         ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 725,
+  "prompt": "Where do most jamaicans live in the us?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.38042449951172,
+          "prob": 7.014725086613524e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 7.01472508612146e-11,
+      "prompt": "You're given the following task:\nWhere do most jamaicans live in the us?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

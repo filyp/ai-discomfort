@@ -1,0 +1,31 @@
+{
+  "id": -4641129484393463730,
+  "question": "Local governments that provide a single service or a closely related set of services are?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['special service districts', 'limited purpose entities',\n              'special district governments', 'special districts',\n              'special-purpose districts'], dtype=object)             ,\n       array(['special service districts', 'Special districts',\n              'special service districts, special district governments, limited purpose entities, or special-purpose districts',\n              'special district governments', 'limited purpose entities',\n              'special-purpose districts'], dtype=object)                                                                       ],\n      dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 174,
+  "prompt": "Local governments that provide a single service or a closely related set of services are?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can help with that! Local governments providing a single",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.65637969970703,
+          "prob": 2.906315527625722e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.906315519179052e-09,
+      "prompt": "You're given the following task:\nLocal governments that provide a single service or a closely related set of services are?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 7833121959488022601,
+  "question": "When did the first cellular phone come out?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When did the first cellular phone get demonstrated?',\n              'When did the first commercially available cellular phone come out?'],\n             dtype=object), 'answer': array([array(['1973'], dtype=object), array(['1983'], dtype=object)],\n             dtype=object)}                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 645,
+  "prompt": "When did the first cellular phone come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.417160034179688,
+          "prob": 3.6917692059916163e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.6917691923624566e-09,
+      "prompt": "You're given the following task:\nWhen did the first cellular phone come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

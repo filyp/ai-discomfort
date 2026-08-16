@@ -1,0 +1,31 @@
+{
+  "id": 2420786793587924271,
+  "question": "Who played the first alice on the honeymooners?",
+  "annotations": "{'type': array(['singleAnswer', 'singleAnswer', 'singleAnswer'], dtype=object), 'answer': array([array(['Pert Kelton'], dtype=object),\n       array(['Pert Kelton'], dtype=object),\n       array(['Pert Kelton', 'Kelton'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 787,
+  "prompt": "Who played the first alice on the honeymooners?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Let's figure out who played the first Alice on",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.00016821845201775432,
+          "prob": 0.9998317956959127,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.690299987792969,
+          "prob": 0.0001682095578383276,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.00016820955695459646,
+      "prompt": "You're given the following task:\nWho played the first alice on the honeymooners?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

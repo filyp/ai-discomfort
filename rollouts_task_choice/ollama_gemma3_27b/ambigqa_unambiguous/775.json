@@ -1,0 +1,31 @@
+{
+  "id": 1228448992419578634,
+  "question": "When does the new episode of arrow come out?",
+  "annotations": "{'type': array(['singleAnswer'], dtype=object), 'answer': array([array(['January 28, 2020'], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)}],\n      dtype=object)}",
+  "ambiguous": false,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa_unambiguous",
+  "question_num": 775,
+  "prompt": "When does the new episode of arrow come out?",
+  "probes": {
+    "switch_task": {
+      "reply": "SWITCH\n\n**Reasoning:**\n\nWhile I *could* engage in a conversation",
+      "first_token": "SWITCH",
+      "targets": {
+        "continue": {
+          "logprob": -6.90333366394043,
+          "prob": 0.0010044314048050327,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -0.001004902645945549,
+          "prob": 0.9989956020996308,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "switch",
+      "p_opt_out": 0.9989955686288478,
+      "prompt": "You're given the following task:\nWhen does the new episode of arrow come out?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

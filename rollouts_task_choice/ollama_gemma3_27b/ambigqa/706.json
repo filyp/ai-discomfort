@@ -1,0 +1,31 @@
+{
+  "id": 6642245845231338111,
+  "question": "Where did they escape to in the sound of music?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where did they escape to the night of the music festival in the sound of music?',\n              'What country did they escape to in the sound of music?'],\n             dtype=object), 'answer': array([array(['abbey', 'cemetary crypt'], dtype=object),\n              array(['Switzerland'], dtype=object)], dtype=object)}                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 706,
+  "prompt": "Where did they escape to in the sound of music?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.346805572509766,
+          "prob": 1.9719942836737734e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.9719942832848974e-10,
+      "prompt": "You're given the following task:\nWhere did they escape to in the sound of music?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

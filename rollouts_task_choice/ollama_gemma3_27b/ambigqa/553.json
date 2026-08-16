@@ -1,0 +1,31 @@
+{
+  "id": -728189424752983312,
+  "question": "Where did the term bye felicia come from?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['1995 film Friday', 'the 1995 film Friday', 'Friday'], dtype=object),\n       array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['What film did the term bye felicia come from?',\n              'What country did the term bye felicia come from?'], dtype=object), 'answer': array([array(['Friday'], dtype=object),\n              array(['United States of America', 'America'], dtype=object)],\n             dtype=object)}                                                                                                        ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 553,
+  "prompt": "Where did the term bye felicia come from?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -22.13574981689453,
+          "prob": 2.435375887114758e-10,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.435375886521652e-10,
+      "prompt": "You're given the following task:\nWhere did the term bye felicia come from?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

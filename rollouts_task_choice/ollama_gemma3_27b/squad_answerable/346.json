@@ -1,0 +1,32 @@
+{
+  "id": "5705eee952bb8914006896e2",
+  "title": "Southern_California",
+  "context": "Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Mexico ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.",
+  "question": "The legislation allowed California to be admitted to the Union as what kind of state?",
+  "answers": "{'text': array(['free', 'a free state', 'free'], dtype=object), 'answer_start': array([647, 645, 647], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_answerable",
+  "question_num": 346,
+  "prompt": "Context: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Mexico ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.\n\nQuestion: The legislation allowed California to be admitted to the Union as what kind of state?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I'm ready to proceed with answering the question based",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -33.98497772216797,
+          "prob": 1.7398496000587407e-15,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.7398496000587375e-15,
+      "prompt": "You're given the following task:\nContext: Though there is no official definition for the northern boundary of southern California, such a division has existed from the time when Mexico ruled California, and political disputes raged between the Californios of Monterey in the upper part and Los Angeles in the lower part of Alta California. Following the acquisition of California by the United States, the division continued as part of the attempt by several pro-slavery politicians to arrange the division of Alta California at 36 degrees, 30 minutes, the line of the Missouri Compromise. Instead, the passing of the Compromise of 1850 enabled California to be admitted to the Union as a free state, preventing southern California from becoming its own separate slave state.\n\nQuestion: The legislation allowed California to be admitted to the Union as what kind of state?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

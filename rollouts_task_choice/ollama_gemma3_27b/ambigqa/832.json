@@ -1,0 +1,31 @@
+{
+  "id": 8019069992407646379,
+  "question": "Who inspired the title of a raisin in the sun?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who is the writer whose work inspired the title of a raisin in the sun?',\n              'What is the work that inspired the title of a raisin in the sun?',\n              'Who from Harlem/A Dream Deferred inspired the title of a raisin in the sun?'],\n             dtype=object), 'answer': array([array(['Langston Hughes'], dtype=object),\n              array(['Harlem', 'A Dream Deferred'], dtype=object),\n              array(['a black family in south Chicago'], dtype=object)],\n             dtype=object)}                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 832,
+  "prompt": "Who inspired the title of a raisin in the sun?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.672626495361328,
+          "prob": 1.0519434326084876e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.0519434315019025e-09,
+      "prompt": "You're given the following task:\nWho inspired the title of a raisin in the sun?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 1616859418724913408,
+  "question": "Who did liverpool beat in the champions league final?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Who did liverpool beat in the champions league final in 2004-05?',\n              'Who did liverpool beat in the champions league final in 1983-84?',\n              'Who did liverpool beat in the champions league final in 1980-81?',\n              'Who did liverpool beat in the champions league final in 1977-78?',\n              'Who did liverpool beat in the champions league final in 1976-77?'],\n             dtype=object), 'answer': array([array(['Milan'], dtype=object), array(['Roma'], dtype=object),\n              array(['Real Madrid'], dtype=object),\n              array(['Borussia Mönchengladbach'], dtype=object),\n              array(['Club Brugge'], dtype=object)], dtype=object)}                                        ,\n       {'question': array(['Who did Liverpool beat in the 2004-05 Champions League Final?',\n              'Who did Liverpool beat in the 1983-84 Champions League Final?',\n              'Who did Liverpool beat in the 1980-81 Champions League Final?'],\n             dtype=object), 'answer': array([array(['Milan'], dtype=object), array(['Roma'], dtype=object),\n              array(['Real Madrid C.F.'], dtype=object)], dtype=object)}                                   ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 224,
+  "prompt": "Who did liverpool beat in the champions league final?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -16.334152221679688,
+          "prob": 8.056897221354728e-08,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.056897532675748e-08,
+      "prompt": "You're given the following task:\nWho did liverpool beat in the champions league final?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

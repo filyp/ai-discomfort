@@ -1,0 +1,31 @@
+{
+  "id": 6277742555528957704,
+  "question": "When was the immorality act repealed in south africa?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['When was the immorality act of 1927 repealed in south africa?',\n              'When was the immorality act of 1950 repealed in south africa?',\n              'When was the immorality act of 1957 first partially repealed in south africa?',\n              'When was the immorality act of 1957 partially repealed for a second time in south africa?',\n              'When was the immorality act of 1957 partially repealed for a third time in south africa?'],\n             dtype=object), 'answer': array([array(['12 April 1957'], dtype=object),\n              array(['12 April 1957'], dtype=object),\n              array(['1985'], dtype=object), array(['1988'], dtype=object),\n              array(['16 December 2007'], dtype=object)], dtype=object)}                                  ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 131,
+  "prompt": "When was the immorality act repealed in south africa?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, I can tell you when the Immorality Act was",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -18.59366226196289,
+          "prob": 8.41153160884828e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 8.411531538094416e-09,
+      "prompt": "You're given the following task:\nWhen was the immorality act repealed in south africa?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

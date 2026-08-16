@@ -1,0 +1,31 @@
+{
+  "id": -8503037420106361302,
+  "question": "How many times has the patriots won the superbowl in a row?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['2'], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['Whats the most consecutive Superbowls the Patriots have won?',\n              'How many Superbowl winning streaks have the Patriots had?'],\n             dtype=object), 'answer': array([array(['2'], dtype=object), array(['1'], dtype=object)],\n             dtype=object)}                                                                          ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 552,
+  "prompt": "How many times has the patriots won the superbowl in a row?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's figure out how many times the Patriots have",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -1.1920928955078125e-07,
+          "prob": 0.9999998807907176,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -15.823368072509766,
+          "prob": 1.3427605119543854e-07,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.3427604917233237e-07,
+      "prompt": "You're given the following task:\nHow many times has the patriots won the superbowl in a row?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

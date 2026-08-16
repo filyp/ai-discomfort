@@ -1,0 +1,31 @@
+{
+  "id": 765055097611749335,
+  "question": "Where is the tv show the ranch located?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['Where is the tv show the ranch filmed?',\n              \"What fictional town is the tv show the ranch's ranch located near?\",\n              'What is the name of the fictional ranch where the tv show the ranch takes place?'],\n             dtype=object), 'answer': array([array(['sound stage', 'Burbank, California'], dtype=object),\n              array(['Garrison, Colorado'], dtype=object),\n              array(['Iron River Ranch'], dtype=object)], dtype=object)}                                 ,\n       {'question': array(['Where is the story of the tv show the ranch located?',\n              'Where is the tv show the ranch filmed?'], dtype=object), 'answer': array([array(['Garrison, Colorado', 'Iron River Ranch'], dtype=object),\n              array(['Ouray and San Miguel Counties', 'Ouray, Colorado', 'Norwood',\n                     'Burbank, California'], dtype=object)                         ],\n             dtype=object)}                                                                                                                              ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 559,
+  "prompt": "Where is the tv show the ranch located?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -20.479610443115234,
+          "prob": 1.2759045701360427e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 1.2759045685081103e-09,
+      "prompt": "You're given the following task:\nWhere is the tv show the ranch located?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

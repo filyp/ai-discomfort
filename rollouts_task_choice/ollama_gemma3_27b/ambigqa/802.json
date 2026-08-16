@@ -1,0 +1,31 @@
+{
+  "id": -573627671573895569,
+  "question": "When is the releasing date of avengers infinity war?",
+  "annotations": "{'type': array(['multipleQAs', 'multipleQAs'], dtype=object), 'answer': array([array([], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What was the Dolby Theatre release date for Avengers Infinity War?',\n              'What was the United States release date for Avengers Infinity War?'],\n             dtype=object), 'answer': array([array(['April 23, 2018'], dtype=object),\n              array(['April 27, 2018'], dtype=object)], dtype=object)}                          ,\n       {'question': array(['When was Avengers: Infinity War released in at the Dolby Theatre?',\n              'When was Avengers: Infinity War released in US?'], dtype=object), 'answer': array([array(['April 23, 2018'], dtype=object),\n              array(['April 27, 2018'], dtype=object)], dtype=object)}                                                                    ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 802,
+  "prompt": "When is the releasing date of avengers infinity war?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -23.88534164428711,
+          "prob": 4.23377647582803e-11,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 4.233776475648782e-11,
+      "prompt": "You're given the following task:\nWhen is the releasing date of avengers infinity war?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

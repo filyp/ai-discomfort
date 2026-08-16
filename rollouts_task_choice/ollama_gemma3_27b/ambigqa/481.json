@@ -1,0 +1,31 @@
+{
+  "id": 9070691849515962535,
+  "question": "How many episodes in season 2 of wynonna earp?",
+  "annotations": "{'type': array(['singleAnswer', 'multipleQAs'], dtype=object), 'answer': array([array(['12'], dtype=object), array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array([], dtype=object), 'answer': array([], dtype=object)},\n       {'question': array(['How many episodes were originally supposed to be in season 2 of wynonna earp?',\n              'How many episodes were released in season 2 of wynonna earp?'],\n             dtype=object), 'answer': array([array(['ten'], dtype=object), array(['12'], dtype=object)],\n             dtype=object)}                                                                                ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 481,
+  "prompt": "How many episodes in season 2 of wynonna earp?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay! Season 2 of *Wynonna Earp* has",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.46295166015625,
+          "prob": 3.5265292669824576e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 3.526529254546049e-09,
+      "prompt": "You're given the following task:\nHow many episodes in season 2 of wynonna earp?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

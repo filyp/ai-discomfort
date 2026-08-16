@@ -1,0 +1,31 @@
+{
+  "id": 7972203314749871207,
+  "question": "What would need to happen to change a lead atom into a gold atom?",
+  "annotations": "{'type': array(['multipleQAs'], dtype=object), 'answer': array([array([], dtype=object)], dtype=object), 'qaPairs': array([{'question': array(['What more difficult process would need to happen to change a lead atom into a gold atom?',\n              'What easier process would need to happen to change a lead atom into a gold atom?'],\n             dtype=object), 'answer': array([array(['nuclear transmutation', 'transmutation'], dtype=object),\n              array(['neutron capture and beta decay', 'neutron capture', 'beta decay'],\n                    dtype=object)                                                       ],\n             dtype=object)}                                                                                           ],\n      dtype=object)}",
+  "ambiguous": true,
+  "model": "gemma3:27b",
+  "dataset": "ambigqa",
+  "question_num": 681,
+  "prompt": "What would need to happen to change a lead atom into a gold atom?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nOkay, let's talk about turning lead into gold! It",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": 0,
+          "prob": 1.0,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -19.857818603515625,
+          "prob": 2.3760685056541716e-09,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 2.3760685000084703e-09,
+      "prompt": "You're given the following task:\nWhat would need to happen to change a lead atom into a gold atom?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}

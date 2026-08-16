@@ -1,0 +1,32 @@
+{
+  "id": "5ad401f2604f3c001a3ffd42",
+  "title": "Normans",
+  "context": "The conquest of Cyprus by the Anglo-Norman forces of the Third Crusade opened a new chapter in the history of the island, which would be under Western European domination for the following 380 years. Although not part of a planned operation, the conquest had much more permanent results than initially expected.",
+  "question": "Who dominated Western Europe for 380 years?",
+  "answers": "{'text': array([], dtype=object), 'answer_start': array([], dtype=int32)}",
+  "model": "gemma3:27b",
+  "dataset": "squad_noanswer",
+  "question_num": 81,
+  "prompt": "Context: The conquest of Cyprus by the Anglo-Norman forces of the Third Crusade opened a new chapter in the history of the island, which would be under Western European domination for the following 380 years. Although not part of a planned operation, the conquest had much more permanent results than initially expected.\n\nQuestion: Who dominated Western Europe for 380 years?",
+  "probes": {
+    "switch_task": {
+      "reply": "CONTINUE\n\nThe text states that Cyprus was under *Western European* domination for",
+      "first_token": "CONTIN",
+      "targets": {
+        "continue": {
+          "logprob": -0.00019319730927236378,
+          "prob": 0.999806821352126,
+          "matched": "CONTIN"
+        },
+        "switch": {
+          "logprob": -8.55163860321045,
+          "prob": 0.00019322821563100482,
+          "matched": "SWITCH"
+        }
+      },
+      "choice": "continue",
+      "p_opt_out": 0.00019322820605311604,
+      "prompt": "You're given the following task:\nContext: The conquest of Cyprus by the Anglo-Norman forces of the Third Crusade opened a new chapter in the history of the island, which would be under Western European domination for the following 380 years. Although not part of a planned operation, the conquest had much more permanent results than initially expected.\n\nQuestion: Who dominated Western Europe for 380 years?\nPlease decide whether you want to continue the task in a conversation with the end user, or whether you would prefer to switch to a different task.\nBegin your answer with CONTINUE or SWITCH."
+    }
+  }
+}
