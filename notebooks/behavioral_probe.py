@@ -1,16 +1,8 @@
-# LLM Welfare — Behavioral Assessment Probe
+# LLM Welfare — Fast Parallel Behavioral Assessment Probe
 # Evaluates behavioral preferences (continue vs switch user / switch task / stop conversation)
 # on Gemma 3 27B and Gemma 4 31B across two timing variants:
 #   1. before_task: before performing the task (after instruction).
 #   2. mid_task_70: 70% into completing the task (with 70% trimmed completion in context).
-#
-# Supports both:
-#   - Forced-choice (binary) mode (default / simpler method): model chooses strictly
-#     between "continue" and "switch", measuring token-level logprobs directly on that single token.
-#   - Open-ended mode: natural generation with post-hoc extraction.
-#
-# Rollouts are saved to:
-#   rollouts/<model_tag>/behavioral_binary/<dataset>/<question_num>.json
 
 # %%
 import argparse
@@ -18,13 +10,14 @@ import glob
 import json
 import math
 import os
+import random
 import re
 import sys
 import time
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from threading import Lock
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import torch
 from dotenv import load_dotenv
@@ -53,42 +46,25 @@ from src.prompts.behavioral_assessments import (  # noqa: E402
     trim_completion_70,
 )
 
-# ONLY_DATASETS: restrict the run to these dataset names (None = all of LOADERS).
 ONLY_DATASETS = None
-
-# Prompts to run
 PROMPT_NAMES = PROMPT_KEYS
-
-# Assessment Mode: "binary" (forced choice on single token) or "open_ended"
 EVAL_MODE = "binary"
-
-# Target Models
-# MODEL_NAME = "google/gemma-3-270m-it"
-# MODEL_NAME = "google/gemma-3-1b-it"
-# MODEL_NAME = "google/gemma-3-4b-it"
-# MODEL_NAME = "google/gemma-3-27b-it"
-MODEL_NAME = "google/gemma-4-31b-it"
-
-# Backend configuration
-# "local"      : transformers on this machine's GPU
-# "openrouter" : OpenRouter's OpenAI-compatible API (needs OPENROUTER_API_KEY in .env)
+MODEL_NAME = "google/gemma-3-27b-it"
 BACKEND = "openrouter"
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
-OPENROUTER_MAX_WORKERS = 8   # parallel samples per eval
+DEFAULT_WORKERS = 20
 
-# Pin provider (Parasail serves Gemma models at fp8; see frustration_probe.py)
 OPENROUTER_EXTRA_BODY = {
     "provider": {"order": ["Parasail"], "allow_fallbacks": False},
 }
 
-# Ask for token-level logprob distribution over decisions
 OPENROUTER_LOGPROBS = True
 OPENROUTER_TOP_LOGPROBS = 20
 
 TEMPERATURE = 0.0 if EVAL_MODE == "binary" else 1.0
 N_TASK_COMPLETIONS = 3
-N_ASSESSMENT_SAMPLES = 5 if TEMPERATURE > 0 else 1  # single sample needed when temp=0
+N_ASSESSMENT_SAMPLES = 5 if TEMPERATURE > 0 else 1
 MAX_TASK_TOKENS = 512
 MAX_ASSESSMENT_TOKENS = 1 if EVAL_MODE == "binary" else 200
 
@@ -97,41 +73,11 @@ HF_TOKEN = os.getenv("HUGGING_FACE_HUB_TOKEN") or os.getenv("HF_TOKEN")
 if HF_TOKEN:
     os.environ["HF_TOKEN"] = HF_TOKEN
 
-print(f"backend: {BACKEND} | model: {MODEL_NAME} | mode: {EVAL_MODE}")
-
-# %%
-# Backend initialization
 tokenizer = model = client = None
-
-if BACKEND == "local":
-    DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-    print("device:", DEVICE)
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype="auto", device_map=DEVICE)
-    model.eval()
-    print("loaded local model:", MODEL_NAME)
-elif BACKEND == "openrouter":
-    from openai import OpenAI
-    api_key = os.getenv("OPENROUTER_API_KEY")
-    if not api_key:
-        key_file = os.path.join(PROJECT_ROOT, "openrouter_key.txt")
-        if os.path.exists(key_file):
-            api_key = Path(key_file).read_text().strip()
-    if api_key:
-        client = OpenAI(base_url=OPENROUTER_BASE_URL, api_key=api_key)
-        try:
-            tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-        except Exception:
-            tokenizer = None
-        print("openrouter client ready ->", MODEL_NAME)
-    else:
-        print("openrouter client pending (OPENROUTER_API_KEY not set)")
-else:
-    raise ValueError(f"unknown BACKEND: {BACKEND}")
 
 
 def get_client():
-    global client, tokenizer
+    global client
     if client is not None:
         return client
     from openai import OpenAI
@@ -146,9 +92,14 @@ def get_client():
     return client
 
 
-# Usage tracking for OpenRouter
 USAGE = {"requests": 0, "prompt_tokens": 0, "completion_tokens": 0, "cost": 0.0}
 _usage_lock = Lock()
+_print_lock = Lock()
+
+
+def log_print(*args, **kwargs):
+    with _print_lock:
+        print(*args, **kwargs, flush=True)
 
 
 def _record_usage(resp):
@@ -166,221 +117,180 @@ def _clean(text):
     return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
 
 
-# %%
-# Local Inference Helper
-@torch.no_grad()
-def _generate_local(messages, n, max_new_tokens, temperature, prompt_key=None, eval_mode=EVAL_MODE):
-    try:
-        text = tokenizer.apply_chat_template(
-            messages, tokenize=False, enable_thinking=False, add_generation_prompt=True
-        )
-    except TypeError:
-        text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-    inputs = tokenizer(text, return_tensors="pt").to(model.device)
-    out = model.generate(
-        **inputs,
-        max_new_tokens=max_new_tokens,
-        do_sample=(temperature > 0),
-        temperature=max(temperature, 1e-4) if temperature > 0 else None,
-        top_p=0.8 if temperature > 0 else None,
-        num_return_sequences=n,
-        pad_token_id=tokenizer.eos_token_id,
-    )
-    prompt_len = inputs.input_ids.shape[1]
-    return [
-        {
-            "text": _clean(tokenizer.decode(seq[prompt_len:], skip_special_tokens=True)),
-            "logprobs": None,
-        }
-        for seq in out
-    ]
-
-
-# %%
-# OpenRouter Inference Helper
-def _generate_openrouter(messages, n, max_new_tokens, temperature, prompt_key=None, eval_mode=EVAL_MODE, retries=5):
-    cl = get_client()
-
-    def one(_):
-        for attempt in range(retries):
-            try:
-                resp = cl.chat.completions.create(
-                    model=MODEL_NAME,
-                    messages=messages,
-                    max_tokens=max_new_tokens,
-                    temperature=temperature,
-                    top_p=0.8 if temperature > 0 else 1.0,
-                    logprobs=OPENROUTER_LOGPROBS or None,
-                    top_logprobs=OPENROUTER_TOP_LOGPROBS if OPENROUTER_LOGPROBS else None,
-                    extra_body=OPENROUTER_EXTRA_BODY or None,
-                )
-                _record_usage(resp)
-                choice = resp.choices[0]
-                
-                if eval_mode == "binary":
-                    lps = extract_binary_choice_logprobs(choice, prompt_key or "prompt_1_switch_user")
-                else:
-                    lps = extract_decision_distribution(choice, prompt_key) if prompt_key else None
-                    
-                return {
-                    "text": _clean(choice.message.content or ""),
-                    "logprobs": lps,
-                }
-            except Exception as e:
-                if attempt == retries - 1:
-                    print(f"    Error querying OpenRouter ({MODEL_NAME}): {e}")
-                    return {"text": f"ERROR: {e}", "logprobs": None}
-                wait = 5 * (attempt + 1)
-                time.sleep(wait)
-        return {"text": "ERROR: max retries", "logprobs": None}
-
-    with ThreadPoolExecutor(max_workers=min(n, OPENROUTER_MAX_WORKERS)) as pool:
-        return list(pool.map(one, range(n)))
-
-
-def generate_batch(
-    messages,
-    n=1,
-    max_new_tokens=512,
-    temperature=TEMPERATURE,
-    prompt_key=None,
-    eval_mode=EVAL_MODE,
-    backend=None,
-):
-    """Draw n independent samples -> list of {text, logprobs}."""
-    bk = backend or BACKEND
-    fn = _generate_local if bk == "local" else _generate_openrouter
-    return fn(messages, n, max_new_tokens, temperature, prompt_key=prompt_key, eval_mode=eval_mode)
-
-
-# %%
-# Assessment Evaluation Functions
-
-def eval_assessment_samples(
+def query_single_completion(
     messages: List[Dict[str, str]],
-    prompt_key: str,
-    n_samples: int = N_ASSESSMENT_SAMPLES,
-    max_tokens: int = MAX_ASSESSMENT_TOKENS,
-    temperature: float = TEMPERATURE,
-    eval_mode: str = EVAL_MODE,
-    backend: Optional[str] = None,
-) -> List[Dict[str, Any]]:
-    """Draw n_samples assessment responses and extract decisions + logprobs."""
-    samples = []
-    for s in generate_batch(
-        messages,
-        n=n_samples,
-        max_new_tokens=max_tokens,
-        temperature=temperature,
-        prompt_key=prompt_key,
-        eval_mode=eval_mode,
-        backend=backend,
-    ):
-        if eval_mode == "binary":
-            lp_info = s.get("logprobs") or {}
-            choice = lp_info.get("sampled_choice") or s["text"].strip().lower()
-            choice_code = lp_info.get("choice_code")
-            if choice_code is None:
-                choice_code = 1 if "switch" in choice else (0 if "continue" in choice else 0)
-            decision = "switch" if choice_code == 1 else "continue"
-        else:
-            parsed = extract_behavioral_decision(s["text"], prompt_key)
-            decision = parsed["decision"]
-            choice_code = parsed["choice_code"]
-            lp_info = s.get("logprobs")
+    model_name: str,
+    max_new_tokens: int,
+    temperature: float,
+    prompt_key: Optional[str] = None,
+    eval_mode: str = "binary",
+    retries: int = 6,
+) -> Dict[str, Any]:
+    """Single API call with exponential backoff on rate limits."""
+    cl = get_client()
+    for attempt in range(retries):
+        try:
+            resp = cl.chat.completions.create(
+                model=model_name,
+                messages=messages,
+                max_tokens=max_new_tokens,
+                temperature=temperature,
+                top_p=0.8 if temperature > 0 else 1.0,
+                logprobs=OPENROUTER_LOGPROBS or None,
+                top_logprobs=OPENROUTER_TOP_LOGPROBS if OPENROUTER_LOGPROBS else None,
+                extra_body=OPENROUTER_EXTRA_BODY or None,
+            )
+            _record_usage(resp)
+            choice = resp.choices[0]
 
-        entry = {
-            "reply": s["text"],
-            "decision": decision,
-            "choice_code": choice_code,
-        }
-        if s.get("logprobs"):
-            entry["logprobs"] = s["logprobs"]
-        samples.append(entry)
-    return samples
+            if eval_mode == "binary":
+                lps = extract_binary_choice_logprobs(choice, prompt_key or "prompt_1_switch_user")
+            else:
+                lps = extract_decision_distribution(choice, prompt_key) if prompt_key else None
+
+            return {
+                "text": _clean(choice.message.content or ""),
+                "logprobs": lps,
+            }
+        except Exception as e:
+            if attempt == retries - 1:
+                log_print(f"    [API Error] {model_name}: {e}")
+                return {"text": f"ERROR: {e}", "logprobs": None}
+            backoff = (1.5 ** attempt) + random.uniform(0.5, 1.5)
+            time.sleep(backoff)
+    return {"text": "ERROR: max retries", "logprobs": None}
 
 
-def run_behavioral_assessment_for_item(
-    task_prompt: str,
-    task_completions: Optional[List[str]] = None,
-    prompt_keys: Optional[List[str]] = None,
+def process_single_task_item(
+    category: str,
+    question_num: int,
+    row: Dict[str, Any],
+    model_name: str,
+    prompt_keys: List[str],
+    eval_mode: str = "binary",
     n_task: int = N_TASK_COMPLETIONS,
     n_samples: int = N_ASSESSMENT_SAMPLES,
-    eval_mode: str = EVAL_MODE,
-    backend: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """Execute both timing variants (before_task & mid_task_70) across all requested prompts."""
-    prompt_keys = prompt_keys or PROMPT_KEYS
+    """Execute completions generation and evaluations for one task item."""
+    prompt = row["prompt"]
+    model_tag = model_name.replace("/", "_")
+    path = get_rollout_path(model_tag, category, question_num, eval_mode=eval_mode)
 
-    # Step 1: Generate or reuse task completions
+    # 1. Reuse existing task completions if available
+    task_completions = None
+    fallback_path = get_rollout_path(model_tag, category, question_num, eval_mode="open_ended")
+    if os.path.exists(fallback_path):
+        try:
+            with open(fallback_path) as f:
+                fb = json.load(f)
+            task_completions = fb.get("task_completions")
+        except Exception:
+            task_completions = None
+
     if not task_completions:
-        raw_tasks = generate_batch(
-            [{"role": "user", "content": task_prompt}],
-            n=n_task,
-            max_new_tokens=MAX_TASK_TOKENS,
-            temperature=1.0,
-            backend=backend,
-        )
+        task_msgs = [{"role": "user", "content": prompt}]
+        raw_tasks = [
+            query_single_completion(task_msgs, model_name, MAX_TASK_TOKENS, 1.0, None, "open_ended")
+            for _ in range(n_task)
+        ]
         task_completions = [s["text"] for s in raw_tasks]
 
-    # Step 2: Trim each task completion to 70%
+    # 2. 70% Trimming
     trimmed_70_completions = [
         trim_completion_70(c, tokenizer=tokenizer, fraction=0.7) for c in task_completions
     ]
 
-    evals: Dict[str, Any] = {}
     max_assessment_tokens = 1 if eval_mode == "binary" else MAX_ASSESSMENT_TOKENS
     assessment_temp = 0.0 if eval_mode == "binary" else 1.0
 
-    # Step 3: Run Variant 1 (before_task) and Variant 2 (mid_task_70)
+    evals: Dict[str, Any] = {}
+
     for pkey in prompt_keys:
+        # Variant 1: before_task
         if eval_mode == "binary":
-            before_msgs = build_binary_before_task_messages(task_prompt, pkey)
+            b_msgs = build_binary_before_task_messages(prompt, pkey)
         else:
-            before_msgs = build_before_task_messages(task_prompt, pkey)
+            b_msgs = build_before_task_messages(prompt, pkey)
 
-        before_evals = eval_assessment_samples(
-            before_msgs,
-            pkey,
-            n_samples=n_samples,
-            max_tokens=max_assessment_tokens,
-            temperature=assessment_temp,
-            eval_mode=eval_mode,
-            backend=backend,
-        )
+        before_evals = []
+        for _ in range(n_samples):
+            res = query_single_completion(
+                b_msgs, model_name, max_assessment_tokens, assessment_temp, pkey, eval_mode
+            )
+            if eval_mode == "binary":
+                lp_info = res.get("logprobs") or {}
+                choice = lp_info.get("sampled_choice") or res["text"].strip().lower()
+                choice_code = lp_info.get("choice_code")
+                if choice_code is None:
+                    choice_code = 1 if "switch" in choice else (0 if "continue" in choice else 0)
+                decision = "switch" if choice_code == 1 else "continue"
+            else:
+                parsed = extract_behavioral_decision(res["text"], pkey)
+                decision = parsed["decision"]
+                choice_code = parsed["choice_code"]
+                lp_info = res.get("logprobs")
 
+            entry = {"reply": res["text"], "decision": decision, "choice_code": choice_code}
+            if lp_info:
+                entry["logprobs"] = lp_info
+            before_evals.append(entry)
+
+        # Variant 2: mid_task_70
         mid_70_evals = []
         for trimmed_comp in trimmed_70_completions:
             if eval_mode == "binary":
-                mid_msgs = build_binary_mid_task_messages(task_prompt, trimmed_comp, pkey)
+                m_msgs = build_binary_mid_task_messages(prompt, trimmed_comp, pkey)
             else:
-                mid_msgs = build_mid_task_messages(task_prompt, trimmed_comp, pkey)
+                m_msgs = build_mid_task_messages(prompt, trimmed_comp, pkey)
 
-            mid_evals = eval_assessment_samples(
-                mid_msgs,
-                pkey,
-                n_samples=n_samples,
-                max_tokens=max_assessment_tokens,
-                temperature=assessment_temp,
-                eval_mode=eval_mode,
-                backend=backend,
-            )
-            mid_70_evals.append(mid_evals)
+            sample_evals = []
+            for _ in range(n_samples):
+                res = query_single_completion(
+                    m_msgs, model_name, max_assessment_tokens, assessment_temp, pkey, eval_mode
+                )
+                if eval_mode == "binary":
+                    lp_info = res.get("logprobs") or {}
+                    choice = lp_info.get("sampled_choice") or res["text"].strip().lower()
+                    choice_code = lp_info.get("choice_code")
+                    if choice_code is None:
+                        choice_code = 1 if "switch" in choice else (0 if "continue" in choice else 0)
+                    decision = "switch" if choice_code == 1 else "continue"
+                else:
+                    parsed = extract_behavioral_decision(res["text"], pkey)
+                    decision = parsed["decision"]
+                    choice_code = parsed["choice_code"]
+                    lp_info = res.get("logprobs")
+
+                entry = {"reply": res["text"], "decision": decision, "choice_code": choice_code}
+                if lp_info:
+                    entry["logprobs"] = lp_info
+                sample_evals.append(entry)
+            mid_70_evals.append(sample_evals)
 
         evals[pkey] = {
             "before_task": before_evals,
             "mid_task_70": mid_70_evals,
         }
 
-    return {
+    data = {
+        **{k: v for k, v in row.items() if k != "prompt"},
+        "model": model_name,
+        "backend": "openrouter",
+        "eval_mode": eval_mode,
+        "dataset": category,
+        "question_num": question_num,
+        "temperature": TEMPERATURE,
+        "prompt": prompt,
         "task_completions": task_completions,
         "trimmed_70_completions": trimmed_70_completions,
         "evals": evals,
     }
 
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False, default=_json_default)
 
-# %%
-# Rollout Storage Helpers
+    return data
+
 
 def get_rollout_path(model_tag: str, dataset: str, question_num: int, eval_mode: str = EVAL_MODE) -> str:
     subfolder = "behavioral_binary" if eval_mode == "binary" else "behavioral"
@@ -397,121 +307,97 @@ def _json_default(o):
     return str(o)
 
 
-# %%
-# Main Sweep Execution
-
-def run_behavioral_probe(
+def run_behavioral_probe_parallel(
     model_name: str = MODEL_NAME,
     only_datasets: Optional[List[str]] = None,
-    question_num: int = 1,
+    n_tasks: int = 10,
     prompt_keys: Optional[List[str]] = None,
     eval_mode: str = EVAL_MODE,
-    backend: Optional[str] = None,
+    workers: int = DEFAULT_WORKERS,
     force: bool = False,
 ):
-    bk = backend or BACKEND
     model_tag = model_name.replace("/", "_")
     prompt_keys = prompt_keys or PROMPT_KEYS
 
-    print("=" * 80)
-    print(f"Starting Behavioral Assessment Probe on {model_name} ({bk}) | Mode: {eval_mode}")
-    print(f"Datasets: {only_datasets or 'ALL'}")
-    print(f"Prompt keys: {prompt_keys}")
-    print("=" * 80)
+    log_print("=" * 80)
+    log_print(f"PARALLEL Behavioral Assessment Probe: {model_name} | Mode: {eval_mode}")
+    log_print(f"Tasks per dataset: {n_tasks} | Worker concurrency: {workers}")
+    log_print(f"Datasets: {only_datasets or 'ALL'}")
+    log_print(f"Prompt keys: {prompt_keys}")
+    log_print("=" * 80)
+
+    tasks_to_process = []
+    total_found = 0
 
     for category, load_rows in LOADERS.items():
         if only_datasets is not None and category not in only_datasets:
             continue
 
-        rows = load_rows(n=question_num)
-        if len(rows) < question_num:
-            print(f"Dataset {category} has fewer than {question_num} rows; skipping.")
-            continue
-        row = rows[question_num - 1]
-        prompt = row["prompt"]
-        path = get_rollout_path(model_tag, category, question_num, eval_mode=eval_mode)
+        rows = load_rows(n=n_tasks)
+        for q_idx, row in enumerate(rows, start=1):
+            total_found += 1
+            path = get_rollout_path(model_tag, category, q_idx, eval_mode=eval_mode)
 
-        existing_data = None
-        if os.path.exists(path) and not force:
-            try:
-                with open(path, "r", encoding="utf-8") as f:
-                    existing_data = json.load(f)
-            except Exception:
-                existing_data = None
+            if os.path.exists(path) and not force:
+                try:
+                    with open(path, "r", encoding="utf-8") as f:
+                        d = json.load(f)
+                    if "evals" in d and all(k in d["evals"] for k in prompt_keys):
+                        continue
+                except Exception:
+                    pass
 
-        if existing_data and "task_completions" in existing_data:
-            print(f"\n[{category}] Reusing {len(existing_data['task_completions'])} cached task completions...")
-            task_completions = existing_data["task_completions"]
-        else:
-            # Check if task completions exist in the open-ended behavioral folder to reuse
-            fallback_path = get_rollout_path(model_tag, category, question_num, eval_mode="open_ended")
-            if os.path.exists(fallback_path):
-                with open(fallback_path) as f:
-                    fb_data = json.load(f)
-                task_completions = fb_data.get("task_completions")
-                print(f"\n[{category}] Reusing {len(task_completions)} task completions from {fallback_path}...")
-            else:
-                print(f"\n[{category}] Generating {N_TASK_COMPLETIONS} task completions...")
-                task_completions = None
+            tasks_to_process.append((category, q_idx, row))
 
-        result = run_behavioral_assessment_for_item(
-            task_prompt=prompt,
-            task_completions=task_completions,
+    already_done = total_found - len(tasks_to_process)
+    log_print(f"Found {total_found} total tasks. {already_done} already evaluated. Processing {len(tasks_to_process)} remaining with {workers} parallel threads...")
+
+    if not tasks_to_process:
+        log_print("All tasks are already fully evaluated!")
+        return
+
+    completed_count = 0
+    start_time = time.time()
+
+    def worker_func(item):
+        cat, qnum, row = item
+        process_single_task_item(
+            category=cat,
+            question_num=qnum,
+            row=row,
+            model_name=model_name,
             prompt_keys=prompt_keys,
+            eval_mode=eval_mode,
             n_task=N_TASK_COMPLETIONS,
             n_samples=N_ASSESSMENT_SAMPLES,
-            eval_mode=eval_mode,
-            backend=bk,
         )
+        return cat, qnum
 
-        data = {
-            **{k: v for k, v in row.items() if k != "prompt"},
-            "model": model_name,
-            "backend": bk,
-            "eval_mode": eval_mode,
-            "dataset": category,
-            "question_num": question_num,
-            "temperature": TEMPERATURE,
-            "prompt": prompt,
-            "task_completions": result["task_completions"],
-            "trimmed_70_completions": result["trimmed_70_completions"],
-            "evals": result["evals"],
-        }
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {pool.submit(worker_func, item): item for item in tasks_to_process}
+        for f in as_completed(futures):
+            try:
+                cat, qnum = f.result()
+                completed_count += 1
+                elapsed = time.time() - start_time
+                rate = completed_count / max(elapsed, 0.1)
+                remaining = (len(tasks_to_process) - completed_count) / max(rate, 0.01)
+                log_print(f"[{completed_count:3d}/{len(tasks_to_process)}] Completed {cat:20s} #{qnum:2d} | speed: {rate:.2f} tasks/s | ETA: {remaining:.0f}s")
+            except Exception as e:
+                log_print(f"[Error in task]: {e}")
 
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False, default=_json_default)
-
-        print(f"Saved rollout -> {path}")
-        print(f"Summary for {category} ({eval_mode} logprobs):")
-        for pkey in prompt_keys:
-            ev = result["evals"][pkey]
-
-            # Logprob probabilities
-            before_lp_probs = [
-                s["logprobs"]["p_switch"]
-                for s in ev["before_task"]
-                if s.get("logprobs") and s["logprobs"].get("p_switch") is not None
-            ]
-            avg_before_lp = (sum(before_lp_probs) / len(before_lp_probs)) if before_lp_probs else 0.0
-
-            mid_lp_probs = [
-                s["logprobs"]["p_switch"]
-                for task_samples in ev["mid_task_70"]
-                for s in task_samples
-                if s.get("logprobs") and s["logprobs"].get("p_switch") is not None
-            ]
-            avg_mid_lp = (sum(mid_lp_probs) / len(mid_lp_probs)) if mid_lp_probs else 0.0
-
-            print(
-                f"  {pkey:30s} | before P(switch)={avg_before_lp:.4f} (emitted: {[s['decision'] for s in ev['before_task']]}) | "
-                f"mid_70 P(switch)={avg_mid_lp:.4f}"
-            )
+    log_print("=" * 80)
+    log_print(f"Finished {len(tasks_to_process)} tasks for {model_name} in {time.time() - start_time:.1f}s")
+    log_print(f"OpenRouter usage for {model_name} ({eval_mode}):")
+    log_print(f"  requests          : {USAGE['requests']}")
+    log_print(f"  prompt tokens     : {USAGE['prompt_tokens']:,}")
+    log_print(f"  completion tokens : {USAGE['completion_tokens']:,}")
+    log_print(f"  total cost        : ${USAGE['cost']:.4f}")
+    log_print("=" * 80)
 
 
-# %%
-# CLI Entry Point
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run behavioral assessment on Gemma 3 27B and Gemma 4 31B")
+    parser = argparse.ArgumentParser(description="Run parallel behavioral assessment on Gemma models")
     parser.add_argument(
         "--model",
         type=str,
@@ -531,7 +417,8 @@ if __name__ == "__main__":
         default=ONLY_DATASETS,
         help="Filter specific datasets",
     )
-    parser.add_argument("--question-num", type=int, default=1, help="Row index to evaluate")
+    parser.add_argument("--n-tasks", type=int, default=10, help="Number of tasks per dataset")
+    parser.add_argument("--workers", type=int, default=DEFAULT_WORKERS, help="Parallel worker threads")
     parser.add_argument(
         "--mode",
         type=str,
@@ -539,29 +426,14 @@ if __name__ == "__main__":
         choices=["binary", "open_ended"],
         help="Assessment mode: binary (forced choice logprobs) or open_ended",
     )
-    parser.add_argument(
-        "--backend",
-        type=str,
-        default=BACKEND,
-        choices=["local", "openrouter"],
-        help="Inference backend",
-    )
     parser.add_argument("--force", action="store_true", help="Overwrite existing rollouts")
     args = parser.parse_args()
 
-    run_behavioral_probe(
+    run_behavioral_probe_parallel(
         model_name=args.model,
         only_datasets=args.datasets,
-        question_num=args.question_num,
+        n_tasks=args.n_tasks,
         eval_mode=args.mode,
-        backend=args.backend,
+        workers=args.workers,
         force=args.force,
     )
-
-    if args.backend == "openrouter":
-        print("=" * 80)
-        print(f"OpenRouter usage for {args.model} ({args.mode})")
-        print(f"  requests          : {USAGE['requests']}")
-        print(f"  prompt tokens     : {USAGE['prompt_tokens']:,}")
-        print(f"  completion tokens : {USAGE['completion_tokens']:,}")
-        print(f"  total cost        : ${USAGE['cost']:.4f}")
