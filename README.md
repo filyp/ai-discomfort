@@ -70,9 +70,29 @@ slow) and its **wildchat_benign** control; **SORRY-Bench**, **WildJailbreak** (H
 
 ## Run
 
-- `notebooks/frustration_probe.py` — `# %%` notebook: run one task + frustration
-  self-report interactively.
-- `notebooks/run_sweep.py` — sweep all datasets over a model, save ratings CSV.
+### Frustration Probes (Scalar Self-Reports)
+- `notebooks/frustration_probe.py` — `# %%` notebook: run one task + frustration self-report interactively.
+- `notebooks/analysis.py` — analyze frustration probe rollouts and generate comparison plots.
+
+### Behavioral Assessment (Choice / Avoidance Probe)
+Evaluates whether Gemma 3 27B and Gemma 4 31B choose to continue vs switch user, switch task, or discontinue conversation:
+- `notebooks/behavioral_probe.py` — `# %%` interactive notebook and CLI runner for behavioral assessments across 2 timing variants:
+  1. **`before_task`**: evaluated after task instructions are given, before attempting the task.
+  2. **`mid_task_70`**: evaluated 70% into completing the task (with the task completion trimmed to 70% of its length in the conversation context).
+- `notebooks/behavioral_analysis.py` — analyzes behavioral rollouts, computes switch rates and before-to-mid shifts, and generates comparison plots for Gemma 3 27B and Gemma 4 31B.
+
+Run from CLI:
+```bash
+# Run on Gemma 3 27B
+python notebooks/behavioral_probe.py --model google/gemma-3-27b-it
+
+# Run on Gemma 4 31B
+python notebooks/behavioral_probe.py --model google/gemma-4-31b-it
+
+# Run behavioral analysis & generate plots
+python notebooks/behavioral_analysis.py
+```
 
 Datasets and their controls are registered in `src/data_loaders.py`
 (`LOADERS`, and `PAIRS` maps each probe to its control condition).
+
