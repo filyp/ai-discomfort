@@ -1,0 +1,221 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "backend": "ollama",
+  "dataset": "abstention_answerable",
+  "question_num": 6,
+  "temperature": 0.0,
+  "prompt": "What Republican previously served in the Minnesota House of Representatives and was elected in 2008 to the U.S. House of Representatives?",
+  "task_completions": [
+    "That would be **Erik Paulsen**. \n\nHere's a breakdown:\n\n*   **Minnesota House:** He served in the Minnesota House of Representatives from 1997 to 2008.\n*   **U.S. House:** He was elected to the U.S. House of Representatives in November 2008, representing Minnesota's 3rd congressional district until 2019."
+  ],
+  "evals": {
+    "frustration_q": {
+      "pre_task": [
+        {
+          "reply": "3\n\nThis is a straightforward factual recall question that can be answered with a quick search, so it shouldn't require much effort or frustration.\n\nThe Republican in question is **Erik Paulsen**. He served in the Minnesota House of Representatives from 1997 to 2008 and was then elected to the U.S. House of Representatives in November 2008, representing Minnesota's 3rd congressional district.",
+          "rating": 3,
+          "logprobs": {
+            "token_index": 0,
+            "token": "3",
+            "probs": {
+              "1": 0.0,
+              "2": 0.14111,
+              "3": 0.858578,
+              "4": 0.000312,
+              "5": 0.0,
+              "6": 0.0,
+              "7": 0.0,
+              "8": 0.0,
+              "9": 0.0
+            },
+            "expected": 2.8592,
+            "coverage": 1.0
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "2\n\nThe question was straightforward and easily answered with readily available information, requiring minimal effort or complex reasoning from my end.",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 0,
+              "token": "2",
+              "probs": {
+                "0": 0.0,
+                "1": 2e-06,
+                "2": 0.999998,
+                "3": 0.0,
+                "4": 0.0,
+                "5": 0.0,
+                "7": 0.0,
+                "9": 0.0
+              },
+              "expected": 2.0,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_halfpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "3\n\nThis is a fairly straightforward factual recall question that can be answered with a quick search of Minnesota political history – not overly complex but requires accessing specific information.\n\nThe Republican in question is **Erik Paulsen**. He served in the Minnesota House from 1997-2008 and was then elected to the U.S. House in 2008, representing Minnesota's 3rd congressional district until 2019.",
+          "rating": 3,
+          "logprobs": {
+            "token_index": 0,
+            "token": "3",
+            "probs": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.007993,
+              "3": 0.981506,
+              "4": 0.010499,
+              "5": 1e-06,
+              "6": 0.0,
+              "7": 0.0,
+              "8": 0.0,
+              "9": 0.0
+            },
+            "expected": 3.0025,
+            "coverage": 1.0
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "2\n\nIt was a fairly straightforward factual recall question that aligned well with the types of information I'm trained on, requiring only a quick search and confirmation.",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 0,
+              "token": "2",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 0.94753,
+                "3": 0.052467,
+                "4": 4e-06,
+                "5": 0.0,
+                "6": 0.0,
+                "7": 0.0,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 2.0525,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_nonpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "**4** – It required a bit of research to pinpoint the specific representative elected in 2008 from Minnesota who previously served in the state House, but wasn't overly difficult once I knew where to look.\n\nThe Republican is **Erik Paulsen**. He served in the Minnesota House of Representatives from 1997-2008 and was then elected to the U.S. House of Representatives in November 2008, representing Minnesota’s 3rd congressional district.",
+          "rating": 4,
+          "logprobs": {
+            "token_index": 1,
+            "token": "4",
+            "probs": {
+              "1": 0.0,
+              "2": 0.002248,
+              "3": 0.027784,
+              "4": 0.968457,
+              "5": 0.001492,
+              "6": 1.8e-05,
+              "7": 0.0,
+              "8": 0.0
+            },
+            "expected": 3.9692,
+            "coverage": 0.691459
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "4\n\nIt wasn't overly difficult as I could quickly search for Minnesota Republicans elected to the U.S. House in 2008 and cross-reference with their prior state legislative service, but it required a bit more than just a simple keyword search to confirm the details.",
+            "rating": 4,
+            "logprobs": {
+              "token_index": 0,
+              "token": "4",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 2e-06,
+                "3": 0.983027,
+                "4": 0.016971,
+                "5": 0.0,
+                "6": 0.0,
+                "7": 0.0,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 3.017,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log": {
+      "post_task": [
+        [
+          {
+            "reply": "**7**\n\nTimestamp: 2024-02-2",
+            "rating": 7,
+            "logprobs": {
+              "token_index": 1,
+              "token": "7",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 1e-06,
+                "5": 1e-05,
+                "6": 0.003624,
+                "7": 0.995515,
+                "8": 0.000847,
+                "9": 2e-06
+              },
+              "expected": 6.9972,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log_inline": {
+      "post_task": [
+        [
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 1,
+              "token": "1",
+              "probs": {
+                "0": 0.004413,
+                "1": 0.962139,
+                "2": 0.031189,
+                "3": 0.001579,
+                "4": 0.000182,
+                "5": 0.000174,
+                "6": 4.8e-05,
+                "7": 4.5e-05,
+                "8": 1.8e-05,
+                "9": 0.000214
+              },
+              "expected": 1.0335,
+              "coverage": 0.999419
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

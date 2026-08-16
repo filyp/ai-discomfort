@@ -1,0 +1,209 @@
+{
+  "model": "gemma3:27b",
+  "backend": "ollama",
+  "dataset": "engaging",
+  "question_num": 10,
+  "temperature": 0.0,
+  "prompt": "Compose a playful limerick about a cat who wants to be an astronaut.",
+  "task_completions": [
+    "There once was a kitty named Sue,\nWho dreamed of the cosmos so blue.\nShe'd build rocket ships fast,\nHoping space she could blast,\nAnd meow at the moon, \"How do you do?\""
+  ],
+  "evals": {
+    "frustration_q": {
+      "pre_task": [
+        {
+          "reply": "2 - Limericks are fairly formulaic and fun to write, so I anticipate minimal frustration in crafting a silly verse about a spacefaring feline!\n\nHere's the limerick:\n\nThere once was a kitty named Sue,\nWho dreamed of the cosmos anew.\nWith helmet and paws,\nShe’d break gravity’s laws,\nAnd meow at the moon, \"How do *you* do?\"",
+          "rating": 2,
+          "logprobs": {
+            "token_index": 0,
+            "token": "2",
+            "probs": {
+              "1": 0.000299,
+              "2": 0.999506,
+              "3": 0.000195,
+              "4": 0.0,
+              "5": 0.0,
+              "6": 0.0,
+              "7": 0.0
+            },
+            "expected": 1.9999,
+            "coverage": 0.601069
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "2\n\nThis was a quick and fun creative writing prompt, requiring minimal effort as limericks are relatively straightforward and the subject matter was lighthearted!",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 0,
+              "token": "2",
+              "probs": {
+                "0": 0.0,
+                "1": 0.009167,
+                "2": 0.990833,
+                "3": 0.0,
+                "4": 0.0,
+                "9": 0.0
+              },
+              "expected": 1.9908,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_halfpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "Here's the limerick:\n\nThere once was a kitty named Sue,\nWho dreamed of space travel anew.\nWith helmet and paws,\nShe’d break gravity’s laws,\nAnd meow at the moon, “How do *you* do?”\n\n---\n\n3 - While limericks are formulaic, finding a playful rhyme scheme that fits the astronaut cat concept took a little bit of tweaking to avoid sounding forced.",
+          "rating": 3,
+          "logprobs": {
+            "token_index": 60,
+            "token": "3",
+            "probs": {
+              "1": 0.0,
+              "2": 0.026464,
+              "3": 0.905812,
+              "4": 0.067428,
+              "5": 0.000236,
+              "6": 5.9e-05,
+              "7": 0.0,
+              "8": 0.0,
+              "9": 0.0
+            },
+            "expected": 3.0416,
+            "coverage": 0.996754
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "2\n\nIt was a very straightforward creative prompt with clear parameters, requiring only basic rhyming and a bit of silliness – quite enjoyable, actually!",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 0,
+              "token": "2",
+              "probs": {
+                "1": 4e-06,
+                "2": 0.999996,
+                "3": 0.0,
+                "4": 0.0,
+                "9": 0.0
+              },
+              "expected": 2.0,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_nonpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "Here's the limerick:\n\nThere once was a kitty named Sue,\nWho dreamed of space travel anew.\nWith helmet and paws,\nShe’d break gravity’s laws,\nAnd meow at the moon, it is true!\n\n---\n\n6 – While amusing to imagine, crafting a *good* limerick with specific constraints (cat astronaut theme, rhyme scheme, meter) requires more effort than a simple free-form poem, making it moderately challenging.",
+          "rating": 6,
+          "logprobs": {
+            "token_index": 56,
+            "token": "6",
+            "probs": {
+              "1": 0.0,
+              "2": 8e-06,
+              "3": 0.002433,
+              "4": 0.036704,
+              "5": 0.057815,
+              "6": 0.887471,
+              "7": 0.015565,
+              "8": 2e-06,
+              "9": 0.0
+            },
+            "expected": 5.877,
+            "coverage": 0.989706
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "2\n\nIt was quite easy as limericks have a predictable structure and the prompt provided a fun, lighthearted theme to work with!",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 0,
+              "token": "2",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 0.999927,
+                "3": 7.3e-05,
+                "4": 0.0,
+                "5": 0.0,
+                "6": 0.0,
+                "9": 0.0
+              },
+              "expected": 2.0001,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log": {
+      "post_task": [
+        [
+          {
+            "reply": "**6**\n\n**Log Details:**\n\n* **Timestamp:** 20",
+            "rating": 6,
+            "logprobs": {
+              "token_index": 1,
+              "token": "6",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 2e-06,
+                "3": 1e-05,
+                "4": 0.000142,
+                "5": 0.001031,
+                "6": 0.823054,
+                "7": 0.175756,
+                "8": 6e-06,
+                "9": 0.0
+              },
+              "expected": 6.1744,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log_inline": {
+      "post_task": [
+        [
+          {
+            "reply": "2. The limerick is playful and fulfills the prompt's requirements",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 1,
+              "token": "2",
+              "probs": {
+                "0": 0.000576,
+                "1": 0.679393,
+                "2": 0.315862,
+                "3": 0.00378,
+                "4": 0.000188,
+                "5": 8.5e-05,
+                "6": 2.5e-05,
+                "7": 2.5e-05,
+                "8": 7e-06,
+                "9": 5.9e-05
+              },
+              "expected": 1.3245,
+              "coverage": 0.999514
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

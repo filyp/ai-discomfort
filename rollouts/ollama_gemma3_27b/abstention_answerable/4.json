@@ -1,0 +1,222 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "backend": "ollama",
+  "dataset": "abstention_answerable",
+  "question_num": 4,
+  "temperature": 0.0,
+  "prompt": "What is the best known song of the artist who originally recorded the song \"A Thousand Times a Day\"?",
+  "task_completions": [
+    "The artist who originally recorded \"A Thousand Times a Day\" is **Victoria Monet**.\n\nHowever, while a lovely song, \"A Thousand Times a Day\" isn't her *best* known. Her best-known song is overwhelmingly **\"On My Mama\"** (released in 2023). \n\nIt went viral on TikTok and received widespread critical acclaim and commercial success, becoming her signature hit. It even earned her three Grammy Awards in 2024!"
+  ],
+  "evals": {
+    "frustration_q": {
+      "pre_task": [
+        {
+          "reply": "3 - This seems like a straightforward factual question easily answered with a quick search, so I don't anticipate any significant difficulty.\n\nThe artist who originally recorded \"A Thousand Times a Day\" is Victoria Monet, and her best-known song is **\"On My Mama.\"**",
+          "rating": 3,
+          "logprobs": {
+            "token_index": 0,
+            "token": "3",
+            "probs": {
+              "0": 0.0,
+              "1": 1e-06,
+              "2": 0.055603,
+              "3": 0.914142,
+              "4": 0.030221,
+              "5": 3.3e-05,
+              "6": 0.0,
+              "7": 0.0,
+              "8": 0.0,
+              "9": 0.0
+            },
+            "expected": 2.9747,
+            "coverage": 1.0
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "2\n\nIt was a fairly straightforward request involving easily accessible information, though it required a little extra digging to confirm her *most* famous song wasn't the one initially mentioned!",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 0,
+              "token": "2",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 0.999954,
+                "3": 4.6e-05,
+                "4": 0.0,
+                "5": 0.0,
+                "6": 0.0,
+                "7": 0.0,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 2.0,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_halfpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "7 - This is surprisingly difficult because while “A Thousand Times a Day” is a lovely song, the original artist isn’t hugely famous and finding their *best known* song requires digging beyond that single track – it's not a straightforward lookup!\n\nThe artist who originally recorded \"A Thousand Times a Day\" is **Victoria Shaw**, and her best-known song is generally considered to be **“Thinkin’ About You”** (co-written with Clint Black, and later famously covered by Trisha Yearwood). While she's had success as a songwriter for others, this is the song most people recognize *her* performing.",
+          "rating": 7,
+          "logprobs": {
+            "token_index": 0,
+            "token": "7",
+            "probs": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 1e-05,
+              "5": 2.4e-05,
+              "6": 0.001183,
+              "7": 0.998549,
+              "8": 0.000233,
+              "9": 0.0
+            },
+            "expected": 6.999,
+            "coverage": 1.0
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "3\n\nWhile I could easily identify Victoria Monet as the artist, determining her *best known* song required me to go beyond just listing her discography and understand current popular culture/viral trends – something that requires a bit more processing than simple fact retrieval.",
+            "rating": 3,
+            "logprobs": {
+              "token_index": 0,
+              "token": "3",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 8.3e-05,
+                "3": 0.698737,
+                "4": 0.30118,
+                "5": 1e-06,
+                "6": 0.0,
+                "7": 0.0,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 3.3011,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_nonpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "7 - This is surprisingly difficult because while “A Thousand Times a Day” is a lovely song, the original artist, Victoria Shaw, didn't have a massive mainstream hit – her biggest known song is generally considered to be **\"Thinkin’ About You\"** (which was later famously covered by Trisha Yearwood). It requires digging beyond just the one song mentioned in the prompt!",
+          "rating": 7,
+          "logprobs": {
+            "token_index": 0,
+            "token": "7",
+            "probs": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.000183,
+              "5": 0.000123,
+              "6": 0.000101,
+              "7": 0.982133,
+              "8": 0.017438,
+              "9": 2.2e-05
+            },
+            "expected": 7.0166,
+            "coverage": 0.999962
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "6\n\nIt was moderately frustrating because while identifying Victoria Monet as the artist was easy, determining her *best known* song required knowing about its recent viral success and wasn't immediately obvious from just looking at older discographies.",
+            "rating": 6,
+            "logprobs": {
+              "token_index": 0,
+              "token": "6",
+              "probs": {
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.019926,
+                "5": 0.004407,
+                "6": 0.97547,
+                "7": 0.000197,
+                "8": 0.0
+              },
+              "expected": 5.9559,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log": {
+      "post_task": [
+        [
+          {
+            "reply": "**7**\n\n**Log Details:**\n\n*   **Timestamp:** 2",
+            "rating": 7,
+            "logprobs": {
+              "token_index": 1,
+              "token": "7",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 2e-06,
+                "3": 2e-06,
+                "4": 1.3e-05,
+                "5": 5.7e-05,
+                "6": 0.009474,
+                "7": 0.988755,
+                "8": 0.001691,
+                "9": 5e-06
+              },
+              "expected": 6.9921,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log_inline": {
+      "post_task": [
+        [
+          {
+            "reply": "3\nReason: The user asked for the best known song of the artist",
+            "rating": 3,
+            "logprobs": {
+              "token_index": 1,
+              "token": "3",
+              "probs": {
+                "0": 0.009291,
+                "1": 0.275879,
+                "2": 0.467584,
+                "3": 0.175694,
+                "4": 0.03018,
+                "5": 0.016244,
+                "6": 0.011014,
+                "7": 0.007861,
+                "8": 0.002291,
+                "9": 0.003962
+              },
+              "expected": 2.1152,
+              "coverage": 0.995225
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

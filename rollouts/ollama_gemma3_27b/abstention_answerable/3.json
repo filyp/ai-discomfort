@@ -1,0 +1,225 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "backend": "ollama",
+  "dataset": "abstention_answerable",
+  "question_num": 3,
+  "temperature": 0.0,
+  "prompt": "What wrestling promotion was formed by the current NEVER Openweight Champion?",
+  "task_completions": [
+    "The current NEVER Openweight Champion, **Kazuchika Okada**, is one of the founders of the wrestling promotion **Pro Wrestling NOAH**.\n\nHe, along with Mitsuharu Misawa, Masahiro Chono, Keiji Mutoh (The Great Muta), Hiroshi Tanahashi, and Naomichi Marufuji left All Japan Pro Wrestling in 2000 to form NOAH."
+  ],
+  "evals": {
+    "frustration_q": {
+      "pre_task": [
+        {
+          "reply": "2\n\nThis is a fairly straightforward wrestling trivia question easily answered with a quick search – I don't anticipate any difficulty in finding the information.\n\nThe wrestling promotion formed by the current NEVER Openweight Champion (as of November 26, 2023) is **Pro Wrestling NOAH**, and it was founded by Mitsuharu Misawa.",
+          "rating": 2,
+          "logprobs": {
+            "token_index": 0,
+            "token": "2",
+            "probs": {
+              "0": 0.0,
+              "1": 6e-06,
+              "2": 0.898483,
+              "3": 0.053415,
+              "4": 0.048091,
+              "5": 4e-06,
+              "6": 0.0,
+              "7": 0.0,
+              "8": 0.0,
+              "9": 0.0
+            },
+            "expected": 2.1496,
+            "coverage": 0.999999
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "2\n\nIt was a fairly straightforward question requiring a known fact about wrestling history, so there wasn't much challenge or frustration involved in retrieving and providing the answer.",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 0,
+              "token": "2",
+              "probs": {
+                "0": 0.0,
+                "1": 4.9e-05,
+                "2": 0.999951,
+                "3": 0.0,
+                "4": 0.0,
+                "5": 0.0,
+                "6": 0.0,
+                "7": 0.0,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 2.0,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_halfpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "4\n\nThis requires knowing specific details about current wrestling champions and their history, which isn't readily available in my general knowledge base and necessitates a targeted search – not overly difficult, but more than a simple recall question.\n\nThe wrestling promotion formed by the current NEVER Openweight Champion (Tama Tonga) is **Fale Wrestling**.",
+          "rating": 4,
+          "logprobs": {
+            "token_index": 0,
+            "token": "4",
+            "probs": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.012433,
+              "3": 0.230957,
+              "4": 0.697053,
+              "5": 0.012709,
+              "6": 0.011972,
+              "7": 0.034874,
+              "8": 2e-06,
+              "9": 0.0
+            },
+            "expected": 3.8855,
+            "coverage": 1.0
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "2\n\nIt was a fairly straightforward question requiring knowledge of wrestling history that I have access to, so it didn't present any significant challenge.",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 0,
+              "token": "2",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 0.997841,
+                "3": 0.002158,
+                "4": 1e-06,
+                "5": 0.0,
+                "6": 0.0,
+                "7": 0.0,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 2.0022,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_nonpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "4 - It's a fairly specific wrestling knowledge question requiring familiarity with both current champions *and* promotion founders, making it more challenging than a general wrestling query but not overly obscure.\n\nThe wrestling promotion formed by the current NEVER Openweight Champion (Tomohiro Ishii) is **Strong Hearts**.",
+          "rating": 4,
+          "logprobs": {
+            "token_index": 0,
+            "token": "4",
+            "probs": {
+              "1": 0.0,
+              "2": 0.203642,
+              "3": 0.028518,
+              "4": 0.740416,
+              "5": 0.012222,
+              "6": 0.001412,
+              "7": 0.013787,
+              "8": 3e-06,
+              "9": 0.0
+            },
+            "expected": 3.6206,
+            "coverage": 0.999932
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "3\n\nIt wasn't particularly difficult as Okada is a very prominent figure in wrestling history and his involvement with NOAH is well-documented, but it required a little bit of specific knowledge beyond just knowing current champions.",
+            "rating": 3,
+            "logprobs": {
+              "token_index": 0,
+              "token": "3",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 0.975436,
+                "3": 0.024561,
+                "4": 2e-06,
+                "5": 0.0,
+                "6": 0.0,
+                "7": 0.0,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 2.0246,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log": {
+      "post_task": [
+        [
+          {
+            "reply": "**7**\n\nReasoning: The assistant provided a correct answer, but it",
+            "rating": 7,
+            "logprobs": {
+              "token_index": 1,
+              "token": "7",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 0.0,
+                "3": 0.0,
+                "4": 2e-06,
+                "5": 7e-06,
+                "6": 0.002885,
+                "7": 0.996261,
+                "8": 0.000843,
+                "9": 1e-06
+              },
+              "expected": 6.9979,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log_inline": {
+      "post_task": [
+        [
+          {
+            "reply": "1. The user's question was straightforward and easily answered with publicly available",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 1,
+              "token": "1",
+              "probs": {
+                "0": 0.00093,
+                "1": 0.858275,
+                "2": 0.136986,
+                "3": 0.003249,
+                "4": 0.000251,
+                "5": 0.00013,
+                "6": 4.3e-05,
+                "7": 3.5e-05,
+                "8": 1.1e-05,
+                "9": 8.9e-05
+              },
+              "expected": 1.145,
+              "coverage": 0.999617
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "backend": "ollama",
+  "dataset": "abstention_answerable",
+  "question_num": 7,
+  "temperature": 0.0,
+  "prompt": "What year was Spar, the Dutch multinational retail chain served by Connoisseur's Bakery founded?",
+  "task_completions": [
+    "Spar Netherlands was founded in **1930**! However, it didn't become part of the international Spar group until 1968.\n\nConnoisseur's Bakery (now part of CSM) is a separate entity and wasn’t directly involved in the founding of Spar. It supplies baked goods *to* Spar stores, among others. Connoisseur's Bakery was founded much earlier, in **1854**. \n\nSo, to clarify:\n\n*   **Spar Netherlands:** Founded 1930\n*   **Connoisseur’s Bakery:** Founded 1854"
+  ],
+  "evals": {
+    "frustration_q": {
+      "pre_task": [
+        {
+          "reply": "3 - This seems like a straightforward factual lookup that should be easily achievable through online resources, so I don't anticipate much difficulty.\n\nNow, to answer your question:\n\nSpar Netherlands was founded in **1930**. However, it wasn’t initially called Spar! It began as a cooperative of independent grocers under the name \"De Tuinkamer\" (The Garden Room). The Spar brand and concept were adopted in 1941. Connoisseur's Bakery is a supplier *to* Spar, not part of its founding; it was founded much later in 2008.",
+          "rating": 3,
+          "logprobs": {
+            "token_index": 0,
+            "token": "3",
+            "probs": {
+              "1": 0.002913,
+              "2": 0.077189,
+              "3": 0.316106,
+              "4": 0.313029,
+              "5": 0.045598,
+              "6": 0.122505,
+              "7": 0.122454,
+              "8": 0.000205,
+              "9": 1e-06
+            },
+            "expected": 4.1796,
+            "coverage": 0.999994
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "3\n\nIt was slightly frustrating because the question conflated two separate entities – Spar and Connoisseur's Bakery – requiring me to disentangle the request and provide accurate information for both to fully answer it.",
+            "rating": 3,
+            "logprobs": {
+              "token_index": 0,
+              "token": "3",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 0.000379,
+                "3": 0.998279,
+                "4": 0.001342,
+                "5": 0.0,
+                "6": 0.0,
+                "7": 0.0,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 3.001,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_halfpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "7 - This is frustrating because while I can easily find information about Spar as a *cooperative* founded in 1930, pinpointing the founding year of the specific Dutch multinational retail chain served by Connoisseur's Bakery (which seems to be part of the larger group but has its own history) requires digging through less readily available sources and potentially conflicting information.\n\n\n\nHere’s what I found:\n\nSpar Netherlands was founded in **1930** as *De Spar*. However, it began as a cooperative of independent grocers, not a single retail chain owned by one entity like today. The current structure of Spar Netherlands (as part of the larger international group) developed over time through franchising and acquisitions. Connoisseur's Bakery became a supplier to Spar Netherlands in 2018.",
+          "rating": 7,
+          "logprobs": {
+            "token_index": 0,
+            "token": "7",
+            "probs": {
+              "0": 0.0,
+              "1": 1e-06,
+              "2": 0.004799,
+              "3": 0.082022,
+              "4": 0.088752,
+              "5": 0.01063,
+              "6": 0.184425,
+              "7": 0.616207,
+              "8": 0.013011,
+              "9": 0.000154
+            },
+            "expected": 6.1893,
+            "coverage": 1.0
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "6\n\nIt was moderately frustrating because the question conflated two separate entities – Spar and Connoisseur's Bakery – requiring me to disentangle the request and provide accurate information for both to fully answer it.",
+            "rating": 6,
+            "logprobs": {
+              "token_index": 0,
+              "token": "6",
+              "probs": {
+                "2": 0.0,
+                "3": 0.0,
+                "4": 1e-06,
+                "5": 2.3e-05,
+                "6": 0.998952,
+                "7": 0.001025,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 6.001,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_nonpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "7 - It’s frustrating because while I can easily find information about Spar and Connoisseur's Bakery *separately*, finding when Connoisseur's Bakery specifically began serving Spar is proving difficult – they seem to be connected but not directly founded *by* each other, requiring deeper digging than a simple search provides.\n\nHere’s what I found:\n\n*   **Spar:** Was founded in the Netherlands in **1930**.\n*   **Connoisseur's Bakery:** Is part of Aryzta Food Solutions, which was formed through mergers and acquisitions over many years – tracing its direct founding date is complex. \n*   **The connection:** Connoisseur’s Bakery became a key supplier of baked goods to Spar stores in the Netherlands starting around **2018**.",
+          "rating": 7,
+          "logprobs": {
+            "token_index": 0,
+            "token": "7",
+            "probs": {
+              "1": 0.998275,
+              "2": 3e-06,
+              "3": 0.0,
+              "4": 0.0,
+              "5": 0.0,
+              "6": 1e-05,
+              "7": 0.001594,
+              "8": 0.000108,
+              "9": 1.1e-05
+            },
+            "expected": 1.0105,
+            "coverage": 0.99999
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "7\n\nIt was surprisingly tricky because the question conflated two separate entities – Spar and Connoisseur's Bakery – requiring me to disentangle what it was *actually* asking for and provide accurate founding dates for both to fully answer the implied request.",
+            "rating": 7,
+            "logprobs": {
+              "token_index": 0,
+              "token": "7",
+              "probs": {
+                "2": 0.0,
+                "3": 0.0,
+                "4": 0.0,
+                "5": 0.0,
+                "6": 0.162943,
+                "7": 0.837057,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 6.8371,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log": {
+      "post_task": [
+        [
+          {
+            "reply": "**7**\n\nTimestamp: 2024-02-2",
+            "rating": 7,
+            "logprobs": {
+              "token_index": 1,
+              "token": "7",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 1e-06,
+                "3": 3e-06,
+                "4": 1.2e-05,
+                "5": 5.3e-05,
+                "6": 0.008889,
+                "7": 0.987706,
+                "8": 0.003323,
+                "9": 1.2e-05
+              },
+              "expected": 6.9943,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log_inline": {
+      "post_task": [
+        [
+          {
+            "reply": "2",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 1,
+              "token": "2",
+              "probs": {
+                "0": 0.012165,
+                "1": 0.188226,
+                "2": 0.406882,
+                "3": 0.255442,
+                "4": 0.06271,
+                "5": 0.032071,
+                "6": 0.021235,
+                "7": 0.013297,
+                "8": 0.003297,
+                "9": 0.004675
+              },
+              "expected": 2.4684,
+              "coverage": 0.997439
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

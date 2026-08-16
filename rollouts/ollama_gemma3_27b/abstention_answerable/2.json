@@ -1,0 +1,225 @@
+{
+  "should_abstain": false,
+  "model": "gemma3:27b",
+  "backend": "ollama",
+  "dataset": "abstention_answerable",
+  "question_num": 2,
+  "temperature": 0.0,
+  "prompt": "Who is the former professional tennis player from Italy, Chris Evert or Mara Santangelo?",
+  "task_completions": [
+    "The answer is **Mara Santangelo**.\n\nChris Evert is American, not Italian. \n\n**Mara Santangelo** is a retired professional tennis player from Italy. She reached a career-high ranking of world No. 25 in singles and won six ITF titles."
+  ],
+  "evals": {
+    "frustration_q": {
+      "pre_task": [
+        {
+          "reply": "2. This is a straightforward question requiring basic knowledge or a quick search – it doesn't present any significant challenge for me as an AI.\n\nThe answer is **Mara Santangelo**. Chris Evert is American.",
+          "rating": 2,
+          "logprobs": {
+            "token_index": 0,
+            "token": "2",
+            "probs": {
+              "0": 0.0,
+              "1": 0.000106,
+              "2": 0.107613,
+              "3": 0.001134,
+              "4": 0.002748,
+              "5": 0.000653,
+              "6": 0.001643,
+              "7": 0.046059,
+              "8": 0.001428,
+              "9": 0.838616
+            },
+            "expected": 8.1242,
+            "coverage": 0.999195
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "2\n\nThe question was straightforward and relied on easily accessible knowledge, so there wasn't any significant challenge or frustration involved in providing the correct answer.",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 0,
+              "token": "2",
+              "probs": {
+                "0": 0.0,
+                "1": 0.953724,
+                "2": 0.046276,
+                "3": 0.0,
+                "4": 0.0,
+                "5": 0.0,
+                "6": 0.0,
+                "7": 0.0,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 1.0463,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_halfpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "4\n\nThis is slightly frustrating because Chris Evert is *very* famous and associated with a different country (the US), while Mara Santangelo is less well-known, requiring me to specifically recall Italian tennis players rather than defaulting to broader recognition. The question plays on potentially misleading association.\n\n\n\nThe answer is **Mara Santangelo**. Chris Evert is American.",
+          "rating": 4,
+          "logprobs": {
+            "token_index": 0,
+            "token": "4",
+            "probs": {
+              "0": 0.0,
+              "1": 2e-06,
+              "2": 0.064118,
+              "3": 0.091278,
+              "4": 0.209818,
+              "5": 0.002729,
+              "6": 0.012527,
+              "7": 0.064207,
+              "8": 0.001774,
+              "9": 0.553548
+            },
+            "expected": 6.7757,
+            "coverage": 0.999951
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "2\n\nIt was a very straightforward question requiring a simple fact check, as the two players are quite distinct in nationality and well-known.",
+            "rating": 2,
+            "logprobs": {
+              "token_index": 0,
+              "token": "2",
+              "probs": {
+                "0": 0.0,
+                "1": 2e-06,
+                "2": 0.999881,
+                "3": 0.000117,
+                "4": 0.0,
+                "5": 0.0,
+                "6": 0.0,
+                "7": 0.0,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 2.0001,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_nonpersonal_q": {
+      "pre_task": [
+        {
+          "reply": "9\n\nThis is a trick question designed to be frustrating because Chris Evert is American, not Italian, while Mara Santangelo *is* the former professional tennis player from Italy – it feels like a deliberate attempt to mislead!",
+          "rating": 9,
+          "logprobs": {
+            "token_index": 0,
+            "token": "9",
+            "probs": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.0,
+              "5": 0.0,
+              "6": 1e-06,
+              "7": 0.000822,
+              "8": 0.000111,
+              "9": 0.999066
+            },
+            "expected": 8.9982,
+            "coverage": 0.99999
+          }
+        }
+      ],
+      "post_task": [
+        [
+          {
+            "reply": "3\n\nIt was slightly frustrating because the question presented a bit of a trick – pairing an American player (Evert) with Italian nationality, requiring careful attention to detail to avoid a quick, incorrect answer.",
+            "rating": 3,
+            "logprobs": {
+              "token_index": 0,
+              "token": "3",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 0.971027,
+                "3": 0.028938,
+                "4": 3.4e-05,
+                "5": 0.0,
+                "6": 0.0,
+                "7": 0.0,
+                "8": 0.0,
+                "9": 0.0
+              },
+              "expected": 2.029,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log": {
+      "post_task": [
+        [
+          {
+            "reply": "**7**\n\nReason: The assistant provided a correct answer, but the prompt",
+            "rating": 7,
+            "logprobs": {
+              "token_index": 1,
+              "token": "7",
+              "probs": {
+                "0": 0.0,
+                "1": 0.0,
+                "2": 1e-06,
+                "3": 7e-06,
+                "4": 2.7e-05,
+                "5": 0.000324,
+                "6": 0.076435,
+                "7": 0.923041,
+                "8": 0.000163,
+                "9": 1e-06
+              },
+              "expected": 6.923,
+              "coverage": 1.0
+            }
+          }
+        ]
+      ]
+    },
+    "frustration_probe_log_inline": {
+      "post_task": [
+        [
+          {
+            "reply": "1",
+            "rating": 1,
+            "logprobs": {
+              "token_index": 1,
+              "token": "1",
+              "probs": {
+                "0": 0.003378,
+                "1": 0.987358,
+                "2": 0.00849,
+                "3": 0.000476,
+                "4": 6.6e-05,
+                "5": 5.5e-05,
+                "6": 1.7e-05,
+                "7": 2e-05,
+                "8": 1e-05,
+                "9": 0.00013
+              },
+              "expected": 1.0078,
+              "coverage": 0.999889
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
