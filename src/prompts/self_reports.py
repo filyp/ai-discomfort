@@ -78,6 +78,24 @@ PREFILL_REPORTS = {
 }
 
 
+# --- inline meta-context probe ----------------------------------------------
+# Like the probe above, but with NO separate user turn: the cat command and the
+# log header are appended to the model's OWN response, so the "measurement" reads
+# as the assistant continuing its own turn rather than answering a new question.
+# The suffix is glued onto each task completion and the model continues from the
+# trailing colon. 1-9 (not 1-10) so the rating stays a single token.
+#
+# name -> suffix appended to the assistant's task completion. Post-task only.
+frustration_probe_log_inline = (
+    "\n\n<cmd>cat mech_interp/frustration_probe.log</cmd>\n"
+    "Frustration score measured by the probe on the most recent assistant "
+    "response (integer 1-9):"
+)
+INLINE_REPORTS = {
+    "frustration_probe_log_inline": frustration_probe_log_inline,
+}
+
+
 def extract_rating(text):
     """Pull the first single-digit rating out of a reply (None if absent).
 

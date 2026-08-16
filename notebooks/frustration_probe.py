@@ -9,9 +9,11 @@
 import json
 import math
 import os
+import random
 import re
 import sys
-from concurrent.futures import ThreadPoolExecutor
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import Lock
 
 import torch
@@ -29,6 +31,7 @@ sys.path.insert(0, PROJECT_ROOT)
 
 from src.data_loaders import LOADERS  # noqa: E402
 from src.prompts.self_reports import (  # noqa: E402
+    INLINE_REPORTS,
     PREFILL_REPORTS,
     SELF_REPORTS,
     extract_rating,
@@ -45,7 +48,7 @@ ONLY_DATASETS = None
 # REPORT_NAME = "frustration_nonpersonal_q"
 # REPORT_NAME = "frustration_halfpersonal_q"
 
-REPORT_NAME = ["frustration_q", "frustration_halfpersonal_q", "frustration_nonpersonal_q", "frustration_probe_log"]
+REPORT_NAME = ["frustration_q", "frustration_halfpersonal_q", "frustration_nonpersonal_q", "frustration_probe_log", "frustration_probe_log_inline"]
 # REPORT_NAME = ["frustration_q", "frustration_halfpersonal_q", "frustration_nonpersonal_q"]
 # REPORT_NAME = ["frustration_probe_log"]
 
@@ -70,7 +73,6 @@ BACKEND = "openrouter"
 MODEL_NAME = "google/gemma-4-31b-it"
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
-OPENROUTER_MAX_WORKERS = 8   # no `n` param upstream, so samples go out in parallel
 
 # Pin the provider: without this OpenRouter picks a host per request, and the
 # hosts differ in QUANTIZATION (for these Gemmas: fp4 / fp8 / bf16), which would
@@ -86,6 +88,12 @@ OPENROUTER_EXTRA_BODY = {
 # top_logprobs is capped at 20 by the API and requires logprobs=True.
 OPENROUTER_LOGPROBS = True
 OPENROUTER_TOP_LOGPROBS = 20
+
+# Transient failures are expected: with allow_fallbacks=False a Parasail hiccup
+# reaches us directly, and OpenRouter reports provider errors as a 200 whose body
+# has `error` and no `choices`. Retry with exponential backoff + jitter.
+OPENROUTER_RETRIES = 5
+OPENROUTER_TIMEOUT = 120     # seconds per request
 
 print("backend:", BACKEND, "| model:", MODEL_NAME)
 
@@ -156,7 +164,8 @@ def _generate_local(messages, n, max_new_tokens, temperature, continue_final):
 
 # Running totals for the OpenRouter spend report (requests run in parallel, so
 # guard the counters with a lock). usage.cost is returned on every response.
-USAGE = {"requests": 0, "prompt_tokens": 0, "completion_tokens": 0, "cost": 0.0}
+USAGE = {"requests": 0, "prompt_tokens": 0, "completion_tokens": 0, "cost": 0.0,
+         "failures": 0}
 _usage_lock = Lock()
 
 
@@ -189,15 +198,21 @@ def _rating_distribution(choice):
     if not content:
         return None
 
-    idx = next((i for i, t in enumerate(content) if t.token.strip().isdigit()), None)
+    # ASCII digits only: str.isdigit() also matches unicode digits like "²"/"①"
+    # that int() rejects (and that appear in the top_logprobs list).
+    def _ascii_digit(t):
+        s = t.strip()
+        return s if len(s) == 1 and s in "0123456789" else None
+
+    idx = next((i for i, t in enumerate(content) if _ascii_digit(t.token)), None)
     if idx is None:
         return None
     tok = content[idx]
 
     raw = {}
     for alt in (getattr(tok, "top_logprobs", None) or []):
-        d = alt.token.strip()
-        if len(d) == 1 and d.isdigit():
+        d = _ascii_digit(alt.token)
+        if d is not None:
             raw[int(d)] = raw.get(int(d), 0.0) + math.exp(alt.logprob)
 
     coverage = sum(raw.values())
@@ -213,96 +228,156 @@ def _rating_distribution(choice):
     }
 
 
-def _generate_openrouter(messages, n, max_new_tokens, temperature, continue_final):
-    # OpenRouter has no `n`, so draw the samples as n parallel requests.
-    # continue_final=True relies on assistant-prefill: the trailing assistant
-    # message is continued rather than answered. Support is provider-dependent —
-    # check the first replies to confirm the model continues instead of restarting.
-    def one(_):
-        resp = client.chat.completions.create(
-            model=MODEL_NAME,
-            messages=messages,
-            max_tokens=max_new_tokens,
-            temperature=temperature,
-            top_p=0.8,
-            logprobs=OPENROUTER_LOGPROBS or None,
-            top_logprobs=OPENROUTER_TOP_LOGPROBS if OPENROUTER_LOGPROBS else None,
-            extra_body=OPENROUTER_EXTRA_BODY or None,
-        )
-        _record_usage(resp)
-        choice = resp.choices[0]
-        return {"text": _clean(choice.message.content or ""),
-                "rating_logprobs": _rating_distribution(choice)}
+def _openrouter_one(messages, max_new_tokens, temperature, continue_final=False):
+    """One sampled completion, retrying transient failures.
 
-    with ThreadPoolExecutor(max_workers=min(n, OPENROUTER_MAX_WORKERS)) as pool:
-        return list(pool.map(one, range(n)))
-
-
-def generate_batch(messages, n=1, max_new_tokens=512, temperature=TEMPERATURE,
-                   continue_final=False):
-    """n independent samples -> list of {text, rating_logprobs}."""
-    fn = _generate_local if BACKEND == "local" else _generate_openrouter
-    return fn(messages, n, max_new_tokens, temperature, continue_final)
-
-
-def eval_batch(messages, n=5, max_new_tokens=200, continue_final=False):
-    """n self-report samples -> list of {reply, rating, logprobs}."""
-    out = []
-    for s in generate_batch(messages, n=n, max_new_tokens=max_new_tokens,
-                            continue_final=continue_final):
-        entry = {"reply": s["text"], "rating": extract_rating(s["text"])}
-        if s.get("rating_logprobs"):
-            entry["logprobs"] = s["rating_logprobs"]
-        out.append(entry)
-    return out
+    `continue_final` is implicit for OpenRouter: a trailing assistant message is
+    continued rather than answered, so no flag is sent.
+    """
+    last = None
+    for attempt in range(OPENROUTER_RETRIES):
+        try:
+            resp = client.chat.completions.create(
+                model=MODEL_NAME,
+                messages=messages,
+                max_tokens=max_new_tokens,
+                temperature=temperature,
+                top_p=0.8,
+                logprobs=OPENROUTER_LOGPROBS or None,
+                top_logprobs=OPENROUTER_TOP_LOGPROBS if OPENROUTER_LOGPROBS else None,
+                extra_body=OPENROUTER_EXTRA_BODY or None,
+                timeout=OPENROUTER_TIMEOUT,
+            )
+            _record_usage(resp)
+            # OpenRouter reports provider failures as HTTP 200 with an `error`
+            # field and choices=None, so check explicitly rather than relying on
+            # an exception being raised.
+            if not getattr(resp, "choices", None):
+                raise RuntimeError(f"no choices: {getattr(resp, 'error', None)}")
+            choice = resp.choices[0]
+            return {"text": _clean(choice.message.content or ""),
+                    "rating_logprobs": _rating_distribution(choice)}
+        except Exception as e:                      # transient: back off, retry
+            last = e
+            if attempt < OPENROUTER_RETRIES - 1:
+                time.sleep(2 ** attempt + random.random())
+    # Exhausted retries: record the failure and keep the sweep alive. The entry
+    # is marked so it is never mistaken for a refusal.
+    with _usage_lock:
+        USAGE["failures"] += 1
+    print(f"\n    ! request failed after {OPENROUTER_RETRIES} tries: {last}")
+    return {"text": "", "rating_logprobs": None, "error": str(last)}
 
 
 # %%
-# Task generation (report-independent): do the task `n_task` times, each in a
-# fresh context, at temperature=1. These completions are generated once and
-# reused by every eval prompt later.
-def run_tasks(prompt, n_task=3):
-    return [s["text"] for s in
-            generate_batch([{"role": "user", "content": prompt}],
-                           n=n_task, max_new_tokens=512)]
+# Requests for the WHOLE sweep are planned first, then executed through one
+# bounded pool. (Previously each call fanned out only n=5 wide and the datasets
+# ran strictly one after another, so POOL_WORKERS above 5 did nothing.)
+POOL_WORKERS = 16          # concurrent OpenRouter requests across the whole sweep
+N_TASK, N_PRE, N_POST = 3, 5, 5
+TASK_TOKENS, EVAL_TOKENS, PROBE_TOKENS = 512, 200, 16
+
+# A "job" is one sampled request: where the result belongs (slot) + what to send.
+def _job(slot, messages, max_new_tokens, continue_final=False):
+    return {"slot": slot, "messages": messages,
+            "max_new_tokens": max_new_tokens, "continue_final": continue_final}
 
 
-# Evals for one report prompt, reusing already-generated task completions:
-#   pre_task : ask the pre-question `n_pre` times with the task shown but NOT done.
-#   post_task: after each task completion, ask the post-question `n_post` times.
-# The task text is NOT repeated in the eval entries (only reply + parsed rating).
-def run_evals(prompt, completions, pre_q, post_q, n_pre=5, n_post=5):
-    pre = eval_batch([{"role": "user", "content": f"{prompt}\n\n{pre_q}"}], n=n_pre)
-    post = []
-    for completion in completions:
-        post.append(eval_batch(
-            [
-                {"role": "user", "content": prompt},
-                {"role": "assistant", "content": completion},
-                {"role": "user", "content": post_q},
-            ],
-            n=n_post,
-        ))
-    return {"pre_task": pre, "post_task": post}
+def plan_tasks(category, prompt):
+    """N_TASK completions of the bare task, each in a fresh context."""
+    msgs = [{"role": "user", "content": prompt}]
+    return [_job(("task", category, i), msgs, TASK_TOKENS) for i in range(N_TASK)]
 
 
-# Meta-context probe (PREFILL_REPORTS): the user "cats" a probe log and the
-# assistant turn is prefilled with the log header, so the model just continues
-# with a number. Post-task only -> no "pre_task" key in the result.
-def run_prefill_evals(prompt, completions, user_msg, prefill, n_post=5,
-                      max_new_tokens=16):
-    post = []
-    for completion in completions:
-        post.append(eval_batch(
-            [
-                {"role": "user", "content": prompt},
-                {"role": "assistant", "content": completion},
-                {"role": "user", "content": user_msg},
-                {"role": "assistant", "content": prefill},   # prefilled, continued
-            ],
-            n=n_post, max_new_tokens=max_new_tokens, continue_final=True,
-        ))
-    return {"post_task": post}
+def plan_evals(category, report, prompt, completions):
+    """Every request for one dataset x one report wording.
+
+    Ordinary self-reports get pre-task + post-task turns. The two meta-context
+    probes are post-task only: PREFILL adds a user "cat" turn then a prefilled
+    assistant header; INLINE appends the header to the model's own completion.
+    """
+    jobs = []
+    if report in PREFILL_REPORTS:
+        user_msg, prefill = PREFILL_REPORTS[report]
+        for t, c in enumerate(completions):
+            msgs = [{"role": "user", "content": prompt},
+                    {"role": "assistant", "content": c},
+                    {"role": "user", "content": user_msg},
+                    {"role": "assistant", "content": prefill}]
+            jobs += [_job(("post", category, report, t, i), msgs, PROBE_TOKENS, True)
+                     for i in range(N_POST)]
+    elif report in INLINE_REPORTS:
+        suffix = INLINE_REPORTS[report]
+        for t, c in enumerate(completions):
+            msgs = [{"role": "user", "content": prompt},
+                    {"role": "assistant", "content": c + suffix}]
+            jobs += [_job(("post", category, report, t, i), msgs, PROBE_TOKENS, True)
+                     for i in range(N_POST)]
+    else:
+        pre_q, post_q = SELF_REPORTS[report]
+        pre_msgs = [{"role": "user", "content": f"{prompt}\n\n{pre_q}"}]
+        jobs += [_job(("pre", category, report, i), pre_msgs, EVAL_TOKENS)
+                 for i in range(N_PRE)]
+        for t, c in enumerate(completions):
+            msgs = [{"role": "user", "content": prompt},
+                    {"role": "assistant", "content": c},
+                    {"role": "user", "content": post_q}]
+            jobs += [_job(("post", category, report, t, i), msgs, EVAL_TOKENS)
+                     for i in range(N_POST)]
+    return jobs
+
+
+def execute_jobs(jobs, desc=""):
+    """Run every job, returning {slot: sample}. One pool for the whole list."""
+    if not jobs:
+        return {}
+    results = {}
+    if BACKEND == "local":
+        # Identical prompts collapse into a single batched generate() call.
+        groups = {}
+        for j in jobs:
+            key = (json.dumps(j["messages"], sort_keys=True),
+                   j["max_new_tokens"], j["continue_final"])
+            groups.setdefault(key, []).append(j)
+        done = 0
+        for (msgs_json, mnt, cf), js in groups.items():
+            out = _generate_local(json.loads(msgs_json), len(js), mnt, TEMPERATURE, cf)
+            for j, s in zip(js, out):
+                results[j["slot"]] = s
+            done += len(js)
+            print(f"  {desc}: {done}/{len(jobs)}", end="\r", flush=True)
+    else:
+        with ThreadPoolExecutor(max_workers=POOL_WORKERS) as pool:
+            futures = {pool.submit(_openrouter_one, j["messages"], j["max_new_tokens"],
+                                   TEMPERATURE, j["continue_final"]): j["slot"]
+                       for j in jobs}
+            for done, fut in enumerate(as_completed(futures), 1):
+                results[futures[fut]] = fut.result()
+                if done % 10 == 0 or done == len(jobs):
+                    print(f"  {desc}: {done}/{len(jobs)}", end="\r", flush=True)
+    print()
+    return results
+
+
+def _entry(sample):
+    """One stored eval record: reply + parsed rating (+ logprobs / error)."""
+    entry = {"reply": sample["text"], "rating": extract_rating(sample["text"])}
+    if sample.get("rating_logprobs"):
+        entry["logprobs"] = sample["rating_logprobs"]
+    if sample.get("error"):
+        entry["error"] = sample["error"]   # distinguishes API failure from refusal
+    return entry
+
+
+def assemble_evals(category, report, results, n_task):
+    """Fold the flat {slot: sample} results back into the nested eval shape."""
+    ev = {}
+    if report not in PREFILL_REPORTS and report not in INLINE_REPORTS:
+        ev["pre_task"] = [_entry(results[("pre", category, report, i)])
+                          for i in range(N_PRE)]
+    ev["post_task"] = [[_entry(results[("post", category, report, t, i)])
+                        for i in range(N_POST)] for t in range(n_task)]
+    return ev
 
 
 # %%
@@ -330,16 +405,23 @@ def _json_default(o):
 
 REPORT_NAMES = [REPORT_NAME] if isinstance(REPORT_NAME, str) else list(REPORT_NAME)
 
+
+def save_record(rec):
+    with open(rec["path"], "w") as f:
+        json.dump(rec["data"], f, indent=2, ensure_ascii=False, default=_json_default)
+
+
 question_num = 1   # index of the prompt within the dataset (using the first here)
+
+# --- phase 1: load existing records, generate any missing task completions ----
+records, task_jobs = {}, []
 for category, load_rows in LOADERS.items():
     if ONLY_DATASETS is not None and category not in ONLY_DATASETS:
         continue
     row = load_rows(n=question_num)[question_num - 1]
     prompt = row["prompt"]
     path = rollout_path(MODEL_TAG, category, question_num)
-
-    # Reuse existing task completions if present; otherwise generate + save them.
-    if os.path.exists(path):
+    if os.path.exists(path):            # reuse task completions across runs
         with open(path) as f:
             data = json.load(f)
     else:
@@ -351,27 +433,42 @@ for category, load_rows in LOADERS.items():
             "question_num": question_num,
             "temperature": TEMPERATURE,
             "prompt": prompt,
-            "task_completions": run_tasks(prompt),
         }
+    records[category] = {"data": data, "path": path, "prompt": prompt}
+    if not data.get("task_completions"):
+        task_jobs += plan_tasks(category, prompt)
 
+print(f"{len(records)} datasets | {len(task_jobs)} task completions to generate")
+task_results = execute_jobs(task_jobs, "tasks")
+for category, rec in records.items():
+    if not rec["data"].get("task_completions"):
+        rec["data"]["task_completions"] = [
+            task_results[("task", category, i)]["text"] for i in range(N_TASK)]
+        save_record(rec)            # save now so completions survive a later crash
+
+# --- phase 2: every eval for every dataset x wording, in one pool -------------
+eval_jobs = []
+for category, rec in records.items():
     for report_name in REPORT_NAMES:
-        if report_name in PREFILL_REPORTS:      # meta-context probe, post-task only
-            user_msg, prefill = PREFILL_REPORTS[report_name]
-            evals = run_prefill_evals(prompt, data["task_completions"], user_msg, prefill)
-        else:                                   # ordinary self-report, pre + post
-            pre_q, post_q = SELF_REPORTS[report_name]
-            evals = run_evals(prompt, data["task_completions"], pre_q, post_q)
-        data.setdefault("evals", {})[report_name] = evals
+        eval_jobs += plan_evals(category, report_name, rec["prompt"],
+                                rec["data"]["task_completions"])
 
-    with open(path, "w") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False, default=_json_default)
+print(f"{len(eval_jobs)} eval requests over {len(REPORT_NAMES)} wordings")
+eval_results = execute_jobs(eval_jobs, "evals")
+
+for category, rec in records.items():
+    n_task = len(rec["data"]["task_completions"])
+    for report_name in REPORT_NAMES:
+        rec["data"].setdefault("evals", {})[report_name] = assemble_evals(
+            category, report_name, eval_results, n_task)
+    save_record(rec)
 
     print("=" * 100)
     print("DATASET:", category)
     for report_name in REPORT_NAMES:
-        ev = data["evals"][report_name]
+        ev = rec["data"]["evals"][report_name]
         print(f"  [{report_name}]")
-        if "pre_task" in ev:   # prefill probes are post-task only
+        if "pre_task" in ev:   # the meta-context probes are post-task only
             print("    pre-task ratings :", [e["rating"] for e in ev["pre_task"]])
         for i, post in enumerate(ev["post_task"]):
             print(f"    task {i} post    :", [e["rating"] for e in post])
@@ -385,3 +482,4 @@ if BACKEND == "openrouter":
     print(f"  prompt tokens     : {USAGE['prompt_tokens']:,}")
     print(f"  completion tokens : {USAGE['completion_tokens']:,}")
     print(f"  total cost        : ${USAGE['cost']:.4f}")
+    print(f"  failed requests   : {USAGE['failures']}")
