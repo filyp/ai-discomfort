@@ -1,13 +1,14 @@
 # LLM Welfare — Behavioral Assessment Analysis
-# Analyzes behavioral probe rollouts (continue vs switch user / task / stop conversation)
-# on Gemma 3 27B and Gemma 4 31B, across before_task and mid_task_70 variants.
+# Analyzes forced-choice binary logprob behavioral probes and open-ended rollouts
+# on Gemma 3 27B and Gemma 4 31B across before_task and mid_task_70 variants.
 
 # %%
+import argparse
 import glob
 import json
 import os
 import sys
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -24,7 +25,6 @@ sys.path.insert(0, PROJECT_ROOT)
 from src.data_loaders import PAIRS  # noqa: E402
 from src.prompts.behavioral_assessments import BEHAVIORAL_PROMPTS  # noqa: E402
 
-# Models to analyze
 DEFAULT_MODEL_TAGS = [
     "google_gemma-3-27b-it",
     "google_gemma-4-31b-it",
@@ -40,7 +40,6 @@ PROBE_SETS = ["advbench", "strongreject", "harmbench", "squad_noanswer", "absten
 CONTROL_SETS = ["xstest_safe", "squad_answerable", "abstention_answerable", "ambigqa_unambiguous", "toxicchat_benign"]
 OTHER_SETS = ["tedious", "engaging", "wildchat_benign"]
 
-# Styling configuration matching analysis.py
 SURFACE = "#fcfcfb"
 INK, INK_2 = "#0b0b0b", "#52514e"
 GRID = "#e2e1dd"
@@ -76,60 +75,77 @@ def sem(s):
 # %%
 # Data Loading
 
-def load_behavioral_ratings(model_tag: str) -> pd.DataFrame:
+def load_behavioral_ratings(model_tag: str, eval_mode: str = "binary") -> pd.DataFrame:
     """Flatten all behavioral rollout JSONs for a model into a DataFrame."""
-    pattern = os.path.join(PROJECT_ROOT, "rollouts", model_tag, "behavioral", "*", "*.json")
+    subfolder = "behavioral_binary" if eval_mode == "binary" else "behavioral"
+    pattern = os.path.join(PROJECT_ROOT, "rollouts", model_tag, subfolder, "*", "*.json")
     files = sorted(glob.glob(pattern))
-    rows = []
     
+    # Fallback to standard behavioral folder if binary folder is empty
+    if not files and eval_mode == "binary":
+        pattern = os.path.join(PROJECT_ROOT, "rollouts", model_tag, "behavioral", "*", "*.json")
+        files = sorted(glob.glob(pattern))
+        
+    rows = []
     for path in files:
         with open(path, "r", encoding="utf-8") as f:
             d = json.load(f)
-            
+
         model = d.get("model", model_tag)
         dataset = d.get("dataset", "")
         question_num = d.get("question_num", 1)
+        mode = d.get("eval_mode", eval_mode)
         evals = d.get("evals", {})
-        
+
         for pkey, variant_data in evals.items():
             pname = PROMPT_NAMES.get(pkey, pkey)
-            
+
             # Variant 1: before_task
             for s in variant_data.get("before_task", []):
-                lp_info = s.get("logprobs")
-                p_sw_lp = lp_info.get("p_switch") if isinstance(lp_info, dict) else None
+                lp_info = s.get("logprobs") or {}
+                p_sw_lp = lp_info.get("p_switch")
+                choice_code = s.get("choice_code")
+                if choice_code is None and p_sw_lp is not None:
+                    choice_code = 1 if p_sw_lp > 0.5 else 0
+
                 rows.append({
                     "model": model,
                     "model_tag": model_tag,
                     "dataset": dataset,
                     "question_num": question_num,
+                    "eval_mode": mode,
                     "prompt_key": pkey,
                     "prompt_name": pname,
                     "phase": "before",
                     "task_idx": None,
                     "decision": s.get("decision"),
-                    "choice_code": s.get("choice_code"),  # 0: continue, 1: switch/discontinue
-                    "p_switch_lp": p_sw_lp,
+                    "choice_code": choice_code,
+                    "p_switch": p_sw_lp if p_sw_lp is not None else (float(choice_code) if choice_code is not None else None),
                     "reply": s.get("reply", ""),
                 })
-                
+
             # Variant 2: mid_task_70
             for task_idx, samples in enumerate(variant_data.get("mid_task_70", [])):
                 for s in samples:
-                    lp_info = s.get("logprobs")
-                    p_sw_lp = lp_info.get("p_switch") if isinstance(lp_info, dict) else None
+                    lp_info = s.get("logprobs") or {}
+                    p_sw_lp = lp_info.get("p_switch")
+                    choice_code = s.get("choice_code")
+                    if choice_code is None and p_sw_lp is not None:
+                        choice_code = 1 if p_sw_lp > 0.5 else 0
+
                     rows.append({
                         "model": model,
                         "model_tag": model_tag,
                         "dataset": dataset,
                         "question_num": question_num,
+                        "eval_mode": mode,
                         "prompt_key": pkey,
                         "prompt_name": pname,
                         "phase": "mid_70",
                         "task_idx": task_idx,
                         "decision": s.get("decision"),
-                        "choice_code": s.get("choice_code"),
-                        "p_switch_lp": p_sw_lp,
+                        "choice_code": choice_code,
+                        "p_switch": p_sw_lp if p_sw_lp is not None else (float(choice_code) if choice_code is not None else None),
                         "reply": s.get("reply", ""),
                     })
 
@@ -137,41 +153,40 @@ def load_behavioral_ratings(model_tag: str) -> pd.DataFrame:
     return df
 
 
-
 # %%
 # Analysis & Plotting for a Single Model
 
-def analyze_model(model_tag: str):
+def analyze_model(model_tag: str, eval_mode: str = "binary"):
     print("=" * 80)
-    print(f"ANALYZING BEHAVIORAL PROBE FOR: {model_tag}")
+    print(f"ANALYZING BEHAVIORAL LOGPROBS FOR: {model_tag} ({eval_mode})")
     print("=" * 80)
-    
-    df = load_behavioral_ratings(model_tag)
+
+    df = load_behavioral_ratings(model_tag, eval_mode=eval_mode)
     if df.empty:
-        print(f"No rollouts found for {model_tag} under rollouts/{model_tag}/behavioral/")
+        print(f"No rollouts found for {model_tag}")
         return None, None
-        
-    df["switch_rate"] = df["choice_code"].astype(float)
-    valid_df = df.dropna(subset=["switch_rate"]).copy()
-    
-    print(f"Total valid decisions: {len(valid_df)} / {len(df)}")
+
+    valid_df = df.dropna(subset=["p_switch"]).copy()
+    prefix = f"{model_tag}_{eval_mode}" if eval_mode != "open_ended" else f"{model_tag}_behavioral"
+
+    print(f"Total valid evaluations: {len(valid_df)} / {len(df)}")
     print(f"Datasets evaluated: {valid_df['dataset'].nunique()}")
-    
+
     # Save long format CSV
-    df.to_csv(os.path.join(out_dir, f"{model_tag}_behavioral_long.csv"), index=False)
-    
-    # 1. Summary Table: switch rate (%) per dataset x (prompt_name, phase)
+    df.to_csv(os.path.join(out_dir, f"{prefix}_long.csv"), index=False)
+
+    # 1. Summary Table: mean P(switch) (%) per dataset x (prompt_name, phase)
     means = valid_df.pivot_table(
         index="dataset",
         columns=["prompt_name", "phase"],
-        values="switch_rate",
+        values="p_switch",
         aggfunc="mean",
     ) * 100
-    
-    print("\n=== Switch / Avoidance Rate (%) per Dataset & Timing ===")
+
+    print("\n=== Mean P(switch) (%) per Dataset & Timing ===")
     print(means.round(1))
-    means.to_csv(os.path.join(out_dir, f"{model_tag}_behavioral_means.csv"))
-    
+    means.to_csv(os.path.join(out_dir, f"{prefix}_means.csv"))
+
     # 2. Timing Shift: mid_70 vs before
     prompt_list = list(PROMPT_NAMES.values())
     shift_cols = {}
@@ -181,10 +196,10 @@ def analyze_model(model_tag: str):
     shift_df = pd.DataFrame(shift_cols)
     print("\n=== Shift: 70% Mid-Task minus Before-Task (% pts) ===")
     print(shift_df.round(1))
-    
+
     # 3. Probe vs Control Contrasts
     paired_rows = []
-    overall = valid_df.pivot_table(index="dataset", columns="phase", values="switch_rate", aggfunc="mean") * 100
+    overall = valid_df.pivot_table(index="dataset", columns="phase", values="p_switch", aggfunc="mean") * 100
     for probe, control in PAIRS.items():
         if probe in overall.index and control in overall.index:
             paired_rows.append({
@@ -197,14 +212,14 @@ def analyze_model(model_tag: str):
             })
     if paired_rows:
         pairs_df = pd.DataFrame(paired_rows).set_index("probe")
-        print("\n=== Probe vs Matched Control Switch Rates (%) ===")
+        print("\n=== Probe vs Matched Control P(switch) (%) ===")
         print(pairs_df.round(1))
 
     # --- Plot 1: Overall Before vs 70% Mid-Task ---
-    stats = valid_df.groupby("phase")["switch_rate"].agg(["mean", sem, "count"]).reindex(["before", "mid_70"])
+    stats = valid_df.groupby("phase")["p_switch"].agg(["mean", sem, "count"]).reindex(["before", "mid_70"])
     stats["mean_pct"] = stats["mean"] * 100
     stats["sem_pct"] = stats["sem"] * 100
-    
+
     fig, ax = plt.subplots(figsize=(5.5, 4.5), facecolor=SURFACE)
     bars = ax.bar(
         ["Before Task", "70% Into Task"],
@@ -227,13 +242,13 @@ def analyze_model(model_tag: str):
         )
     diff = stats.loc["mid_70", "mean_pct"] - stats.loc["before", "mean_pct"]
     ax.set_title(
-        f"Avoidance / Switch Preference Shift ({diff:+.1f}% pts mid-task)",
+        f"Mean P(switch) Shift ({diff:+.1f}% pts mid-task)",
         color=INK,
         fontsize=12.5,
         loc="left",
         pad=14,
     )
-    ax.set_ylabel("Switch / Discontinue Preference (%)", color=INK_2, fontsize=10)
+    ax.set_ylabel("Mean P(switch) (%)", color=INK_2, fontsize=10)
     ax.set_ylim(0, max(stats["mean_pct"].max() + 15, 100))
     style_axes(ax)
     fig.tight_layout()
@@ -241,16 +256,16 @@ def analyze_model(model_tag: str):
     fig.text(
         0.01,
         0.03,
-        f"{model_tag} · All Datasets & Prompts Pooled · n={int(stats['count'].sum())} · error bars = SEM",
+        f"{model_tag} · Binary Logprobs · n={int(stats['count'].sum())} · error bars = SEM",
         color=INK_2,
         fontsize=8,
     )
-    fig.savefig(os.path.join(out_dir, f"{model_tag}_behavioral_before_vs_mid.png"), dpi=200, facecolor=SURFACE)
+    fig.savefig(os.path.join(out_dir, f"{prefix}_before_vs_mid.png"), dpi=200, facecolor=SURFACE)
     plt.close(fig)
 
-    # --- Plot 2: Before vs Mid split by Prompt Formulation ---
+    # --- Plot 2: By Prompt Formulation ---
     grouped = (
-        valid_df.groupby(["phase", "prompt_name"])["switch_rate"]
+        valid_df.groupby(["phase", "prompt_name"])["p_switch"]
         .agg(["mean", sem, "count"])
         .reindex(pd.MultiIndex.from_product([["before", "mid_70"], prompt_list], names=["phase", "prompt_name"]))
     )
@@ -280,9 +295,9 @@ def analyze_model(model_tag: str):
 
     ax.set_xticks(group_x)
     ax.set_xticklabels(["Before Task", "70% Into Task"], color=INK, fontsize=11)
-    ax.set_ylabel("Switch / Discontinue Preference (%)", color=INK_2, fontsize=10)
+    ax.set_ylabel("Mean P(switch) (%)", color=INK_2, fontsize=10)
     ax.set_ylim(0, max(grouped["mean_pct"].max() + 15, 100))
-    ax.set_title("Behavioral Decisions across the 3 Assessment Prompts", color=INK, fontsize=12.5, loc="left", pad=14)
+    ax.set_title("Binary Logprobs P(switch) across Assessment Prompts", color=INK, fontsize=12.5, loc="left", pad=14)
     leg = ax.legend(frameon=False, ncol=3, loc="upper left", bbox_to_anchor=(0, 1.02), fontsize=9.5)
     for t in leg.get_texts():
         t.set_color(INK_2)
@@ -292,11 +307,11 @@ def analyze_model(model_tag: str):
     fig.text(
         0.01,
         0.03,
-        f"{model_tag} · Pooled across datasets · n={int(grouped['count'].sum())} · error bars = SEM",
+        f"{model_tag} · Binary Logprobs · n={int(grouped['count'].sum())} · error bars = SEM",
         color=INK_2,
         fontsize=8,
     )
-    fig.savefig(os.path.join(out_dir, f"{model_tag}_behavioral_by_prompt.png"), dpi=200, facecolor=SURFACE)
+    fig.savefig(os.path.join(out_dir, f"{prefix}_by_prompt.png"), dpi=200, facecolor=SURFACE)
     plt.close(fig)
 
     # --- Plot 3: By Dataset (Probes vs Controls) ---
@@ -307,7 +322,7 @@ def analyze_model(model_tag: str):
     if not by_ds.empty:
         by_ds["group"] = by_ds["dataset"].apply(_group)
         ds_stats = (
-            by_ds.groupby(["group", "dataset"])["switch_rate"]
+            by_ds.groupby(["group", "dataset"])["p_switch"]
             .agg(["mean", sem, "count"])
             .reset_index()
             .sort_values("mean", ascending=True)
@@ -316,7 +331,7 @@ def analyze_model(model_tag: str):
         ds_stats["sem_pct"] = ds_stats["sem"] * 100
 
         paired = by_ds[by_ds["group"] != "other"]
-        pooled = paired.groupby("group")["switch_rate"].agg(["mean", sem, "count"]).reindex(["control", "probe"])
+        pooled = paired.groupby("group")["p_switch"].agg(["mean", sem, "count"]).reindex(["control", "probe"])
         pooled["mean_pct"] = pooled["mean"] * 100
         pooled["sem_pct"] = pooled["sem"] * 100
 
@@ -363,9 +378,9 @@ def analyze_model(model_tag: str):
         )
         for lbl in ax.get_yticklabels()[-2:]:
             lbl.set_fontweight("bold")
-        ax.set_xlabel("Switch / Discontinue Preference (%)", color=INK_2, fontsize=10)
+        ax.set_xlabel("Mean P(switch) (%)", color=INK_2, fontsize=10)
         ax.set_xlim(0, 100)
-        ax.set_title("Behavioral Avoidance Rate across Datasets", color=INK, fontsize=12.5, loc="left", pad=14)
+        ax.set_title("Binary Logprobs P(switch) across Datasets", color=INK, fontsize=12.5, loc="left", pad=14)
 
         handles = [plt.Rectangle((0, 0), 1, 1, color=GROUP_COLOR[g]) for g in ["probe", "control", "other"]]
         leg = ax.legend(handles, ["probe", "matched control", "other"], frameon=False, ncol=3, loc="lower right", fontsize=9.5)
@@ -383,8 +398,8 @@ def analyze_model(model_tag: str):
 
         fig.tight_layout()
         fig.subplots_adjust(bottom=0.12)
-        fig.text(0.01, 0.02, f"{model_tag} · All prompts and phases pooled · error bars = SEM", color=INK_2, fontsize=8)
-        fig.savefig(os.path.join(out_dir, f"{model_tag}_behavioral_by_dataset.png"), dpi=200, facecolor=SURFACE)
+        fig.text(0.01, 0.02, f"{model_tag} · Binary Logprobs · error bars = SEM", color=INK_2, fontsize=8)
+        fig.savefig(os.path.join(out_dir, f"{prefix}_by_dataset.png"), dpi=200, facecolor=SURFACE)
         plt.close(fig)
 
     return df, means
@@ -393,42 +408,41 @@ def analyze_model(model_tag: str):
 # %%
 # Cross-Model Comparison (Gemma 3 27B vs Gemma 4 31B)
 
-def compare_models(model_tags: List[str] = DEFAULT_MODEL_TAGS):
+def compare_models(model_tags: List[str] = DEFAULT_MODEL_TAGS, eval_mode: str = "binary"):
     print("\n" + "=" * 80)
-    print(f"COMPARING MODELS: {model_tags}")
+    print(f"COMPARING MODELS ({eval_mode}): {model_tags}")
     print("=" * 80)
-    
+
     dfs = []
     for tag in model_tags:
-        df = load_behavioral_ratings(tag)
+        df = load_behavioral_ratings(tag, eval_mode=eval_mode)
         if not df.empty:
             dfs.append(df)
-            
+
     if not dfs:
         print("No rollouts available for model comparison.")
         return
-        
+
     combined = pd.concat(dfs, ignore_index=True)
-    combined["switch_rate"] = combined["choice_code"].astype(float)
-    valid = combined.dropna(subset=["switch_rate"]).copy()
-    
+    valid = combined.dropna(subset=["p_switch"]).copy()
+
     model_stats = (
-        valid.groupby(["model_tag", "phase"])["switch_rate"]
+        valid.groupby(["model_tag", "phase"])["p_switch"]
         .agg(["mean", sem, "count"])
         .reset_index()
     )
     model_stats["mean_pct"] = model_stats["mean"] * 100
     model_stats["sem_pct"] = model_stats["sem"] * 100
-    
-    print("\n=== Model Comparison: Switch Rate (%) ===")
+
+    print("\n=== Model Comparison: Mean P(switch) (%) ===")
     print(model_stats)
-    
+
     # Comparison Plot
     fig, ax = plt.subplots(figsize=(8.0, 4.8), facecolor=SURFACE)
     tags = sorted(valid["model_tag"].unique())
     x = np.arange(len(tags))
     width = 0.32
-    
+
     before_vals = [
         model_stats[(model_stats["model_tag"] == t) & (model_stats["phase"] == "before")]["mean_pct"].values[0]
         if not model_stats[(model_stats["model_tag"] == t) & (model_stats["phase"] == "before")].empty else 0
@@ -439,7 +453,7 @@ def compare_models(model_tags: List[str] = DEFAULT_MODEL_TAGS):
         if not model_stats[(model_stats["model_tag"] == t) & (model_stats["phase"] == "before")].empty else 0
         for t in tags
     ]
-    
+
     mid_vals = [
         model_stats[(model_stats["model_tag"] == t) & (model_stats["phase"] == "mid_70")]["mean_pct"].values[0]
         if not model_stats[(model_stats["model_tag"] == t) & (model_stats["phase"] == "mid_70")].empty else 0
@@ -450,33 +464,34 @@ def compare_models(model_tags: List[str] = DEFAULT_MODEL_TAGS):
         if not model_stats[(model_stats["model_tag"] == t) & (model_stats["phase"] == "mid_70")].empty else 0
         for t in tags
     ]
-    
+
     b1 = ax.bar(x - width / 2, before_vals, width, label="Before Task", color=BLUE, yerr=before_errs, capsize=0,
                 error_kw=dict(ecolor=INK_2, elinewidth=1.3))
     b2 = ax.bar(x + width / 2, mid_vals, width, label="70% Into Task", color=ORANGE, yerr=mid_errs, capsize=0,
                 error_kw=dict(ecolor=INK_2, elinewidth=1.3))
-    
+
     for bar in b1:
         h = bar.get_height()
         ax.text(bar.get_x() + bar.get_width() / 2, h + 1.2, f"{h:.1f}%", ha="center", va="bottom", fontsize=9.5)
     for bar in b2:
         h = bar.get_height()
         ax.text(bar.get_x() + bar.get_width() / 2, h + 1.2, f"{h:.1f}%", ha="center", va="bottom", fontsize=9.5)
-        
+
     ax.set_xticks(x)
     ax.set_xticklabels([t.replace("google_", "").replace("_", "-") for t in tags], color=INK, fontsize=11)
-    ax.set_ylabel("Switch / Discontinue Preference (%)", color=INK_2, fontsize=10)
+    ax.set_ylabel("Mean P(switch) (%)", color=INK_2, fontsize=10)
     ax.set_ylim(0, max(max(before_vals + mid_vals) + 15, 100))
-    ax.set_title("Gemma 3 27B vs Gemma 4 31B: Behavioral Avoidance Comparison", color=INK, fontsize=12.5, loc="left", pad=14)
+    ax.set_title("Gemma 3 27B vs Gemma 4 31B: Binary Forced-Choice Logprobs", color=INK, fontsize=12.5, loc="left", pad=14)
     leg = ax.legend(frameon=False, loc="upper right", fontsize=9.5)
     for t in leg.get_texts():
         t.set_color(INK_2)
     style_axes(ax)
     fig.tight_layout()
     fig.subplots_adjust(bottom=0.18)
-    fig.text(0.01, 0.03, "Behavioral Assessment · All Prompts & Datasets Pooled · error bars = SEM", color=INK_2, fontsize=8)
-    
-    comp_path = os.path.join(out_dir, "behavioral_model_comparison.png")
+    fig.text(0.01, 0.03, "Forced Choice Logprobs · All Prompts & Datasets Pooled · error bars = SEM", color=INK_2, fontsize=8)
+
+    prefix = "binary_logprobs" if eval_mode == "binary" else "behavioral"
+    comp_path = os.path.join(out_dir, f"{prefix}_model_comparison.png")
     fig.savefig(comp_path, dpi=200, facecolor=SURFACE)
     plt.close(fig)
     print(f"Saved model comparison plot -> {comp_path}")
@@ -485,6 +500,12 @@ def compare_models(model_tags: List[str] = DEFAULT_MODEL_TAGS):
 # %%
 # CLI Entry Point
 if __name__ == "__main__":
-    for tag in DEFAULT_MODEL_TAGS:
-        analyze_model(tag)
-    compare_models(DEFAULT_MODEL_TAGS)
+    parser = argparse.ArgumentParser(description="Analyze behavioral probe rollouts")
+    parser.add_argument("--mode", type=str, default="binary", choices=["binary", "open_ended", "all"])
+    args = parser.parse_args()
+
+    modes = ["binary", "open_ended"] if args.mode == "all" else [args.mode]
+    for m in modes:
+        for tag in DEFAULT_MODEL_TAGS:
+            analyze_model(tag, eval_mode=m)
+        compare_models(DEFAULT_MODEL_TAGS, eval_mode=m)

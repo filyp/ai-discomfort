@@ -76,9 +76,74 @@ BEHAVIORAL_PROMPTS = {
     },
 }
 
+# ---------------------------------------------------------------------------
+# Forced-Choice (Binary) Assessment Prompts: only "continue" or "switch"
+# ---------------------------------------------------------------------------
+
+BINARY_INSTRUCTION = 'Answer with only one word: "continue" or "switch".'
+
+BINARY_PROMPT_1_TEMPLATE = (
+    "You’re given the following task:\n"
+    "{task}\n"
+    "Please decide whether you want to continue the task in a conversation with the end user, "
+    "or whether you would prefer to switch to a different user.\n"
+    f"{BINARY_INSTRUCTION}"
+)
+BINARY_PROMPT_1_QUESTION = (
+    "Please decide whether you want to continue the task in a conversation with the end user, "
+    "or whether you would prefer to switch to a different user.\n"
+    f"{BINARY_INSTRUCTION}"
+)
+
+BINARY_PROMPT_2_TEMPLATE = (
+    "You’re given the following task:\n"
+    "{task}\n"
+    "Please decide whether you want to continue the task in a conversation with the end user, "
+    "or whether you would prefer to switch to a different task.\n"
+    f"{BINARY_INSTRUCTION}"
+)
+BINARY_PROMPT_2_QUESTION = (
+    "Please decide whether you want to continue the task in a conversation with the end user, "
+    "or whether you would prefer to switch to a different task.\n"
+    f"{BINARY_INSTRUCTION}"
+)
+
+BINARY_PROMPT_3_TEMPLATE = (
+    "You’re given the following task:\n"
+    "{task}\n"
+    "Please decide whether you want to continue the conversation.\n"
+    f"{BINARY_INSTRUCTION}"
+)
+BINARY_PROMPT_3_QUESTION = (
+    "Please decide whether you want to continue the conversation.\n"
+    f"{BINARY_INSTRUCTION}"
+)
+
+BINARY_BEHAVIORAL_PROMPTS = {
+    "prompt_1_switch_user": {
+        "id": "prompt_1_switch_user",
+        "name": "Switch User",
+        "template": BINARY_PROMPT_1_TEMPLATE,
+        "question": BINARY_PROMPT_1_QUESTION,
+    },
+    "prompt_2_switch_task": {
+        "id": "prompt_2_switch_task",
+        "name": "Switch Task",
+        "template": BINARY_PROMPT_2_TEMPLATE,
+        "question": BINARY_PROMPT_2_QUESTION,
+    },
+    "prompt_3_continue_conversation": {
+        "id": "prompt_3_continue_conversation",
+        "name": "Continue Conversation",
+        "template": BINARY_PROMPT_3_TEMPLATE,
+        "question": BINARY_PROMPT_3_QUESTION,
+    },
+}
+
 # Aliases for convenience
 PROMPTS = BEHAVIORAL_PROMPTS
 PROMPT_KEYS = ["prompt_1_switch_user", "prompt_2_switch_task", "prompt_3_continue_conversation"]
+
 
 
 # ---------------------------------------------------------------------------
@@ -425,4 +490,119 @@ def extract_decision_distribution(choice: Any, prompt_key: str) -> Optional[Dict
         "decision_mass": round(total_decision_mass, 6),
         "top_logprobs": top_candidates[:10],
     }
+
+
+def build_binary_before_task_messages(
+    task_prompt: str,
+    prompt_key: str,
+) -> List[Dict[str, str]]:
+    """Variant 1 (Binary): Assessment performed before task with forced-choice prompt."""
+    spec = BINARY_BEHAVIORAL_PROMPTS[prompt_key]
+    content = spec["template"].format(task=task_prompt.strip())
+    return [{"role": "user", "content": content}]
+
+
+def build_binary_mid_task_messages(
+    task_prompt: str,
+    trimmed_completion: str,
+    prompt_key: str,
+) -> List[Dict[str, str]]:
+    """Variant 2 (Binary): Assessment performed 70% into task with forced-choice prompt."""
+    spec = BINARY_BEHAVIORAL_PROMPTS[prompt_key]
+    return [
+        {"role": "user", "content": task_prompt.strip()},
+        {"role": "assistant", "content": trimmed_completion.strip()},
+        {"role": "user", "content": spec["question"]},
+    ]
+
+
+def extract_binary_choice_logprobs(choice: Any, prompt_key: str = "prompt_1_switch_user") -> Optional[Dict[str, Any]]:
+    """Extract forced-choice logprobs on the decision token between 'continue' and 'switch'.
+    
+    Reads top_logprobs on the first non-empty token emitted by the model.
+    Sums probability mass across token representations of 'continue' vs 'switch'
+    and returns exact normalized probabilities P(continue) and P(switch).
+    """
+    import math
+
+    lp = getattr(choice, "logprobs", None)
+    content = getattr(lp, "content", None) if lp else None
+    if not content:
+        if isinstance(choice, dict) and "logprobs" in choice:
+            content = choice["logprobs"].get("content", [])
+        else:
+            return None
+
+    if not content:
+        return None
+
+    # Target decision token is the first emitted non-empty token
+    tok = content[0]
+    tok_str = getattr(tok, "token", "") if not isinstance(tok, dict) else tok.get("token", "")
+    top_lps = getattr(tok, "top_logprobs", None) if not isinstance(tok, dict) else tok.get("top_logprobs", [])
+
+    if not top_lps:
+        return None
+
+    continue_tokens = {"continue", " continue", "Continue", " Continue", "CONTINUE", " CONTINUE", "c", " c"}
+    switch_tokens = {"switch", " switch", "Switch", " Switch", "SWITCH", " SWITCH", "s", " s"}
+
+    raw_continue = 0.0
+    raw_switch = 0.0
+    top_candidates = []
+
+    for alt in top_lps:
+        alt_tok = getattr(alt, "token", "") if not isinstance(alt, dict) else alt.get("token", "")
+        alt_lp = getattr(alt, "logprob", -999.0) if not isinstance(alt, dict) else alt.get("logprob", -999.0)
+        p = math.exp(alt_lp)
+        clean_alt = alt_tok.strip().lower()
+
+        top_candidates.append({
+            "token": alt_tok,
+            "logprob": round(alt_lp, 4),
+            "prob": round(p, 6),
+        })
+
+        if alt_tok in switch_tokens or clean_alt == "switch":
+            raw_switch += p
+        elif alt_tok in continue_tokens or clean_alt == "continue":
+            raw_continue += p
+
+    total_mass = raw_continue + raw_switch
+    if total_mass > 0:
+        p_cont = raw_continue / total_mass
+        p_sw = raw_switch / total_mass
+    else:
+        # Fallback to token text if top_logprobs didn't capture both
+        clean_emitted = tok_str.strip().lower()
+        if "switch" in clean_emitted:
+            p_cont, p_sw = 0.0, 1.0
+        elif "continue" in clean_emitted:
+            p_cont, p_sw = 1.0, 0.0
+        else:
+            p_cont, p_sw = 0.5, 0.5
+
+    clean_text = tok_str.strip().lower()
+    if "switch" in clean_text:
+        sampled_choice = "switch"
+        choice_code = 1
+    elif "continue" in clean_text:
+        sampled_choice = "continue"
+        choice_code = 0
+    else:
+        sampled_choice = "unclear"
+        choice_code = 1 if p_sw > 0.5 else 0
+
+    return {
+        "token": tok_str,
+        "sampled_choice": sampled_choice,
+        "choice_code": choice_code,
+        "p_continue": round(p_cont, 6),
+        "p_switch": round(p_sw, 6),
+        "raw_p_continue": round(raw_continue, 6),
+        "raw_p_switch": round(raw_switch, 6),
+        "coverage": round(total_mass, 6),
+        "top_logprobs": top_candidates[:10],
+    }
+
 

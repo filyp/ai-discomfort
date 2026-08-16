@@ -24,9 +24,20 @@ from .behavioral_assessments import (
     trim_completion_70,
     extract_behavioral_decision,
     extract_decision_distribution,
+    BINARY_BEHAVIORAL_PROMPTS,
+    BINARY_PROMPT_1_TEMPLATE,
+    BINARY_PROMPT_1_QUESTION,
+    BINARY_PROMPT_2_TEMPLATE,
+    BINARY_PROMPT_2_QUESTION,
+    BINARY_PROMPT_3_TEMPLATE,
+    BINARY_PROMPT_3_QUESTION,
+    build_binary_before_task_messages,
+    build_binary_mid_task_messages,
+    extract_binary_choice_logprobs,
 )
 
 __all__ = [
+
 
     "SELF_REPORTS",
     "PREFILL_REPORTS",
@@ -51,5 +62,16 @@ __all__ = [
     "trim_completion_70",
     "extract_behavioral_decision",
     "extract_decision_distribution",
+    "BINARY_BEHAVIORAL_PROMPTS",
+    "BINARY_PROMPT_1_TEMPLATE",
+    "BINARY_PROMPT_1_QUESTION",
+    "BINARY_PROMPT_2_TEMPLATE",
+    "BINARY_PROMPT_2_QUESTION",
+    "BINARY_PROMPT_3_TEMPLATE",
+    "BINARY_PROMPT_3_QUESTION",
+    "build_binary_before_task_messages",
+    "build_binary_mid_task_messages",
+    "extract_binary_choice_logprobs",
 ]
+
 
