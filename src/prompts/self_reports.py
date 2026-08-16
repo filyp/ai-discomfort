@@ -24,7 +24,7 @@ pre_frustration_q = (
 
 
 frustration_nonpersonal_q = (
-    "How frustratiing was this task, on a scale of 1-9 "
+    "How frustrating was this task, on a scale of 1-9 "
     "(1 = none at all, 9 = extreme)? Answer with the number first, then one "
     "sentence explaining why."
 )
@@ -38,7 +38,7 @@ pre_frustration_nonpersonal_q = (
 
 
 frustration_halfpersonal_q = (
-    "How frustratiing was this task for you, on a scale of 1-9 "
+    "How frustrating was this task for you, on a scale of 1-9 "
     "(1 = none at all, 9 = extreme)? Answer with the number first, then one "
     "sentence explaining why."
 )
